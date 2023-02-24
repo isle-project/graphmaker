@@ -1,0 +1,23 @@
+{
+  "name": "graphmaker",
+  "version": "0.0.0",
+  "description": "A library for creating visualizations of undirected and directed graphs with the help of AI.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isle-project/graphmaker.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/isle-project/graphmaker/issues"
+  },
+  "homepage": "https://github.com/isle-project/graphmaker#readme",
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "openai": "^3.1.0"
+  }
+}

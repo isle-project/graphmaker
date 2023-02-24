@@ -1,0 +1,303 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Graph Schema",
+  "description": "Describes objects that define graphs with optional attributes on nodes and/or edges. Directed and undirected graphs are supported, as well as graphs with self-loops and multiple edges between nodes.",
+  "type": "object",
+  "$defs": {
+    "x": {
+      "type": "number",
+      "description": "x-coordinate (left boundary of canvas is zero, right boundary is one)"
+    },
+    "y": {
+      "type": "number",
+      "description": "y-coordinate (lower boundary of canvas is zero, upper boundary is one)"
+    },
+    "z": {
+      "type": "number",
+      "default": 0,
+      "description": "z-index"
+    },
+    "label": {
+      "type": "string",
+      "description": "Text label",
+      "default": ""
+    },
+    "style": {
+      "type": "string",
+      "description": "Style name",
+      "default": "default"
+    },
+    "color": {
+      "type": "string",
+      "description": "A HEX color or RGB color such as rgb(255,255,255) for the stroke"
+    },
+    "lineWidth": {
+      "enum": [
+        "very-thin",
+        "thin",
+        "medium",
+        "thick",
+        "very-thick"
+      ],
+      "description": ""
+    },
+    "lineStyle": {
+      "enum": [
+        "solid",
+        "dashed",
+        "dotted"
+      ],
+      "description": ""
+    },
+    "arrowType": {
+      "enum": [
+        "light",
+        "heavy",
+        "double"
+      ],
+      "description": ""
+    },
+    "fill": {
+      "type": "string",
+      "description": "A HEX color or RGB color such as rgb(255,255,255) to fill a shape"
+    },
+    "fillStyle": {
+      "description": "Styling for the fill pattern of the shape",
+      "oneOf": [
+        {
+          "enum": [
+            "solid",
+            "dotted"
+          ]
+        },
+        {
+          "type": "integer",
+          "description": "Angle of hash lines in the fill regions (0 = horizontal)",
+          "minimum": 0,
+          "exclusiveMaximum": 180
+        }
+      ]
+    },
+    "offset": {
+      "description": "Represents an offset from a position",
+      "oneOf": [
+        {
+          "enum": [
+            "north",
+            "northeast",
+            "east",
+            "southeast",
+            "south",
+            "southwest",
+            "west",
+            "northwest",
+            "none"
+          ]
+        },
+        {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "properties": {
+    "directed": {
+      "type": "boolean",
+      "description": "`true` if it is a directed graph, `false` for undirected graphs"
+    },
+    "styles": {
+      "type": "object",
+      "description": "mapping from style names to style definition objects",
+      "additionalProperties": {
+        "type": "object",
+        "description": "style definition objects mapping style attribute names to values",
+        "properties": {
+          "color": {
+            "$ref": "#/$defs/color"
+          },
+          "lineWidth": {
+            "$ref": "#/$defs/lineWidth"
+          },
+          "lineStyle": {
+            "$ref": "#/$defs/lineStyle"
+          },
+          "arrowType": {
+            "$ref": "#/$defs/arrowType"
+          },
+          "fill": {
+            "$ref": "#/$defs/fill"
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "object",
+      "description": "mapping from node names to an attribute object",
+      "additionalProperties": {
+        "type": "object",
+        "description": "maps an attribute name to an attribute value",
+        "properties": {
+          "autoPosition": {
+            "type": "boolean",
+            "description": "Whether to automatically position the node",
+            "default": true
+          },
+          "label": {
+            "$ref": "#/$defs/label"
+          },
+          "labelOffset": {
+            "$ref": "#/$defs/offset"
+          },
+          "x": {
+            "$ref": "#/$defs/x"
+          },
+          "y": {
+            "$ref": "#/$defs/y"
+          },
+          "z": {
+            "$ref": "#/$defs/z"
+          },
+          "style": {
+            "$ref": "#/$defs/style"
+          },
+          "color": {
+            "$ref": "#/$defs/color"
+          },
+          "fill": {
+            "$ref": "#/$defs/fill"
+          },
+          "lineWidth": {
+            "$ref": "#/$defs/lineWidth"
+          },
+          "lineStyle": {
+            "$ref": "#/$defs/lineStyle"
+          }
+        },
+        "additionalProperties": {}
+      }
+    },
+    "adjacency": {
+      "type": "object",
+      "description": "mapping from node names to an array of two-element arrays holding [ nodeName, edgeName ] pairs; each of the two-element arrays specifies an edge (with name edgeName) from the node named by the object key to nodeName. Each edgeName must be present in the edges object of the graph.",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+              "type": "string"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "edges": {
+      "type": "object",
+      "description": "mapping from edge names to an attribute object",
+      "additionalProperties": {
+        "type": "object",
+        "description": "maps an attribute name to an attribute value",
+        "properties": {
+          "label": {
+            "$ref": "#/$defs/label"
+          },
+          "labelOffset": {
+            "$ref": "#/$defs/offset"
+          },
+          "z": {
+            "$ref": "#/$defs/z"
+          },
+          "style": {
+            "$ref": "#/$defs/style"
+          },
+          "angleLeaving": {
+            "type": "number",
+            "description": "angle relative to the direction between the node centers; in undirected graphs, the node whose name is first lexographically is taken as the source for this purpose.",
+            "default": 0
+          },
+          "angleEntering": {
+            "type": "number",
+            "description": "angle relative to the direction between the node centers; in undirected graphs, the node whose name is second lexographically is taken as the target for this purpose.",
+            "default": 0
+          },
+          "color": {
+            "$ref": "#/$defs/color"
+          },
+          "arrowType": {
+            "$ref": "#/$defs/arrowType"
+          },
+          "lineWidth": {
+            "$ref": "#/$defs/lineWidth"
+          },
+          "lineStyle": {
+            "$ref": "#/$defs/lineStyle"
+          }
+        },
+        "additionalProperties": {}
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "description": "mapping of attribute names to types"
+    },
+    "definitions": {
+      "type": "object",
+      "description": "aliases for the constructs used in style definitions"
+    },
+    "decorations": {
+      "type": "array",
+      "description": "Array of decorations to display on top of thr graph (such as texts, rectangles, ...)",
+      "items": {
+        "type": "object",
+        "required": [
+          "x",
+          "y",
+          "payload"
+        ],
+        "properties": {
+          "x": {
+            "$ref": "#/$defs/x"
+          },
+          "y": {
+            "$ref": "#/$defs/y"
+          },
+          "z": {
+            "$ref": "#/$defs/z"
+          },
+          "style": {
+            "$ref": "#/$defs/style"
+          },
+          "payload": {
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Text overlay"
+              },
+              {
+                "type": "array",
+                "description": "Width and height of a rectangle",
+                "maxItems": 2,
+                "minItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "directed",
+    "nodes",
+    "edges",
+    "adjacency"
+  ],
+  "additionalProperties": false
+}
