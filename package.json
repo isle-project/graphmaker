@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/isle-project/graphmaker#readme",
   "dependencies": {
+    "@svgdotjs/svg.js": "^3.1.2",
     "ajv": "^8.12.0",
     "debug": "^4.3.4",
-    "openai": "^3.1.0"
+    "openai": "^3.1.0",
+    "svgdom": "^0.1.13"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
