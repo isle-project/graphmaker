@@ -1,4 +1,5 @@
 const repl = require( 'repl' );
+const debug = require( 'debug' )( 'graphmaker:repl' );
 const { initializeGraph, updateGraph, redo, resetGraph, undo, save, task } = require( './index.js' );
 
 let replState = initializeGraph( { apiKey: "ATTN" } );
@@ -31,8 +32,7 @@ repl.start({
                 break;
             case 'show':
                 [ replState, output ] = await updateGraph( replState, save() );
-                // TODO: Figure out how to pretty-print the graph in the REPL for JSON:
-                callback( null, JSON.stringify( output.data.graph, null, 2 ) );
+                callback( null, JSON.stringify( replState.graph, null, 2 ) );
                 break;
             case 'undo':
                 [ replState ] = await updateGraph( replState, undo() );

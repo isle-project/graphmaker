@@ -1,5 +1,6 @@
 const { Configuration, OpenAIApi } = require( 'openai' );
 const AJV = require( 'ajv' );
+const debug = require( 'debug' )( 'graphmaker' );
 const graphSchema = require( './graph_schema.json' );
 
 const configuration = new Configuration({
@@ -27,7 +28,7 @@ Updated graph (without any comments):
 `;
 }
 
-function maybe( value) {
+function maybe( value ) {
     if ( value === void 0 ) {
         return null;
     }
@@ -135,7 +136,7 @@ async function updateGraphRedo( state, _ ) {
  */
 async function updateGraphSave( state, payload ) {
     const output = JSON.stringify( state );  // ATTN: Simple, temporary version of JSON output
-    const out = [ state, { kind: 'TEXT-OUTPUT', data: maybe(output) } ];
+    const out = [ state, { kind: 'TEXT-OUTPUT', data: maybe( output ) } ];
     return out;
 }
 
@@ -149,14 +150,14 @@ async function updateGraphSave( state, payload ) {
 async function updateGraphTask( state, payload ) {
     const prompt = assemblePrompt( state.graph, payload );
     try {
-        console.log( 'Sending prompt to OpenAI:' );
+        debug( 'Sending prompt to OpenAI:' );
         const completion = await openai.createCompletion({
             model: "text-davinci-003",
             prompt: prompt,
             'max_tokens': 1500
         });
-        console.log( 'Received response from OpenAI:' );
-        console.log( completion.data );
+        debug( 'Received response from OpenAI:' );
+        debug( completion.data );
         const newGraph = JSON.parse( completion.data.choices[ 0 ].text );
         const isValid = ajv.validate( graphSchema, newGraph );
         if ( !isValid ) {
@@ -175,8 +176,8 @@ async function updateGraphTask( state, payload ) {
             return [ newState, maybe() ];
         }
     } catch ( error ) {
-        console.log( 'Error from OpenAI:' );
-        console.log( error );
+        debug( 'Error from OpenAI:' );
+        debug( error );
         return [ state, { kind: 'ERRORS', data: [ error ]}];
     }
 }

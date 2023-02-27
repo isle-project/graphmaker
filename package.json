@@ -4,7 +4,7 @@
   "description": "A library for creating visualizations of undirected and directed graphs with the help of AI.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest test/*.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,13 @@
   "homepage": "https://github.com/isle-project/graphmaker#readme",
   "dependencies": {
     "ajv": "^8.12.0",
+    "debug": "^4.3.4",
     "openai": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "eslint": "^8.35.0",
+    "eslint-plugin-jest": "^27.2.1",
+    "jest": "^29.4.3"
   }
 }
