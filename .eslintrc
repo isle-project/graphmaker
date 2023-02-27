@@ -24,7 +24,7 @@
         "brace-style": [ 0, "1tbs", {
           "allowSingleLine": false
         }],
-        "callback-return": [ 1, [
+        "callback-return": [ 0, [
           "callback",
           "clbk",
           "cb",
@@ -239,7 +239,7 @@
         "prefer-template": 0,
         "quotes": [ 2, "single", { "avoidEscape": true }],
         "radix": [ 2, "always" ],
-        "require-await": 2,
+        "require-await": 0,
         "semi":  [ 2, "always" ],
         "semi-spacing": [ 2, {
           "before": false,
