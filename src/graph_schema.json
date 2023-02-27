@@ -142,9 +142,9 @@
         "type": "object",
         "description": "maps an attribute name to an attribute value",
         "properties": {
-          "autoPosition": {
+          "fixedPosition": {
             "type": "boolean",
-            "description": "Whether to automatically position the node",
+            "description": "Whether the node's position is fixed",
             "default": true
           },
           "label": {
@@ -183,22 +183,27 @@
     },
     "adjacency": {
       "type": "object",
-      "description": "mapping from node names to an array of two-element arrays holding [ nodeName, edgeName ] pairs; each of the two-element arrays specifies an edge (with name edgeName) from the node named by the object key to nodeName. Each edgeName must be present in the edges object of the graph.",
+      "description": "mapping from node names to an array of objects holding the name of the node to which the edge is connected and the name of the edge",
       "additionalProperties": {
         "type": "array",
         "items": {
-          "type": "array",
-          "items": {
-              "type": "string"
-          },
-          "minItems": 2,
-          "maxItems": 2
+          "type": "object",
+          "properties": {
+            "targetNode": {
+              "type": "string",
+              "description": "name of the node to which the edge is connected"
+            },
+            "edge": {
+              "type": "string",
+              "description": "name of the edge (must be present in the edges object of the graph)"
+            }
+          }
         }
       }
     },
     "edges": {
       "type": "object",
-      "description": "mapping from edge names to an attribute object",
+      "description": "mapping from edge names to an attribute object; by default, an edge from node A to node B is named AB",
       "additionalProperties": {
         "type": "object",
         "description": "maps an attribute name to an attribute value",
