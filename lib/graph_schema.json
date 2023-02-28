@@ -110,6 +110,22 @@
       "type": "boolean",
       "description": "`true` if it is a directed graph, `false` for undirected graphs"
     },
+    "canvas": {
+      "type": "object",
+      "description": "canvas configuration",
+      "properties": {
+        "width": {
+          "type": "number",
+          "description": "width of the canvas in pixels",
+          "default": 500
+        },
+        "height": {
+          "type": "number",
+          "description": "height of the canvas in pixels",
+          "default": 500
+        }
+      }
+    },
     "styles": {
       "type": "object",
       "description": "mapping from style names to style definition objects",
@@ -145,7 +161,7 @@
           "fixedPosition": {
             "type": "boolean",
             "description": "Whether the node's position is fixed",
-            "default": true
+            "default": false
           },
           "label": {
             "$ref": "#/$defs/label"
