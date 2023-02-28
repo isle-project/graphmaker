@@ -48,3 +48,7 @@ updateGraph for task:
 3) parse the response and validates it against the JSON schema
 4) updates the graph state with the new graph and the updated history
 5) returns (GraphState,None)
+
+# Move positioning from toSVG to the save function
+
+-   if any position is missing, reposition all the nodes except for those that are fixed; otherwise, refine the positions using the existing positions as a starting point
