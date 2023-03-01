@@ -39,7 +39,7 @@
         "thick",
         "very-thick"
       ],
-      "description": ""
+      "description": "Line width"
     },
     "lineStyle": {
       "enum": [
@@ -47,15 +47,16 @@
         "dashed",
         "dotted"
       ],
-      "description": ""
+      "description": "Line stroke style"
     },
-    "arrowType": {
+    "arrowStyle": {
       "enum": [
         "light",
+        "normal",
         "heavy",
         "double"
       ],
-      "description": ""
+      "description": "Arrow style"
     },
     "fill": {
       "type": "string",
@@ -142,8 +143,8 @@
           "lineStyle": {
             "$ref": "#/$defs/lineStyle"
           },
-          "arrowType": {
-            "$ref": "#/$defs/arrowType"
+          "arrowStyle": {
+            "$ref": "#/$defs/arrowStyle"
           },
           "fill": {
             "$ref": "#/$defs/fill"
@@ -249,8 +250,8 @@
           "color": {
             "$ref": "#/$defs/color"
           },
-          "arrowType": {
-            "$ref": "#/$defs/arrowType"
+          "arrowStyle": {
+            "$ref": "#/$defs/arrowStyle"
           },
           "lineWidth": {
             "$ref": "#/$defs/lineWidth"
