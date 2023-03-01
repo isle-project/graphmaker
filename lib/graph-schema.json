@@ -27,7 +27,16 @@
       "description": "Style name",
       "default": "default"
     },
-    "color": {
+    "fontSize": {
+      "type": "number",
+      "description": "Font size in points",
+      "default": 12
+    },
+    "fontFamily": {
+      "type": "string",
+      "description": "Font family"
+    },
+    "lineColor": {
       "type": "string",
       "description": "A HEX color or RGB color such as rgb(255,255,255) for the stroke"
     },
@@ -134,8 +143,8 @@
         "type": "object",
         "description": "style definition objects mapping style attribute names to values",
         "properties": {
-          "color": {
-            "$ref": "#/$defs/color"
+          "lineColor": {
+            "$ref": "#/$defs/lineColor"
           },
           "lineWidth": {
             "$ref": "#/$defs/lineWidth"
@@ -182,8 +191,8 @@
           "style": {
             "$ref": "#/$defs/style"
           },
-          "color": {
-            "$ref": "#/$defs/color"
+          "lineColor": {
+            "$ref": "#/$defs/lineColor"
           },
           "fill": {
             "$ref": "#/$defs/fill"
@@ -193,6 +202,12 @@
           },
           "lineStyle": {
             "$ref": "#/$defs/lineStyle"
+          },
+          "fontSize": {
+            "$ref": "#/$defs/fontSize"
+          },
+          "fontFamily": {
+            "$ref": "#/$defs/fontFamily"
           }
         },
         "additionalProperties": {}
@@ -247,8 +262,8 @@
             "description": "angle relative to the direction between the node centers; in undirected graphs, the node whose name is second lexographically is taken as the target for this purpose.",
             "default": 0
           },
-          "color": {
-            "$ref": "#/$defs/color"
+          "lineColor": {
+            "$ref": "#/$defs/lineColor"
           },
           "arrowStyle": {
             "$ref": "#/$defs/arrowStyle"
@@ -258,6 +273,12 @@
           },
           "lineStyle": {
             "$ref": "#/$defs/lineStyle"
+          },
+          "fontSize": {
+            "$ref": "#/$defs/fontSize"
+          },
+          "fontFamily": {
+            "$ref": "#/$defs/fontFamily"
           }
         },
         "additionalProperties": {}
