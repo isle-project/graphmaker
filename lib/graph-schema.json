@@ -169,9 +169,17 @@
         "description": "maps an attribute name to an attribute value",
         "properties": {
           "fixedPosition": {
-            "type": "boolean",
-            "description": "Whether the node's position is fixed",
-            "default": false
+            "type": "array",
+            "description": "Coordinates of the node's position that are fixed ",
+            "minItems": 0,
+            "maxItems": 2,
+            "default": [],
+            "items": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            }
           },
           "label": {
             "$ref": "#/$defs/label"
