@@ -57,9 +57,11 @@ updateGraph for task:
 
 -  [ ] clean-up the code
 -  [ ] add label styling for nodes and edges including position offsets and fonts
--  [ ] check support for named styles
+-  [ ] node sizing and padding
+-  [x] check support for named styles
 -  [ ] add export to PNG, PDF, SVG, and tikz
 -  [ ] add support for non-linear edges
 -  [ ] add support for decorations (freely positioned rectangles and texts)
 -  [ ] add support for other node shapes 
--  [ ] add automatic retries and error handling
+-  [x] add automatic retries and error handling
+-  [ ] add support for linear constraints for fixed positioning (?)
