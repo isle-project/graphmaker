@@ -25,6 +25,7 @@
     "debug": "^4.3.4",
     "jsonrepair": "^3.0.2",
     "openai": "^3.2.1",
+    "svd-js": "^1.1.1",
     "svgdom": "^0.1.13"
   },
   "devDependencies": {
