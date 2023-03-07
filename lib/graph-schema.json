@@ -181,6 +181,27 @@
               ]
             }
           },
+          "shape": {
+            "enum": [
+              "circle",
+              "square",
+              "diamond",
+              "triangle",
+              "ellipse",
+              "rectangle"
+            ],
+            "default": "circle"
+          },
+          "widthToHeight": {
+            "type": "number",
+            "description": "Aspect ratio of node's width to height",
+            "default": 1
+          },
+          "size": {
+            "type": "number",
+            "description": "Size of the node's shape",
+            "default": 1
+          },
           "label": {
             "$ref": "#/$defs/label"
           },
@@ -302,7 +323,7 @@
     },
     "decorations": {
       "type": "array",
-      "description": "Array of decorations to display on top of thr graph (such as texts, rectangles, ...)",
+      "description": "Array of decorations to display on top of the graph (texts and rectangles)",
       "items": {
         "type": "object",
         "required": [
@@ -323,21 +344,51 @@
           "style": {
             "$ref": "#/$defs/style"
           },
+          "fill": {
+            "$ref": "#/$defs/fill"
+          },
+          "lineColor": {
+            "$ref": "#/$defs/lineColor"
+          },
+          "lineWidth": {
+            "$ref": "#/$defs/lineWidth"
+          },
+          "lineStyle": {
+            "$ref": "#/$defs/lineStyle"
+          },
+          "fontSize": {
+            "$ref": "#/$defs/fontSize"
+          },
+          "fontFamily": {
+            "$ref": "#/$defs/fontFamily"
+          },
           "payload": {
-            "oneOf": [
-              {
-                "type": "string",
-                "description": "Text overlay"
-              },
-              {
-                "type": "array",
-                "description": "Width and height of a rectangle",
-                "maxItems": 2,
-                "minItems": 2,
-                "items": {
-                  "type": "number"
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": { "const": "text" },
+                    "text": {
+                      "type": "string",
+                      "description": "Text overlay"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": { "const": "region" },
+                    "region": {
+                      "type": "array",
+                      "description": "Width and height of a rectangle",
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
                 }
-              }
             ]
           }
         }
