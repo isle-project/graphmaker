@@ -57,11 +57,13 @@ updateGraph for task:
 
 -  [ ] clean-up the code
 -  [ ] add label styling for nodes and edges including position offsets and fonts
--  [ ] node sizing and padding
+-  [x] node sizing
 -  [x] check support for named styles
 -  [ ] add export to PNG, PDF, SVG, and tikz
--  [ ] add support for non-linear edges
--  [ ] add support for decorations (freely positioned rectangles and texts)
--  [ ] add support for other node shapes 
+-  [ ] add support for non-linear edges (cubic Bezier curve; generate control points for non-zero angles)
+-  [x] add support for decorations (freely positioned rectangles and texts)
+-  [x] add support for square, rectangle, ellipse node shapes 
 -  [x] add automatic retries and error handling
+-  [ ] add triangle and diamond node shapes
 -  [ ] add support for linear constraints for fixed positioning (?)
+-  [ ] fix arrowhead offsets
