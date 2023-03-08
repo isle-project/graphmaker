@@ -327,11 +327,16 @@
       "items": {
         "type": "object",
         "required": [
+          "type",
           "x",
-          "y",
-          "payload"
+          "y"
         ],
         "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["text", "region"],
+            "description": "The type of decoration"
+          },
           "x": {
             "$ref": "#/$defs/x"
           },
@@ -362,33 +367,39 @@
           "fontFamily": {
             "$ref": "#/$defs/fontFamily"
           },
-          "payload": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": { "const": "text" },
-                    "text": {
-                      "type": "string",
-                      "description": "Text overlay"
-                    }
+          "text": {
+            "type": "string",
+            "description": "Text overlay"
+          },
+          "region": {
+            "type": "array",
+            "description": "Width and height of a rectangle",
+            "maxItems": 2,
+            "minItems": 2,
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "dependencies": {
+          "type": {
+            "oneOf": [
+              {
+                "properties": {
+                  "type": {
+                    "enum": ["text"]
                   }
                 },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": { "const": "region" },
-                    "region": {
-                      "type": "array",
-                      "description": "Width and height of a rectangle",
-                      "maxItems": 2,
-                      "minItems": 2,
-                      "items": {
-                        "type": "number"
-                      }
-                    }
+                "required": ["text"]
+              },
+              {
+                "properties": {
+                  "type": {
+                    "enum": ["region"]
                   }
-                }
+                },
+                "required": ["region"]
+              }
             ]
           }
         }
