@@ -17,6 +17,27 @@
       "default": 0,
       "description": "z-index"
     },
+    "nodeShape": {
+      "enum": [
+        "circle",
+        "square",
+        "diamond",
+        "triangle",
+        "ellipse",
+        "rectangle"
+      ],
+      "default": "circle"
+    },
+    "nodeWidthToHeight": {
+      "type": "number",
+      "description": "Aspect ratio of node's width to height",
+      "default": 1
+    },
+    "nodeSize": {
+      "type": "number",
+      "description": "Size of the node's shape",
+      "default": 1
+    },
     "label": {
       "type": "string",
       "description": "Text label",
@@ -143,6 +164,15 @@
         "type": "object",
         "description": "style definition objects mapping style attribute names to values",
         "properties": {
+          "nodeShape": {
+            "$ref": "#/$defs/nodeShape"
+          },
+          "nodeWidthToHeight": {
+            "$ref": "#/$defs/nodeWidthToHeight"
+          },
+          "nodeSize": {
+            "$ref": "#/$defs/nodeSize"
+          },
           "lineColor": {
             "$ref": "#/$defs/lineColor"
           },
@@ -182,24 +212,15 @@
             }
           },
           "shape": {
-            "enum": [
-              "circle",
-              "square",
-              "diamond",
-              "triangle",
-              "ellipse",
-              "rectangle"
-            ],
+            "$ref": "#/$defs/nodeShape",
             "default": "circle"
           },
           "widthToHeight": {
-            "type": "number",
-            "description": "Aspect ratio of node's width to height",
+            "$ref": "#/$defs/nodeWidthToHeight",
             "default": 1
           },
           "size": {
-            "type": "number",
-            "description": "Size of the node's shape",
+            "$ref" : "#/$defs/nodeSize",
             "default": 1
           },
           "label": {
