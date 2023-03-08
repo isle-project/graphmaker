@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/isle-project/graphmaker#readme",
   "dependencies": {
+    "@stdlib/math-base-special-deg2rad": "^0.0.8",
     "@stdlib/utils-merge": "^0.0.7",
     "@stdlib/utils-pick": "^0.0.8",
     "@svgdotjs/svg.js": "^3.1.2",
