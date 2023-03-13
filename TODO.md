@@ -56,7 +56,8 @@ updateGraph for task:
 # TODO
 
 -  [ ] clean-up the code
--  [ ] add label styling for nodes and edges including position offsets and fonts
+-  [ ] add label styling for nodes and edges including position offsets 
+-  [ ] custom fonts for node and edge labels and decoration text
 -  [x] node sizing
 -  [x] check support for named styles
 -  [ ] add export to PNG, PDF, SVG, and tikz
@@ -65,5 +66,8 @@ updateGraph for task:
 -  [x] add support for square, rectangle, ellipse node shapes 
 -  [x] add automatic retries and error handling
 -  [ ] add triangle and diamond node shapes
+-  [x] add softness parameters to graph schema
+-  [x] reverse sign of angle entering so 45, 45 for example is a nice arc
 -  [ ] add support for linear constraints for fixed positioning (?)
+-  [ ] add edge, label, and adjustment positioning phases to the automatic positioning
 -  [x] fix arrowhead offsets
