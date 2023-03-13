@@ -40,8 +40,7 @@
     },
     "label": {
       "type": "string",
-      "description": "Text label",
-      "default": ""
+      "description": "Text label"
     },
     "style": {
       "type": "string",
@@ -56,6 +55,52 @@
     "fontFamily": {
       "type": "string",
       "description": "Font family"
+    },
+    "fontStyle": {
+      "enum": [
+        "normal",
+        "italic",
+        "oblique"
+      ],
+      "description": "Font style"
+    },
+    "fontWeight": {
+      "enum": [
+        "normal",
+        "bold",
+        "bolder",
+        "lighter",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900"
+      ],
+      "description": "Font weight"
+    },
+    "fontVariant": {
+      "enum": [
+        "normal",
+        "small-caps",
+        "titling-caps"
+      ],
+      "description": "Font variant"
+    },
+    "fontColor": {
+      "type": "string",
+      "description": "A HEX color or RGB color such as rgb(255,255,255) for the font"
+    },
+    "textAnchor": {
+      "enum": [
+        "start",
+        "middle",
+        "end"
+      ],
+      "description": "Text anchor"
     },
     "lineColor": {
       "type": "string",
@@ -187,6 +232,27 @@
           },
           "fill": {
             "$ref": "#/$defs/fill"
+          },
+          "fontFamily": {
+            "$ref": "#/$defs/fontFamily"
+          },
+          "fontSize": {
+            "$ref": "#/$defs/fontSize"
+          },
+          "fontStyle": {
+            "$ref": "#/$defs/fontStyle"
+          },
+          "fontWeight": {
+            "$ref": "#/$defs/fontWeight"
+          },
+          "fontVariant": {
+            "$ref": "#/$defs/fontVariant"
+          },
+          "fontColor": {
+            "$ref": "#/$defs/fontColor"
+          },
+          "labelAnchor": {
+            "$ref": "#/$defs/textAnchor"
           }
         }
       }
@@ -258,6 +324,21 @@
           },
           "fontFamily": {
             "$ref": "#/$defs/fontFamily"
+          },
+          "fontColor": {
+            "$ref": "#/$defs/fontColor"
+          },
+          "fontStyle": {
+            "$ref": "#/$defs/fontStyle"
+          },
+          "fontVariant": {
+            "$ref": "#/$defs/fontVariant"
+          },
+          "fontWeight": {
+            "$ref": "#/$defs/fontWeight"
+          },
+          "labelAnchor": {
+            "$ref": "#/$defs/textAnchor"
           }
         },
         "additionalProperties": {}
@@ -312,6 +393,16 @@
             "description": "angle relative to the direction between the node centers; in undirected graphs, the node whose name is second lexographically is taken as the target for this purpose.",
             "default": 0
           },
+          "softnessLeaving": {
+            "type": "number",
+            "description": "controls the curvature of an edge near the source node",
+            "default": 0.5
+          },
+          "softnessEntering": {
+            "type": "number",
+            "description": "controls the curvature of an edge near the target node",
+            "default": 0.5
+          },
           "lineColor": {
             "$ref": "#/$defs/lineColor"
           },
@@ -329,6 +420,21 @@
           },
           "fontFamily": {
             "$ref": "#/$defs/fontFamily"
+          },
+          "fontColor": {
+            "$ref": "#/$defs/fontColor"
+          },
+          "fontStyle": {
+            "$ref": "#/$defs/fontStyle"
+          },
+          "fontVariant": {
+            "$ref": "#/$defs/fontVariant"
+          },
+          "fontWeight": {
+            "$ref": "#/$defs/fontWeight"
+          },
+          "labelAnchor": {
+            "$ref": "#/$defs/textAnchor"
           }
         },
         "additionalProperties": {}
