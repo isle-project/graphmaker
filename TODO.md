@@ -60,7 +60,8 @@ updateGraph for task:
 -  [ ] custom fonts for node and edge labels and decoration text
 -  [x] node sizing
 -  [x] check support for named styles
--  [ ] add export to PNG, PDF, SVG, and tikz
+-  [x] add export to PNG, PDF, SVG
+-  [ ] add export to tikz
 -  [x] add support for non-linear edges (cubic Bezier curve; generate control points for non-zero angles)
 -  [x] add support for decorations (freely positioned rectangles and texts)
 -  [x] add support for square, rectangle, ellipse node shapes 
