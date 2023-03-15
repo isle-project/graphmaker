@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/isle-project/graphmaker#readme",
   "dependencies": {
+    "@stdlib/assert-is-array": "^0.0.7",
+    "@stdlib/assert-is-string": "^0.0.8",
     "@stdlib/math-base-special-deg2rad": "^0.0.8",
     "@stdlib/utils-merge": "^0.0.7",
     "@stdlib/utils-pick": "^0.0.8",
