@@ -56,7 +56,8 @@ updateGraph for task:
 # TODO
 
 -  [ ] clean-up the code
--  [ ] add label styling for nodes and edges including position offsets 
+-  [x] add position offsets 
+-  [x] finish label styling for nodes and edges
 -  [ ] custom fonts for node and edge labels and decoration text
 -  [x] node sizing
 -  [x] check support for named styles
