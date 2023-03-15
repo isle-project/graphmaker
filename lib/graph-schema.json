@@ -28,6 +28,19 @@
       ],
       "default": "circle"
     },
+    "cardinalDirection": {
+      "enum": [
+        "north",
+        "northeast",
+        "east",
+        "southeast",
+        "south",
+        "southwest",
+        "west",
+        "northwest"
+      ],
+      "description": "Cardinal direction"
+    },
     "nodeWidthToHeight": {
       "type": "number",
       "description": "Aspect ratio of node's width to height",
@@ -158,25 +171,53 @@
       "description": "Represents an offset from a position",
       "oneOf": [
         {
-          "enum": [
-            "north",
-            "northeast",
-            "east",
-            "southeast",
-            "south",
-            "southwest",
-            "west",
-            "northwest",
-            "none"
+          "const": "none"
+        },
+        {
+          "$ref": "#/$defs/cardinalDirection"
+        },
+        {
+          "type": "array",
+          "description": "Offset in the given cardinal direction",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": [
+            {
+              "$ref": "#/$defs/cardinalDirection"
+            },
+            {
+              "type": "number",
+              "description": "Distance from the position"
+            }
           ]
         },
         {
           "type": "array",
+          "description": "Offset in cartesian coordinates (0-1)",
           "minItems": 2,
           "maxItems": 2,
           "items": {
             "type": "number"
           }
+        },
+        {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": [
+            {
+              "const": "polar"
+            },
+            {
+              "type": "number",
+              "description": "Angle in degrees"
+            },
+            {
+              "type": "number",
+              "description": "Distance from the position",
+              "minimum": 0
+            }
+          ]
         }
       ]
     }
@@ -264,19 +305,6 @@
         "type": "object",
         "description": "maps an attribute name to an attribute value",
         "properties": {
-          "fixedPosition": {
-            "type": "array",
-            "description": "Coordinates of the node's position that are fixed ",
-            "minItems": 0,
-            "maxItems": 2,
-            "default": [],
-            "items": {
-              "enum": [
-                "x",
-                "y"
-              ]
-            }
-          },
           "shape": {
             "$ref": "#/$defs/nodeShape",
             "default": "circle"
@@ -500,7 +528,7 @@
           },
           "region": {
             "type": "array",
-            "description": "Width and height of a rectangle",
+            "description": "Relative width and height of a rectangle (as a proportion of the canvas dimensions)",
             "maxItems": 2,
             "minItems": 2,
             "items": {
