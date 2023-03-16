@@ -402,6 +402,10 @@
           "label": {
             "$ref": "#/$defs/label"
           },
+          "weight": {
+            "type": "number",
+            "description": "An optional numeric value associated with the edge."
+          },
           "labelOffset": {
             "$ref": "#/$defs/offset"
           },
