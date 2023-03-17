@@ -55,18 +55,28 @@ updateGraph for task:
 
 # TODO
 
+-  [ ] handle z-index
+-  [ ] add export to tikz
+-  [ ] text in PDF export
+-  [ ] add support for linear constraints for fixed positioning (?)
+-  [ ] add edge, label, and adjustment positioning phases to the automatic positioning
+-  [ ] modify :show command to take an optional argument (start/open)
+-  [ ] :set command add to config in repl  (use case: turn names on or off)
+-  [ ] :load command to load script from file while repl continues
+-  [ ] handle arrow styles
+-  [ ] handle fill styles
+-  [ ] handle line styles
+-  [ ] user-defined node and edge attributes
 -  [ ] clean-up the code
+-  [x] add weight offset and relative offsets to tangent and midpoint for edge label and weight.
+-  [x] custom fonts for node and edge labels and decoration text
 -  [x] add position offsets 
 -  [x] finish label styling for nodes and edges
--  [ ] add weight offset and relative offsets to tangent and midpoint for edge label and weight.
--  [ ] custom fonts for node and edge labels and decoration text
 -  [x] add support for node and edge labels and weights
 -  [x] add support for label rotation for edges
--  [ ] text in PDF export
 -  [x] node sizing
 -  [x] check support for named styles
 -  [x] add export to PNG, PDF, SVG
--  [ ] add export to tikz
 -  [x] add support for non-linear edges (cubic Bezier curve; generate control points for non-zero angles)
 -  [x] add support for decorations (freely positioned rectangles and texts)
 -  [x] add support for square, rectangle, ellipse node shapes 
@@ -74,7 +84,4 @@ updateGraph for task:
 -  [x] add triangle and diamond node shapes
 -  [x] add softness parameters to graph schema
 -  [x] reverse sign of angle entering so 45, 45 for example is a nice arc
--  [ ] add support for linear constraints for fixed positioning (?)
--  [ ] add edge, label, and adjustment positioning phases to the automatic positioning
 -  [x] fix arrowhead offsets
--  [ ] user-defined node and edge attributes
