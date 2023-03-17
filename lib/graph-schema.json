@@ -14,7 +14,6 @@
     },
     "z": {
       "type": "number",
-      "default": 0,
       "description": "z-index"
     },
     "nodeShape": {
@@ -37,7 +36,15 @@
         "south",
         "southwest",
         "west",
-        "northwest"
+        "northwest",
+        "left",
+        "right",
+        "up",
+        "down",
+        "upper-left",
+        "upper-right",
+        "lower-left",
+        "lower-right"
       ],
       "description": "Cardinal direction"
     },
@@ -66,7 +73,22 @@
       "default": 12
     },
     "fontFamily": {
-      "type": "string",
+      "anyOf": [
+        {
+          "enum": [
+            "Times New Roman",
+            "Comic Sans MS",
+            "Courier New",
+            "Gill Sans",
+            "Trebuchet MS"
+          ],
+          "description": "Fuzzy match user-requested font families."
+        },
+        {
+          "type": "string",
+          "description": "Other font families"
+        }
+      ],
       "description": "Font family"
     },
     "fontStyle": {
@@ -407,6 +429,9 @@
             "description": "An optional numeric value associated with the edge."
           },
           "labelOffset": {
+            "$ref": "#/$defs/offset"
+          },
+          "weightOffset": {
             "$ref": "#/$defs/offset"
           },
           "z": {
