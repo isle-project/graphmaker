@@ -55,19 +55,21 @@ updateGraph for task:
 
 # TODO
 
--  [ ] handle z-index
+
+-  [x] handle line styles
+-  [ ] handle fill styles
+-  [ ] PROVISIONAL handle arrow styles
 -  [ ] add export to tikz
--  [ ] text in PDF export
 -  [ ] add support for linear constraints for fixed positioning (?)
 -  [ ] add edge, label, and adjustment positioning phases to the automatic positioning
--  [ ] modify :show command to take an optional argument (start/open)
--  [ ] :set command add to config in repl  (use case: turn names on or off)
--  [ ] :load command to load script from file while repl continues
--  [ ] handle arrow styles
--  [ ] handle fill styles
--  [ ] handle line styles
 -  [ ] user-defined node and edge attributes
 -  [ ] clean-up the code
+-  [ ] handle z-index
+-  [ ] PROVISIONAL :set command add to config in repl  (use case: turn names on or off)
+-  [x] :load command to load script from file while repl continues
+-  [x] :history and :transcript command support
+-  [x] modify :show command to take an optional argument (start/open)
+-  [x] text in PDF export
 -  [x] add weight offset and relative offsets to tangent and midpoint for edge label and weight.
 -  [x] custom fonts for node and edge labels and decoration text
 -  [x] add position offsets 
