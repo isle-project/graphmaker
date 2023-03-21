@@ -168,26 +168,51 @@
       ],
       "description": "Arrow style"
     },
-    "fill": {
-      "type": "string",
-      "description": "A HEX color or RGB color such as rgb(255,255,255) to fill a shape"
-    },
     "fillStyle": {
       "description": "Styling for the fill pattern of the shape",
       "oneOf": [
         {
           "enum": [
             "solid",
-            "dotted"
+            "dotted",
+            "hashed"
           ]
         },
         {
-          "type": "integer",
-          "description": "Angle of hash lines in the fill regions (0 = horizontal)",
-          "minimum": 0,
-          "exclusiveMaximum": 180
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": [
+            {
+              "const": "dotted"
+            },
+            {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 100,
+              "description": "Dot diameter as a percentage of the node size"
+            }
+          ]
+        },
+        {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": [
+            {
+              "const": "hashed"
+            },
+            {
+              "type": "number",
+              "description": "Angle of hash lines in the fill regions (0 = horizontal)"
+            }
+          ]
         }
       ]
+    },
+    "fillColor": {
+      "type": "string",
+      "description": "A HEX color or RGB color such as rgb(255,255,255) to fill a shape"
     },
     "offset": {
       "description": "Represents an offset from a position",
@@ -293,8 +318,8 @@
           "arrowStyle": {
             "$ref": "#/$defs/arrowStyle"
           },
-          "fill": {
-            "$ref": "#/$defs/fill"
+          "fillColor": {
+            "$ref": "#/$defs/fillColor"
           },
           "fontFamily": {
             "$ref": "#/$defs/fontFamily"
@@ -360,8 +385,8 @@
           "lineColor": {
             "$ref": "#/$defs/lineColor"
           },
-          "fill": {
-            "$ref": "#/$defs/fill"
+          "fillColor": {
+            "$ref": "#/$defs/fillColor"
           },
           "lineWidth": {
             "$ref": "#/$defs/lineWidth"
@@ -533,8 +558,8 @@
           "style": {
             "$ref": "#/$defs/style"
           },
-          "fill": {
-            "$ref": "#/$defs/fill"
+          "fillColor": {
+            "$ref": "#/$defs/fillColor"
           },
           "lineColor": {
             "$ref": "#/$defs/lineColor"
