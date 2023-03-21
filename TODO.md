@@ -58,6 +58,8 @@ updateGraph for task:
 
 -  [x] handle line styles
 -  [ ] handle fill styles
+-  [ ] insert node x,y for starting/current positions to provide stability
+-  [ ] Experiment with AI specification of constraints (e.g., C is at the midpoint of the line from A to B, A is above B, A-C are at the same horizontal position, A is at center of the other nodes)
 -  [ ] PROVISIONAL handle arrow styles
 -  [ ] add export to tikz
 -  [ ] add support for linear constraints for fixed positioning (?)
