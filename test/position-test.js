@@ -13,18 +13,37 @@ const DIGITS_TO_ZERO = 6;
 
 // Helpers
 
+/**
+ * Computes the dot product of two vectors of the same dimension
+ *
+ * @param {Array} v1 - a vector as an array of numbers
+ * @param {Array} v2 - a vector as an array of numbers
+ *
+ * @returns {number} the dot product v1 . v2.
+ */
+const dot = ( v1, v2 ) => {
+    let prod = 0.0;
+    for ( let i = 0; i < v1.length; ++i ) {
+        prod += v1[i] * v2[i];
+    }
+    return prod;
+};
+
+/** Computes Euclidean distance between two vectors */
 const euclidean = (x, y) => {
     const d0 = x[0] - y[0];
     const d1 = x[1] - y[1];
     return Math.sqrt( d0 * d0 + d1 * d1 );
 };
 
+/** Computes Euclidean norm of a vector */
 const norm = (x) => {
     const d0 = x[0];
     const d1 = x[1];
     return Math.sqrt( d0 * d0 + d1 * d1 );
 };
 
+/** Multiplies a matrix by a vector */
 const mmul = (M, v) => {
     if ( M[0].length === v.length ) {
         return M.map( row => dot( row, v ) );
