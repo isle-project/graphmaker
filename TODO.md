@@ -89,3 +89,41 @@ updateGraph for task:
 -  [x] add softness parameters to graph schema
 -  [x] reverse sign of angle entering so 45, 45 for example is a nice arc
 -  [x] fix arrowhead offsets
+
+
+# Specifying Constraints
+
+Option 1. Specify constriants by object, rhs pairs
+
+  Ex:  { A: { x: 1, y: 0 }, B: {x: -1} }  ,  0
+  
+       This is the constraint that A and B have the same x coordinate,
+       i.e., A.x - B.x = 0.
+       
+Option 2. (Preferred for now) Specify constraints by simple strings       
+
+  Ex:  A.x - B.x = 0
+       A.x + B.x = 2 C.x
+       A.y + B.y = 2 C.y
+
+  A rough grammar is
+
+  ```
+    constraint <- expr = expr
+                | expr <= expr
+     
+    expr <- term '+' term
+         |  term '-' term
+     
+    term <- coordinate
+         |  number [*] coordinate
+         |  coordiate / number
+         |  number
+     
+    coordinate <- name '.' [xy]
+     
+    name <- '[^']+'
+  ```
+       
+  Right now the names forbid ', but this can be escaped.
+  
