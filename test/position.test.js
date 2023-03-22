@@ -86,13 +86,15 @@ test( 'simple-position-symmetry',  () => {
     // Three points form an equliteral triangle around the origin
     actual = nodePositions( 3, UNCONSTRAINED, UNCONSTRAINED, EQ_OPTIONS );
     expect( actual.converged ).toBeTruthy();
-    expect( actual.positions.reduce( (avg, x) => avg + x/3, 0) ).toBeCloseTo( 0,  DIGITS_TO_ZERO );
+    expect( actual.positions.reduce( (avg, x) => avg + x[0]/3, 0) ).toBeCloseTo( 0,  DIGITS_TO_ZERO );
+    expect( actual.positions.reduce( (avg, x) => avg + x[1]/3, 0) ).toBeCloseTo( 0,  DIGITS_TO_ZERO );
     // ATTN: More specific test?
 
     // Four points form a square around the origin
     actual = nodePositions( 4, UNCONSTRAINED, UNCONSTRAINED, EQ_OPTIONS );
     expect( actual.converged ).toBeTruthy();
-    expect( actual.positions.reduce( (avg, x) => avg + x/4, 0) ).toBeCloseTo( 0,  DIGITS_TO_ZERO );
+    expect( actual.positions.reduce( (avg, x) => avg + x[0]/4, 0) ).toBeCloseTo( 0,  DIGITS_TO_ZERO );
+    expect( actual.positions.reduce( (avg, x) => avg + x[1]/4, 0) ).toBeCloseTo( 0,  DIGITS_TO_ZERO );
     // ATTN: More specific test?
 });
 
@@ -109,7 +111,8 @@ test( 'simple-equality-constraints', () => {
 
     const samecol3Constraint = { matrix: [ [1, 0, -1, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, -1, 0, 0, 0, 0, 0] ], rhs: [ 0, 0] };
     init = [ [1,2], [-1,-2], [-1,2], [-0.5, 1], [1,-3] ];
-    actual = constrainedEquilibrate( init, midpointConstraint, UNCONSTRAINED, EQ_OPTIONS );
+    actual = constrainedEquilibrate( init, samecol3Constraint, UNCONSTRAINED, EQ_OPTIONS );
     expect( actual.converged ).toBeTruthy();
+    console.log(actual);
     expect( norm(mmul(samecol3Constraint.matrix, actual.positions.flat())) ).toBeCloseTo( 0, DIGITS_TO_ZERO );
 });
