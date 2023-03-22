@@ -106,18 +106,18 @@ Option 2. (Preferred for now) Specify constraints by simple strings
        A.x + B.x = 2 C.x
        A.y + B.y = 2 C.y
 
-  A rough grammar is
+  A grammar for constraints is:
 
   ```
     constraint <- expr = expr
                 | expr <= expr
      
-    expr <- term '+' term
-         |  term '-' term
+    expr <- expr '+' term
+         |  expr '-' term
      
     term <- coordinate
-         |  number [*] coordinate
-         |  coordiate / number
+         |  number '*'? coordinate
+         |  coordinate '/' number
          |  number
      
     coordinate <- name '.' [xy]
@@ -126,4 +126,121 @@ Option 2. (Preferred for now) Specify constraints by simple strings
   ```
        
   Right now the names forbid ', but this can be escaped.
+  Spaces are allowed between tokens.
   
+  Let's construct a regular expression for constraints:
+  
+  name = /'[^']+'/
+  coordinate = /name \s*\.\s* [xy]/
+  number = (?: [0-9] )...    # NO SCIENTIFIC NOTATION HAH 
+  term = (?: number  (?: \s*\*?\s* coordinate)? | coordinate (?: \s*/\s* number)?)
+  coordinateSum = coordinate (?: [-+] coordinate)*
+  pterm = (?: term | number (\s*\*?\s*)? \( coordinateSum \) | \( coordinateSum \) (?: \s*/\s* number)?)
+  expr = pterm (?: \s*[-+]\s* pterm)*
+  constraint = expr (?: <?=) expr
+
+  
+  
+    A grammar for constraints is:
+
+  ```
+  
+  name <- '[^']+'
+
+  coordinate <- name '.' [xy]
+    
+  coordinateSum <- coordinate
+                   | coordinateSum '+' coordinate
+                   | coordinateSum '-' coordinate
+     
+  term <- coordinate
+         |  number '*'? coordinate
+         |  coordinate '/' number
+         |  number
+         
+  pterm <- term
+          |  number '*'? '(' coordinateSum ')'
+          |  '(' coordinateSum ')' '/' number
+     
+  expr <- expr '+' pterm
+         |  expr '-' pterm
+     
+  constraint <- expr = expr
+                | expr <= expr
+  ```
+ 
+
+```js
+function constraintRegEx() {
+    const name = /'[^']+'/;
+    const coordinate = new RegExp(
+      `(${name.source})\\s*\\.\\s*([xy])`
+    );  
+    const number = /(?:0|-?\d+(?:\.\d+)?|-?\.\d+)/;
+    const term = new RegExp(
+      `(?:${number.source}(?:\\s*\\*?\\s*${coordinate.source})?|${coordinate.source}(?:\\s*/\\s*${number.source})?)`
+    );
+    const expr = new RegExp(
+      `${term.source}(?:\\s*[-+]\\s*${term.source})*`
+    );
+    const constraint = new RegExp(
+      `^\\s*${expr.source}\\s*[<>]?=\\s*${expr.source}\\s*$`
+    );
+    return constraint;
+}
+```
+
+JS function handling pterms and coordinateSum:
+
+```js
+function constraintRegEx() {
+    const name = /'[^']+'/;
+     const coordinate = new RegExp(
+      `(${name.source})\\s*\\.\\s*([xy])`
+    );  
+    const number = /(?:0|-?\d+(?:\.\d+)?|-?\.\d+)/;
+    const term = new RegExp(
+      `(?:${number.source}(?:\\s*\\*?\\s*${coordinate.source})?|${coordinate.source}(?:\\s*/\\s*${number.source})?)`
+    );
+    const coordinateSum = new RegExp(
+      `${coordinate.source}(?:\\s*[-+]\\s*${coordinate.source})*`
+    );
+    const pterm = new RegExp(
+      `(?:${term.source}|${number.source}(?:\\s*\\*?\\s*)?\\(${coordinateSum.source}\\)|\\(${coordinateSum.source}\\)(?:\\s*/\\s*${number.source})?)`
+    );
+    const expr = new RegExp(
+      `${pterm.source}(?:\\s*[-+]\\s*${pterm.source})*`
+    );
+    const constraint = new RegExp(
+      `^\\s*${expr.source}\\s*[<>]?=\\s*${expr.source}\\s*$`
+    );
+    return constraint;
+}
+```   
+
+
+
+  A grammar for constraints is: constraint <- expr = expr | expr <= expr; expr <- expr '+' term |  expr '-' term;
+     
+    term <- coordinate
+         |  number '*'? coordinate
+         |  coordinate '/' number
+         |  number
+     
+    coordinate <- name '.' [xy]
+     
+    name <- '[^']+'
+  ```
+
+    expr <- expr '+' pterm
+         |  expr '-' pterm
+
+    pterm <- term
+          |  number '*'? '(' coordinateSum ')'
+          |  '(' coordinateSum ')' '/' number
+
+    coordinateSum <- coordinate
+                   | coordinateSum '+' coordinate
+                   | coordinateSum '-' coordinate
+                   
+     
