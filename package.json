@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "compile-constraints": "npx nearleyc lib/constraint-grammar.ne -o lib/constraint-grammar.js",
-    "lint": "eslint lib/*.js test/*.js"
+    "lint": "eslint lib/*.js test/*.js",
+    "repl": "node lib/repl.js"
   },
   "repository": {
     "type": "git",
