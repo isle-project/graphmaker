@@ -82,10 +82,10 @@ expr -> pterm                                                {% id %}
              function( data ) {
                  const [lhs, op, rhs] = dropWhitespace( data );
                  const sign = (op.value === '-') ? -1 : 1;
-                 return lhs.concat( rhs.map( trm => {
-                                        trm.coef *= sign;
-                                        return trm;
-                                    }) );
+                 return lhs.concat( rhs.map( trm => ({
+                                        ...trm,
+                                        coef: trm.coef * sign
+                                        })) );
              }
         %}
 
