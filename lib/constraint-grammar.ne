@@ -81,7 +81,7 @@ expr -> pterm                                                {% id %}
      |  expr _ %plusOrMinus _ pterm                          {%
              function( data ) {
                  const [lhs, op, rhs] = dropWhitespace( data );
-                 const sign = (op === '-') ? -1 : 1;
+                 const sign = (op.value === '-') ? -1 : 1;
                  return lhs.concat( rhs.map( trm => {
                                         trm.coef *= sign;
                                         return trm;
