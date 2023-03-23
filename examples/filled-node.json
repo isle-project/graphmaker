@@ -5,8 +5,8 @@
       "B": {},
       "C": {
         "fillStyle": [
-            "hashed",
-            "vertical",
+            "crosshatched",
+            "diagonal",
             0.5
         ]
       }
