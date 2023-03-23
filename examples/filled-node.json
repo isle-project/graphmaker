@@ -1,0 +1,17 @@
+{
+    "directed": false,
+    "nodes": {
+      "A": {},
+      "B": {},
+      "C": {
+        "fillStyle": [
+            "hashed",
+            "vertical",
+            0.5
+        ]
+      }
+    },
+    "edges": {},
+    "adjacency": {},
+    "constraints": []
+}
