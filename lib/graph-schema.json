@@ -348,6 +348,7 @@
     "constraints": {
       "type": "array",
       "description": "Array of constraints on node (x,y) coordinates of the nodes",
+      "default": [],
       "items": {
         "type": "string",
         "description": "A linear equation or inequality on the coordinates of a node in terms of the node names. Node names have to be enclosed by single quotes. Operators * / + - are supported. This string must not contain parentheses.",
@@ -433,10 +434,9 @@
           },
           "labelAnchor": {
             "$ref": "#/$defs/textAnchor"
-          },
-          "additionalProperties": false
+          }
         },
-        "additionalProperties": {}
+        "additionalProperties": false
       }
     },
     "adjacency": {
@@ -537,10 +537,9 @@
           },
           "labelAnchor": {
             "$ref": "#/$defs/textAnchor"
-          },
-          "additionalProperties": false
+          }
         },
-        "additionalProperties": {}
+        "additionalProperties": false
       }
     },
     "definitions": {
