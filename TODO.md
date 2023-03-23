@@ -56,18 +56,23 @@ updateGraph for task:
 # TODO
 
 
--  [x] handle line styles
--  [ ] handle fill styles
--  [ ] insert node x,y for starting/current positions to provide stability
--  [ ] Experiment with AI specification of constraints (e.g., C is at the midpoint of the line from A to B, A is above B, A-C are at the same horizontal position, A is at center of the other nodes)
--  [ ] PROVISIONAL handle arrow styles
--  [ ] add export to tikz
--  [ ] add support for linear constraints for fixed positioning (?)
+-  [x] finish fill styles
+-  [ ] add inequality constraints to node positioning
+-  [ ] add export to tikz 
 -  [ ] add edge, label, and adjustment positioning phases to the automatic positioning
--  [ ] user-defined node and edge attributes
+-  [ ] REFACTOR? projection handling differs between svg elements (reason: fill handling for text or regions)
 -  [ ] clean-up the code
--  [ ] handle z-index
--  [ ] PROVISIONAL :set command add to config in repl  (use case: turn names on or off)
+-  [ ] PROVISIONAL font size scale with node size??
+-  [ ] PROVISIONAL :set command add to config in repl  (use cases: turn names on or off, canvas dimensions)
+-  [ ] PROVISIONAL handle arrow styles
+-  [ ] PROVISIONAL handle z-index
+-  [ ] PROVISIONAL user-defined node and edge attributes
+-  [x] insert node x,y for starting/current positions to provide stability
+-  [x] Experiment with AI specification of constraints (e.g., C is at the midpoint of the line from A to B, A is above B, A-C are at the same horizontal position, A is at center of the other nodes)
+-  [x] Parse constraint strings into suitable matrix-rhs specs
+-  [x] handle line styles
+-  [x] add new entry point for node positioning
+-  [x] add support for linear constraints for fixed positioning (?)
 -  [x] :load command to load script from file while repl continues
 -  [x] :history and :transcript command support
 -  [x] modify :show command to take an optional argument (start/open)
@@ -93,7 +98,7 @@ updateGraph for task:
 
 # Specifying Constraints
 
-Option 1. Specify constriants by object, rhs pairs
+Option 1. Specify constraints by object, rhs pairs
 
   Ex:  { A: { x: 1, y: 0 }, B: {x: -1} }  ,  0
   
@@ -194,7 +199,7 @@ JS function handling pterms and coordinateSum:
 
 ```js
 function constraintRegEx() {
-    const name = /'[^']+'/;
+    const name = /(?:'[^'\n]+'|[A-Za-z][-A-Za-z0-9_:<>,;]*)/;
      const coordinate = new RegExp(
       `(${name.source})\\s*\\.\\s*([xy])`
     );  
