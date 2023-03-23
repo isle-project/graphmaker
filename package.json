@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
+    "compile-constraints": "npx nearleyc lib/constraint-grammar.ne -o lib/constraint-grammar.js",
     "lint": "eslint lib/*.js test/*.js"
   },
   "repository": {
