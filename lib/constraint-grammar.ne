@@ -3,8 +3,8 @@ const moo = require("moo");
 
 const lexer = moo.compile({
   ws: { match: /\s+/, lineBreaks: true },
-  number: { match: /(?:0|-?\d+(?:\.\d+)?|-?\.\d+)/, value: numstr => Number(numstr) },
-  node: { 
+  number: { match: /(?:-?\d+(?:\.\d+)?|-?\.\d+|0)/, value: numstr => Number(numstr) },
+  node: {
             match: /(?:'[^'\n]+'|[A-Za-z][-A-Za-z0-9_:<>,;]*)/,
             value: s => {
                 if ( s.startsWith("'") ) {
@@ -99,7 +99,7 @@ pterm -> term
                          coef: coord.coef * coef
                         }) );
              }
-         
+
          %}
        | coordinateGroup _ %div _ %number                    {%
              function( data ) {
@@ -111,7 +111,7 @@ pterm -> term
                         }) );
              }
          %}
-      
+
 term -> %number _ %mult:? _ coordinate                      {%
             function( data ) {
                 const coord = data[data.length - 1];
@@ -133,7 +133,7 @@ term -> %number _ %mult:? _ coordinate                      {%
                      type: 'NUMBER',
                      coef: data[0].value
                  };
-             } 
+             }
         %}
 
 coordinateGroup -> %lparen _ coordinateSum _ %rparen        {%
