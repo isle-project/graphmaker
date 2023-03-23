@@ -1,3 +1,6 @@
+# Explicitly ignored auto-generated files
+lib/constraint-grammar.js
+
 # Logs
 logs
 *.log
