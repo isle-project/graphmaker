@@ -175,36 +175,64 @@
           "enum": [
             "solid",
             "dotted",
-            "hashed"
+            "hashed",
+            "crosshatched"
           ]
         },
         {
           "type": "array",
-          "minItems": 2,
-          "maxItems": 2,
+          "minItems": 1,
+          "maxItems": 3,
           "items": [
             {
               "const": "dotted"
             },
             {
               "type": "number",
+              "minimum": 0,
+              "description": "Size of the dots in pixels"
+            },
+            {
+              "type": "number",
               "minimum": 1,
               "maximum": 100,
-              "description": "Dot diameter as a percentage of the node size"
+              "description": "Pixels per dot in both horizontal and vertical directions"
             }
           ]
         },
         {
           "type": "array",
-          "minItems": 2,
-          "maxItems": 2,
+          "minItems": 1,
+          "maxItems": 3,
           "items": [
             {
               "const": "hashed"
             },
             {
+              "enum": ["vertical", "horizontal", "increasing", "decreasing"],
+              "default": "increasing"
+            },
+            {
               "type": "number",
-              "description": "Angle of hash lines in the fill regions (0 = horizontal)"
+              "description": "Thickness of the hashing lines"
+            }
+          ]
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": [
+            {
+              "const": "crosshatched"
+            },
+            {
+              "enum": ["vertical", "diagonal"],
+              "default": "vertical"
+            },
+            {
+              "type": "number",
+              "description": "Thickness of the cross-hatching lines"
             }
           ]
         }
@@ -407,6 +435,9 @@
           },
           "fillColor": {
             "$ref": "#/$defs/fillColor"
+          },
+          "fillStyle": {
+            "$ref": "#/$defs/fillStyle"
           },
           "lineWidth": {
             "$ref": "#/$defs/lineWidth"
