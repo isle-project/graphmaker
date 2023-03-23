@@ -1,0 +1,16 @@
+{
+    "directed": false,
+    "nodes": {
+        "A": {},
+        "B": {},
+        "C": {},
+        "D": {},
+        "E": {}
+    },
+    "edges": {},
+    "adjacency": {},
+    "constraints": [
+        "0.25 (A.x + B.x + C.x + D.x) = E.x",
+        "0.25 (A.y + B.y + C.y + D.y) = E.y"
+    ]
+}

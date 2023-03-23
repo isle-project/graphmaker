@@ -1,0 +1,13 @@
+{
+    "directed": false,
+    "nodes": {
+        "A": {},
+        "B": {},
+        "C": {}
+    },
+    "edges": {},
+    "adjacency": {},
+    "constraints": [
+        "'A'.x - 'B'.x = 0"
+    ]
+}
