@@ -90,7 +90,7 @@ expr -> pterm                                                {% id %}
         %}
 
 pterm -> term
-       | %number _ %mult:? _ coordinateGroup                 {%
+       | %number maybeMult coordinateGroup                  {%
              function( data ) {
                  const coords = data[data.length - 1];
                  const coef = data[0].value;
@@ -101,7 +101,7 @@ pterm -> term
              }
 
          %}
-       | coordinateGroup _ %div _ %number                    {%
+       | coordinateGroup _ %div _ %number                   {%
              function( data ) {
                  const coords = data[0];
                  const coef = 1.0 / data[data.length - 1];  // ATTN:check error if value is zero
@@ -112,14 +112,7 @@ pterm -> term
              }
          %}
 
-term -> %number _ %mult _ coordinate                        {%
-            function( data ) {
-                const coord = data[data.length - 1];
-                const num = data[0].value;
-                return { ...coord, coef: coord.coef * num };
-            }
-        %}
-      | %number _ coordinate                                {%
+term -> %number maybeMult coordinate                        {%
             function( data ) {
                 const coord = data[data.length - 1];
                 const num = data[0].value;
@@ -142,6 +135,9 @@ term -> %number _ %mult _ coordinate                        {%
                  };
              }
         %}
+
+maybeMult -> _ %mult _                                      {% ignore %}
+           | _                                              {% ignore %}
 
 coordinateGroup -> %lparen _ coordinateSum _ %rparen        {%
                        function( data ) {
