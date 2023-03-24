@@ -112,7 +112,14 @@ pterm -> term
              }
          %}
 
-term -> %number _ %mult:? _ coordinate                      {%
+term -> %number _ %mult _ coordinate                        {%
+            function( data ) {
+                const coord = data[data.length - 1];
+                const num = data[0].value;
+                return { ...coord, coef: coord.coef * num };
+            }
+        %}
+      | %number _ coordinate                                {%
             function( data ) {
                 const coord = data[data.length - 1];
                 const num = data[0].value;
