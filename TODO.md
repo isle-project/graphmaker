@@ -56,10 +56,10 @@ updateGraph for task:
 # TODO
 
 
--  [x] finish fill styles
 -  [ ] add inequality constraints to node positioning
 -  [ ] add export to tikz 
 -  [ ] add edge, label, and adjustment positioning phases to the automatic positioning
+-  [ ] repl message on retries (alive/progress indicator)
 -  [ ] REFACTOR? projection handling differs between svg elements (reason: fill handling for text or regions)
 -  [ ] clean-up the code
 -  [ ] PROVISIONAL font size scale with node size??
@@ -67,6 +67,7 @@ updateGraph for task:
 -  [ ] PROVISIONAL handle arrow styles
 -  [ ] PROVISIONAL handle z-index
 -  [ ] PROVISIONAL user-defined node and edge attributes
+-  [x] finish fill styles
 -  [x] insert node x,y for starting/current positions to provide stability
 -  [x] Experiment with AI specification of constraints (e.g., C is at the midpoint of the line from A to B, A is above B, A-C are at the same horizontal position, A is at center of the other nodes)
 -  [x] Parse constraint strings into suitable matrix-rhs specs
@@ -249,3 +250,37 @@ function constraintRegEx() {
                    | coordinateSum '-' coordinate
                    
      
+     # Inequality Constraints
+
+     Equality constraints      A x = b     A is a c by n matrix
+     Inequality constraints    L x <= d    L is an s by n matrix
+
+     Two cases: 1 . s + c <= n, 2. s + c > n.
+
+     SVD for A:   U [D 0] [V_1 V_0]^T    U is  c by x,  D is C by n,  [V_1 V_0] is n by n orthogonal
+
+     Equality constraints:  If I have a feasible solution, x_0,   x_0 + Null(A)  is also feasible
+                            Feasible solution:   base =  V_1 D^-1 U^T b     base + Null(A)
+                            Initial positions: project given positions onto the affine space  base + Null(A)
+
+     Inequality constraints: If I have a feasible solution, x_0.   Force F(x_0) and project on Null(A)
+                                     x_1 = x_0 + delta P_0 F(x_0)   (like before except delta is chosen so that L x_1 <= d).
+                                     s_0 = d - L x_0
+                                     s_1 = d - L x_1 = s_0 - delta L P_0 F(x_0).  Need s_1 >= 0 to find delta.
+                            Stop when || P_0 F(x_0) || = 0 or (?!) when delta = 0.   (Issue 2. Probably minor or not an issue.)
+                            Issue 1. Finding a feasible solution.
+
+                            Use x_0 from before as an initial guess and then modify to ensure  L x_0' <= d
+                            Assume that either  L x_0 <= d or rank(L V_0) = s.
+
+                            Case 1. s + c <= n.    (n - c >= s)
+                                    L V_0  defines a subspace spanned by s orthogonal vectors. 
+                                    x s.c   L x_0 + L V_0 x <= d  or   L V_0 x <= d_0 == d - L x_0
+                                    Feasible solution   x_0' = x_0 + (L V_0)^dagger y   for any y <= d_0.
+                            Case 2.  s + c > n   (or 0 < rank(L V_0) < s)
+                                     min_alpha  sum_i  (alpha^T z_i - d_i - epsilon)_+^2
+
+                            
+                    
+
+
