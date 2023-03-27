@@ -1,0 +1,51 @@
+{
+    "directed": false,
+    "nodes": {
+      "A": {
+        "x": 0.2
+      },
+      "B": {
+        "x": 0.4
+      },
+      "C": {
+        "x": 0.6
+      },
+      "D": {
+        "x": 0.2
+      },
+      "E": {
+        "x": 0.4
+      },
+      "F": {
+        "x": 0.6
+      },
+      "G": {
+        "x": 0.8
+      },
+      "H": {
+        "x": 1
+      }
+    },
+    "edges": {},
+    "adjacency": {},
+    "constraints": [
+      {
+        "meaning": "Nodes A,B,C are at the same horizontal position",
+        "constraints": [
+          "'A'.x = 'B'.x",
+          "'B'.x = 'C'.x"
+        ]
+      },
+      {
+        "meaning": "Nodes D,E,F,G,H are at the same horizontal position",
+        "constraints": [
+          "'D'.x = 'E'.x",
+          "'D'.x = 'F'.x",
+          "'E'.x = 'F'.x",
+          "'F'.x = 'G'.x",
+          "'G'.x = 'H'.x",
+          "'G'.x = 'F'.x"
+        ]
+      }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "prompt": "add nodes A-H\nmake this a bipartite graph with nodes A,B,C in the first group and nodes D,E,F,G,H in the second group and ensure that within each group, all nodes are positioned at the same horizontal position",
+    "directed": false,
+    "nodes": {
+      "A": {
+        "x": 0.2
+      },
+      "B": {
+        "x": 0.4
+      },
+      "C": {
+        "x": 0.6
+      },
+      "D": {
+        "x": 0.2
+      },
+      "E": {
+        "x": 0.4
+      },
+      "F": {
+        "x": 0.6
+      },
+      "G": {
+        "x": 0.8
+      },
+      "H": {
+        "x": 1
+      }
+    },
+    "edges": {},
+    "adjacency": {},
+    "constraints": [
+      {
+        "meaning": "Nodes A,B,C are at the same horizontal position",
+        "constraints": [
+          "'A'.x = 'B'.x",
+          "'B'.x = 'C'.x"
+        ]
+      },
+      {
+        "meaning": "Nodes D,E,F,G,H are at the same horizontal position",
+        "constraints": [
+          "'D'.x = 'E'.x",
+          "'E'.x = 'F'.x",
+          "'F'.x = 'G'.x",
+          "'G'.x = 'H'.x"
+        ]
+      }
+    ]
+}

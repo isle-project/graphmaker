@@ -1,0 +1,45 @@
+{
+    "directed": false,
+    "nodes": {
+      "A": {
+        "x": 0
+      },
+      "B": {
+        "x": 0
+      },
+      "C": {
+        "x": 0
+      },
+      "D": {
+        "x": 1
+      },
+      "E": {
+        "x": 1
+      },
+      "F": {
+        "x": 1
+      },
+      "G": {
+        "x": 1
+      },
+      "H": {
+        "x": 1
+      }
+    },
+    "edges": {},
+    "adjacency": {},
+    "constraints": [
+      {
+        "meaning": "Nodes A is to the left of nodes D-H",
+        "constraints": ["'A'.x <= 'D'.x", "'A'.x <= 'E'.x", "'A'.x <= 'F'.x", "'A'.x <= 'G'.x", "'A'.x <= 'H'.x"]
+      },
+      {
+       "meaning": "Nodes B is to the left of nodes D-H",
+        "constraints": ["'B'.x <= 'D'.x", "'B'.x <= 'E'.x", "'B'.x <= 'F'.x", "'B'.x <= 'G'.x", "'B'.x <= 'H'.x"]
+      },
+      {
+        "meaning": "Nodes C is to the left of nodes D-H",
+        "constraints": ["'C'.x <= 'D'.x", "'C'.x <= 'E'.x", "'C'.x <= 'F'.x", "'C'.x <= 'G'.x", "'C'.x <= 'H'.x"]
+      }
+    ]
+}
