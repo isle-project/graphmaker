@@ -55,18 +55,17 @@ updateGraph for task:
 
 # TODO
 
-
--  [ ] add inequality constraints to node positioning
--  [ ] add export to tikz 
--  [ ] add edge, label, and adjustment positioning phases to the automatic positioning
 -  [ ] repl message on retries (alive/progress indicator)
+-  [ ] add edge, label, and adjustment positioning phases to the automatic positioning
 -  [ ] REFACTOR? projection handling differs between svg elements (reason: fill handling for text or regions)
 -  [ ] clean-up the code
 -  [ ] PROVISIONAL font size scale with node size??
--  [ ] PROVISIONAL :set command add to config in repl  (use cases: turn names on or off, canvas dimensions)
 -  [ ] PROVISIONAL handle arrow styles
 -  [ ] PROVISIONAL handle z-index
 -  [ ] PROVISIONAL user-defined node and edge attributes
+-  [x] add inequality constraints to node positioning
+-  [x] add export to tikz 
+-  [x] :config command add to config in repl  (use cases: turn names on or off, canvas dimensions)
 -  [x] finish fill styles
 -  [x] insert node x,y for starting/current positions to provide stability
 -  [x] Experiment with AI specification of constraints (e.g., C is at the midpoint of the line from A to B, A is above B, A-C are at the same horizontal position, A is at center of the other nodes)
