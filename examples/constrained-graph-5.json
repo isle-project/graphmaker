@@ -1,0 +1,15 @@
+{
+    "directed": false,
+    "nodes": {
+        "A": {},
+        "B": {},
+        "C": {}
+    },
+    "edges": {},
+    "adjacency": {},
+    "constraints": [
+        "0.5 'A'.x + 0.5 'B'.x = 'C'.x",
+        "0.5 'A'.y + 0.5 'B'.y = 'C'.y",
+        "'A'.y >= 'B'.y"
+    ]
+}

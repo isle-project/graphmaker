@@ -209,7 +209,12 @@
               "const": "hashed"
             },
             {
-              "enum": ["vertical", "horizontal", "increasing", "decreasing"],
+              "enum": [
+                "vertical",
+                "horizontal",
+                "increasing",
+                "decreasing"
+              ],
               "default": "increasing"
             },
             {
@@ -227,7 +232,10 @@
               "const": "crosshatched"
             },
             {
-              "enum": ["vertical", "diagonal"],
+              "enum": [
+                "vertical",
+                "diagonal"
+              ],
               "default": "vertical"
             },
             {
@@ -375,21 +383,64 @@
     },
     "constraints": {
       "type": "array",
-      "description": "Array of constraints on node (x,y) coordinates of the nodes",
+      "description": "Array of positioning constraints on node (x,y) coordinates of the nodes, where (0,0) is the bottom-left point of the canvas, with x-coordinates increasing to the right and y-coordinates increasing to the top. Positioning requests for the nodes should be treated as requests for corresponding constraints on the node positions.",
       "default": [],
       "items": {
-        "type": "string",
-        "description": "A linear equation or inequality on the coordinates of a node in terms of the node names. Node names have to be enclosed by single quotes. Operators * / + - are supported. This string must not contain parentheses.",
+        "type": "object",
+        "description": "A positioning constraint on node (x,y) coordinates",
+        "properties": {
+          "meaning": {
+            "type": "string",
+            "description": "A description of the constraint",
+            "default": ""
+          },
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "A linear equation or inequality on the coordinates of a node in terms of the node names. Node names have to be enclosed by single quotes. Operators * / + - are supported. This string must not contain parentheses.",
+              "examples": [
+                "'A'.x + 'B'.x = 0",
+                "2.1 'F'.x + 3 'G'.x - 4 'H'.x = 17",
+                "'node1'.x / 3 + 'node2'.x / 3 + 'node3'.x / 3 = 'node4'.x",
+                "'node7.y - 13 node8.y = 4",
+                "'A'.x + 'B'.y = 'C'.x + 'D'.y",
+                "'C'.y - 'D'.y <= 0",
+                "'A'.y - 'B'.x >= 0",
+                "1.1 'U'.x - 3.2 'V'.x <= 0",
+                "1.1 'U'.y - 3.2 'V'.y <= 0"
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
         "examples": [
-          "'A'.x + 'B'.x = 0",
-          "2.1 'F'.x + 3 'G'.x - 4 'H'.x = 17",
-          "'node1'.x / 3 + 'node2'.x / 3 + 'node3'.x / 3 = 'node4'.x",
-          "'node7.y - 13 node8.y = 4",
-          "'A'.x + 'B'.y = 'C'.x + 'D'.y",
-          "'C'.y - 'D'.y <= 0",
-          "'A'.y - 'B'.x >= 0",
-          "1.1 'U'.x - 3.2 'V'.x <= 0",
-          "1.1 'U'.y - 3.2 'V'.y <= 0"
+          {
+            "meaning": "Node A is to the left of node B",
+            "constraints": ["'A'.x <= 'B'.x"]
+          },
+          {
+            "meaning": "Node C is above node D",
+            "constraints": ["'C'.y >= 'D'.y"]
+          },
+          {
+            "meaning": "Nodes U and V are at the same height",
+            "constraints": ["'U'.y = 'V'.y"]
+          },
+          {
+            "meaning": "Node C is at the midpoint of nodes A and B",
+            "constraint": [
+              "'C'.x = ('A'.x + 'B'.x) / 2",
+              "'C'.y = ('A'.y + 'B'.y) / 2"
+            ]
+          },
+          {
+            "meaning": "Nodes A, B, C are at the same horizontal position",
+            "constraints": [
+              "'A'.x = 'B'.x'",
+              "'B'.x = 'C'.x"
+            ]
+          }
         ]
       }
     },
@@ -409,7 +460,7 @@
             "default": 1
           },
           "size": {
-            "$ref" : "#/$defs/nodeSize",
+            "$ref": "#/$defs/nodeSize",
             "default": 1
           },
           "label": {
@@ -590,7 +641,10 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["text", "region"],
+            "enum": [
+              "text",
+              "region"
+            ],
             "description": "The type of decoration"
           },
           "x": {
@@ -643,18 +697,26 @@
               {
                 "properties": {
                   "type": {
-                    "enum": ["text"]
+                    "enum": [
+                      "text"
+                    ]
                   }
                 },
-                "required": ["text"]
+                "required": [
+                  "text"
+                ]
               },
               {
                 "properties": {
                   "type": {
-                    "enum": ["region"]
+                    "enum": [
+                      "region"
+                    ]
                   }
                 },
-                "required": ["region"]
+                "required": [
+                  "region"
+                ]
               }
             ]
           }
