@@ -1,0 +1,11 @@
+.npmignore
+.editorconfig
+.eslintrc*
+.eslintignore
+.gitignore
+TODO.md
+
+.vscode/
+**/test/
+**/node_modules/
+**/dist/
