@@ -20,13 +20,29 @@ npm install -g graphmaker
 
 Start the REPL:
 
-```bash
+```text
 graphmaker 
+```
+
+```txt
+Usage: graphmaker [options]
+
+Options:
+
+  -h,    --help                Print this message.
+  -V,    --version             Print the package version.
+  -p,    --provider            Model provider ("OpenAI")
+  -m,    --model               Model to use ("gpt-3.5-turbo", "gpt4")
+  -a,    --apiKey              Model provider API key
+  -w,    --width               Width of the graph
+  -h,    --height              Height of the graph
+  -d,    --draft               Enable draft mode
+  -c,    --config              Path to JSON configuration file
 ```
 
 ### REPL Commands
 
-```txt
+```text
 Commands:
   <task> - execute a task
   :save <filename> - save the graph to a file, format is determined by the file extension
