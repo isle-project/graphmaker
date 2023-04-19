@@ -10,7 +10,23 @@
 
 ---
 
-## Installation as REPL tool
+## REPL tool
+
+### Installation
+
+#### Via installation script:
+
+To install or update `graphmaker`, you can run the install script. You may either download and run the script manually, or use one of the following commands:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/isle-project/graphmaker/install-graphmaker.sh | bash
+```
+
+```bash
+wget -sSL https://raw.githubusercontent.com/isle-project/graphmaker/install-graphmaker.sh | bash
+```
+
+#### Via npm:
 
 ```bash
 npm install -g graphmaker
@@ -31,13 +47,13 @@ Options:
 
   -h,    --help                Print this message.
   -V,    --version             Print the package version.
-  -p,    --provider            Model provider ("OpenAI").
-  -m,    --model               Model to use ("gpt-3.5-turbo", "gpt4").
-  -a,    --apiKey              Model provider API key.
-  -w,    --width               Width of the graph.
-  -h,    --height              Height of the graph.
+  -p,    --provider NAME       Model provider ("OpenAI").
+  -m,    --model NAME          Model to use ("gpt-3.5-turbo", "gpt4").
+  -a,    --apiKey KEY          Model provider API key.
+  -w,    --width PIXELS        Width of the graph.
+  -h,    --height PIXELS       Height of the graph.
   -d,    --draft               Enable draft mode.
-  -c,    --config              Path to JSON configuration file.
+  -c,    --config FILE_PATH    Path to JSON configuration file.
 ```
 
 ### REPL Commands
@@ -59,7 +75,9 @@ Commands:
   :exit - exit the program
 ```
 
-## Installation as JavaScript / Node.js library
+## JavaScript / Node.js library
+
+### Installation
 
 ```bash
 npm install graphmaker
@@ -68,17 +86,17 @@ npm install graphmaker
 ### Usage
 
 ```javascript
-const GraphMaker = require('graphmaker');
+const GraphMaker = require( 'graphmaker' );
 
-function 
-// Initialize a new graph
-const state = GraphMaker.initializeGraph(config);
+const state = GraphMaker.initializeGraph( config );
 
-// Update the graph with a natural language prompt
-const [newState, output] = await GraphMaker.updateGraph(state, GraphMaker.task('Add a node A'));
+const oracle = GraphMaker.aiFactory( 'openai' );
 
-// Export the graph in various formats
-const [_, svgOutput] = await GraphMaker.updateGraph(state, GraphMaker.save({ format: 'svg' }));
+// Update the graph with a natural language prompt:
+const [ newState, output ] = await GraphMaker.updateGraph( state, GraphMaker.task( 'Add a node A', oracle ) );
+
+// Export the graph in various formats:
+const [ _, svgOutput ] = await GraphMaker.updateGraph (state, GraphMaker.save({ format: 'svg' }) );
 ```
 
 ### API
@@ -89,8 +107,80 @@ Initializes a new graph state with the given configuration options.
 
 ##### Arguments
 
-config: configuration options
+-   `config`: configuration options
 
 ##### Returns
 
 The initial graph state
+
+
+#### aiFactory(provider, {type, model})
+
+Creates an AI instance for generating directed and undirected graphs that match a specified JSON schema. The AI instance will be responsible for ensuring that nodes, edges, and properties are set correctly according to the schema.
+
+##### Arguments
+
+-   `provider`: the AI provider to use (currently only supports 'openai')
+-   `options`: the options for the AI instance
+    -   `options.type`: the type of AI instance to create (supports 'memoryless' and 'serial')
+    -   `options.model`: the AI model to use (currently only supports 'gpt-3.5-turbo')
+
+##### Returns
+
+-   A function that takes a user prompt and an object containing the current graph state and history, and returns a Promise that resolves to the updated graph state according to the AI's interpretation of the prompt.
+
+#### .updateGraph(state, {action, payload})
+
+Updates the graph state based on the action and payload. The following actions are available:
+
+-   `'TASK'`: Change the graph according to a user's prompt
+-   `'REDO'`: Redo the last undone command on the graph
+-   `'UNDO'`: Undo the last command on the graph
+-   `'SAVE'`: Save the graph in a given format
+-   `'SET_GRAPH'`: Set the graph to a given graph
+
+##### Arguments
+
+-   `state`: the current state of the graph
+-   `options`: the options for the update
+    -   `options.action`: the action to perform
+    -   `options.payload`: the payload of the action
+
+#### .task(prompt, oracle)
+
+Returns a command to change a graph according to a user's `prompt`. The AI model passed as an `oracle` (e.g., a function returned from `aiFactory`) will interpret the prompt and perform the desired action, such as adding or removing nodes or edges, or changing properties of the graph elements.
+
+##### Arguments
+
+-   `prompt`: the prompt to update the graph with
+-   `oracle`: the oracle to use for the prompt 
+
+#### .setGraph(graph)
+
+Returns a command to set the graph to a given graph.
+
+##### Arguments
+
+-   `graph`: the graph to set
+
+#### .resetGraph()
+
+Returns a command to reset the graph to its initial graph.
+
+#### .redo()
+
+Returns a command to redo the last undone command on the graph.
+
+#### .undo()
+
+Returns a command to undo the last command on the graph.
+
+#### .save(config)
+
+Returns a command to save the graph in a given format.
+
+##### Arguments
+
+-   `config`: the graph config payload
+    -   `config.format`: the format to save the graph in (defaults to 'json'). Possible values are: 'svg', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'webp', 'tiff', 'tikz', and 'json'.
+    -   `config.draft`: whether to save the graph as a draft (defaults to false)

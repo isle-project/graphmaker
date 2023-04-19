@@ -55,14 +55,17 @@ updateGraph for task:
 
 # TODO
 
+-  [ ] IMMEDIATE (at least simple) in repl help for how to use/examples/etc.
 -  [x] IMMEDIATE repl :config command set API key, or from command line, or from standard file (e.g., ~/.graphmaker.config)
 -  [x] IMMEDIATE generate a platform-independent (as much as possible) installer script for the graphmaker repl tool
        Needs to (i) install Node.js / npm, dependencies, (ii) create base config, (iii) install executable script, (iv) prompt with help in storing API key etc
 -  [x] IMMEDIATE repl message on retries (alive/progress indicator)
 -  [x] IMMEDIATE in repl, use dynamic require to load expensive modules only when needed (e.g., sharp when saving PDF) to improve startup
--  [ ] IMMEDIATE finish help text for --help option, check version for outdated reminder
+-  [x] IMMEDIATE finish help text for --help option, check version for outdated reminder
 -  [ ] PRIORITY add LaTeX support for labels (!)  [Plan: use mathjax to generate SVG elements]
 -  [ ] PRIORITY add edge, label, and adjustment positioning phases to the automatic positioning
+-  [ ] PRIORITY adjust parser to allow multipliers of parenthetical expressions on the right
+-  [ ] URL encoding of graph state for easy sharing, serving, linking, etc.
 -  [ ] REFACTOR? projection handling differs between svg elements (reason: fill handling for text or regions)
 -  [ ] clean-up the code
 -  [ ] PROVISIONAL font size scale with node size??
