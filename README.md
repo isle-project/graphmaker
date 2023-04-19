@@ -1,8 +1,8 @@
 # graphmaker
 
-> Create visualizations of undirected and directed graphs with the help of AI.
+<img src="https://raw.githubusercontent.com/isle-project/graphmaker/main/graphmaker.gif?token=GHSAT0AAAAAABPKUBSDJ72NROOJMVPUIQKAZB76NYQ" alt="Logo" />
 
-GraphMaker is a tool for creating, manipulating, and exporting graphs using natural language prompts. It uses an AI model to perform graph modifications, and supports exporting graphs in various formats, including SVG, PDF, PNG, JPG, GIF, WebP, TIFF, TikZ, and JSON.
+> GraphMaker is a tool for creating, manipulating, and exporting graphs using natural language.
 
 ## Installation as REPL tool
 
