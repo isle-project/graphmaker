@@ -5,7 +5,7 @@
 ---
 
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/isle-project/graphmaker/main/graphmaker.gif?token=GHSAT0AAAAAABPKUBSDJ72NROOJMVPUIQKAZB76NYQ" alt="Logo" style="width: 75%;" />
+  <img src="https://raw.githubusercontent.com/isle-project/graphmaker/main/graphmaker.gif" alt="Logo" style="width: 75%;" />
 </p>
 
 ---
