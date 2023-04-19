@@ -48,7 +48,7 @@ Options:
   -h,    --help                Print this message.
   -V,    --version             Print the package version.
   -p,    --provider NAME       Model provider ("OpenAI").
-  -m,    --model NAME          Model to use ("gpt-3.5-turbo", "gpt4").
+  -m,    --model NAME          Model to use ("gpt-3.5-turbo").
   -a,    --apiKey KEY          Model provider API key.
   -w,    --width PIXELS        Width of the graph.
   -h,    --height PIXELS       Height of the graph.
