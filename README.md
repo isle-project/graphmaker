@@ -31,13 +31,13 @@ Options:
 
   -h,    --help                Print this message.
   -V,    --version             Print the package version.
-  -p,    --provider            Model provider ("OpenAI")
-  -m,    --model               Model to use ("gpt-3.5-turbo", "gpt4")
-  -a,    --apiKey              Model provider API key
-  -w,    --width               Width of the graph
-  -h,    --height              Height of the graph
-  -d,    --draft               Enable draft mode
-  -c,    --config              Path to JSON configuration file
+  -p,    --provider            Model provider ("OpenAI").
+  -m,    --model               Model to use ("gpt-3.5-turbo", "gpt4").
+  -a,    --apiKey              Model provider API key.
+  -w,    --width               Width of the graph.
+  -h,    --height              Height of the graph.
+  -d,    --draft               Enable draft mode.
+  -c,    --config              Path to JSON configuration file.
 ```
 
 ### REPL Commands

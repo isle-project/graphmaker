@@ -58,7 +58,6 @@ const vscale = (v, c) => v.map( y => c * y );
 const vaffine = (x, y, a = 1, b = 1, c = 0) => x.map( (val, ind) => a*val + b*y[ind] + c );
 
 
-
 // Tests
 
 test( 'simple-position-symmetry',  () => {
@@ -103,14 +102,14 @@ test( 'simple-equality-constraints', () => {
     let init;
 
     const midpointConstraint = { matrix: [ [0.5, 0, 0.5, 0, -1, 0], [0, 0.5, 0, 0.5, 0, -1] ], rhs: [ 0, 0] };
-    init = [ [1,2], [-1,-2], [-1,2] ];
+    init = [ [1, 2], [-1, -2], [-1, 2] ];
     actual = constrainedEquilibrate( init, midpointConstraint, UNCONSTRAINED, EQ_OPTIONS );
     expect( actual.converged ).toBeTruthy();
     expect( norm(mmul(midpointConstraint.matrix, actual.positions.flat())) ).toBeCloseTo( 0, DIGITS_TO_ZERO );
-    
+
 
     const samecol3Constraint = { matrix: [ [1, 0, -1, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, -1, 0, 0, 0, 0, 0] ], rhs: [ 0, 0] };
-    init = [ [1,2], [-1,-2], [-1,2], [-0.5, 1], [1,-3] ];
+    init = [ [1, 2], [-1, -2], [-1, 2], [-0.5, 1], [1, -3] ];
     actual = constrainedEquilibrate( init, samecol3Constraint, UNCONSTRAINED, EQ_OPTIONS );
     expect( actual.converged ).toBeTruthy();
     console.log(actual);
