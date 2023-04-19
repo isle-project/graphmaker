@@ -1,8 +1,12 @@
 # graphmaker
 
-<img src="https://raw.githubusercontent.com/isle-project/graphmaker/main/graphmaker.gif?token=GHSAT0AAAAAABPKUBSDJ72NROOJMVPUIQKAZB76NYQ" alt="Logo" />
-
 > GraphMaker is a tool for creating, manipulating, and exporting graphs using natural language.
+
+---
+
+<img src="https://raw.githubusercontent.com/isle-project/graphmaker/main/graphmaker.gif?token=GHSAT0AAAAAABPKUBSDJ72NROOJMVPUIQKAZB76NYQ" alt="Logo" style="width: 75%; display: block; margin-left: auto; margin-right: auto;" />
+
+---
 
 ## Installation as REPL tool
 
