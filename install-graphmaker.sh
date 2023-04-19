@@ -22,6 +22,10 @@ if ! (npm list -g graphmaker > /dev/null) then
   npm install -g graphmaker
   echo "Use the :config command to set your API key from within the session."
   echo "You can set up a configuration file in ~/.graphmaker.json that sets this persistently."
+  echo ""
 fi
 
-exec graphmaker $*
+echo "graphmaker (version $(graphmaker --version)) has been installed."
+echo "You can start graphmaker from your terminal by typing 'graphmaker' at the prompt."
+exit 0
+## exec graphmaker $*
