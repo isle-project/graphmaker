@@ -1,0 +1,50 @@
+{
+  "directed": true,
+  "nodes": {
+    "A": {
+      "shape": "rectangle",
+      "widthToHeight": 2,
+      "label": "Start"
+    },
+    "B": {
+      "shape": "circle"
+    },
+    "C": {
+      "shape": "circle"
+    },
+    "D": {
+      "shape": "rectangle",
+      "widthToHeight": 2,
+      "label": "End"
+    }
+  },
+  "edges": {
+    "AB": {},
+    "AC": {},
+    "AD": {},
+    "CD": {}
+  },
+  "adjacency": {
+    "A": [
+      {
+        "targetNode": "B",
+        "edge": "AB"
+      },
+      {
+        "targetNode": "C",
+        "edge": "AC"
+      },
+      {
+        "targetNode": "D",
+        "edge": "AD"
+      }
+    ],
+    "C": [
+      {
+        "targetNode": "D",
+        "edge": "CD"
+      }
+    ]
+  },
+  "constraints": []
+}

@@ -1,0 +1,8 @@
+make graph directed
+add nodes A-D
+add edges from node A to all other nodes
+add an edge from node C to node D
+give node A the label "Start"
+give node D the label "End"
+make nodes A and D rectangles with the width being twice the height
+:config draft false
