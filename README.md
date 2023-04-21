@@ -114,7 +114,7 @@ Initializes a new graph state with the given configuration options.
 The initial graph state
 
 
-#### aiFactory(provider, {type, model})
+#### .aiFactory(provider, {type, model})
 
 Creates an AI instance for generating directed and undirected graphs that match a specified JSON schema. The AI instance will be responsible for ensuring that nodes, edges, and properties are set correctly according to the schema.
 
