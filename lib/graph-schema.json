@@ -12,10 +12,6 @@
       "type": "number",
       "description": "y-coordinate (lower boundary of canvas is zero, upper boundary is one)"
     },
-    "z": {
-      "type": "number",
-      "description": "z-index"
-    },
     "nodeShape": {
       "enum": [
         "circle",
@@ -475,9 +471,6 @@
           "y": {
             "$ref": "#/$defs/y"
           },
-          "z": {
-            "$ref": "#/$defs/z"
-          },
           "style": {
             "$ref": "#/$defs/style"
           },
@@ -560,9 +553,6 @@
           },
           "weightOffset": {
             "$ref": "#/$defs/offset"
-          },
-          "z": {
-            "$ref": "#/$defs/z"
           },
           "style": {
             "$ref": "#/$defs/style"
@@ -652,9 +642,6 @@
           },
           "y": {
             "$ref": "#/$defs/y"
-          },
-          "z": {
-            "$ref": "#/$defs/z"
           },
           "style": {
             "$ref": "#/$defs/style"
