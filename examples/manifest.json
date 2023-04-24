@@ -2,5 +2,17 @@
     {
         "name": "Directed Graph with Four Nodes",
         "path": "directed-graph-four-nodes"
+    },
+    {
+        "name": "Complete Graph with Six Nodes",
+        "path": "complete-graph-six-nodes"
+    },
+    {
+        "name": "Undirected Bipartite Graph",
+        "path": "undirected-bipartite-graph"
+    },
+    {
+        "name": "Undirected Bipartite Graph Revisited",
+        "path": "undirected-bipartite-graph-revisited"
     }
 ]

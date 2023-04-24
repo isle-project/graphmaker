@@ -1,0 +1,263 @@
+{
+  "directed": false,
+  "nodes": {
+    "A": {
+      "shape": "triangle",
+      "fillColor": "tomato"
+    },
+    "B": {
+      "shape": "triangle",
+      "fillColor": "tomato"
+    },
+    "C": {
+      "shape": "triangle",
+      "fillColor": "tomato"
+    },
+    "D": {
+      "shape": "triangle",
+      "fillColor": "tomato"
+    },
+    "E": {
+      "shape": "triangle",
+      "fillColor": "tomato"
+    },
+    "F": {
+      "shape": "circle",
+      "fillColor": "green"
+    },
+    "G": {
+      "shape": "circle",
+      "fillColor": "green"
+    },
+    "H": {
+      "shape": "circle",
+      "fillColor": "green"
+    },
+    "I": {
+      "shape": "circle",
+      "fillColor": "green"
+    },
+    "J": {
+      "shape": "circle",
+      "fillColor": "green"
+    }
+  },
+  "edges": {
+    "AF": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "AG": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "AJ": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "BG": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "BJ": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "CF": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "CG": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "CH": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "CI": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "CJ": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "DG": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "DH": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "EG": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    },
+    "EH": {
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
+    }
+  },
+  "adjacency": {
+    "A": [
+      {
+        "targetNode": "F",
+        "edge": "AF"
+      },
+      {
+        "targetNode": "G",
+        "edge": "AG"
+      },
+      {
+        "targetNode": "J",
+        "edge": "AJ"
+      }
+    ],
+    "B": [
+      {
+        "targetNode": "G",
+        "edge": "BG"
+      },
+      {
+        "targetNode": "J",
+        "edge": "BJ"
+      }
+    ],
+    "C": [
+      {
+        "targetNode": "F",
+        "edge": "CF"
+      },
+      {
+        "targetNode": "G",
+        "edge": "CG"
+      },
+      {
+        "targetNode": "H",
+        "edge": "CH"
+      },
+      {
+        "targetNode": "I",
+        "edge": "CI"
+      },
+      {
+        "targetNode": "J",
+        "edge": "CJ"
+      }
+    ],
+    "D": [
+      {
+        "targetNode": "G",
+        "edge": "DG"
+      },
+      {
+        "targetNode": "H",
+        "edge": "DH"
+      }
+    ],
+    "E": [
+      {
+        "targetNode": "G",
+        "edge": "EG"
+      },
+      {
+        "targetNode": "H",
+        "edge": "EH"
+      }
+    ],
+    "F": [
+      {
+        "targetNode": "A",
+        "edge": "AF"
+      },
+      {
+        "targetNode": "C",
+        "edge": "CF"
+      }
+    ],
+    "G": [
+      {
+        "targetNode": "A",
+        "edge": "AG"
+      },
+      {
+        "targetNode": "B",
+        "edge": "BG"
+      },
+      {
+        "targetNode": "C",
+        "edge": "CG"
+      },
+      {
+        "targetNode": "D",
+        "edge": "DG"
+      },
+      {
+        "targetNode": "E",
+        "edge": "EG"
+      }
+    ],
+    "H": [
+      {
+        "targetNode": "C",
+        "edge": "CH"
+      },
+      {
+        "targetNode": "D",
+        "edge": "DH"
+      },
+      {
+        "targetNode": "E",
+        "edge": "EH"
+      }
+    ],
+    "I": [
+      {
+        "targetNode": "C",
+        "edge": "CI"
+      }
+    ],
+    "J": [
+      {
+        "targetNode": "A",
+        "edge": "AJ"
+      },
+      {
+        "targetNode": "B",
+        "edge": "BJ"
+      },
+      {
+        "targetNode": "C",
+        "edge": "CJ"
+      }
+    ]
+  },
+  "constraints": [
+    {
+      "meaning": "Nodes A-E share the same x-coordinate",
+      "constraints": [
+        "'A'.x = 'B'.x",
+        "'B'.x = 'C'.x",
+        "'C'.x = 'D'.x",
+        "'D'.x = 'E'.x"
+      ]
+    },
+    {
+      "meaning": "Nodes F-J share the same x-coordinate",
+      "constraints": [
+        "'F'.x = 'G'.x",
+        "'G'.x = 'H'.x",
+        "'H'.x = 'I'.x",
+        "'I'.x = 'J'.x"
+      ]
+    },
+    {
+      "meaning": "Nodes A-E are all to the left of nodes F-J",
+      "constraints": [
+        "'A'.x <= 'F'.x"
+      ]
+    }
+  ]
+}

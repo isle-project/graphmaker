@@ -1,0 +1,13 @@
+1. add nodes A-J
+2. add a constraint that nodes A-E are at the same horizontal coordinate
+3. add a constraint that nodes F-J are at the same horizontal coordinate
+4. add a constraint that nodes A-E are all to the left of nodes F-J
+5. make nodes A-E triangles
+6. add edges from node A to nodes F, G, and J
+7. add edges from node B to nodes G and J
+8. add edges from node C to each of the nodes F, G, H, I, and J
+9. add edges from node D to nodes G and H
+10. add edges from node E to nodes G and H
+11. make the edges thin with color steelblue
+12. fill nodes A-E with color tomato and nodes F-J with color green
+:config draft false

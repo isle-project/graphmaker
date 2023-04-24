@@ -1,0 +1,16 @@
+1. add nodes A-J
+2. add a constraint that nodes A-E are at the same horizontal coordinate
+3. add a constraint that nodes F-J are at the same horizontal coordinate
+4. add a constraint that nodes A-E are all to the left of nodes F-J
+5. define a style called left that has node shape triangle with node size 2 and fill color tomato
+6. define a style called right that has node shape circle with node size 2 and fill color green
+7. apply the left style to nodes A, B, C, D, and E
+8. apply the right style to nodes F, G, H, I, and J
+9. add edges from node A to nodes F, G, and J
+10. add edges from node B to nodes G and J
+11. add edges from node C to each of the nodes F, G, H, I, and J
+12. add edges from node D to nodes G and H
+13. add edges from node E to nodes G and H
+14. make the edges thin with color steelblue
+15. make node I a rectangle will fill color yellow
+:config draft false

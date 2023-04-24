@@ -1,0 +1,209 @@
+{
+  "directed": false,
+  "nodes": {
+    "A": {
+      "fillStyle": [
+        "hashed",
+        "increasing",
+        1
+      ]
+    },
+    "B": {
+      "fillStyle": [
+        "hashed",
+        "increasing",
+        1
+      ]
+    },
+    "C": {
+      "fillStyle": [
+        "hashed",
+        "increasing",
+        1
+      ]
+    },
+    "D": {
+      "fillStyle": [
+        "hashed",
+        "increasing",
+        1
+      ]
+    },
+    "E": {
+      "fillStyle": [
+        "hashed",
+        "increasing",
+        1
+      ]
+    },
+    "F": {
+      "fillStyle": [
+        "hashed",
+        "increasing",
+        1
+      ]
+    }
+  },
+  "edges": {
+    "AB": {},
+    "AC": {},
+    "AD": {},
+    "AE": {},
+    "AF": {},
+    "BC": {},
+    "BD": {},
+    "BE": {},
+    "BF": {},
+    "CD": {},
+    "CE": {},
+    "CF": {},
+    "DE": {},
+    "DF": {},
+    "EF": {}
+  },
+  "adjacency": {
+    "A": [
+      {
+        "targetNode": "B",
+        "edge": "AB"
+      },
+      {
+        "targetNode": "C",
+        "edge": "AC"
+      },
+      {
+        "targetNode": "D",
+        "edge": "AD"
+      },
+      {
+        "targetNode": "E",
+        "edge": "AE"
+      },
+      {
+        "targetNode": "F",
+        "edge": "AF"
+      }
+    ],
+    "B": [
+      {
+        "targetNode": "A",
+        "edge": "AB"
+      },
+      {
+        "targetNode": "C",
+        "edge": "BC"
+      },
+      {
+        "targetNode": "D",
+        "edge": "BD"
+      },
+      {
+        "targetNode": "E",
+        "edge": "BE"
+      },
+      {
+        "targetNode": "F",
+        "edge": "BF"
+      }
+    ],
+    "C": [
+      {
+        "targetNode": "A",
+        "edge": "AC"
+      },
+      {
+        "targetNode": "B",
+        "edge": "BC"
+      },
+      {
+        "targetNode": "D",
+        "edge": "CD"
+      },
+      {
+        "targetNode": "E",
+        "edge": "CE"
+      },
+      {
+        "targetNode": "F",
+        "edge": "CF"
+      }
+    ],
+    "D": [
+      {
+        "targetNode": "A",
+        "edge": "AD"
+      },
+      {
+        "targetNode": "B",
+        "edge": "BD"
+      },
+      {
+        "targetNode": "C",
+        "edge": "CD"
+      },
+      {
+        "targetNode": "E",
+        "edge": "DE"
+      },
+      {
+        "targetNode": "F",
+        "edge": "DF"
+      }
+    ],
+    "E": [
+      {
+        "targetNode": "A",
+        "edge": "AE"
+      },
+      {
+        "targetNode": "B",
+        "edge": "BE"
+      },
+      {
+        "targetNode": "C",
+        "edge": "CE"
+      },
+      {
+        "targetNode": "D",
+        "edge": "DE"
+      },
+      {
+        "targetNode": "F",
+        "edge": "EF"
+      }
+    ],
+    "F": [
+      {
+        "targetNode": "A",
+        "edge": "AF"
+      },
+      {
+        "targetNode": "B",
+        "edge": "BF"
+      },
+      {
+        "targetNode": "C",
+        "edge": "CF"
+      },
+      {
+        "targetNode": "D",
+        "edge": "DF"
+      },
+      {
+        "targetNode": "E",
+        "edge": "EF"
+      }
+    ]
+  },
+  "constraints": [],
+  "styles": {
+    "allNodes": {
+      "nodeSize": 1,
+      "fillStyle": [
+        "hashed",
+        "increasing",
+        1
+      ]
+    }
+  }
+}

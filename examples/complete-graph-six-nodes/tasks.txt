@@ -1,0 +1,5 @@
+add six nodes
+add edges from every node to every other node
+define a style named allNodes that fills the nodes with an increasing hashed pattern with thickness 1
+apply style allNodes to all nodes
+:config draft false
