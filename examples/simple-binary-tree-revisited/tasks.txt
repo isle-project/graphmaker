@@ -1,0 +1,2 @@
+add nodes 1-15
+add constraints on the positions of these nodes to produce a complete binary tree starting from the root at node 1

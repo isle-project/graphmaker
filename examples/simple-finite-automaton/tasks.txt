@@ -1,0 +1,12 @@
+add nodes 0 to 5
+make the graph directed
+add an edge from node 0 to node 1 with edge label 'a'
+add an edge from node 1 to node 2 with edge label 'b'
+color node 2 green
+add an edge from node 2 to itself with edge label 'b'
+add an edge from node 1 to node 3 with edge label 'a'
+add an edge from node 3 to itself with edge label 'a'
+add an edge from node 3 to node 4 with edge label 'c'
+add an edge from node 4 to itself with edge label 'c'
+add an edge from node 4 to node 5 with edge label 'g'
+color node 5 green

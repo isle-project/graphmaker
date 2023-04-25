@@ -1,0 +1,169 @@
+{
+  "directed": false,
+  "nodes": {
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {},
+    "8": {},
+    "9": {}
+  },
+  "edges": {
+    "12": {},
+    "13": {},
+    "24": {},
+    "25": {},
+    "36": {},
+    "37": {},
+    "68": {},
+    "69": {}
+  },
+  "adjacency": {
+    "1": [
+      {
+        "targetNode": "2",
+        "edge": "12"
+      },
+      {
+        "targetNode": "3",
+        "edge": "13"
+      }
+    ],
+    "2": [
+      {
+        "targetNode": "1",
+        "edge": "12"
+      },
+      {
+        "targetNode": "4",
+        "edge": "24"
+      },
+      {
+        "targetNode": "5",
+        "edge": "25"
+      }
+    ],
+    "3": [
+      {
+        "targetNode": "1",
+        "edge": "13"
+      },
+      {
+        "targetNode": "6",
+        "edge": "36"
+      },
+      {
+        "targetNode": "7",
+        "edge": "37"
+      }
+    ],
+    "4": [
+      {
+        "targetNode": "2",
+        "edge": "24"
+      }
+    ],
+    "5": [
+      {
+        "targetNode": "2",
+        "edge": "25"
+      }
+    ],
+    "6": [
+      {
+        "targetNode": "3",
+        "edge": "36"
+      },
+      {
+        "targetNode": "8",
+        "edge": "68"
+      },
+      {
+        "targetNode": "9",
+        "edge": "69"
+      }
+    ],
+    "7": [
+      {
+        "targetNode": "3",
+        "edge": "37"
+      }
+    ],
+    "8": [
+      {
+        "targetNode": "6",
+        "edge": "68"
+      }
+    ],
+    "9": [
+      {
+        "targetNode": "6",
+        "edge": "69"
+      }
+    ]
+  },
+  "constraints": [
+    {
+      "meaning": "Node 1 is above nodes 2 and 3",
+      "constraints": [
+        "'1'.y >= '2'.y",
+        " '1'.y >= '3'.y"
+      ]
+    },
+    {
+      "meaning": "Node 2 and 3 are at the same y-coordinate",
+      "constraints": [
+        "'2'.y = '3'.y"
+      ]
+    },
+    {
+      "meaning": "Node 2 is above nodes 4, 5, 6, and 7",
+      "constraints": [
+        "'2'.y >= '4'.y",
+        "'2'.y >= '5'.y",
+        "'2'.y >= '6'.y",
+        "'2'.y >= '7'.y"
+      ]
+    },
+    {
+      "meaning": "Nodes 4, 5, 6, and 7 are at the same y-coordinate",
+      "constraints": [
+        "'4'.y = '5'.y",
+        "'6'.y = '7'.y"
+      ]
+    },
+    {
+      "meaning": "Nodes 4, 5 are symmetrically placed horizontally around node 2",
+      "constraints": [
+        "'4'.x - '2'.x = - '5'.x + '2'.x"
+      ]
+    },
+    {
+      "meaning": "Nodes 6, 7 are symmetrically placed horizontally around node 3",
+      "constraints": [
+        "'6'.x - '3'.x = - '7'.x + '3'.x"
+      ]
+    },
+    {
+      "meaning": "Node 6 is above node 8",
+      "constraints": [
+        "'6'.y >= '8'.y"
+      ]
+    },
+    {
+      "meaning": "Nodes 8 and 9 are at the same y-coordinate",
+      "constraints": [
+        "'8'.y = '9'.y"
+      ]
+    },
+    {
+      "meaning": "Nodes 8 and 9 are symmetrically placed horizontally around node 6",
+      "constraints": [
+        "'8'.x - '6'.x = - '9'.x + '6'.x"
+      ]
+    }
+  ]
+}
