@@ -62,16 +62,18 @@ updateGraph for task:
 -  [x] IMMEDIATE repl message on retries (alive/progress indicator)
 -  [x] IMMEDIATE in repl, use dynamic require to load expensive modules only when needed (e.g., sharp when saving PDF) to improve startup
 -  [x] IMMEDIATE finish help text for --help option, check version for outdated reminder
--  [ ] PRIORITY add LaTeX support for labels (!)  [Plan: use mathjax to generate SVG elements]
--  [ ] PRIORITY add edge, label, and adjustment positioning phases to the automatic positioning
+-  [ ] PRIORITY+ add LaTeX support for labels (!)  [Plan: use mathjax to generate SVG elements]
+-  [ ] PRIORITY+ add edge, label, and adjustment positioning phases to the automatic positioning
 -  [ ] PRIORITY adjust parser to allow multipliers of parenthetical expressions on the right
+-  [ ] PRIORITY user-defined node and edge attributes 
+-  [ ] PRIORITY :command to load adjacency matrices from a file  (grammar flexible for different reasonable formats for the adjacency matrix)
 -  [ ] URL encoding of graph state for easy sharing, serving, linking, etc.
+-  [ ] Read node/edge attributes from file/data
 -  [ ] REFACTOR? projection handling differs between svg elements (reason: fill handling for text or regions)
 -  [ ] clean-up the code
 -  [ ] PROVISIONAL font size scale with node size??
 -  [ ] PROVISIONAL handle arrow styles
 -  [ ] PROVISIONAL handle z-index
--  [ ] PROVISIONAL user-defined node and edge attributes
 -  [x] add inequality constraints to node positioning
 -  [x] add export to tikz 
 -  [x] :config command add to config in repl  (use cases: turn names on or off, canvas dimensions)
