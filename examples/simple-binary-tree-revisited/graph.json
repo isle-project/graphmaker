@@ -1,24 +1,66 @@
 {
   "directed": false,
   "nodes": {
-    "1": {},
-    "2": {},
-    "3": {},
-    "4": {},
-    "5": {},
-    "6": {},
-    "7": {},
-    "8": {},
-    "9": {},
-    "10": {},
-    "11": {},
-    "12": {},
-    "13": {},
-    "14": {},
-    "15": {}
+    "1": {
+      "style": "branch"
+    },
+    "2": {
+      "style": "branch"
+    },
+    "3": {
+      "style": "branch"
+    },
+    "4": {
+      "style": "branch"
+    },
+    "5": {
+      "style": "branch"
+    },
+    "6": {
+      "style": "branch"
+    },
+    "7": {
+      "style": "branch"
+    },
+    "8": {
+      "style": "leaf"
+    },
+    "9": {
+      "style": "leaf"
+    },
+    "10": {
+      "style": "leaf"
+    },
+    "11": {
+      "style": "leaf"
+    },
+    "12": {
+      "style": "leaf"
+    },
+    "13": {
+      "style": "leaf"
+    },
+    "14": {
+      "style": "leaf"
+    },
+    "15": {
+      "style": "leaf"
+    }
   },
   "edges": {},
   "adjacency": {},
+  "styles": {
+    "branch": {
+      "nodeSize": 2,
+      "nodeShape": "circle",
+      "fillColor": "lightgrey"
+    },
+    "leaf": {
+      "nodeSize": 2,
+      "nodeShape": "rectangle",
+      "fillColor": "steelblue"
+    }
+  },
   "constraints": [
     {
       "meaning": "Node 1 is the root of the binary tree",
@@ -91,7 +133,6 @@
       ]
     },
     {
-      "meaning": "Node 11 is the right child of Node 5",
       "constraints": [
         "'11'.x = '5'.x + 0.0625",
         "'11'.y = '5'.y - 0.333"

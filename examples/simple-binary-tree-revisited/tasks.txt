@@ -1,2 +1,6 @@
 add nodes 1-15
 add constraints on the positions of these nodes to produce a complete binary tree starting from the root at node 1
+define a style branch with node size 2, shape circle, and fill color light grey
+define a style leaf with node size 2, shape rectangle, and fill color steel blue
+apply style branch to branch nodes and style leaf to leaf nodes
+add an edge from each node to each of its children
