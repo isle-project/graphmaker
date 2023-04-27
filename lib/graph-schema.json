@@ -413,15 +413,21 @@
         "examples": [
           {
             "meaning": "Node A is to the left of node B",
-            "constraints": ["'A'.x <= 'B'.x"]
+            "constraints": [
+              "'A'.x <= 'B'.x"
+            ]
           },
           {
             "meaning": "Node C is above node D",
-            "constraints": ["'C'.y >= 'D'.y"]
+            "constraints": [
+              "'C'.y >= 'D'.y"
+            ]
           },
           {
             "meaning": "Nodes U and V are at the same height",
-            "constraints": ["'U'.y = 'V'.y"]
+            "constraints": [
+              "'U'.y = 'V'.y"
+            ]
           },
           {
             "meaning": "Node C is at the midpoint of nodes A and B",
@@ -447,16 +453,16 @@
         "type": "object",
         "description": "maps an attribute name to an attribute value",
         "properties": {
-          "shape": {
+          "nodeShape": {
             "$ref": "#/$defs/nodeShape",
             "default": "circle"
           },
-          "widthToHeight": {
-            "$ref": "#/$defs/nodeWidthToHeight",
+          "nodeSize": {
+            "$ref": "#/$defs/nodeSize",
             "default": 1
           },
-          "size": {
-            "$ref": "#/$defs/nodeSize",
+          "widthToHeight": {
+            "$ref": "#/$defs/nodeWidthToHeight",
             "default": 1
           },
           "label": {
