@@ -293,6 +293,14 @@ function constraintRegEx() {
                                      min_alpha  sum_i  (alpha^T z_i - d_i - epsilon)_+^2
 
                             
-                    
+## Prompts for categorizing graphs
+
+The following prompt describes a graph consisting of nodes and edges. In at most five words, specify any categories or labels that describe the graph. Examples of categories include tree, acyclic, bipartite, complete, directed/undirected, simple/non-simple (multiple edges between two nodes or edges to itself) 
 
 
+1. add nodes A-C to an undirected graph
+2. add an edge from A to B 
+3. add an edge from A to A
+4. add another edge from A to B
+
+Categories as a JSON array (up to five):
