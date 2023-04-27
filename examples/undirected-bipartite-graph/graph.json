@@ -2,43 +2,43 @@
   "directed": false,
   "nodes": {
     "A": {
-      "shape": "triangle",
+      "nodeShape": "triangle",
       "fillColor": "tomato"
     },
     "B": {
-      "shape": "triangle",
+      "nodeShape": "triangle",
       "fillColor": "tomato"
     },
     "C": {
-      "shape": "triangle",
+      "nodeShape": "triangle",
       "fillColor": "tomato"
     },
     "D": {
-      "shape": "triangle",
+      "nodeShape": "triangle",
       "fillColor": "tomato"
     },
     "E": {
-      "shape": "triangle",
+      "nodeShape": "triangle",
       "fillColor": "tomato"
     },
     "F": {
-      "shape": "circle",
+      "nodeShape": "circle",
       "fillColor": "green"
     },
     "G": {
-      "shape": "circle",
+      "nodeShape": "circle",
       "fillColor": "green"
     },
     "H": {
-      "shape": "circle",
+      "nodeShape": "circle",
       "fillColor": "green"
     },
     "I": {
-      "shape": "circle",
+      "nodeShape": "circle",
       "fillColor": "green"
     },
     "J": {
-      "shape": "circle",
+      "nodeShape": "circle",
       "fillColor": "green"
     }
   },

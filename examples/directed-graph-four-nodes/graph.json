@@ -2,18 +2,18 @@
   "directed": true,
   "nodes": {
     "A": {
-      "shape": "rectangle",
+      "nodeShape": "rectangle",
       "widthToHeight": 2,
       "label": "Start"
     },
     "B": {
-      "shape": "circle"
+      "nodeShape": "circle"
     },
     "C": {
-      "shape": "circle"
+      "nodeShape": "circle"
     },
     "D": {
-      "shape": "rectangle",
+      "nodeShape": "rectangle",
       "widthToHeight": 2,
       "label": "End"
     }

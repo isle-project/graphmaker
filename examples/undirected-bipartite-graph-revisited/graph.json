@@ -27,7 +27,7 @@
     },
     "I": {
       "style": "right",
-      "shape": "rectangle",
+      "nodeShape": "rectangle",
       "fillColor": "yellow"
     },
     "J": {
@@ -182,16 +182,8 @@
     {
       "meaning": "Nodes A-E are all to the left of nodes F-J",
       "constraints": [
-        "'A'.x <= 'F'.x",
-        "'B'.x <= 'F'.x",
-        "'C'.x <= 'F'.x",
-        "'D'.x <= 'F'.x",
-        "'E'.x <= 'F'.x"
+        "'A'.x <= 'F'.x"
       ]
-    },
-    {
-      "meaning": "",
-      "constraints": []
     }
   ],
   "styles": {
