@@ -1,0 +1,5 @@
+add nodes 1-9
+node 1 is the parent of nodes 2 and 3
+node 2 is the parent of nodes 4 and 5
+node 3 is the parent of nodes 6 and 7
+node 4 is the parent of nodes 8 and 9
