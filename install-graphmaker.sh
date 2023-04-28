@@ -18,8 +18,8 @@ if ! command -v node >/dev/null; then
   nvm install node
 fi
 
-if ! (npm list -g graphmaker > /dev/null) then
-  npm install -g graphmaker
+if ! (npm list -g @isle-labs/graphmaker > /dev/null) then
+  npm install -g @isle-labs/graphmaker
   echo "Use the :config command to set your API key from within the session."
   echo "You can set up a configuration file in ~/.graphmaker.json that sets this persistently."
   echo ""

@@ -29,7 +29,7 @@ wget -sSL https://raw.githubusercontent.com/isle-project/graphmaker/install-grap
 #### Via npm:
 
 ```bash
-npm install -g graphmaker
+npm install -g @isle-labs/graphmaker
 ```
 
 ### Usage
@@ -80,13 +80,13 @@ Commands:
 ### Installation
 
 ```bash
-npm install graphmaker
+npm install @isle-labs/graphmaker
 ```
 
 ### Usage
 
 ```javascript
-const GraphMaker = require( 'graphmaker' );
+const GraphMaker = require( '@isle-labs/graphmaker' );
 
 const state = GraphMaker.initializeGraph( config );
 
