@@ -306,6 +306,10 @@
       "type": "boolean",
       "description": "`true` if it is a directed graph, `false` for undirected graphs (a graph is directed if it has any directed edges)"
     },
+    "hasParents": {
+      "type": "boolean",
+      "description": "This is true if the user tells us that the graph is a tree or a DAG, or if the user specifies an explicit parent-child relation between any two nodes."
+    },
     "canvas": {
       "type": "object",
       "description": "canvas configuration",
@@ -376,35 +380,6 @@
           }
         }
       }
-    },
-    "relations": {
-      "type": "object",
-      "description": "records relations between nodes in the graph (such as parent-child).",
-      "properties": {
-        "parentOf": {
-          "type": "object",
-          "description": "mapping from parent node names to arrays of child node names in trees and other acyclic graphs",
-          "additionalProperties": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "examples": [
-        {
-          "parentOf": {
-            "a": [
-              "b",
-              "c"
-            ],
-            "b": [
-              "d"
-            ]
-          }
-        }
-      ]
     },
     "constraints": {
       "type": "array",
