@@ -1,0 +1,13 @@
+{
+    "draft": false,
+    "width": 1024,
+    "height": 1024,
+    "format": "svg",
+    "orientation": "auto",
+    "provider": "OpenAI",
+    "OpenAI": {
+        "apiKey": null,
+        "model": "gpt-3.5-turbo",
+        "type": "serial"
+    }
+}
