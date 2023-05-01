@@ -55,6 +55,7 @@ updateGraph for task:
 
 # TODO
 
+-  [x] IMMEDIATE incorporate nodePositions2 in lieu of nodePositions (changes calling sequence), and test that category gets set (e.g., automata)
 -  [ ] IMMEDIATE (at least simple) in repl help for how to use/examples/etc.
 -  [x] IMMEDIATE repl :config command set API key, or from command line, or from standard file (e.g., ~/.graphmaker.config)
 -  [x] IMMEDIATE generate a platform-independent (as much as possible) installer script for the graphmaker repl tool
