@@ -1,0 +1,97 @@
+{
+  "directed": false,
+  "hasParents": true,
+  "nodes": {
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {},
+    "8": {},
+    "9": {}
+  },
+  "edges": {},
+  "adjacency": {
+    "1": [
+      {
+        "targetNode": "2",
+        "edge": "12"
+      },
+      {
+        "targetNode": "7",
+        "edge": "17"
+      }
+    ],
+    "2": [
+      {
+        "targetNode": "1",
+        "edge": "12"
+      },
+      {
+        "targetNode": "3",
+        "edge": "23"
+      },
+      {
+        "targetNode": "6",
+        "edge": "26"
+      }
+    ],
+    "3": [
+      {
+        "targetNode": "2",
+        "edge": "23"
+      },
+      {
+        "targetNode": "4",
+        "edge": "34"
+      },
+      {
+        "targetNode": "5",
+        "edge": "35"
+      }
+    ],
+    "4": [
+      {
+        "targetNode": "3",
+        "edge": "34"
+      }
+    ],
+    "5": [
+      {
+        "targetNode": "3",
+        "edge": "35"
+      }
+    ],
+    "6": [
+      {
+        "targetNode": "2",
+        "edge": "26"
+      }
+    ],
+    "7": [
+      {
+        "targetNode": "8",
+        "edge": "78"
+      },
+      {
+        "targetNode": "9",
+        "edge": "79"
+      }
+    ],
+    "8": [
+      {
+        "targetNode": "7",
+        "edge": "78"
+      }
+    ],
+    "9": [
+      {
+        "targetNode": "7",
+        "edge": "79"
+      }
+    ]
+  },
+  "constraints": []
+}
