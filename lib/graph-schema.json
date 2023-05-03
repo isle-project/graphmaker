@@ -719,6 +719,18 @@
           }
         }
       }
+    },
+    "_positions": {
+      "type": "object",
+      "description": "mapping from node names to an array holding the x and y coordinates of the node",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "maxItems": 2,
+        "minItems": 2
+      }
     }
   },
   "required": [
