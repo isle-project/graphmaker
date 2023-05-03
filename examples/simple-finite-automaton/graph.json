@@ -1,0 +1,99 @@
+{
+  "directed": true,
+  "nodes": {
+    "0": {},
+    "1": {},
+    "2": {
+      "fillColor": "green"
+    },
+    "3": {},
+    "4": {},
+    "5": {
+      "fillColor": "green"
+    }
+  },
+  "edges": {
+    "12": {
+      "label": "b"
+    },
+    "13": {
+      "label": "a"
+    },
+    "22": {
+      "label": "b"
+    },
+    "33": {
+      "label": "a"
+    },
+    "34": {
+      "label": "c"
+    },
+    "44": {
+      "label": "c"
+    },
+    "45": {
+      "label": "g"
+    },
+    "01": {
+      "label": "a"
+    }
+  },
+  "adjacency": {
+    "0": [
+      {
+        "targetNode": "1",
+        "edge": "01"
+      }
+    ],
+    "1": [
+      {
+        "targetNode": "2",
+        "edge": "12"
+      },
+      {
+        "targetNode": "3",
+        "edge": "13"
+      }
+    ],
+    "2": [
+      {
+        "targetNode": "2",
+        "edge": "22"
+      }
+    ],
+    "3": [
+      {
+        "targetNode": "3",
+        "edge": "33"
+      },
+      {
+        "targetNode": "4",
+        "edge": "34"
+      }
+    ],
+    "4": [
+      {
+        "targetNode": "4",
+        "edge": "44"
+      },
+      {
+        "targetNode": "5",
+        "edge": "45"
+      }
+    ]
+  },
+  "constraints": [
+    {
+      "meaning": "Nodes 0 and 5 are at the same vertical coordinate",
+      "constraints": [
+        "'0'.y = '5'.y"
+      ]
+    },
+    {
+      "meaning": "Node 2 is at the same vertical coordinate as 0 and 5",
+      "constraints": [
+        "'2'.y = '0'.y = '5'.y"
+      ]
+    }
+  ]
+}

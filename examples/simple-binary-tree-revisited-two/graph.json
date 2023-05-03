@@ -93,5 +93,12 @@
       }
     ]
   },
-  "constraints": []
+  "constraints": [
+    {
+      "meaning": "Nodes 6 and 8 are at the same y-coordinate",
+      "constraints": [
+        "'6'.y = '8'.y"
+      ]
+    }
+  ]
 }
