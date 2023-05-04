@@ -11,7 +11,8 @@
     "compile-constraints": "nearleyc lib/constraint-grammar.ne -o lib/constraint-grammar.js",
     "postinstall": "npm run compile-constraints",
     "lint": "eslint lib/*.js test/*.js",
-    "repl": "node lib/repl.js"
+    "repl": "node lib/repl.js",
+    "gm": "sh ./bin/gm.sh"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "debug": "^4.3.4",
     "jsonrepair": "^3.0.3",
     "jspdf": "^2.5.1",
+    "mathjax-full": "^3.2.2",
     "moo": "^0.5.2",
     "nearley": "^2.20.1",
     "openai": "^3.2.1",
