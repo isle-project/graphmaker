@@ -65,7 +65,7 @@ test( 'simple-position-symmetry',  () => {
     let diff;
 
     // Single point at the origin
-    actual = constrainedEquilibrate( [ [1,2] ], UNCONSTRAINED, UNCONSTRAINED, EQ_OPTIONS );
+    actual = constrainedEquilibrate( [ [1, 2] ], UNCONSTRAINED, UNCONSTRAINED, EQ_OPTIONS );
     expect( actual.converged ).toBeTruthy();
     expect( norm(actual.positions[0]) ).toBeCloseTo( 0, DIGITS_TO_ZERO );
 
@@ -76,9 +76,10 @@ test( 'simple-position-symmetry',  () => {
     // Two points reflections of each other relative to the origin
     actual = nodePositions( 2, UNCONSTRAINED, UNCONSTRAINED, EQ_OPTIONS );
     expect( actual.converged ).toBeTruthy();
-    diff = [ actual.positions[0][0] + actual.positions[1][0]
-           , actual.positions[0][1] + actual.positions[1][1]
-           ];
+    diff = [
+        actual.positions[0][0] + actual.positions[1][0],
+        actual.positions[0][1] + actual.positions[1][1]
+    ];
     expect( norm(diff) ).toBeCloseTo( 0, DIGITS_TO_ZERO );
 
 
