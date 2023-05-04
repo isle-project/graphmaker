@@ -56,7 +56,15 @@
     },
     "label": {
       "type": "string",
-      "description": "Text label"
+      "description": "A text or mathematical label. With a prefix 'latex:' or 'tex:', the rest of the label is interpreted as LaTeX input. With a prefix 'math:', the rest of the label is interpreted as MathLingo input. For latex/tex and math labels, use ASCII only. Otherwise, the text is used directly as a unicode string. Note that the standard latex $ delimiters are NOT supported.",
+      "examples": [
+        "A",
+        "1",
+        "Pittsburgh",
+        "latex: x_2 > 0",
+        "tex: \\epsilon \\, f(z)",
+        "math: x sub three greater than two hundred forty seven alpha"
+      ]
     },
     "style": {
       "type": "string",
