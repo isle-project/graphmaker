@@ -1,6 +1,9 @@
 # Explicitly ignored auto-generated files
 lib/constraint-grammar.js
 
+# Virtual Studio Code workspace files
+.vscode
+
 # Logs
 logs
 *.log

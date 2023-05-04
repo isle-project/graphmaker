@@ -10,3 +10,5 @@ TODO.md
 **/node_modules/
 **/dist/
 **/www/
+*.gif
+*.log
