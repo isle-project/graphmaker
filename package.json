@@ -18,8 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/isle-project/graphmaker.git"
   },
-  "author": "",
-  "license": "",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/isle-project/graphmaker/issues"
   },
