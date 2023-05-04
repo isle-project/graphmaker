@@ -1,0 +1,52 @@
+# Workflow name:
+  name: test
+
+  # Workflow triggers:
+  on:
+    # Allow the workflow to be manually run:
+    workflow_dispatch:
+
+    # Run workflow on each push to the main branch:
+    push:
+      # Define branches to run workflow on:
+      branches:
+        - main
+
+    # Run workflow on each pull request:
+    pull_request:
+
+  # Workflow jobs:
+  jobs:
+    # Define job to run tests...
+    test:
+      # Define display name:
+      name: 'Run tests'
+
+      # Define the type of virtual host machine:
+      runs-on: 'ubuntu-latest'
+
+      # Define the sequence of job steps...
+      steps:
+        # Checkout the repository:
+        - name: 'Checkout repository'
+          uses: actions/checkout@v3
+
+        # Install Node.js:
+        - name: 'Install Node.js'
+          uses: actions/setup-node@v3
+          with:
+            node-version: 16
+          timeout-minutes: 5
+
+        # Install dependencies:
+        - name: 'Install production and development dependencies'
+          id: install
+          run: |
+            npm install || npm install || npm install
+          timeout-minutes: 15
+
+        # Run tests:
+        - name: 'Run tests'
+          run: |
+            npm test || npm test || npm test
+          timeout-minutes: 15
