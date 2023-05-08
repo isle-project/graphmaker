@@ -473,7 +473,7 @@
             "$ref": "#/$defs/nodeSize",
             "default": 1
           },
-          "widthToHeight": {
+          "nodeWidthToHeight": {
             "$ref": "#/$defs/nodeWidthToHeight",
             "default": 1
           },

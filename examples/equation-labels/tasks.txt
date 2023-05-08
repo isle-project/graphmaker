@@ -1,0 +1,3 @@
+add six nodes A-F
+A is a parent of B through F
+give node A a LaTeX label of \Theta
