@@ -254,7 +254,7 @@
       "type": "string",
       "description": "A HEX color or RGB color such as rgb(255,255,255) to fill a shape"
     },
-    "offset": {
+    "edgeOffset": {
       "description": "Represents an offset from a position",
       "oneOf": [
         {
@@ -481,7 +481,72 @@
             "$ref": "#/$defs/label"
           },
           "labelOffset": {
-            "$ref": "#/$defs/offset"
+            "description": "Represents an offset of the node's label from its center in units of nodeSize",
+            "examples": [
+              "none",
+              "east",
+              "upper-right",
+              [
+                "north",
+                1
+              ],
+              [
+                "polar",
+                45,
+                0.5
+              ]
+            ],
+            "oneOf": [
+              {
+                "const": "none"
+              },
+              {
+                "$ref": "#/$defs/cardinalDirection"
+              },
+              {
+                "type": "array",
+                "description": "Offset in the given cardinal direction",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": [
+                  {
+                    "$ref": "#/$defs/cardinalDirection"
+                  },
+                  {
+                    "type": "number",
+                    "description": "Distance from the node position in units of node size"
+                  }
+                ]
+              },
+              {
+                "type": "array",
+                "description": "Offset in cartesian coordinates (0-1)",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              },
+              {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": [
+                  {
+                    "const": "polar"
+                  },
+                  {
+                    "type": "number",
+                    "description": "Angle in degrees from the positive-x direction"
+                  },
+                  {
+                    "type": "number",
+                    "description": "Distance from the node position in units of node size",
+                    "minimum": 0
+                  }
+                ]
+              }
+            ]
           },
           "x": {
             "$ref": "#/$defs/x"
@@ -567,10 +632,10 @@
             "description": "An optional numeric value associated with the edge."
           },
           "labelOffset": {
-            "$ref": "#/$defs/offset"
+            "$ref": "#/$defs/edgeOffset"
           },
           "weightOffset": {
-            "$ref": "#/$defs/offset"
+            "$ref": "#/$defs/edgeOffset"
           },
           "style": {
             "$ref": "#/$defs/style"
