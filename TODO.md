@@ -9,6 +9,8 @@
 -  [x] IMMEDIATE in repl, use dynamic require to load expensive modules only when needed (e.g., sharp when saving PDF) to improve startup
 -  [x] IMMEDIATE finish help text for --help option, check version for outdated reminder
 -  [x] PRIORITY+ add LaTeX support for labels (!)  [Plan: use mathjax to generate SVG elements]  ALTERNATIVE: Mathlingo support for labels, possible config
+-  [x] LaTeX equation positioning
+-  [ ] Handle LaTeX node labels in tikz
 -  [ ] PRIORITY+ add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
 -  [ ] PRIORITY adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
 -  [ ] PRIORITY user-defined node and edge attributes 
