@@ -1,7 +1,22 @@
 # TODO
 
+-  [ ] IMMEDIATE (at least simple) in repl help for how to use/examples/etc. (:intro and :tips or tips as a section of intro)
+-  [ ] FIX Set marker color for arrow heads to match line color of the edge
+-  [ ] FIX Handle LaTeX node labels in tikz
+-  [ ] FIX Handle Bezier case for edge positioning on general nodes (and fill in diamond/triangle/ellipse cases for both)
+-  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
+-  [ ] PRIORITY+ add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
+-  [ ] PRIORITY :command to load adjacency matrices from a file  (grammar flexible for different reasonable formats for the adjacency matrix)
+-  [ ] PROVISIONAL Read node/edge attributes from file/data
+-  [ ] PROVISIONAL Add either a `:freeze` command to fix the current positions of nodes by turning them into constraints and an `:unfreeze` command to remove constraints (injected constraints would be identifiable via e.g. `derived` property) or we could also have a `config` `frozen` option to fix positions of nodes at those in _positions (if any nodes are not in _positions, we add transient constraints like in the last case for those that are and apply the positioning to set the _positions of the new nodes)
+-  [ ] PROVISIONAL URL encoding of graph state for easy sharing, serving, linking, etc.
+-  [ ] TEST Run all examples through and test to make sure the output is correct (at least most of the time)
+-  [ ] TEST Use decorations in examples to make sure they work
+-  [ ] ADMIN clean-up the code
+-  [ ] PROVISIONAL handle arrow styles
+-  [ ] PROVISIONAL handle z-index
+-  [x] PRIORITY user-defined node and edge attributes 
 -  [x] IMMEDIATE incorporate nodePositions2 in lieu of nodePositions (changes calling sequence), and test that category gets set (e.g., automata)
--  [ ] IMMEDIATE (at least simple) in repl help for how to use/examples/etc.
 -  [x] IMMEDIATE repl :config command set API key, or from command line, or from standard file (e.g., ~/.graphmaker.config)
 -  [x] IMMEDIATE generate a platform-independent (as much as possible) installer script for the graphmaker repl tool
        Needs to (i) install Node.js / npm, dependencies, (ii) create base config, (iii) install executable script, (iv) prompt with help in storing API key etc
@@ -10,19 +25,6 @@
 -  [x] IMMEDIATE finish help text for --help option, check version for outdated reminder
 -  [x] PRIORITY+ add LaTeX support for labels (!)  [Plan: use mathjax to generate SVG elements]  ALTERNATIVE: Mathlingo support for labels, possible config
 -  [x] LaTeX equation positioning
--  [ ] Handle LaTeX node labels in tikz
--  [ ] PRIORITY+ add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
--  [ ] PRIORITY adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
--  [ ] PRIORITY user-defined node and edge attributes 
--  [ ] PRIORITY :command to load adjacency matrices from a file  (grammar flexible for different reasonable formats for the adjacency matrix)
--  [ ] Add either a `:freeze` command to fix the current positions of nodes by turning them into constraints and an `:unfreeze` command to remove constraints (injected constraints would be identifiable via e.g. `derived` property) or we could also have a `config` `frozen` option to fix positions of nodes at those in _positions (if any nodes are not in _positions, we add transient constraints like in the last case for those that are and apply the positioning to set the _positions of the new nodes)
--  [ ] URL encoding of graph state for easy sharing, serving, linking, etc.
--  [ ] Read node/edge attributes from file/data
--  [ ] REFACTOR? projection handling differs between svg elements (reason: fill handling for text or regions)
--  [ ] clean-up the code
--  [ ] PROVISIONAL font size scale with node size??
--  [ ] PROVISIONAL handle arrow styles
--  [ ] PROVISIONAL handle z-index
 -  [x] Positions encoded as x, y props on nodes used as starting points; missing positions are randomized (used _positions instead)
 -  [x] With no initial positions, order in x (or y) in the node order given (random order statistics) and randomize other dimension
 -  [ ] use GPT3 tokenizer to count the number of tokens in the prompt and adjust the assembled history prompt if necessary
