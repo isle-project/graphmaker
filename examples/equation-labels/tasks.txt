@@ -1,3 +1,4 @@
 add six nodes A-F
 A is a parent of B through F
 give node A a LaTeX label of \Theta
+set the label offset for node A to be 1 units to the south west

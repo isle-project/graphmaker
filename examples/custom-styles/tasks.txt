@@ -1,0 +1,7 @@
+add three nodes A-C
+add associated data to node a: color with value blue
+add associated color data to nodes b and c: make them green and blue, respectively
+define a style foo that specifies a node shape of rectangle
+apply the style foo to exactly those nodes that have color data equal to blue
+add associated count data of 3 for node a and 2 for node b
+set the node size for all nodes to be the count data or 1 if it has no count data

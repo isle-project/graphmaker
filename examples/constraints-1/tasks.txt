@@ -1,0 +1,5 @@
+add nodes A-E
+make node C a rectangle
+# make node B a triangle
+add a directed edge from node A to node C and node B to node C
+add a constraint that node C's horizontal coordinate is midway between node A's and node B's

@@ -1,0 +1,54 @@
+{
+  "directed": false,
+  "hasParents": false,
+  "nodes": {
+    "A": {
+      "style": "foo",
+      "data": {
+        "color": "blue",
+        "count": "3"
+      },
+      "nodeSize": 3
+    },
+    "B": {
+      "data": {
+        "color": "green",
+        "count": "2"
+      },
+      "nodeSize": 2
+    },
+    "C": {
+      "style": "foo",
+      "data": {
+        "color": "blue"
+      },
+      "nodeSize": 1
+    }
+  },
+  "edges": {},
+  "adjacency": {
+    "A": [],
+    "B": [],
+    "C": []
+  },
+  "constraints": [],
+  "styles": {
+    "foo": {
+      "nodeShape": "rectangle"
+    }
+  },
+  "_positions": {
+    "A": [
+      -2.4022469856896835,
+      -2.0565143948470364
+    ],
+    "B": [
+      -0.5797356629536257,
+      3.1087386198232365
+    ],
+    "C": [
+      2.9820423290943014,
+      -1.0521560052724523
+    ]
+  }
+}

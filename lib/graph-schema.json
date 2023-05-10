@@ -592,6 +592,30 @@
           },
           "labelAnchor": {
             "$ref": "#/$defs/textAnchor"
+          },
+          "data": {
+            "type": "object",
+            "description": "Key-value pairs specifying extra data associated with this node. Any properties not in the schema should be specified in this object.",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            "examples": [
+              {
+                "name": "John",
+                "age": 32,
+                "isMarried": true
+              }
+            ]
           }
         },
         "additionalProperties": false
@@ -692,6 +716,30 @@
           },
           "labelAnchor": {
             "$ref": "#/$defs/textAnchor"
+          },
+          "data": {
+            "type": "object",
+            "description": "Key-value pairs specifying extra data associated with this edge. Any properties not in the schema should be specified in this object.",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            "examples": [
+              {
+                "distance": 100,
+                "relationship": "friend",
+                "recent": true
+              }
+            ]
           }
         },
         "additionalProperties": false

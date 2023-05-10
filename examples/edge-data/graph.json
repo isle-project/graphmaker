@@ -1,0 +1,77 @@
+{
+  "directed": true,
+  "nodes": {
+    "A": {},
+    "B": {},
+    "C": {},
+    "D": {},
+    "E": {}
+  },
+  "edges": {
+    "AB": {
+      "weight": 23,
+      "data": {
+        "strength": "23",
+        "type": "colleagues"
+      },
+      "style": "heavy"
+    },
+    "AC": {
+      "weight": 12,
+      "data": {
+        "strength": "12",
+        "type": "acquaintances"
+      },
+      "style": "light"
+    }
+  },
+  "adjacency": {
+    "A": [
+      {
+        "targetNode": "B",
+        "edge": "AB"
+      },
+      {
+        "targetNode": "C",
+        "edge": "AC"
+      }
+    ],
+    "B": [],
+    "C": [],
+    "D": [],
+    "E": []
+  },
+  "constraints": [],
+  "styles": {
+    "light": {
+      "lineStyle": "dotted",
+      "lineColor": "steelblue"
+    },
+    "heavy": {
+      "lineStyle": "solid",
+      "lineColor": "tomato"
+    }
+  },
+  "_positions": {
+    "A": [
+      -2.48556924380915,
+      -4.054810131169196
+    ],
+    "B": [
+      -0.6692238372336224,
+      4.707566692126575
+    ],
+    "C": [
+      -3.8301372647134206,
+      0.7933445316424582
+    ],
+    "D": [
+      2.955053831133507,
+      -3.31697496305252
+    ],
+    "E": [
+      4.02962392536407,
+      1.870854605780799
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+add nodes A-E
+add a directed edge from A to B and A to c
+add edge data to edge AB setting a strength of 23 and a type as "colleagues"
+add edge data to edge AC setting a strength of 12 and a type as "acquaintances"
+add edge weights equal to the strength for each edge with strength data
+define a style called "light" with line style dotted and line color steelblue
+define a style called "heavy" with line style solid and line color tomato
+apply the style heavy to any edge with type data equal to "colleagues"
+apply the style light to any edge with type data equal to "acquaintances"
