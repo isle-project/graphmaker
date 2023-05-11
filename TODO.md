@@ -1,7 +1,7 @@
 # TODO
 
 -  [ ] IMMEDIATE (at least simple) in repl help for how to use/examples/etc. (:intro and :tips or tips as a section of intro)
--  [ ] FIX Set marker color for arrow heads to match line color of the edge
+-  [x] FIX Set marker color for arrow heads to match line color of the edge
 -  [ ] FIX Handle LaTeX node labels in tikz
 -  [ ] FIX Handle Bezier case for edge positioning on general nodes (and fill in diamond/triangle/ellipse cases for both)
 -  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
