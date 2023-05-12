@@ -3,7 +3,8 @@
 -  [ ] IMMEDIATE (at least simple) in repl help for how to use/examples/etc. (:intro and :tips or tips as a section of intro)
 -  [x] FIX Set marker color for arrow heads to match line color of the edge
 -  [ ] FIX Handle LaTeX node labels in tikz
--  [ ] FIX Handle Bezier case for edge positioning on general nodes (and fill in diamond/triangle/ellipse cases for both)
+-  [ ] FIX Handle Bezier case for edge positioning on general nodes
+-  [x] Handle diamond/triangle/ellipse boundary detection for edge positioning for linear edges
 -  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
 -  [ ] PRIORITY+ add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
 -  [ ] PRIORITY :command to load adjacency matrices from a file  (grammar flexible for different reasonable formats for the adjacency matrix)
@@ -15,6 +16,7 @@
 -  [ ] ADMIN clean-up the code
 -  [ ] PROVISIONAL handle arrow styles
 -  [ ] PROVISIONAL handle z-index
+-  [x] PRIORITY add support for label coloring (for edges and nodes)
 -  [x] PRIORITY user-defined node and edge attributes 
 -  [x] IMMEDIATE incorporate nodePositions2 in lieu of nodePositions (changes calling sequence), and test that category gets set (e.g., automata)
 -  [x] IMMEDIATE repl :config command set API key, or from command line, or from standard file (e.g., ~/.graphmaker.config)
