@@ -1,6 +1,5 @@
 # TODO
 
--  [ ] FIX Handle LaTeX node labels in tikz
 -  [ ] FIX Handle Bezier case for edge positioning on general nodes
 -  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
 -  [ ] SCHEMA add loopDirection to edge definition in graph schema; this is the direction that a self-loop points out of the node; integrate into calls to selfLoop
@@ -17,6 +16,7 @@
 -  [ ] ADMIN add a test suite and get existing tests to pass
 -  [ ] support other LLM providers such as Google Bard, Anthropic, etc.
 -  [ ] PROVISIONAL handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
+-  [x] FIX Handle LaTeX node labels in tikz
 -  [x] FIX support fontColor for SVG latex labels
 -  [x] PRIORITY :command to load adjacency matrices from a file (grammar flexible for different reasonable formats for the adjacency matrix)
 -  [x] PROVISIONAL Read node/edge attributes from file/data
