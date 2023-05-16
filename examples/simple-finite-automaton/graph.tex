@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white, solid, }]
+\node[default, circle, ] (0) at (-4.435262224185997, 4.442445333064461) {0};
+\node[default, circle, ] (1) at (-4.4352621828682, -0.5680478423798208) {1};
+\node[default, circle, fill=#008000, ] (2) at (-0.03660525096402023, -4.921088952742132) {2};
+\node[default, circle, ] (3) at (0.06807978706497002, 0.2748473760533225) {3};
+\node[default, circle, fill=#008000, ] (4) at (3.157135972258445, 3.7340254564367923) {4};
+\node[default, circle, fill=#008000, ] (5) at (5.100722156918985, -1.8250530407681884) {5};
+\draw [->] (0) -- (1) node [midway,label={[rotate=-90,]-90:a}] {};;
+\draw [->] (0) -- (4) node [midway,label={[rotate=-5,]-5:b}] {};;
+\draw [->] (1) -- (0) node [midway,label={[rotate=270,]270:a}] {};;
+\draw [->] (1) -- (2) node [midway,label={[rotate=-45,]-45:b}] {};;
+\draw [->] (1) -- (3) node [midway,label={[rotate=11,]11:a}] {};;
+\draw [->] (2) -- (1) node [midway,label={[rotate=315,]315:b}] {};;
+\draw [->] (2) -- (2) node [midway,label={b}] {};;
+\draw [->] (3) -- (3) node [midway,label={a}] {};;
+\draw [->] (3) -- (4) node [midway,label={[rotate=48,]48:c}] {};;
+\draw [->] (4) -- (0) node [midway,label={[rotate=355,]355:b}] {};;
+\draw [->] (4) -- (3) node [midway,label={[rotate=48,]48:c}] {};;
+\draw [->] (4) -- (5) node [midway,label={[rotate=-71,]-71:g}] {};;
+\draw [->] (4) -- (4) node [midway,label={d}] {};;
+\end{tikzpicture}
+\end{document}

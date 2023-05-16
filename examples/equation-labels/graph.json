@@ -1,0 +1,97 @@
+{
+  "directed": false,
+  "hasParents": true,
+  "nodes": {
+    "A": {
+      "label": "latex: \\Theta",
+      "labelOffset": [
+        "northwest",
+        1
+      ],
+      "fontColor": "steelblue"
+    },
+    "B": {
+      "label": "latex: \\chi^2(\\alpha)",
+      "nodeSize": 1.25
+    },
+    "C": {
+      "label": "latex: x_0^3"
+    },
+    "D": {
+      "label": "latex: \\int_0^\\infty f(x) \\; dx",
+      "nodeShape": "rectangle",
+      "nodeWidthToHeight": 2,
+      "nodeSize": 1.4
+    },
+    "E": {
+      "label": "latex: \\frac{1}{2}"
+    },
+    "F": {
+      "label": "latex: \\sqrt{\\pi \\cdot \\frac{1}{2}}",
+      "nodeSize": 1.5
+    }
+  },
+  "edges": {
+    "AB": {},
+    "AC": {},
+    "AD": {},
+    "AE": {},
+    "AF": {}
+  },
+  "adjacency": {
+    "A": [
+      {
+        "targetNode": "B",
+        "edge": "AB"
+      },
+      {
+        "targetNode": "C",
+        "edge": "AC"
+      },
+      {
+        "targetNode": "D",
+        "edge": "AD"
+      },
+      {
+        "targetNode": "E",
+        "edge": "AE"
+      },
+      {
+        "targetNode": "F",
+        "edge": "AF"
+      }
+    ],
+    "B": [],
+    "C": [],
+    "D": [],
+    "E": [],
+    "F": []
+  },
+  "constraints": [],
+  "_positions": {
+    "A": [
+      5.515897500847292e-13,
+      5.586580392863005
+    ],
+    "B": [
+      -6.517335350001692,
+      -1.1173160785719447
+    ],
+    "C": [
+      4.769937573509014,
+      -1.1173160785719431
+    ],
+    "D": [
+      4.769937573509014,
+      -1.1173160785719431
+    ],
+    "E": [
+      -1.5112698985068234,
+      -1.1173160785719634
+    ],
+    "F": [
+      -1.5112698985068234,
+      -1.1173160785719634
+    ]
+  }
+}

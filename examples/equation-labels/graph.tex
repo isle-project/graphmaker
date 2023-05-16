@@ -1,0 +1,20 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white, solid, }]
+\node[default, circle, ] (A) at (5.515897500847292e-13, 5.586580392863005) {$\Theta$};
+\node[default, circle, ] (B) at (-6.517335350001692, -1.1173160785719447) {$\chi^2(\alpha)$};
+\node[default, circle, ] (C) at (4.769937573509014, -1.1173160785719431) {$x_0^3$};
+\node[default, rectangle, ] (D) at (4.769937573509014, -1.1173160785719431) {$\int_0^\infty f(x) \; dx$};
+\node[default, circle, ] (E) at (-1.5112698985068234, -1.1173160785719634) {$\frac{1}{2}$};
+\node[default, circle, ] (F) at (-1.5112698985068234, -1.1173160785719634) {$\sqrt{\pi \cdot \frac{1}{2}}$};
+\draw [] (A) -- (B) ;
+\draw [] (A) -- (C) ;
+\draw [] (A) -- (D) ;
+\draw [] (A) -- (E) ;
+\draw [] (A) -- (F) ;
+\end{tikzpicture}
+\end{document}

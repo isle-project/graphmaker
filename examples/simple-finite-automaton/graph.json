@@ -1,15 +1,27 @@
 {
   "directed": true,
+  "hasParents": true,
   "nodes": {
-    "0": {},
-    "1": {},
-    "2": {
-      "fillColor": "green"
+    "0": {
+      "label": "0"
     },
-    "3": {},
-    "4": {},
+    "1": {
+      "label": "1"
+    },
+    "2": {
+      "fillColor": "#008000",
+      "label": "2"
+    },
+    "3": {
+      "label": "3"
+    },
+    "4": {
+      "fillColor": "#008000",
+      "label": "4"
+    },
     "5": {
-      "fillColor": "green"
+      "fillColor": "#008000",
+      "label": "5"
     }
   },
   "edges": {
@@ -29,13 +41,16 @@
       "label": "c"
     },
     "44": {
-      "label": "c"
+      "label": "d"
     },
     "45": {
       "label": "g"
     },
     "01": {
       "label": "a"
+    },
+    "04": {
+      "label": "b"
     }
   },
   "adjacency": {
@@ -43,9 +58,17 @@
       {
         "targetNode": "1",
         "edge": "01"
+      },
+      {
+        "targetNode": "4",
+        "edge": "04"
       }
     ],
     "1": [
+      {
+        "targetNode": "0",
+        "edge": "01"
+      },
       {
         "targetNode": "2",
         "edge": "12"
@@ -56,6 +79,10 @@
       }
     ],
     "2": [
+      {
+        "targetNode": "1",
+        "edge": "12"
+      },
       {
         "targetNode": "2",
         "edge": "22"
@@ -73,27 +100,49 @@
     ],
     "4": [
       {
-        "targetNode": "4",
-        "edge": "44"
+        "targetNode": "0",
+        "edge": "04"
+      },
+      {
+        "targetNode": "3",
+        "edge": "34"
       },
       {
         "targetNode": "5",
         "edge": "45"
+      },
+      {
+        "targetNode": "4",
+        "edge": "44"
       }
-    ]
+    ],
+    "5": []
   },
-  "constraints": [
-    {
-      "meaning": "Nodes 0 and 5 are at the same vertical coordinate",
-      "constraints": [
-        "'0'.y = '5'.y"
-      ]
-    },
-    {
-      "meaning": "Node 2 is at the same vertical coordinate as 0 and 5",
-      "constraints": [
-        "'2'.y = '0'.y = '5'.y"
-      ]
-    }
-  ]
+  "constraints": [],
+  "_positions": {
+    "0": [
+      -4.435262224185997,
+      4.442445333064461
+    ],
+    "1": [
+      -4.4352621828682,
+      -0.5680478423798208
+    ],
+    "2": [
+      -0.03660525096402023,
+      -4.921088952742132
+    ],
+    "3": [
+      0.06807978706497002,
+      0.2748473760533225
+    ],
+    "4": [
+      3.157135972258445,
+      3.7340254564367923
+    ],
+    "5": [
+      5.100722156918985,
+      -1.8250530407681884
+    ]
+  }
 }

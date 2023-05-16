@@ -10,3 +10,9 @@ add an edge from node 3 to node 4 with edge label 'c'
 add an edge from node 4 to itself with edge label 'c'
 add an edge from node 4 to node 5 with edge label 'g'
 color node 5 green
+add an edge from node 0 to node 4 with edge label 'b'
+node 0 is the parent of nodes 1 and 4
+node 1 is a parent of nodes 2 and 3
+node 3 is a parent of node 4
+node 4 is a parent of node 5
+add node labels 0-5
