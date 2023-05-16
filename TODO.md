@@ -1,21 +1,28 @@
 # TODO
 
--  [ ] IMMEDIATE (at least simple) in repl help for how to use/examples/etc. (:intro and :tips or tips as a section of intro)
--  [x] FIX Set marker color for arrow heads to match line color of the edge
 -  [ ] FIX Handle LaTeX node labels in tikz
 -  [ ] FIX Handle Bezier case for edge positioning on general nodes
--  [x] Handle diamond/triangle/ellipse boundary detection for edge positioning for linear edges
 -  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
--  [ ] PRIORITY+ add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
--  [ ] PRIORITY :command to load adjacency matrices from a file  (grammar flexible for different reasonable formats for the adjacency matrix)
--  [ ] PROVISIONAL Read node/edge attributes from file/data
--  [ ] PROVISIONAL Add either a `:freeze` command to fix the current positions of nodes by turning them into constraints and an `:unfreeze` command to remove constraints (injected constraints would be identifiable via e.g. `derived` property) or we could also have a `config` `frozen` option to fix positions of nodes at those in _positions (if any nodes are not in _positions, we add transient constraints like in the last case for those that are and apply the positioning to set the _positions of the new nodes)
+-  [ ] SCHEMA add loopDirection to edge definition in graph schema; this is the direction that a self-loop points out of the node; integrate into calls to selfLoop
+-  [ ] POS automatic positioning of self loops (including handling of multiple self loops for the same node), e.g. histogram approach (with say 10 degree bins)
+-  [ ] POS add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
+-  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
+-  [ ] DOC Finish examples and gallery
 -  [ ] PROVISIONAL URL encoding of graph state for easy sharing, serving, linking, etc.
+-  [ ] PROVISIONAL support opacity in colors (use case: colorful decoration regions)
+-  [ ] PROVISIONAL Add either a `:freeze` command to fix the current positions of nodes by turning them into constraints and an `:unfreeze` command to remove constraints (injected constraints would be identifiable via e.g. `derived` property) or we could also have a `config` `frozen` option to fix positions of nodes at those in _positions (if any nodes are not in _positions, we add transient constraints like in the last case for those that are and apply the positioning to set the _positions of the new nodes)
 -  [ ] TEST Run all examples through and test to make sure the output is correct (at least most of the time)
 -  [ ] TEST Use decorations in examples to make sure they work
 -  [ ] ADMIN clean-up the code
--  [ ] PROVISIONAL handle arrow styles
--  [ ] PROVISIONAL handle z-index
+-  [ ] ADMIN add a test suite and get existing tests to pass
+-  [ ] support other LLM providers such as Google Bard, Anthropic, etc.
+-  [ ] PROVISIONAL handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
+-  [x] FIX support fontColor for SVG latex labels
+-  [x] PRIORITY :command to load adjacency matrices from a file (grammar flexible for different reasonable formats for the adjacency matrix)
+-  [x] PROVISIONAL Read node/edge attributes from file/data
+-  [x] FIX self-loop boundary positions for all shapes 
+-  [x] Handle diamond/triangle/ellipse boundary detection for edge positioning for linear edges
+-  [x] FIX Set marker color for arrow heads to match line color of the edge
 -  [x] PRIORITY add support for label coloring (for edges and nodes)
 -  [x] PRIORITY user-defined node and edge attributes 
 -  [x] IMMEDIATE incorporate nodePositions2 in lieu of nodePositions (changes calling sequence), and test that category gets set (e.g., automata)
