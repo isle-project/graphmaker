@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white, solid, }]
+\node[default, circle, ] (A) at (-3.872990304507467, 0.0002723090496731697) {};
+\node[default, circle, ] (B) at (0.00026044926968153643, 3.8729763965981574) {};
+\node[default, circle, ] (C) at (-0.00026046644717847805, -3.872976326372515) {};
+\node[default, circle, ] (D) at (3.8729903216830315, -0.0002723792758481787) {};
+\draw [] (A) -- (B) ;
+\draw [] (A) -- (C) ;
+\draw [] (A) -- (D) ;
+\draw [] (A) -- (A) ;
+\draw [] (B) -- (A) ;
+\draw [] (B) -- (C) ;
+\draw [] (B) -- (D) ;
+\draw [] (B) -- (B) ;
+\draw [] (B) -- (B) ;
+\draw [] (C) -- (A) ;
+\draw [] (C) -- (B) ;
+\draw [] (C) -- (D) ;
+\draw [] (C) -- (C) ;
+\draw [] (C) -- (C) ;
+\draw [] (C) -- (C) ;
+\draw [] (D) -- (A) ;
+\draw [] (D) -- (B) ;
+\draw [] (D) -- (C) ;
+\draw [] (D) -- (D) ;
+\draw [] (D) -- (D) ;
+\draw [] (D) -- (D) ;
+\draw [] (D) -- (D) ;
+\end{tikzpicture}
+\end{document}

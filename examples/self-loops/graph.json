@@ -1,0 +1,145 @@
+{
+  "directed": false,
+  "hasParents": false,
+  "nodes": {
+    "A": {},
+    "B": {},
+    "C": {},
+    "D": {}
+  },
+  "edges": {
+    "AB": {},
+    "AC": {},
+    "AD": {},
+    "BC": {},
+    "BD": {},
+    "CD": {},
+    "AA": {},
+    "BB1": {},
+    "BB2": {},
+    "CC1": {},
+    "CC2": {},
+    "CC3": {},
+    "DD1": {},
+    "DD2": {},
+    "DD3": {},
+    "DD4": {}
+  },
+  "adjacency": {
+    "A": [
+      {
+        "targetNode": "B",
+        "edge": "AB"
+      },
+      {
+        "targetNode": "C",
+        "edge": "AC"
+      },
+      {
+        "targetNode": "D",
+        "edge": "AD"
+      },
+      {
+        "targetNode": "A",
+        "edge": "AA"
+      }
+    ],
+    "B": [
+      {
+        "targetNode": "A",
+        "edge": "AB"
+      },
+      {
+        "targetNode": "C",
+        "edge": "BC"
+      },
+      {
+        "targetNode": "D",
+        "edge": "BD"
+      },
+      {
+        "targetNode": "B",
+        "edge": "BB1"
+      },
+      {
+        "targetNode": "B",
+        "edge": "BB2"
+      }
+    ],
+    "C": [
+      {
+        "targetNode": "A",
+        "edge": "AC"
+      },
+      {
+        "targetNode": "B",
+        "edge": "BC"
+      },
+      {
+        "targetNode": "D",
+        "edge": "CD"
+      },
+      {
+        "targetNode": "C",
+        "edge": "CC1"
+      },
+      {
+        "targetNode": "C",
+        "edge": "CC2"
+      },
+      {
+        "targetNode": "C",
+        "edge": "CC3"
+      }
+    ],
+    "D": [
+      {
+        "targetNode": "A",
+        "edge": "AD"
+      },
+      {
+        "targetNode": "B",
+        "edge": "BD"
+      },
+      {
+        "targetNode": "C",
+        "edge": "CD"
+      },
+      {
+        "targetNode": "D",
+        "edge": "DD1"
+      },
+      {
+        "targetNode": "D",
+        "edge": "DD2"
+      },
+      {
+        "targetNode": "D",
+        "edge": "DD3"
+      },
+      {
+        "targetNode": "D",
+        "edge": "DD4"
+      }
+    ]
+  },
+  "constraints": [],
+  "_positions": {
+    "A": [
+      -4.359336247244421,
+      0.5852826741279067
+    ],
+    "B": [
+      1.2604372729560476,
+      3.789113935348065
+    ],
+    "C": [
+      -0.7243349650691554,
+      -2.16598434774453
+    ],
+    "D": [
+      3.8230044461127437,
+      -2.208475625979492
+    ]
+  }
+}

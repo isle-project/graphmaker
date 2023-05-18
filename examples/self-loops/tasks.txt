@@ -1,0 +1,6 @@
+add nodes A-D
+add edges from every node to every other node
+add an edge from A to itself
+add two distinct edges from B to itself
+add three distinct edges from C to itself
+add four distinct edges from D to itself

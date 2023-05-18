@@ -1,7 +1,7 @@
 const { constrainedEquilibrate
       , nodePositions
       , UNCONSTRAINED
-      } = require( '../lib/node-position.js' );
+      } = require( '../lib/node-positions.js' );
 
 
 // Constants
