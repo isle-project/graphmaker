@@ -16,9 +16,8 @@ const DIGITS_TO_ZERO = 6;
 /**
  * Computes the dot product of two vectors of the same dimension
  *
- * @param {Array} v1 - a vector as an array of numbers
- * @param {Array} v2 - a vector as an array of numbers
- *
+ * @param {number[]} v1 - a vector as an array of numbers
+ * @param {number[]} v2 - a vector as an array of numbers
  * @returns {number} the dot product v1 . v2.
  */
 const dot = ( v1, v2 ) => {
