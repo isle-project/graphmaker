@@ -1,12 +1,14 @@
 # TODO
 
+-  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint
 -  [ ] FIX Handle Bezier case for edge positioning on general nodes
 -  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
 -  [ ] SCHEMA add loopDirection to edge definition in graph schema; this is the direction that a self-loop points out of the node; integrate into calls to selfLoop
--  [ ] POS automatic positioning of self loops (including handling of multiple self loops for the same node), e.g. histogram approach (with say 10 degree bins)
 -  [ ] POS add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
 -  [ ] DOC Finish examples and gallery
+-  [ ] FIX Handle config changes (e.g., orientation) that allow positions to be reset when a *real* change in orientation takes place (one approach: config interface that distinguishes reified values from pending values  [current, last].   setting an unreified value sets it to last if current is last, otherwise to [current, last]; getting returns the current; getReified returns current and sets value to current as a reified value.  Alternative: a lastOrientation state that gets compared.)
+-  [ ] ADD Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph
 -  [ ] PROVISIONAL URL encoding of graph state for easy sharing, serving, linking, etc.
 -  [ ] PROVISIONAL support opacity in colors (use case: colorful decoration regions)
 -  [ ] PROVISIONAL Add either a `:freeze` command to fix the current positions of nodes by turning them into constraints and an `:unfreeze` command to remove constraints (injected constraints would be identifiable via e.g. `derived` property) or we could also have a `config` `frozen` option to fix positions of nodes at those in _positions (if any nodes are not in _positions, we add transient constraints like in the last case for those that are and apply the positioning to set the _positions of the new nodes)
@@ -16,6 +18,7 @@
 -  [ ] ADMIN add a test suite and get existing tests to pass
 -  [ ] support other LLM providers such as Google Bard, Anthropic, etc.
 -  [ ] PROVISIONAL handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
+-  [x] POS automatic positioning of self loops (including handling of multiple self loops for the same node), e.g. histogram approach (with say 10 degree bins)
 -  [x] FIX Handle LaTeX node labels in tikz
 -  [x] FIX support fontColor for SVG latex labels
 -  [x] PRIORITY :command to load adjacency matrices from a file (grammar flexible for different reasonable formats for the adjacency matrix)
