@@ -4,7 +4,7 @@ give node A a LaTeX label of \Theta
 set the label offset for node A to be 1 units to the north west
 give node B a LaTeX label of \chi^2(\alpha)
 give node C a LaTeX label of x_0^3
-give node D a LaTeX label of \int_0^\infty f(x) \; dx
+give node D a LaTeX label of \int_0^\infty f(x) \; \dd{x}
 give node E a LaTeX label of \frac{1}{2}
 give node F a LaTeX label of \sqrt{\pi \cdot \frac{1}{2}}
 set node size for node F to be 1.5, B to be 1.25, node D to be 1.4
