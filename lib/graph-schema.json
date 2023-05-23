@@ -780,6 +780,9 @@
           "fillColor": {
             "$ref": "#/$defs/fillColor"
           },
+          "fillStyle": {
+            "$ref": "#/$defs/fillStyle"
+          },
           "lineColor": {
             "$ref": "#/$defs/lineColor"
           },

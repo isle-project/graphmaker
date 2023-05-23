@@ -1,5 +1,6 @@
 # TODO
 
+-  [ ] FIX Adjust the history to not give all the previous graphs
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint
 -  [ ] FIX Handle Bezier case for edge positioning on general nodes
 -  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
