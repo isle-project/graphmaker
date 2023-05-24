@@ -4,13 +4,14 @@
 \usetikzlibrary{arrows.meta}
 
 \begin{document}\begin{tikzpicture}[>={Latex},
-  default/.style={draw=black, semithick, solid, fill=white, solid, }]
-\node[default, circle, ] (A) at (5.515897500847292e-13, 5.586580392863005) {$\Theta$};
-\node[default, circle, ] (B) at (-6.517335350001692, -1.1173160785719447) {$\chi^2(\alpha)$};
-\node[default, circle, ] (C) at (4.769937573509014, -1.1173160785719431) {$x_0^3$};
-\node[default, rectangle, ] (D) at (4.769937573509014, -1.1173160785719431) {$\int_0^\infty f(x) \; dx$};
-\node[default, circle, ] (E) at (-1.5112698985068234, -1.1173160785719634) {$\frac{1}{2}$};
-\node[default, circle, ] (F) at (-1.5112698985068234, -1.1173160785719634) {$\sqrt{\pi \cdot \frac{1}{2}}$};
+  default/.style={draw=black, semithick, solid, fill=white, solid},
+  every loop/.style={looseness=16}]
+\node[default, circle] (A) at (8.365820942271832e-9, 5.4396053731504495) {$\textcolor{steelblue}{\Theta}$};
+\node[default, circle] (B) at (-6.808365358961845, -1.0879210645911104) {$\chi^2(\alpha)$};
+\node[default, circle] (C) at (-3.3003903758045676, -1.0879210645911104) {$x_0^3$};
+\node[default, rectangle] (D) at (3.300390392536197, -1.0879210645911106) {$\int_0^\infty f(x) \dd{x}$};
+\node[default, circle] (E) at (6.808365375693476, -1.087921064591111) {$\frac{1}{2}$};
+\node[default, circle] (F) at (8.365814588429175e-9, -1.0879210645911106) {$\sqrt{\pi \cdot \frac{1}{2}}$};
 \draw [] (A) -- (B) ;
 \draw [] (A) -- (C) ;
 \draw [] (A) -- (D) ;

@@ -3,4 +3,6 @@ node 1 is the parent of nodes 2 and 7
 node 2 is the parent of nodes 3 and 6
 node 3 is the parent of nodes 4 and 5
 node 7 is the parent of nodes 8 and 9
+add a constraint that node 3 is to the left of node 8
 add a constraint that nodes 6 and 8 are at the same y-coordinate
+set each node label to its name
