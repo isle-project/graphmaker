@@ -520,7 +520,7 @@
               },
               {
                 "type": "array",
-                "description": "Offset in cartesian coordinates (0-1)",
+                "description": "Offset in Cartesian coordinates (positive x is right, positive y is up)",
                 "minItems": 2,
                 "maxItems": 2,
                 "items": {
