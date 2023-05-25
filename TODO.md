@@ -1,5 +1,5 @@
 # TODO
-
+-  [ ] FIX ai-models configuration of model (from config, not hard coded; need to change signatures)
 -  [ ] FIX Adjust the history to not give all the previous graphs
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint
 -  [ ] FIX Handle Bezier case for edge positioning on general nodes

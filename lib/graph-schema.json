@@ -316,7 +316,7 @@
     },
     "hasParents": {
       "type": "boolean",
-      "description": "This is true if the user tells us that the graph is a tree or a DAG, or if the user specifies an explicit parent-child relation between any two nodes."
+      "description": "This is true if the user tells us that the graph is a tree or a DAG, or if the user specifies an explicit parent-child relation between any two nodes. A parent-child relation between nodes should imply that there is an edge from parent to child. This property should be automatically updated when parent-child relations are specified."
     },
     "canvas": {
       "type": "object",
@@ -623,12 +623,16 @@
     },
     "adjacency": {
       "type": "object",
-      "description": "mapping from node names to an array of objects holding the name of the node to which the edge is connected and the name of the edge",
+      "description": "mapping from node names to an array of objects holding the name of the node to which the edge is connected and the name of the edge. Each distinct edge is only included once in the list of the source node specified by the user.",
       "additionalProperties": {
         "type": "array",
         "items": {
           "type": "object",
           "properties": {
+            "sourceNode": {
+              "type": "string",
+              "description": "name of the node from which the edge is connected"
+            },
             "targetNode": {
               "type": "string",
               "description": "name of the node to which the edge is connected"
