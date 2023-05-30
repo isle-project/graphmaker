@@ -1,6 +1,6 @@
 {
   "name": "@isle-labs/graphmaker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A library for creating visualizations of undirected and directed graphs with the help of AI.",
   "main": "lib/index.js",
   "bin": {
