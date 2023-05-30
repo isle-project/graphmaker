@@ -27,6 +27,7 @@
     "@stdlib/assert-is-array": "^0.0.7",
     "@stdlib/assert-is-string": "^0.0.8",
     "@stdlib/math-base-special-deg2rad": "^0.0.8",
+    "@stdlib/math-base-special-roundn": "^0.0.6",
     "@stdlib/random-base-normal": "^0.0.6",
     "@stdlib/string-format": "^0.0.3",
     "@stdlib/utils-compact-adjacency-matrix": "^0.0.6",
