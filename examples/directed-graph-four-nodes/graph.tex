@@ -1,0 +1,18 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white, solid},
+  every loop/.style={looseness=16}]
+\node[default, rectangle] (A) at (-3.618016, -1.381976) {Start};
+\node[default, circle] (B) at (-1.381986, 3.618041) {};
+\node[default, circle] (C) at (1.381986, -3.618041) {};
+\node[default, rectangle] (D) at (3.618015, 1.381976) {End};
+\draw [->] (A) -- (B) ;
+\draw [->] (A) -- (C) ;
+\draw [->] (A) -- (D) ;
+\draw [->] (C) -- (D) ;
+\end{tikzpicture}
+\end{document}

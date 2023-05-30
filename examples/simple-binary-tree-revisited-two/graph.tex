@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white, solid},
+  every loop/.style={looseness=16}]
+\node[default, circle] (1) at (1.6193046180647857, 8.60199123787526) {};
+\node[default, circle] (2) at (0.6256627032217537, 4.0174413504386886) {};
+\node[default, circle] (3) at (-5.6675661633709575, -1.5777540515519457) {};
+\node[default, circle] (4) at (-2.8881528938588965, -5.162928866416568) {};
+\node[default, circle] (5) at (-8.446979432882957, -5.16292886641657) {};
+\node[default, circle] (6) at (6.9188915698144475, -1.5777540515519346) {};
+\node[default, circle] (7) at (2.6129465329078285, 4.017441350438654) {};
+\node[default, circle] (8) at (0.7056118802003079, -1.577754051551937) {};
+\node[default, circle] (9) at (4.520281185615267, -1.5777540515519344) {};
+\draw [] (1) -- (2) ;
+\draw [] (1) -- (7) ;
+\draw [] (2) -- (3) ;
+\draw [] (2) -- (6) ;
+\draw [] (3) -- (4) ;
+\draw [] (3) -- (5) ;
+\draw [] (7) -- (8) ;
+\draw [] (7) -- (9) ;
+\end{tikzpicture}
+\end{document}

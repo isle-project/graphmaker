@@ -1,21 +1,18 @@
 {
   "directed": true,
+  "hasParents": false,
   "nodes": {
     "A": {
+      "label": "Start",
       "nodeShape": "rectangle",
-      "widthToHeight": 2,
-      "label": "Start"
+      "nodeWidthToHeight": 2
     },
-    "B": {
-      "nodeShape": "circle"
-    },
-    "C": {
-      "nodeShape": "circle"
-    },
+    "B": {},
+    "C": {},
     "D": {
+      "label": "End",
       "nodeShape": "rectangle",
-      "widthToHeight": 2,
-      "label": "End"
+      "nodeWidthToHeight": 2
     }
   },
   "edges": {
@@ -28,23 +25,47 @@
     "A": [
       {
         "targetNode": "B",
-        "edge": "AB"
+        "edge": "AB",
+        "sourceNode": "A"
       },
       {
         "targetNode": "C",
-        "edge": "AC"
+        "edge": "AC",
+        "sourceNode": "A"
       },
       {
         "targetNode": "D",
-        "edge": "AD"
+        "edge": "AD",
+        "sourceNode": "A"
       }
     ],
     "C": [
       {
         "targetNode": "D",
-        "edge": "CD"
+        "edge": "CD",
+        "sourceNode": "C"
       }
-    ]
+    ],
+    "B": [],
+    "D": []
   },
-  "constraints": []
+  "constraints": [],
+  "_positions": {
+    "A": [
+      -3.6174331508692634,
+      -1.3817088081387694
+    ],
+    "B": [
+      -1.3822805250451484,
+      3.618696197758452
+    ],
+    "C": [
+      1.382170746628167,
+      -3.618641956905229
+    ],
+    "D": [
+      3.6173415193256373,
+      1.3817638354626383
+    ]
+  }
 }

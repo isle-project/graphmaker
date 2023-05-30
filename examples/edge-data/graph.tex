@@ -1,0 +1,17 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white, solid},
+  every loop/.style={looseness=16}]
+\node[default, circle] (A) at (-4.411372, 0.809888) {};
+\node[default, circle] (B) at (-0.59062, 4.430444) {};
+\node[default, circle] (C) at (-2.118762, -3.916923) {};
+\node[default, circle] (D) at (3.094239, -3.251292) {};
+\node[default, circle] (E) at (4.026515, 1.927884) {};
+\draw [->] (A) -- (B) node [midway,label={[rotate=43,]43:23}] {};
+\draw [->] (A) -- (C) node [midway,label={[rotate=-64,]-64:12}] {};
+\end{tikzpicture}
+\end{document}
