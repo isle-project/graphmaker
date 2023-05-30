@@ -11,4 +11,5 @@ TODO.md
 **/dist/
 **/www/
 *.gif
+*.pdf
 *.log
