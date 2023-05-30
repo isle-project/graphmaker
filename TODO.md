@@ -1,8 +1,10 @@
 # TODO
--  [ ] FIX ai-models configuration of model (from config, not hard coded; need to change signatures)
+-  [ ] FEATURE Add file path completions to repl
+-  [ ] FIX arrowhead line should always be solid
 -  [ ] FIX Adjust the history to not give all the previous graphs
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint
 -  [ ] FIX Handle Bezier case for edge positioning on general nodes
+-  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now)
 -  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
 -  [ ] SCHEMA add loopDirection to edge definition in graph schema; this is the direction that a self-loop points out of the node; integrate into calls to selfLoop
 -  [ ] POS add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
@@ -19,6 +21,7 @@
 -  [ ] ADMIN add a test suite and get existing tests to pass
 -  [ ] support other LLM providers such as Google Bard, Anthropic, etc.
 -  [ ] PROVISIONAL handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
+-  [x] FIX ai-models configuration of model (from config, not hard coded; need to change signatures)
 -  [x] POS automatic positioning of self loops (including handling of multiple self loops for the same node), e.g. histogram approach (with say 10 degree bins)
 -  [x] FIX Handle LaTeX node labels in tikz
 -  [x] FIX support fontColor for SVG latex labels
