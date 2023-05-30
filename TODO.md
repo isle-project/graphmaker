@@ -1,4 +1,6 @@
 # TODO
+
+-  [ ] FIX clean-up the adjacency `Set` checks as needed
 -  [ ] FEATURE Add file path completions to repl
 -  [ ] FIX arrowhead line should always be solid
 -  [ ] FIX Adjust the history to not give all the previous graphs
