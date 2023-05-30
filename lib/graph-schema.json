@@ -621,37 +621,25 @@
         "additionalProperties": false
       }
     },
-    "adjacency": {
-      "type": "object",
-      "description": "mapping from node names to an array of objects holding the name of the node to which the edge is connected and the name of the edge. Each distinct edge is only included once in the list of the source node specified by the user.",
-      "additionalProperties": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "sourceNode": {
-              "type": "string",
-              "description": "name of the node from which the edge is connected"
-            },
-            "targetNode": {
-              "type": "string",
-              "description": "name of the node to which the edge is connected"
-            },
-            "edge": {
-              "type": "string",
-              "description": "name of the edge (must be present in the edges object of the graph)"
-            }
-          }
-        }
-      }
-    },
     "edges": {
       "type": "object",
       "description": "mapping from edge names to an attribute object; by default, an edge from node A to node B is named AB",
       "additionalProperties": {
         "type": "object",
         "description": "maps an attribute name to an attribute value",
+        "required": [
+          "sourceNode",
+          "targetNode"
+        ],
         "properties": {
+          "sourceNode": {
+            "type": "string",
+            "description": "name of the node from which the edge is connected"
+          },
+          "targetNode": {
+            "type": "string",
+            "description": "name of the node to which the edge is connected"
+          },
           "label": {
             "$ref": "#/$defs/label"
           },
@@ -848,6 +836,9 @@
         }
       }
     },
+    "_adjacency": {
+      "type": "object"
+    },
     "_positions": {
       "type": "object",
       "description": "mapping from node names to an array holding the x and y coordinates of the node",
@@ -864,8 +855,7 @@
   "required": [
     "directed",
     "nodes",
-    "edges",
-    "adjacency"
+    "edges"
   ],
   "additionalProperties": false
 }
