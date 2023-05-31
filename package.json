@@ -35,6 +35,7 @@
     "@stdlib/utils-keys": "^0.0.7",
     "@stdlib/utils-merge": "^0.0.7",
     "@stdlib/utils-omit": "^0.0.8",
+    "@stdlib/utils-omit-by": "^0.0.8",
     "@stdlib/utils-papply": "^0.0.10",
     "@stdlib/utils-pick": "^0.0.8",
     "@svgdotjs/svg.js": "^3.1.2",

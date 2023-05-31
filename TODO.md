@@ -1,15 +1,15 @@
 # TODO
 
--  [ ] FIX clean-up the adjacency `Set` checks as needed
--  [ ] FEATURE Add file path completions to repl
--  [ ] FIX arrowhead line should always be solid
+-  [x] FIX clean-up the adjacency `Set` checks as needed
+-  [x] FEATURE Add file path completions to REPL
+-  [x] FIX arrowhead line should always be solid
 -  [ ] FIX Adjust the history to not give all the previous graphs
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint
 -  [ ] FIX Handle Bezier case for edge positioning on general nodes
 -  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now)
 -  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
 -  [ ] SCHEMA add loopDirection to edge definition in graph schema; this is the direction that a self-loop points out of the node; integrate into calls to selfLoop
--  [ ] POS add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
+-  [ ] PROVISIONAL POS add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
 -  [ ] DOC Finish examples and gallery
 -  [ ] FIX Handle config changes (e.g., orientation) that allow positions to be reset when a *real* change in orientation takes place (one approach: config interface that distinguishes reified values from pending values  [current, last].   setting an unreified value sets it to last if current is last, otherwise to [current, last]; getting returns the current; getReified returns current and sets value to current as a reified value.  Alternative: a lastOrientation state that gets compared.)
