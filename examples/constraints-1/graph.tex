@@ -4,13 +4,14 @@
 \usetikzlibrary{arrows.meta}
 
 \begin{document}\begin{tikzpicture}[>={Latex},
-  default/.style={draw=black, semithick, solid, fill=white, solid, }]
-\node[default, circle, ] (A) at (-4.279163952849641, -0.9535064853498652) {};
-\node[default, regular polygon, regular polygon sides=3, ] (B) at (-0.4181936939714025, -4.482079579967199) {};
-\node[default, rectangle, ] (C) at (-2.348678823410551, 3.903551801387686) {};
-\node[default, circle, ] (D) at (4.093009979563192, -1.7947443106599692) {};
-\node[default, circle, ] (E) at (2.9530264906684165, 3.3267785745893788) {};
-\draw [->] (A) -- (C) ;
-\draw [->] (B) -- (C) ;
+  default/.style={draw=black, semithick, solid, fill=white, solid},
+  every loop/.style={looseness=16}]
+\node[default, circle] (A) at (-4.811967, 1.834484) {};
+\node[default, regular polygon, regular polygon sides=3] (B) at (1.238376, -4.998686) {};
+\node[default, rectangle] (C) at (-1.786795, -1.582101) {};
+\node[default, circle] (D) at (0.82706, 4.466564) {};
+\node[default, circle] (E) at (4.533327, 0.279739) {};
+\draw [] (A) -- (C) ;
+\draw [] (B) -- (C) ;
 \end{tikzpicture}
 \end{document}

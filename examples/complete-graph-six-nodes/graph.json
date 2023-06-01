@@ -2,12 +2,24 @@
   "directed": false,
   "hasParents": false,
   "nodes": {
-    "A": {"style": "allNodes"},
-    "B": {"style": "allNodes"},
-    "C": {"style": "allNodes"},
-    "D": {"style": "allNodes"},
-    "E": {"style": "allNodes"},
-    "F": {"style": "allNodes"}
+    "A": {
+      "style": "allNodes"
+    },
+    "B": {
+      "style": "allNodes"
+    },
+    "C": {
+      "style": "allNodes"
+    },
+    "D": {
+      "style": "allNodes"
+    },
+    "E": {
+      "style": "allNodes"
+    },
+    "F": {
+      "style": "allNodes"
+    }
   },
   "edges": {
     "AB": {
@@ -76,35 +88,9 @@
     "allNodes": {
       "fillStyle": [
         "hashed",
-        "increasing",
+        "vertical",
         1
       ]
     }
-  },
-  "_positions": {
-    "A": [
-      -4.656903090423446,
-      2.8351527742978204
-    ],
-    "B": [
-      -4.272656055794944,
-      -2.451569908452108
-    ],
-    "C": [
-      0.06112934552211269,
-      -5.0485882884532165
-    ],
-    "D": [
-      -0.049323974086440875,
-      4.0646029358406395
-    ],
-    "E": [
-      4.330994712281849,
-      -2.347346211486064
-    ],
-    "F": [
-      4.586731355324193,
-      2.9476216998619647
-    ]
   }
 }

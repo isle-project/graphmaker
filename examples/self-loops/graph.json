@@ -8,138 +8,112 @@
     "D": {}
   },
   "edges": {
-    "AB": {},
-    "AC": {},
-    "AD": {},
-    "BC": {},
-    "BD": {},
-    "CD": {},
-    "AA": {},
-    "BB1": {},
-    "BB2": {},
-    "CC1": {},
-    "CC2": {},
-    "CC3": {},
-    "DD1": {},
-    "DD2": {},
-    "DD3": {},
-    "DD4": {}
-  },
-  "adjacency": {
-    "A": [
-      {
-        "targetNode": "B",
-        "edge": "AB"
-      },
-      {
-        "targetNode": "C",
-        "edge": "AC"
-      },
-      {
-        "targetNode": "D",
-        "edge": "AD"
-      },
-      {
-        "targetNode": "A",
-        "edge": "AA"
-      }
-    ],
-    "B": [
-      {
-        "targetNode": "A",
-        "edge": "AB"
-      },
-      {
-        "targetNode": "C",
-        "edge": "BC"
-      },
-      {
-        "targetNode": "D",
-        "edge": "BD"
-      },
-      {
-        "targetNode": "B",
-        "edge": "BB1"
-      },
-      {
-        "targetNode": "B",
-        "edge": "BB2"
-      }
-    ],
-    "C": [
-      {
-        "targetNode": "A",
-        "edge": "AC"
-      },
-      {
-        "targetNode": "B",
-        "edge": "BC"
-      },
-      {
-        "targetNode": "D",
-        "edge": "CD"
-      },
-      {
-        "targetNode": "C",
-        "edge": "CC1"
-      },
-      {
-        "targetNode": "C",
-        "edge": "CC2"
-      },
-      {
-        "targetNode": "C",
-        "edge": "CC3"
-      }
-    ],
-    "D": [
-      {
-        "targetNode": "A",
-        "edge": "AD"
-      },
-      {
-        "targetNode": "B",
-        "edge": "BD"
-      },
-      {
-        "targetNode": "C",
-        "edge": "CD"
-      },
-      {
-        "targetNode": "D",
-        "edge": "DD1"
-      },
-      {
-        "targetNode": "D",
-        "edge": "DD2"
-      },
-      {
-        "targetNode": "D",
-        "edge": "DD3"
-      },
-      {
-        "targetNode": "D",
-        "edge": "DD4"
-      }
-    ]
+    "AB": {
+      "sourceNode": "A",
+      "targetNode": "B"
+    },
+    "AC": {
+      "sourceNode": "A",
+      "targetNode": "C"
+    },
+    "AD": {
+      "sourceNode": "A",
+      "targetNode": "D"
+    },
+    "BA": {
+      "sourceNode": "B",
+      "targetNode": "A"
+    },
+    "BC": {
+      "sourceNode": "B",
+      "targetNode": "C"
+    },
+    "BD": {
+      "sourceNode": "B",
+      "targetNode": "D"
+    },
+    "CA": {
+      "sourceNode": "C",
+      "targetNode": "A"
+    },
+    "CB": {
+      "sourceNode": "C",
+      "targetNode": "B"
+    },
+    "CD": {
+      "sourceNode": "C",
+      "targetNode": "D"
+    },
+    "DA": {
+      "sourceNode": "D",
+      "targetNode": "A"
+    },
+    "DB": {
+      "sourceNode": "D",
+      "targetNode": "B"
+    },
+    "DC": {
+      "sourceNode": "D",
+      "targetNode": "C"
+    },
+    "AA": {
+      "sourceNode": "A",
+      "targetNode": "A"
+    },
+    "BB1": {
+      "sourceNode": "B",
+      "targetNode": "B"
+    },
+    "BB2": {
+      "sourceNode": "B",
+      "targetNode": "B"
+    },
+    "CC1": {
+      "sourceNode": "C",
+      "targetNode": "C"
+    },
+    "CC2": {
+      "sourceNode": "C",
+      "targetNode": "C"
+    },
+    "CC3": {
+      "sourceNode": "C",
+      "targetNode": "C"
+    },
+    "DD1": {
+      "sourceNode": "D",
+      "targetNode": "D"
+    },
+    "DD2": {
+      "sourceNode": "D",
+      "targetNode": "D"
+    },
+    "DD3": {
+      "sourceNode": "D",
+      "targetNode": "D"
+    },
+    "DD4": {
+      "sourceNode": "D",
+      "targetNode": "D"
+    }
   },
   "constraints": [],
   "_positions": {
     "A": [
-      -4.359336247244421,
-      0.5852826741279067
+      -2.7367529344978054,
+      2.740490623310711
     ],
     "B": [
-      1.2604372729560476,
-      3.789113935348065
+      -2.7404713523333566,
+      -2.736733680877618
     ],
     "C": [
-      -0.7243349650691554,
-      -2.16598434774453
+      2.736750632714334,
+      -2.7404906301569394
     ],
     "D": [
-      3.8230044461127437,
-      -2.208475625979492
+      2.7404736541168275,
+      2.736733687723847
     ]
   }
 }

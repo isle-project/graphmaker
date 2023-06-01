@@ -3,7 +3,7 @@
   "hasParents": true,
   "nodes": {
     "A": {
-      "label": "latex: \\Theta",
+      "label": "latex: \\Theta ",
       "labelOffset": [
         "northwest",
         1
@@ -18,8 +18,8 @@
       "label": "latex: x_0^3"
     },
     "D": {
-      "nodeWidthToHeight": 2,
       "nodeShape": "rectangle",
+      "nodeWidthToHeight": 2,
       "label": "latex: \\int_0^\\infty f(x) \\dd{x}",
       "nodeSize": 1.4
     },
@@ -32,66 +32,52 @@
     }
   },
   "edges": {
-    "AB": {},
-    "AC": {},
-    "AD": {},
-    "AE": {},
-    "AF": {}
-  },
-  "adjacency": {
-    "A": [
-      {
-        "targetNode": "B",
-        "edge": "AB"
-      },
-      {
-        "targetNode": "C",
-        "edge": "AC"
-      },
-      {
-        "targetNode": "D",
-        "edge": "AD"
-      },
-      {
-        "targetNode": "E",
-        "edge": "AE"
-      },
-      {
-        "targetNode": "F",
-        "edge": "AF"
-      }
-    ],
-    "B": [],
-    "C": [],
-    "D": [],
-    "E": [],
-    "F": []
+    "AB": {
+      "sourceNode": "A",
+      "targetNode": "B"
+    },
+    "AC": {
+      "sourceNode": "A",
+      "targetNode": "C"
+    },
+    "AD": {
+      "sourceNode": "A",
+      "targetNode": "D"
+    },
+    "AE": {
+      "sourceNode": "A",
+      "targetNode": "E"
+    },
+    "AF": {
+      "sourceNode": "A",
+      "targetNode": "F"
+    }
   },
   "constraints": [],
   "_positions": {
     "A": [
-      -0.00002064476503796668,
-      5.439659246995282
+      8.239731316589539e-9,
+      5.439605373011011
     ],
     "B": [
-      -6.80838914985985,
-      -1.087856845236249
+      -6.808365359092726,
+      -1.0879210647145283
     ],
     "C": [
-      -3.300413149108673,
-      -1.0878568452362483
+      -3.3003903759339046,
+      -1.0879210647145279
     ],
     "D": [
-      -0.000020644765914095195,
-      -1.0878568452362463
+      6.8083653755721825,
+      -1.0879210647145263
     ],
     "E": [
-      6.808347860331326,
-      -1.087856845236244
+      8.239727456092554e-9,
+      -1.0879210647145283
     ],
     "F": [
-      3.3003718595778015,
-      -1.0878568452362471
+      3.3003903924133593,
+      -1.0879210647145299
     ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "directed": true,
+  "directed": false,
   "hasParents": false,
   "nodes": {
     "A": {},
@@ -7,62 +7,50 @@
       "nodeShape": "triangle"
     },
     "C": {
-      "style": "default",
-      "nodeShape": "rectangle",
-      "nodeWidthToHeight": 1
+      "nodeShape": "rectangle"
     },
     "D": {},
     "E": {}
   },
   "edges": {
-    "AC": {},
-    "BC": {}
-  },
-  "adjacency": {
-    "A": [
-      {
-        "targetNode": "C",
-        "edge": "AC"
-      }
-    ],
-    "B": [
-      {
-        "targetNode": "C",
-        "edge": "BC"
-      }
-    ],
-    "C": [],
-    "D": [],
-    "E": []
+    "AC": {
+      "sourceNode": "A",
+      "targetNode": "C"
+    },
+    "BC": {
+      "sourceNode": "B",
+      "targetNode": "C"
+    }
   },
   "constraints": [
     {
-      "meaning": "",
+      "meaning": "Node C is at the midpoint of nodes A and B",
       "constraints": [
-        "'C'.x  =  ('A'.x + 'B'.x) / 2"
+        "'C'.x  =  ('A'.x + 'B'.x) / 2",
+        "'C'.y  =  ('A'.y + 'B'.y) / 2"
       ]
     }
   ],
   "_positions": {
     "A": [
-      0.12360126369895953,
-      0.6031628272544681
+      -4.498779783982723,
+      -2.507252767843197
     ],
     "B": [
-      -4.4222088744282155,
-      -2.0640300095677513
+      4.62481845584044,
+      -2.2642067244904767
     ],
     "C": [
-      -2.149303805364657,
-      4.694051363093583
+      0.06301933592887465,
+      -2.3857297461668545
     ],
     "D": [
-      1.5659407421768772,
-      -4.586309983756468
+      -2.8893899617377046,
+      3.50386016957706
     ],
     "E": [
-      4.881975995031141,
-      1.3531679150722302
+      2.700206182787549,
+      3.6533114353042984
     ]
   }
 }

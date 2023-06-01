@@ -3,34 +3,32 @@
   "hasParents": false,
   "nodes": {
     "A": {
-      "style": "foo",
       "data": {
         "color": "blue",
         "count": "3"
       },
-      "nodeSize": 3
+      "style": "foo",
+      "nodeSize": 3,
+      "lineColor": "blue"
     },
     "B": {
       "data": {
         "color": "green",
         "count": "2"
       },
-      "nodeSize": 2
+      "nodeSize": 2,
+      "lineColor": "green"
     },
     "C": {
-      "style": "foo",
       "data": {
         "color": "blue"
       },
-      "nodeSize": 1
+      "style": "foo",
+      "nodeSize": 1,
+      "lineColor": "blue"
     }
   },
   "edges": {},
-  "adjacency": {
-    "A": [],
-    "B": [],
-    "C": []
-  },
   "constraints": [],
   "styles": {
     "foo": {
@@ -39,16 +37,16 @@
   },
   "_positions": {
     "A": [
-      -2.4022469856896835,
-      -2.0565143948470364
+      -2.6719888275495407,
+      -1.6912937860324766
     ],
     "B": [
-      -0.5797356629536257,
-      3.1087386198232365
+      -0.12869532749058035,
+      3.159655267501933
     ],
     "C": [
-      2.9820423290943014,
-      -1.0521560052724523
+      2.80069491114402,
+      -1.4683750039798307
     ]
   }
 }

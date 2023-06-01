@@ -1,4 +1,4 @@
 add nodes A-F
 add an edge between each distinct pair of nodes
-define a style named allNodes that fills the nodes with an increasing hashed pattern with thickness 1
-apply style allNodes to all nodes
+define a style named allNodes that fills the nodes with an vertical hashed pattern with thickness 1
+set the style for every node to "allNodes"

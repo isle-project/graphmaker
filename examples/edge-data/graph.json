@@ -10,65 +10,52 @@
   },
   "edges": {
     "AB": {
-      "data": {},
-      "weight": 23,
-      "style": "heavy"
+      "sourceNode": "A",
+      "targetNode": "B",
+      "data": {
+        "strength": "23",
+        "type": "colleagues"
+      },
+      "weight": 23
     },
     "AC": {
-      "data": {},
+      "sourceNode": "A",
+      "targetNode": "C",
+      "data": {
+        "strength": "12",
+        "type": "acquaintances"
+      },
       "weight": 12,
       "style": "light"
     }
-  },
-  "adjacency": {
-    "A": [
-      {
-        "sourceNode": "A",
-        "targetNode": "B",
-        "edge": "AB"
-      },
-      {
-        "sourceNode": "A",
-        "targetNode": "C",
-        "edge": "AC"
-      }
-    ],
-    "B": [],
-    "C": [],
-    "D": [],
-    "E": []
   },
   "constraints": [],
   "styles": {
     "light": {
       "lineStyle": "dotted",
       "lineColor": "steelblue"
-    },
-    "heavy": {
-      "lineStyle": "solid",
-      "lineColor": "tomato"
     }
   },
   "_positions": {
     "A": [
-      -3.972782553228275,
-      2.058941802834687
+      -2.488550924233892,
+      4.128881165524764
     ],
     "B": [
-      0.7298388864116573,
-      4.410127492280416
+      -0.8574745166410667,
+      -4.745050125465496
     ],
     "C": [
-      -3.182571692971986,
-      -3.1388777088705226
+      -3.663152067609195,
+      -0.6739862094689396
     ],
     "D": [
-      2.0029964755684397,
-      -3.999339992974982
+      3.0215784597942124,
+      3.26938321779808
     ],
     "E": [
-      4.42268805183222,
-      0.6690795425720584
+      3.9874863097855324,
+      -1.9792875246755566
     ]
   }
 }

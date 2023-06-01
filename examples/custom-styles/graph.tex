@@ -1,0 +1,14 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white, solid},
+  every loop/.style={looseness=16}]
+\node[foo, rectangle, draw=blue] (A) at (-2.67199, -1.691292) {};
+\node[default, circle, draw=green] (B) at (-0.128696, 3.159656) {};
+\node[foo, rectangle, draw=blue] (C) at (2.800695, -1.468374) {};
+
+\end{tikzpicture}
+\end{document}
