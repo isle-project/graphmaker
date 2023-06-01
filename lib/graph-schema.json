@@ -1,17 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Graph Schema",
-  "description": "Describes objects that define graphs with optional attributes on nodes and/or edges. Directed and undirected graphs are supported, as well as graphs with self-loops and multiple edges between nodes.",
+  "description": "Defines a graph with optional attributes on nodes and edges. Directed and undirected graphs are supported, as well as self-loops and multiple edges between nodes.",
   "type": "object",
   "$defs": {
-    "x": {
-      "type": "number",
-      "description": "x-coordinate (left boundary of canvas is zero, right boundary is one)"
-    },
-    "y": {
-      "type": "number",
-      "description": "y-coordinate (lower boundary of canvas is zero, upper boundary is one)"
-    },
     "nodeShape": {
       "enum": [
         "circle",
@@ -19,7 +11,8 @@
         "diamond",
         "triangle",
         "ellipse",
-        "rectangle"
+        "rectangle",
+        "invisible"
       ],
       "default": "circle"
     },
@@ -46,17 +39,15 @@
     },
     "nodeWidthToHeight": {
       "type": "number",
-      "description": "Aspect ratio of node's width to height",
       "default": 1
     },
     "nodeSize": {
       "type": "number",
-      "description": "Size of the node's shape",
       "default": 1
     },
     "label": {
       "type": "string",
-      "description": "A text or mathematical label. With a prefix 'latex:' or 'tex:', the rest of the label is interpreted as LaTeX input. With a prefix 'math:', the rest of the label is interpreted as MathLingo input. For latex/tex and math labels, use ASCII only. Otherwise, the text is used directly as a unicode string. Note that the standard latex $ delimiters are NOT supported.",
+      "description": "A text or mathematical label. With a prefix 'latex:' or 'tex:', the rest of the label is interpreted as LaTeX input. With a prefix 'math:', the rest of the label is interpreted as MathLingo input. For latex/tex and math labels, use ASCII only. Otherwise, the text is used directly as a unicode string. LaTeX $ delimiters are NOT supported.",
       "examples": [
         "A",
         "1",
@@ -100,8 +91,7 @@
         "normal",
         "italic",
         "oblique"
-      ],
-      "description": "Font style"
+      ]
     },
     "fontWeight": {
       "enum": [
@@ -118,16 +108,14 @@
         "700",
         "800",
         "900"
-      ],
-      "description": "Font weight"
+      ]
     },
     "fontVariant": {
       "enum": [
         "normal",
         "small-caps",
         "titling-caps"
-      ],
-      "description": "Font variant"
+      ]
     },
     "fontColor": {
       "type": "string",
@@ -139,7 +127,7 @@
         "middle",
         "end"
       ],
-      "description": "Text anchor"
+      "description": "Where a string's position is anchored"
     },
     "lineColor": {
       "type": "string",
@@ -152,16 +140,14 @@
         "medium",
         "thick",
         "very-thick"
-      ],
-      "description": "Line width"
+      ]
     },
     "lineStyle": {
       "enum": [
         "solid",
         "dashed",
         "dotted"
-      ],
-      "description": "Line stroke style"
+      ]
     },
     "arrowStyle": {
       "enum": [
@@ -169,11 +155,10 @@
         "normal",
         "heavy",
         "double"
-      ],
-      "description": "Arrow style"
+      ]
     },
     "fillStyle": {
-      "description": "Styling for the fill pattern of the shape",
+      "description": "Fill pattern of a shape",
       "oneOf": [
         {
           "enum": [
@@ -194,13 +179,15 @@
             {
               "type": "number",
               "minimum": 0,
-              "description": "Size of the dots in pixels"
+              "description": "Size of the dots in pixels",
+              "default": 0.2
             },
             {
               "type": "number",
               "minimum": 1,
               "maximum": 100,
-              "description": "Pixels per dot in both horizontal and vertical directions"
+              "description": "Pixels per dot in both horizontal and vertical directions",
+              "default": 10
             }
           ]
         },
@@ -213,6 +200,7 @@
               "const": "hashed"
             },
             {
+              "description": "Direction of the hashing lines",
               "enum": [
                 "vertical",
                 "horizontal",
@@ -223,7 +211,8 @@
             },
             {
               "type": "number",
-              "description": "Thickness of the hashing lines"
+              "description": "Thickness of the hashing lines",
+              "default": 0.5
             }
           ]
         },
@@ -236,6 +225,7 @@
               "const": "crosshatched"
             },
             {
+              "description": "Direction of the cross-hatching lines",
               "enum": [
                 "vertical",
                 "diagonal"
@@ -244,7 +234,8 @@
             },
             {
               "type": "number",
-              "description": "Thickness of the cross-hatching lines"
+              "description": "Thickness of the cross-hatching lines",
+              "default": 0.5
             }
           ]
         }
@@ -254,8 +245,8 @@
       "type": "string",
       "description": "A HEX color or RGB color such as rgb(255,255,255) to fill a shape"
     },
-    "edgeOffset": {
-      "description": "Represents an offset from a position",
+    "offset": {
+      "description": "An offset from a position",
       "oneOf": [
         {
           "const": "none"
@@ -312,27 +303,11 @@
   "properties": {
     "directed": {
       "type": "boolean",
-      "description": "`true` if it is a directed graph, `false` for undirected graphs (a graph is directed if it has any directed edges)"
+      "description": "`true` if graph is directed (a graph is directed if it has any directed edges), `false` if undirected"
     },
     "hasParents": {
       "type": "boolean",
-      "description": "This is true if the user tells us that the graph is a tree or a DAG, or if the user specifies an explicit parent-child relation between any two nodes. A parent-child relation between nodes should imply that there is an edge from parent to child. This property should be automatically updated when parent-child relations are specified."
-    },
-    "canvas": {
-      "type": "object",
-      "description": "canvas configuration",
-      "properties": {
-        "width": {
-          "type": "number",
-          "description": "width of the canvas in pixels",
-          "default": 500
-        },
-        "height": {
-          "type": "number",
-          "description": "height of the canvas in pixels",
-          "default": 500
-        }
-      }
+      "description": "True if user tells us that the graph is a tree or DAG or specifies an explicit parent-child relation between any two nodes. A parent-child relation between nodes should imply that there is an edge from parent to child. This property should be automatically updated when parent-child relations are specified."
     },
     "styles": {
       "type": "object",
@@ -391,7 +366,7 @@
     },
     "constraints": {
       "type": "array",
-      "description": "Array of positioning constraints on node (x,y) coordinates of the nodes, where (0,0) is the bottom-left point of the canvas, with x-coordinates increasing to the right and y-coordinates increasing to the top. Positioning requests for the nodes should be treated as requests for corresponding constraints on the node positions.",
+      "description": "Array of positioning constraints on node (x,y) coordinates of nodes, where (0,0) is the bottom-left point of the canvas, with x-coordinates increasing to the right and y-coordinates increasing to the top. Positioning requests for nodes should be treated as requests for corresponding constraints on the node positions.",
       "default": [],
       "items": {
         "type": "object",
@@ -399,19 +374,18 @@
         "properties": {
           "meaning": {
             "type": "string",
-            "description": "A description of the constraint",
             "default": ""
           },
           "constraints": {
             "type": "array",
             "items": {
               "type": "string",
-              "description": "A linear equation or inequality on the coordinates of a node in terms of the node names. Node names have to be enclosed by single quotes. Operators * / + - are supported. This string must not contain parentheses.",
+              "description": "A linear equation or inequality on the coordinates of a node in terms of the node names. Node names should be enclosed by single quotes. Operators * / + - are supported.",
               "examples": [
                 "'A'.x + 'B'.x = 0",
                 "2.1 'F'.x + 3 'G'.x - 4 'H'.x = 17",
-                "'node1'.x / 3 + 'node2'.x / 3 + 'node3'.x / 3 = 'node4'.x",
-                "'node7.y - 13 node8.y = 4",
+                "'A'.x / 3 + 'B'.x / 3 + 'C'.x / 3 = 'D'.x",
+                "'D'.y - 13 'E'.y = 4",
                 "'A'.x + 'B'.y = 'C'.x + 'D'.y",
                 "'C'.y - 'D'.y <= 0",
                 "'A'.y - 'B'.x >= 0",
@@ -460,10 +434,10 @@
     },
     "nodes": {
       "type": "object",
-      "description": "mapping from node names to an attribute object",
+      "description": "maps node names to attribute objects",
       "additionalProperties": {
         "type": "object",
-        "description": "maps an attribute name to an attribute value",
+        "description": "maps attribute names to attribute values",
         "properties": {
           "nodeShape": {
             "$ref": "#/$defs/nodeShape",
@@ -481,7 +455,7 @@
             "$ref": "#/$defs/label"
           },
           "labelOffset": {
-            "description": "Represents an offset of the node's label from its center in units of nodeSize",
+            "description": "An offset of the label from node's center in units of nodeSize",
             "examples": [
               "none",
               "east",
@@ -514,7 +488,7 @@
                   },
                   {
                     "type": "number",
-                    "description": "Distance from the node position in units of node size"
+                    "description": "Distance from node position in units of node size"
                   }
                 ]
               },
@@ -537,7 +511,7 @@
                   },
                   {
                     "type": "number",
-                    "description": "Angle in degrees from the positive-x direction"
+                    "description": "Angle in degrees counter-clockwise from the positive-x direction"
                   },
                   {
                     "type": "number",
@@ -547,12 +521,6 @@
                 ]
               }
             ]
-          },
-          "x": {
-            "$ref": "#/$defs/x"
-          },
-          "y": {
-            "$ref": "#/$defs/y"
           },
           "style": {
             "$ref": "#/$defs/style"
@@ -595,7 +563,7 @@
           },
           "data": {
             "type": "object",
-            "description": "Key-value pairs specifying extra data associated with this node. Any properties not in the schema should be specified in this object.",
+            "description": "Extra data associated with this node as key-value pairs. Any properties not in the schema should be specified in this object.",
             "additionalProperties": {
               "anyOf": [
                 {
@@ -623,10 +591,10 @@
     },
     "edges": {
       "type": "object",
-      "description": "mapping from edge names to an attribute object; by default, an edge from node A to node B is named AB",
+      "description": "maps edge names to attribute objects; by default, an edge from node A to node B is named AB",
       "additionalProperties": {
         "type": "object",
-        "description": "maps an attribute name to an attribute value",
+        "description": "maps attribute names to attribute values",
         "required": [
           "sourceNode",
           "targetNode"
@@ -634,11 +602,11 @@
         "properties": {
           "sourceNode": {
             "type": "string",
-            "description": "name of the node from which the edge is connected"
+            "description": "name of the node from which the edge originates"
           },
           "targetNode": {
             "type": "string",
-            "description": "name of the node to which the edge is connected"
+            "description": "name of the node to which the edge connects"
           },
           "label": {
             "$ref": "#/$defs/label"
@@ -648,10 +616,10 @@
             "description": "An optional numeric value associated with the edge."
           },
           "labelOffset": {
-            "$ref": "#/$defs/edgeOffset"
+            "$ref": "#/$defs/offset"
           },
           "weightOffset": {
-            "$ref": "#/$defs/edgeOffset"
+            "$ref": "#/$defs/offset"
           },
           "style": {
             "$ref": "#/$defs/style"
@@ -737,13 +705,9 @@
         "additionalProperties": false
       }
     },
-    "definitions": {
-      "type": "object",
-      "description": "aliases for the constructs used in style definitions"
-    },
     "decorations": {
       "type": "array",
-      "description": "Array of decorations to display on top of the graph (texts and rectangles)",
+      "description": "Decorations to display on top of the graph (texts and rectangles)",
       "items": {
         "type": "object",
         "required": [
@@ -757,14 +721,15 @@
             "enum": [
               "text",
               "region"
-            ],
-            "description": "The type of decoration"
+            ]
           },
           "x": {
-            "$ref": "#/$defs/x"
+            "type": "number",
+            "description": "x-coordinate (left boundary of canvas is zero, right boundary is one)"
           },
           "y": {
-            "$ref": "#/$defs/y"
+            "type": "number",
+            "description": "y-coordinate (lower boundary of canvas is zero, upper boundary is one)"
           },
           "style": {
             "$ref": "#/$defs/style"
@@ -796,42 +761,12 @@
           },
           "region": {
             "type": "array",
-            "description": "Relative width and height of a rectangle (as a proportion of the canvas dimensions)",
+            "description": "Relative width and height of a rectangle (as proportion of canvas dimensions)",
             "maxItems": 2,
             "minItems": 2,
             "items": {
               "type": "number"
             }
-          }
-        },
-        "dependencies": {
-          "type": {
-            "oneOf": [
-              {
-                "properties": {
-                  "type": {
-                    "enum": [
-                      "text"
-                    ]
-                  }
-                },
-                "required": [
-                  "text"
-                ]
-              },
-              {
-                "properties": {
-                  "type": {
-                    "enum": [
-                      "region"
-                    ]
-                  }
-                },
-                "required": [
-                  "region"
-                ]
-              }
-            ]
           }
         }
       }
@@ -841,7 +776,7 @@
     },
     "_positions": {
       "type": "object",
-      "description": "mapping from node names to an array holding the x and y coordinates of the node",
+      "description": "mapping from node names to array holding (x,y) coordinates of the node",
       "additionalProperties": {
         "type": "array",
         "items": {
