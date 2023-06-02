@@ -1,11 +1,51 @@
 [
     {
+        "name": "Complete Graph with Six Nodes",
+        "path": "complete-graph-six-nodes"
+    },
+    {
+        "name": "Constraints",
+        "path": "constraints"
+    },
+    {
+        "name": "Custom Styles",
+        "path": "custom-styles"
+    },
+    {
         "name": "Directed Graph with Four Nodes",
         "path": "directed-graph-four-nodes"
     },
     {
-        "name": "Complete Graph with Six Nodes",
-        "path": "complete-graph-six-nodes"
+        "name": "Edge Data",
+        "path": "edge-data"
+    },
+    {
+        "name": "Equation Labels",
+        "path": "equation-labels"
+    },
+    {
+        "name": "Feed Forward Neural Net",
+        "path": "feed-forward-neural-net"
+    },
+    {
+        "name": "Load Adjacency Matrix",
+        "path": "load-adjacency-matrix"
+    },
+    {
+        "name": "Load Adjacency Matrix #2",
+        "path": "load-adjacency-matrix-2"
+    },
+    {
+        "name": "Multiple Styles",
+        "path": "multiple-styles"
+    },
+    {
+        "name": "Self Loops",
+        "path": "self-loops"
+    },
+    {
+        "name": "Simple Binary Tree",
+        "path": "simple-binary-tree"
     },
     {
         "name": "Undirected Bipartite Graph",

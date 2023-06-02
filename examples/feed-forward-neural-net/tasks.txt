@@ -1,0 +1,13 @@
+add nodes L1A - L1C
+add constraints that nodes L1A, L1B, and L1C have the same x coordinate
+add nodes L2A - L2D
+add constraints that nodes L2A, L2B, L2C, and L2D have the same x coordinate
+add nodes L3A and L3B
+add constraints that nodes L3A and L3B have the same x coordinate
+add a constraint that L1A is to the left of L2A
+add a constraint that L2A is to the left of L3A
+add edges from L1A to L2A through L2D
+add edges from L2A to L3A and L3B
+add edges from L1B and L1C to L2A through L2D
+add edges from L2B, L2C, and L2D to L3A and L3B
+

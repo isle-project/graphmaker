@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white, solid},
+  every loop/.style={looseness=16}]
+\node[default, regular polygon, regular polygon sides=3, fill=tomato] (A) at (-3.756561, 6.560951) {};
+\node[default, regular polygon, regular polygon sides=3, fill=tomato] (B) at (-3.756561, -2.357045) {};
+\node[default, regular polygon, regular polygon sides=3, fill=tomato] (C) at (-3.756561, -8.774225) {};
+\node[default, regular polygon, regular polygon sides=3, fill=tomato] (D) at (-3.756561, -5.262449) {};
+\node[default, regular polygon, regular polygon sides=3, fill=tomato] (E) at (-3.756561, 0) {};
+\node[default, circle, fill=green] (F) at (4.068175, -6.904034) {};
+\node[default, circle, fill=green] (G) at (4.068175, 4.486626) {};
+\node[default, circle, fill=green] (H) at (4.068175, -2.711043) {};
+\node[default, circle, fill=green] (I) at (4.068175, 0.988746) {};
+\node[default, circle, fill=green] (J) at (4.068175, 8.202804) {};
+\draw [] (A) -- (F) ;
+\draw [] (A) -- (G) ;
+\draw [] (A) -- (J) ;
+\draw [] (B) -- (G) ;
+\draw [] (B) -- (J) ;
+\draw [] (C) -- (F) ;
+\draw [] (C) -- (G) ;
+\draw [] (C) -- (H) ;
+\draw [] (C) -- (I) ;
+\draw [] (C) -- (J) ;
+\draw [] (D) -- (G) ;
+\draw [] (D) -- (H) ;
+\draw [] (E) -- (G) ;
+\draw [] (E) -- (H) ;
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,126 @@
+{
+  "directed": false,
+  "hasParents": false,
+  "nodes": {
+    "L1A": {},
+    "L1B": {},
+    "L1C": {},
+    "L2A": {},
+    "L2B": {},
+    "L2C": {},
+    "L2D": {},
+    "L3A": {},
+    "L3B": {}
+  },
+  "edges": {
+    "L1A2A": {
+      "source": "L1A",
+      "target": "L2A"
+    },
+    "L1A2B": {
+      "source": "L1A",
+      "target": "L2B"
+    },
+    "L1A2C": {
+      "source": "L1A",
+      "target": "L2C"
+    },
+    "L1A2D": {
+      "source": "L1A",
+      "target": "L2D"
+    },
+    "L1B2A": {
+      "source": "L1B",
+      "target": "L2A"
+    },
+    "L1B2B": {
+      "source": "L1B",
+      "target": "L2B"
+    },
+    "L1B2C": {
+      "source": "L1B",
+      "target": "L2C"
+    },
+    "L1B2D": {
+      "source": "L1B",
+      "target": "L2D"
+    },
+    "L1C2A": {
+      "source": "L1C",
+      "target": "L2A"
+    },
+    "L1C2B": {
+      "source": "L1C",
+      "target": "L2B"
+    },
+    "L1C2C": {
+      "source": "L1C",
+      "target": "L2C"
+    },
+    "L1C2D": {
+      "source": "L1C",
+      "target": "L2D"
+    },
+    "L2A3A": {
+      "source": "L2A",
+      "target": "L3A"
+    },
+    "L2A3B": {
+      "source": "L2A",
+      "target": "L3B"
+    },
+    "L2B3A": {
+      "source": "L2B",
+      "target": "L3A"
+    },
+    "L2B3B": {
+      "source": "L2B",
+      "target": "L3B"
+    },
+    "L2C3A": {
+      "source": "L2C",
+      "target": "L3A"
+    },
+    "L2C3B": {
+      "source": "L2C",
+      "target": "L3B"
+    },
+    "L2D3A": {
+      "source": "L2D",
+      "target": "L3A"
+    },
+    "L2D3B": {
+      "source": "L2D",
+      "target": "L3B"
+    }
+  },
+  "constraints": [
+    {
+      "meaning": "Nodes in layer 1 all at the same coordinate",
+      "constraints": [
+        "'L1A'.x            =            'L1B'.x",
+        "'L1B'.x            =            'L1C'.x"
+      ]
+    },{
+      "meaning": "Nodes in layer 2 all have the same x coordinate",
+      "constraints": [
+        "'L2A'.x      =      'L2B'.x",
+        "'L2B'.x      =      'L2C'.x",
+        "'L2C'.x      =      'L2D'.x"
+      ]
+    },
+    {
+      "meaning": "Nodes in layer 3 all have the same x coordinate",
+      "constraints": [
+        "'L3A'.x    =    'L3B'.x"
+      ]
+    },
+    {
+      "meaning": "Layer 1 is to the left of layer 2 and layer 2 to the left of layer 3",
+      "constraints": [
+        "'L1A'.x <= 'L2A'.x",
+        "'L2A'.x <= 'L3A'.x"
+      ]
+    }
+  ]
+}

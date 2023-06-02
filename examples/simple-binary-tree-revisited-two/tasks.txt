@@ -1,7 +1,0 @@
-add nodes 1-9.
-node 1 is the parent of both nodes 2 and 7.
-node 2 is the parent of both nodes 3 and 6.
-node 3 is the parent of both nodes 4 and 5.
-node 7 is the parent of both nodes 8 and 9.
-add a constraint that nodes 6 and 8 are at the same y-coordinate.
-set each node label to its name.

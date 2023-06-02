@@ -1,5 +1,6 @@
 {
   "directed": false,
+  "hasParents": false,
   "nodes": {
     "A": {
       "style": "left"
@@ -26,9 +27,7 @@
       "style": "right"
     },
     "I": {
-      "style": "right",
-      "nodeShape": "rectangle",
-      "fillColor": "yellow"
+      "style": "right"
     },
     "J": {
       "style": "right"
@@ -36,153 +35,89 @@
   },
   "edges": {
     "AF": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "A",
+      "target": "F"
     },
     "AG": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "A",
+      "target": "G"
     },
     "AJ": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "A",
+      "target": "J"
     },
     "BG": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "B",
+      "target": "G"
     },
     "BJ": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "B",
+      "target": "J"
     },
     "CF": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "C",
+      "target": "F"
     },
     "CG": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "C",
+      "target": "G"
     },
     "CH": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "C",
+      "target": "H"
     },
     "CI": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "C",
+      "target": "I"
     },
     "CJ": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "C",
+      "target": "J"
     },
     "DG": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "D",
+      "target": "G"
     },
     "DH": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "D",
+      "target": "H"
     },
     "EG": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "E",
+      "target": "G"
     },
     "EH": {
-      "lineWidth": "thin",
-      "lineColor": "steelblue"
+      "source": "E",
+      "target": "H"
     }
-  },
-  "adjacency": {
-    "A": [
-      {
-        "target": "F",
-        "edge": "AF"
-      },
-      {
-        "target": "G",
-        "edge": "AG"
-      },
-      {
-        "target": "J",
-        "edge": "AJ"
-      }
-    ],
-    "B": [
-      {
-        "target": "G",
-        "edge": "BG"
-      },
-      {
-        "target": "J",
-        "edge": "BJ"
-      }
-    ],
-    "C": [
-      {
-        "target": "F",
-        "edge": "CF"
-      },
-      {
-        "target": "G",
-        "edge": "CG"
-      },
-      {
-        "target": "H",
-        "edge": "CH"
-      },
-      {
-        "target": "I",
-        "edge": "CI"
-      },
-      {
-        "target": "J",
-        "edge": "CJ"
-      }
-    ],
-    "D": [
-      {
-        "target": "G",
-        "edge": "DG"
-      },
-      {
-        "target": "H",
-        "edge": "DH"
-      }
-    ],
-    "E": [
-      {
-        "target": "G",
-        "edge": "EG"
-      },
-      {
-        "target": "H",
-        "edge": "EH"
-      }
-    ]
   },
   "constraints": [
     {
       "meaning": "Nodes A-E are at the same horizontal coordinate",
       "constraints": [
-        "'A'.x = 'B'.x",
-        "'B'.x = 'C'.x",
-        "'C'.x = 'D'.x",
-        "'D'.x = 'E'.x"
+        "A.x               =               B.x",
+        "A.x               =               C.x",
+        "A.x               =               D.x",
+        "A.x               =               E.x"
       ]
     },
     {
       "meaning": "Nodes F-J are at the same horizontal coordinate",
       "constraints": [
-        "'F'.x = 'G'.x",
-        "'G'.x = 'H'.x",
-        "'H'.x = 'I'.x",
-        "'I'.x = 'J'.x"
+        "F.x              =              G.x",
+        "F.x              =              H.x",
+        "F.x              =              I.x",
+        "F.x              =              J.x"
       ]
     },
     {
       "meaning": "Nodes A-E are all to the left of nodes F-J",
       "constraints": [
-        "'A'.x <= 'F'.x"
+        "A.x <= F.x",
+        "B.x <= F.x",
+        "C.x <= F.x",
+        "D.x <= F.x",
+        "E.x <= F.x"
       ]
     }
   ],
@@ -190,12 +125,58 @@
     "left": {
       "nodeShape": "triangle",
       "nodeSize": 2,
-      "fillColor": "tomato"
+      "fillColor": "tomato",
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
     },
     "right": {
       "nodeShape": "circle",
       "nodeSize": 2,
-      "fillColor": "green"
+      "fillColor": "green",
+      "lineWidth": "thin",
+      "lineColor": "steelblue"
     }
+  },
+  "_positions": {
+    "A": [
+      -4.083416498552114,
+      -7.587378634673035
+    ],
+    "B": [
+      -4.083416498552118,
+      -0.0011469352178384575
+    ],
+    "C": [
+      -4.083416498552117,
+      7.585439723368475
+    ],
+    "D": [
+      -4.083416498552114,
+      3.6403877047785973
+    ],
+    "E": [
+      -4.083416498552116,
+      -3.6425984617663496
+    ],
+    "F": [
+      4.0834493555949845,
+      7.587322120378784
+    ],
+    "G": [
+      4.083449355594983,
+      3.642548282041107
+    ],
+    "H": [
+      4.083449355594984,
+      -7.5854671879560565
+    ],
+    "I": [
+      4.083449355594982,
+      0.001104939358231325
+    ],
+    "J": [
+      4.083449355594984,
+      -3.640421513423418
+    ]
   }
 }

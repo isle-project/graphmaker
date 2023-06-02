@@ -1,14 +1,7 @@
-add nodes 1-9
-add edges from node 1 to nodes 2 and 3
-add edges from node 2 to nodes 4 and 5
-add edges from node 3 to nodes 6 and 7
-add edges from node 6 to nodes 8 and 9
-add a constraint that node 1 is above nodes 2 and 3
-add a constraint that node 2 and 3 are at the same y-coordinate
-add a constraint that nodes 4, 5, 6, and 7 are at the same y-coordinate
-add a constraint that nodes 2 is above nodes 4, 5, 6, and 7
-add a constraint that nodes 4, 5 are symmetrically placed horizontally around node 2
-add a constraint that nodes 6, 7 are symmetrically placed horizontally around node 3
-add a constraint that nodes 6 is above node 8
-add a constraint that nodes 8 and 9 are at the same y-coordinate
-add a constraint that nodes 8 and 9 are symmetrically placed horizontally around node 6
+add nodes 1-9.
+node 1 is the parent of both nodes 2 and 7.
+node 2 is the parent of both nodes 3 and 6.
+node 3 is the parent of both nodes 4 and 5.
+node 7 is the parent of both nodes 8 and 9.
+add a constraint that nodes 6 and 8 are at the same y-coordinate.
+set each node label to its name.
