@@ -58,9 +58,19 @@
       ]
     },
     "style": {
-      "type": "string",
-      "description": "Style name",
-      "default": "default"
+      "description": "Style name or names to be applied to an entity",
+      "oneOf": [
+        {
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "fontSize": {
       "type": "number",
@@ -169,38 +179,33 @@
           ]
         },
         {
-          "type": "array",
-          "minItems": 1,
-          "maxItems": 3,
-          "items": [
-            {
+          "type": "object",
+          "properties": {
+            "type": {
               "const": "dotted"
             },
-            {
+            "dotSize": {
               "type": "number",
               "minimum": 0,
               "description": "Size of the dots in pixels",
-              "default": 0.2
+              "default": 2.5
             },
-            {
+            "tileSize": {
               "type": "number",
               "minimum": 1,
               "maximum": 100,
               "description": "Pixels per dot in both horizontal and vertical directions",
               "default": 10
             }
-          ]
+          }
         },
         {
-          "type": "array",
-          "minItems": 1,
-          "maxItems": 3,
-          "items": [
-            {
+          "type": "object",
+          "properties": {
+            "type": {
               "const": "hashed"
             },
-            {
-              "description": "Direction of the hashing lines",
+            "hashDirection": {
               "enum": [
                 "vertical",
                 "horizontal",
@@ -209,35 +214,30 @@
               ],
               "default": "increasing"
             },
-            {
+            "thickness": {
               "type": "number",
-              "description": "Thickness of the hashing lines",
               "default": 0.5
             }
-          ]
+          }
         },
         {
-          "type": "array",
-          "minItems": 1,
-          "maxItems": 3,
-          "items": [
-            {
+          "type": "object",
+          "properties": {
+            "type": {
               "const": "crosshatched"
             },
-            {
-              "description": "Direction of the cross-hatching lines",
+            "hatchingDirection": {
               "enum": [
                 "vertical",
                 "diagonal"
               ],
               "default": "vertical"
             },
-            {
+            "thickness": {
               "type": "number",
-              "description": "Thickness of the cross-hatching lines",
               "default": 0.5
             }
-          ]
+          }
         }
       ]
     },
@@ -246,7 +246,21 @@
       "description": "A HEX color or RGB color such as rgb(255,255,255) to fill a shape"
     },
     "offset": {
-      "description": "An offset from a position",
+      "description": "An offset from a position in units relative to the natural size of the node or edge",
+      "examples": [
+        "none",
+        "east",
+        "upper-right",
+        [
+          "north",
+          1
+        ],
+        [
+          "polar",
+          45,
+          0.5
+        ]
+      ],
       "oneOf": [
         {
           "const": "none"
@@ -455,72 +469,7 @@
             "$ref": "#/$defs/label"
           },
           "labelOffset": {
-            "description": "An offset of the label from node's center in units of nodeSize",
-            "examples": [
-              "none",
-              "east",
-              "upper-right",
-              [
-                "north",
-                1
-              ],
-              [
-                "polar",
-                45,
-                0.5
-              ]
-            ],
-            "oneOf": [
-              {
-                "const": "none"
-              },
-              {
-                "$ref": "#/$defs/cardinalDirection"
-              },
-              {
-                "type": "array",
-                "description": "Offset in the given cardinal direction",
-                "minItems": 2,
-                "maxItems": 2,
-                "items": [
-                  {
-                    "$ref": "#/$defs/cardinalDirection"
-                  },
-                  {
-                    "type": "number",
-                    "description": "Distance from node position in units of node size"
-                  }
-                ]
-              },
-              {
-                "type": "array",
-                "description": "Offset in Cartesian coordinates (positive x is right, positive y is up)",
-                "minItems": 2,
-                "maxItems": 2,
-                "items": {
-                  "type": "number"
-                }
-              },
-              {
-                "type": "array",
-                "minItems": 3,
-                "maxItems": 3,
-                "items": [
-                  {
-                    "const": "polar"
-                  },
-                  {
-                    "type": "number",
-                    "description": "Angle in degrees counter-clockwise from the positive-x direction"
-                  },
-                  {
-                    "type": "number",
-                    "description": "Distance from the node position in units of node size",
-                    "minimum": 0
-                  }
-                ]
-              }
-            ]
+            "$ref": "#/$defs/offset"
           },
           "style": {
             "$ref": "#/$defs/style"
@@ -596,15 +545,15 @@
         "type": "object",
         "description": "maps attribute names to attribute values",
         "required": [
-          "sourceNode",
-          "targetNode"
+          "source",
+          "target"
         ],
         "properties": {
-          "sourceNode": {
+          "source": {
             "type": "string",
             "description": "name of the node from which the edge originates"
           },
-          "targetNode": {
+          "target": {
             "type": "string",
             "description": "name of the node to which the edge connects"
           },
@@ -643,6 +592,10 @@
             "type": "number",
             "description": "controls the curvature of an edge near the target node",
             "default": 0.5
+          },
+          "loopDirection": {
+            "type": "number",
+            "description": "For self-loop edges, the angle at which the loop points, counter-clockwise from positive x direction"
           },
           "lineColor": {
             "$ref": "#/$defs/lineColor"
@@ -706,10 +659,11 @@
       }
     },
     "decorations": {
-      "type": "array",
-      "description": "Decorations to display on top of the graph (texts and rectangles)",
-      "items": {
+      "type": "object",
+      "description": "maps decoration names to decoration objects (texts and rectangles to display on top of the graph)",
+      "additionalProperties": {
         "type": "object",
+        "description": "maps attribute names to attribute values",
         "required": [
           "type",
           "x",
@@ -760,12 +714,17 @@
             "description": "Text overlay"
           },
           "region": {
-            "type": "array",
-            "description": "Relative width and height of a rectangle (as proportion of canvas dimensions)",
-            "maxItems": 2,
-            "minItems": 2,
-            "items": {
-              "type": "number"
+            "type": "object",
+            "required": ["width", "height"],
+            "properties": {
+              "width": {
+                "type": "number",
+                "description": "Relative width of region (as proportion of canvas width)"
+              },
+              "height": {
+                "type": "number",
+                "description": "Relative height of region (as proportion of canvas height)"
+              }
             }
           }
         }

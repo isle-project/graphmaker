@@ -37,7 +37,7 @@ test( 'simple-directed-1', async () => {
                 graph.directed === true &&
                 graph.nodes.A && graph.nodes.B &&
                 Object.keys( graph.edges ).length === 1 &&
-                graph.adjacency.A[ 0 ].targetNode === 'B' &&
+                graph.adjacency.A[ 0 ].target === 'B' &&
                 graph.edges[ graph.adjacency.A[ 0 ].edge ]
             );
         },
@@ -46,9 +46,9 @@ test( 'simple-directed-1', async () => {
                 graph.directed === true &&
                 graph.nodes.A && graph.nodes.B && graph.nodes.C &&
                 Object.keys( graph.edges ).length === 3 &&
-                graph.adjacency.A[ 0 ].targetNode === 'B' &&
-                graph.adjacency.C[ 0 ].targetNode === 'A' &&
-                graph.adjacency.C[ 1 ].targetNode === 'B' &&
+                graph.adjacency.A[ 0 ].target === 'B' &&
+                graph.adjacency.C[ 0 ].target === 'A' &&
+                graph.adjacency.C[ 1 ].target === 'B' &&
                 graph.edges[ graph.adjacency.A[ 0 ].edge ] &&
                 graph.edges[ graph.adjacency.C[ 0 ].edge ] &&
                 graph.edges[ graph.adjacency.C[ 1 ].edge ] &&
@@ -62,7 +62,7 @@ test( 'simple-directed-1', async () => {
                 graph.directed === true &&
                 graph.nodes.A && graph.nodes.B && graph.nodes.C &&
                 Object.keys( graph.edges ).length === 4 &&
-                graph.adjacency.B[ 0 ].targetNode === 'B' &&
+                graph.adjacency.B[ 0 ].target === 'B' &&
                 graph.edges[ graph.adjacency.A[ 0 ].edge ] &&
                 graph.edges[ graph.adjacency.C[ 0 ].edge ] &&
                 graph.edges[ graph.adjacency.C[ 1 ].edge ] &&
@@ -97,7 +97,7 @@ test( 'convert-undirected-1', async () => {
                 graph.directed === true &&
                 graph.nodes.A && graph.nodes.B &&
                 Object.keys( graph.edges ).length === 1 &&
-                graph.adjacency.A[ 0 ].targetNode === 'B' &&
+                graph.adjacency.A[ 0 ].target === 'B' &&
                 graph.edges[ graph.adjacency.A[ 0 ].edge ]
             );
         },
@@ -106,8 +106,8 @@ test( 'convert-undirected-1', async () => {
                 graph.directed === false &&
                 graph.nodes.A && graph.nodes.B &&
                 Object.keys( graph.edges ).length === 1 &&
-                graph.adjacency.A[ 0 ].targetNode === 'B' &&
-                graph.adjacency.B[ 0 ].targetNode === 'A' &&
+                graph.adjacency.A[ 0 ].target === 'B' &&
+                graph.adjacency.B[ 0 ].target === 'A' &&
                 graph.edges[ graph.adjacency.A[ 0 ].edge ] &&
                 graph.edges[ graph.adjacency.B[ 0 ].edge ]
             );
