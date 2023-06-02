@@ -1,0 +1,6 @@
+add four nodes
+define a style called foo that sets the fill color to steelblue
+define a style called bar that sets the fill style to dotted
+set the styles for node A to be foo and bar
+set the style for node B to be bar
+set the style for node C to be foo

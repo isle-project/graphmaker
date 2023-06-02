@@ -103,133 +103,133 @@
   "adjacency": {
     "A": [
       {
-        "targetNode": "F",
+        "target": "F",
         "edge": "AF"
       },
       {
-        "targetNode": "G",
+        "target": "G",
         "edge": "AG"
       },
       {
-        "targetNode": "J",
+        "target": "J",
         "edge": "AJ"
       }
     ],
     "B": [
       {
-        "targetNode": "G",
+        "target": "G",
         "edge": "BG"
       },
       {
-        "targetNode": "J",
+        "target": "J",
         "edge": "BJ"
       }
     ],
     "C": [
       {
-        "targetNode": "F",
+        "target": "F",
         "edge": "CF"
       },
       {
-        "targetNode": "G",
+        "target": "G",
         "edge": "CG"
       },
       {
-        "targetNode": "H",
+        "target": "H",
         "edge": "CH"
       },
       {
-        "targetNode": "I",
+        "target": "I",
         "edge": "CI"
       },
       {
-        "targetNode": "J",
+        "target": "J",
         "edge": "CJ"
       }
     ],
     "D": [
       {
-        "targetNode": "G",
+        "target": "G",
         "edge": "DG"
       },
       {
-        "targetNode": "H",
+        "target": "H",
         "edge": "DH"
       }
     ],
     "E": [
       {
-        "targetNode": "G",
+        "target": "G",
         "edge": "EG"
       },
       {
-        "targetNode": "H",
+        "target": "H",
         "edge": "EH"
       }
     ],
     "F": [
       {
-        "targetNode": "A",
+        "target": "A",
         "edge": "AF"
       },
       {
-        "targetNode": "C",
+        "target": "C",
         "edge": "CF"
       }
     ],
     "G": [
       {
-        "targetNode": "A",
+        "target": "A",
         "edge": "AG"
       },
       {
-        "targetNode": "B",
+        "target": "B",
         "edge": "BG"
       },
       {
-        "targetNode": "C",
+        "target": "C",
         "edge": "CG"
       },
       {
-        "targetNode": "D",
+        "target": "D",
         "edge": "DG"
       },
       {
-        "targetNode": "E",
+        "target": "E",
         "edge": "EG"
       }
     ],
     "H": [
       {
-        "targetNode": "C",
+        "target": "C",
         "edge": "CH"
       },
       {
-        "targetNode": "D",
+        "target": "D",
         "edge": "DH"
       },
       {
-        "targetNode": "E",
+        "target": "E",
         "edge": "EH"
       }
     ],
     "I": [
       {
-        "targetNode": "C",
+        "target": "C",
         "edge": "CI"
       }
     ],
     "J": [
       {
-        "targetNode": "A",
+        "target": "A",
         "edge": "AJ"
       },
       {
-        "targetNode": "B",
+        "target": "B",
         "edge": "BJ"
       },
       {
-        "targetNode": "C",
+        "target": "C",
         "edge": "CJ"
       }
     ]

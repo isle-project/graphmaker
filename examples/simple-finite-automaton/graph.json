@@ -56,63 +56,63 @@
   "adjacency": {
     "0": [
       {
-        "targetNode": "1",
+        "target": "1",
         "edge": "01"
       },
       {
-        "targetNode": "4",
+        "target": "4",
         "edge": "04"
       }
     ],
     "1": [
       {
-        "targetNode": "0",
+        "target": "0",
         "edge": "01"
       },
       {
-        "targetNode": "2",
+        "target": "2",
         "edge": "12"
       },
       {
-        "targetNode": "3",
+        "target": "3",
         "edge": "13"
       }
     ],
     "2": [
       {
-        "targetNode": "1",
+        "target": "1",
         "edge": "12"
       },
       {
-        "targetNode": "2",
+        "target": "2",
         "edge": "22"
       }
     ],
     "3": [
       {
-        "targetNode": "3",
+        "target": "3",
         "edge": "33"
       },
       {
-        "targetNode": "4",
+        "target": "4",
         "edge": "34"
       }
     ],
     "4": [
       {
-        "targetNode": "0",
+        "target": "0",
         "edge": "04"
       },
       {
-        "targetNode": "3",
+        "target": "3",
         "edge": "34"
       },
       {
-        "targetNode": "5",
+        "target": "5",
         "edge": "45"
       },
       {
-        "targetNode": "4",
+        "target": "4",
         "edge": "44"
       }
     ],

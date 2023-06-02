@@ -9,92 +9,92 @@
   },
   "edges": {
     "AB": {
-      "sourceNode": "A",
-      "targetNode": "B"
+      "source": "A",
+      "target": "B"
     },
     "AC": {
-      "sourceNode": "A",
-      "targetNode": "C"
+      "source": "A",
+      "target": "C"
     },
     "AD": {
-      "sourceNode": "A",
-      "targetNode": "D"
+      "source": "A",
+      "target": "D"
     },
     "BA": {
-      "sourceNode": "B",
-      "targetNode": "A"
+      "source": "B",
+      "target": "A"
     },
     "BC": {
-      "sourceNode": "B",
-      "targetNode": "C"
+      "source": "B",
+      "target": "C"
     },
     "BD": {
-      "sourceNode": "B",
-      "targetNode": "D"
+      "source": "B",
+      "target": "D"
     },
     "CA": {
-      "sourceNode": "C",
-      "targetNode": "A"
+      "source": "C",
+      "target": "A"
     },
     "CB": {
-      "sourceNode": "C",
-      "targetNode": "B"
+      "source": "C",
+      "target": "B"
     },
     "CD": {
-      "sourceNode": "C",
-      "targetNode": "D"
+      "source": "C",
+      "target": "D"
     },
     "DA": {
-      "sourceNode": "D",
-      "targetNode": "A"
+      "source": "D",
+      "target": "A"
     },
     "DB": {
-      "sourceNode": "D",
-      "targetNode": "B"
+      "source": "D",
+      "target": "B"
     },
     "DC": {
-      "sourceNode": "D",
-      "targetNode": "C"
+      "source": "D",
+      "target": "C"
     },
     "AA": {
-      "sourceNode": "A",
-      "targetNode": "A"
+      "source": "A",
+      "target": "A"
     },
     "BB1": {
-      "sourceNode": "B",
-      "targetNode": "B"
+      "source": "B",
+      "target": "B"
     },
     "BB2": {
-      "sourceNode": "B",
-      "targetNode": "B"
+      "source": "B",
+      "target": "B"
     },
     "CC1": {
-      "sourceNode": "C",
-      "targetNode": "C"
+      "source": "C",
+      "target": "C"
     },
     "CC2": {
-      "sourceNode": "C",
-      "targetNode": "C"
+      "source": "C",
+      "target": "C"
     },
     "CC3": {
-      "sourceNode": "C",
-      "targetNode": "C"
+      "source": "C",
+      "target": "C"
     },
     "DD1": {
-      "sourceNode": "D",
-      "targetNode": "D"
+      "source": "D",
+      "target": "D"
     },
     "DD2": {
-      "sourceNode": "D",
-      "targetNode": "D"
+      "source": "D",
+      "target": "D"
     },
     "DD3": {
-      "sourceNode": "D",
-      "targetNode": "D"
+      "source": "D",
+      "target": "D"
     },
     "DD4": {
-      "sourceNode": "D",
-      "targetNode": "D"
+      "source": "D",
+      "target": "D"
     }
   },
   "constraints": [],

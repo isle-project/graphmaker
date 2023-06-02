@@ -1,0 +1,15 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white, solid},
+  every loop/.style={looseness=16}]
+\node[foo,bar, circle, fill=steelblue] (A) at (-2.736503, -2.738597) {};
+\node[bar, circle] (B) at (-2.740723, 2.738902) {};
+\node[foo, circle, fill=steelblue] (C) at (2.736228, 2.738321) {};
+\node[default, circle] (D) at (2.740997, -2.738627) {};
+
+\end{tikzpicture}
+\end{document}

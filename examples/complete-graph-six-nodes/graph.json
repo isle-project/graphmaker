@@ -23,64 +23,64 @@
   },
   "edges": {
     "AB": {
-      "sourceNode": "A",
-      "targetNode": "B"
+      "source": "A",
+      "target": "B"
     },
     "AC": {
-      "sourceNode": "A",
-      "targetNode": "C"
+      "source": "A",
+      "target": "C"
     },
     "AD": {
-      "sourceNode": "A",
-      "targetNode": "D"
+      "source": "A",
+      "target": "D"
     },
     "AE": {
-      "sourceNode": "A",
-      "targetNode": "E"
+      "source": "A",
+      "target": "E"
     },
     "AF": {
-      "sourceNode": "A",
-      "targetNode": "F"
+      "source": "A",
+      "target": "F"
     },
     "BC": {
-      "sourceNode": "B",
-      "targetNode": "C"
+      "source": "B",
+      "target": "C"
     },
     "BD": {
-      "sourceNode": "B",
-      "targetNode": "D"
+      "source": "B",
+      "target": "D"
     },
     "BE": {
-      "sourceNode": "B",
-      "targetNode": "E"
+      "source": "B",
+      "target": "E"
     },
     "BF": {
-      "sourceNode": "B",
-      "targetNode": "F"
+      "source": "B",
+      "target": "F"
     },
     "CD": {
-      "sourceNode": "C",
-      "targetNode": "D"
+      "source": "C",
+      "target": "D"
     },
     "CE": {
-      "sourceNode": "C",
-      "targetNode": "E"
+      "source": "C",
+      "target": "E"
     },
     "CF": {
-      "sourceNode": "C",
-      "targetNode": "F"
+      "source": "C",
+      "target": "F"
     },
     "DE": {
-      "sourceNode": "D",
-      "targetNode": "E"
+      "source": "D",
+      "target": "E"
     },
     "DF": {
-      "sourceNode": "D",
-      "targetNode": "F"
+      "source": "D",
+      "target": "F"
     },
     "EF": {
-      "sourceNode": "E",
-      "targetNode": "F"
+      "source": "E",
+      "target": "F"
     }
   },
   "constraints": [],

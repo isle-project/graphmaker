@@ -17,20 +17,20 @@
   },
   "edges": {
     "AD": {
-      "sourceNode": "A",
-      "targetNode": "D"
+      "source": "A",
+      "target": "D"
     },
     "AC": {
-      "sourceNode": "A",
-      "targetNode": "C"
+      "source": "A",
+      "target": "C"
     },
     "AB": {
-      "sourceNode": "A",
-      "targetNode": "B"
+      "source": "A",
+      "target": "B"
     },
     "CD": {
-      "sourceNode": "C",
-      "targetNode": "D"
+      "source": "C",
+      "target": "D"
     }
   },
   "constraints": [],

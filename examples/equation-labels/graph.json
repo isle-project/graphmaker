@@ -33,24 +33,24 @@
   },
   "edges": {
     "AB": {
-      "sourceNode": "A",
-      "targetNode": "B"
+      "source": "A",
+      "target": "B"
     },
     "AC": {
-      "sourceNode": "A",
-      "targetNode": "C"
+      "source": "A",
+      "target": "C"
     },
     "AD": {
-      "sourceNode": "A",
-      "targetNode": "D"
+      "source": "A",
+      "target": "D"
     },
     "AE": {
-      "sourceNode": "A",
-      "targetNode": "E"
+      "source": "A",
+      "target": "E"
     },
     "AF": {
-      "sourceNode": "A",
-      "targetNode": "F"
+      "source": "A",
+      "target": "F"
     }
   },
   "constraints": [],

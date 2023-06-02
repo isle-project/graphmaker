@@ -20,59 +20,59 @@
     "adjacency": {
         "A": [
             {
-                "targetNode": "B",
+                "target": "B",
                 "edge": "AB"
             },
             {
-                "targetNode": "C",
+                "target": "C",
                 "edge": "AC"
             },
             {
-                "targetNode": "D",
+                "target": "D",
                 "edge": "AD"
             }
         ],
         "B": [
             {
-                "targetNode": "A",
+                "target": "A",
                 "edge": "AB"
             },
             {
-                "targetNode": "E",
+                "target": "E",
                 "edge": "BE"
             }
         ],
         "C": [
             {
-                "targetNode": "A",
+                "target": "A",
                 "edge": "AC"
             },
             {
-                "targetNode": "D",
+                "target": "D",
                 "edge": "CD"
             },
             {
-                "targetNode": "E",
+                "target": "E",
                 "edge": "CE"
             }
         ],
         "D": [
             {
-                "targetNode": "A",
+                "target": "A",
                 "edge": "AD"
             },
             {
-                "targetNode": "C",
+                "target": "C",
                 "edge": "CD"
             }
         ],
         "E": [
             {
-                "targetNode": "B",
+                "target": "B",
                 "edge": "BE"
             },
             {
-                "targetNode": "C",
+                "target": "C",
                 "edge": "CE"
             }
         ]

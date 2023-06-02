@@ -95,67 +95,67 @@
   "adjacency": {
     "A": [
       {
-        "targetNode": "F",
+        "target": "F",
         "edge": "AF"
       },
       {
-        "targetNode": "G",
+        "target": "G",
         "edge": "AG"
       },
       {
-        "targetNode": "J",
+        "target": "J",
         "edge": "AJ"
       }
     ],
     "B": [
       {
-        "targetNode": "G",
+        "target": "G",
         "edge": "BG"
       },
       {
-        "targetNode": "J",
+        "target": "J",
         "edge": "BJ"
       }
     ],
     "C": [
       {
-        "targetNode": "F",
+        "target": "F",
         "edge": "CF"
       },
       {
-        "targetNode": "G",
+        "target": "G",
         "edge": "CG"
       },
       {
-        "targetNode": "H",
+        "target": "H",
         "edge": "CH"
       },
       {
-        "targetNode": "I",
+        "target": "I",
         "edge": "CI"
       },
       {
-        "targetNode": "J",
+        "target": "J",
         "edge": "CJ"
       }
     ],
     "D": [
       {
-        "targetNode": "G",
+        "target": "G",
         "edge": "DG"
       },
       {
-        "targetNode": "H",
+        "target": "H",
         "edge": "DH"
       }
     ],
     "E": [
       {
-        "targetNode": "G",
+        "target": "G",
         "edge": "EG"
       },
       {
-        "targetNode": "H",
+        "target": "H",
         "edge": "EH"
       }
     ]

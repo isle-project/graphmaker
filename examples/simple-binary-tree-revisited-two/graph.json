@@ -43,83 +43,83 @@
   "adjacency": {
     "1": [
       {
-        "targetNode": "7",
+        "target": "7",
         "edge": "17"
       },
       {
-        "targetNode": "2",
+        "target": "2",
         "edge": "12"
       }
     ],
     "2": [
       {
-        "targetNode": "1",
+        "target": "1",
         "edge": "12"
       },
       {
-        "targetNode": "3",
+        "target": "3",
         "edge": "23"
       },
       {
-        "targetNode": "6",
+        "target": "6",
         "edge": "26"
       }
     ],
     "3": [
       {
-        "targetNode": "2",
+        "target": "2",
         "edge": "23"
       },
       {
-        "targetNode": "4",
+        "target": "4",
         "edge": "34"
       },
       {
-        "targetNode": "5",
+        "target": "5",
         "edge": "35"
       }
     ],
     "4": [
       {
-        "targetNode": "3",
+        "target": "3",
         "edge": "34"
       }
     ],
     "5": [
       {
-        "targetNode": "3",
+        "target": "3",
         "edge": "35"
       }
     ],
     "6": [
       {
-        "targetNode": "2",
+        "target": "2",
         "edge": "26"
       }
     ],
     "7": [
       {
-        "targetNode": "1",
+        "target": "1",
         "edge": "17"
       },
       {
-        "targetNode": "8",
+        "target": "8",
         "edge": "78"
       },
       {
-        "targetNode": "9",
+        "target": "9",
         "edge": "79"
       }
     ],
     "8": [
       {
-        "targetNode": "7",
+        "target": "7",
         "edge": "78"
       }
     ],
     "9": [
       {
-        "targetNode": "7",
+        "target": "7",
         "edge": "79"
       }
     ]

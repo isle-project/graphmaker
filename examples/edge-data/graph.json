@@ -10,8 +10,8 @@
   },
   "edges": {
     "AB": {
-      "sourceNode": "A",
-      "targetNode": "B",
+      "source": "A",
+      "target": "B",
       "data": {
         "strength": "23",
         "type": "colleagues"
@@ -19,8 +19,8 @@
       "weight": 23
     },
     "AC": {
-      "sourceNode": "A",
-      "targetNode": "C",
+      "source": "A",
+      "target": "C",
       "data": {
         "strength": "12",
         "type": "acquaintances"

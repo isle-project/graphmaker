@@ -14,12 +14,12 @@
   },
   "edges": {
     "AC": {
-      "sourceNode": "A",
-      "targetNode": "C"
+      "source": "A",
+      "target": "C"
     },
     "BC": {
-      "sourceNode": "B",
-      "targetNode": "C"
+      "source": "B",
+      "target": "C"
     }
   },
   "constraints": [
