@@ -321,7 +321,7 @@
     },
     "hasParents": {
       "type": "boolean",
-      "description": "True if user tells us that the graph is a tree or DAG or specifies an explicit parent-child relation between any two nodes. A parent-child relation between nodes should imply that there is an edge from parent to child. This property should be automatically updated when parent-child relations are specified."
+      "description": "True if user tells us that the graph is a tree or DAG or specifies an explicit parent-child relation between any two nodes. Given a parent-child relation means, include an edge from parent to child. This property should be automatically updated when parent-child relations are specified."
     },
     "styles": {
       "type": "object",

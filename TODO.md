@@ -1,18 +1,18 @@
 # TODO
 -  [ ] FIX Handle Bezier case for edge positioning on general nodes
+-  [ ] REFACTOR Change iteration limit and annealing ratio in node position simulation (all more iteration)
+-  [ ] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph
 -  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now)
 -  [ ] FIX? PDF files are very large; seems that it should be convertible to much smaller size
 -  [ ] FIX correctly handle fillStyle in to-tikz
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint
 -  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
--  [ ] DOC Finish examples 
 -  [ ] DOC Create a gallery
 -  [ ] ADMIN Bump version
 -  [ ] FIX Handle config changes (e.g., orientation) that allow positions to be reset when a *real* change in orientation takes place (one approach: config interface that distinguishes reified values from pending values  [current, last].   setting an unreified value sets it to last if current is last, otherwise to [current, last]; getting returns the current; getReified returns current and sets value to current as a reified value.  Alternative: a lastOrientation state that gets compared.)
--  [ ] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph
 -  [ ] PROVISIONAL Add labelJustify style (none, left, right, center) for nodes, edges, and text decorations (is labelWidth needed? or scale for node/edge size)
--  [ ] PROVISIONALAllow inclusion of decorations in constraints
+-  [ ] PROVISIONAL Allow inclusion of decorations in constraints
 -  [ ] PROVISIONAL Add a new kind of constraint   DECORATION contains NODE1,...,NONEn
 -  [ ] PROVISIONAL Add a default pre-existing decoration "canvas" of type invisible whose coordinates are fixed at the canvas boundary (useful in constraints)
 -  [ ] PROVISIONAL Allow constraints to access not just center (.x, .y) but also bounding box coordinates (.ul, .ur, .lr, .ll OR .e, .w, .s, .n, .nw, .ne, .se, .sw) for nodes and decorations
@@ -20,12 +20,13 @@
 -  [ ] PROVISIONAL support opacity in colors (use case: colorful decoration regions)
 -  [ ] PROVISIONAL Add either a `:freeze` command to fix the current positions of nodes by turning them into constraints and an `:unfreeze` command to remove constraints (injected constraints would be identifiable via e.g. `derived` property) or we could also have a `config` `frozen` option to fix positions of nodes at those in _positions (if any nodes are not in _positions, we add transient constraints like in the last case for those that are and apply the positioning to set the _positions of the new nodes)
 -  [ ] PROVISIONAL POS add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
--  [ ] TEST Run all examples through and test to make sure the output is correct (at least most of the time)
+-  [ ] TEST Make sure the output of all examples is correct (at least most of the time)
 -  [ ] TEST Use decorations in examples to make sure they work
 -  [ ] ADMIN clean-up the code
 -  [ ] ADMIN add a test suite and get existing tests to pass
 -  [ ] support other LLM providers such as Google Bard, Anthropic, etc.
 -  [ ] PROVISIONAL handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
+-  [x] DOC Finish examples 
 -  [-] FIX add to repairDiff (index.js) to remove null's from arrays
 -  [x] PROVISIONAL support an array of styles for nodes, edges, and decorations 
 -  [x] PROVISIONAL Allow names on decorations 
