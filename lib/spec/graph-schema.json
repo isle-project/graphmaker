@@ -129,7 +129,10 @@
     },
     "fontColor": {
       "type": "string",
-      "description": "A HEX color or RGB color such as rgb(255,255,255) for the font"
+      "description": {
+        "human": "A HEX color or RGB color such as rgb(255,255,255) for the font. rgb(red, green, blue) has each color specified on a range from 0-255.",
+        "model": "A HEX color or RGB color such as rgb(255,255,255) for the font."
+      }
     },
     "textAnchor": {
       "enum": [

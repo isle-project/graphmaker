@@ -1,0 +1,80 @@
+{
+  "width": {
+    "description": "Width of image canvas in pixels",
+    "tag": "PIXELS",
+    "type": "string",
+    "trueType": "number",
+    "short": "w"
+  },
+  "height": {
+    "description": "Height of image canvas in pixels",
+    "tag": "PIXELS",
+    "type": "string",
+    "trueType": "number",
+    "short": "h"
+  },
+  "draft": {
+    "description": "Display extra information, e.g., node reference names",
+    "type": "boolean",
+    "short": "d"
+  },
+  "format": {
+    "description": "Default output format for :show/:save commands",
+    "tag": "FORMAT",
+    "type": "string",
+    "short": "f",
+    "enum": [ "svg", "png", "jpg", "jpeg", "pdf", "json", "gif", "webp", "tiff", "tex" ]
+  },
+  "orientation": {
+    "description": "Default orientation for displaying the graph indicating where the first/root node is positioned (either 'left', 'right', 'top', 'bottom', or 'auto')",
+    "tag": "ORIENTATION",
+    "type": "string",
+    "short": "o",
+    "enum": [ "left", "right", "top", "bottom", "auto" ]
+  },
+  "config": {
+    "description": "Path to JSON configuration file (Default: ~/.graphmaker.json)",
+    "tag": "FILE_PATH",
+    "type": "string",
+    "short": "c"
+  },
+  "provider": {
+    "description": "Model provider ('OpenAI')",
+    "tag": "NAME",
+    "type": "string",
+    "short": "p"
+  },
+  "model": {
+    "description": "Model to use ('gpt-3.5-turbo')",
+    "tag": "NAME",
+    "type": "string",
+    "short": "m"
+  },
+  "apiKey": {
+    "description": "Model provider API key",
+    "type": "string",
+    "short": "a"
+  },
+  "type": {
+    "description": "Model type ('memoryless' or 'serial')",
+    "tag": "NAME",
+    "type": "string",
+    "short": "t",
+    "enum": [ "memoryless", "serial" ]
+  },
+  "exec": {
+    "description": "Determines how tasks are sent to the AI model in the :exec command: 'batch' [fewest requests], 'incremental' [one request per task], and 'auto' [model-dependent]",
+    "type": "string",
+    "enum": [ "batch", "incremental", "auto" ]
+  },
+  "version": {
+    "description": "Print package version number and exit",
+    "type": "boolean",
+    "short": "v"
+  },
+  "help": {
+    "description": "Print this message and exit",
+    "type": "boolean",
+    "short": "h"
+  }
+}
