@@ -1,33 +1,45 @@
 # TODO
--  [ ] FIX Handle Bezier case for edge positioning on general nodes
--  [ ] REFACTOR Change iteration limit and annealing ratio in node position simulation (all more iteration)
--  [ ] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph
--  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now)
--  [ ] FIX? PDF files are very large; seems that it should be convertible to much smaller size
--  [ ] FIX correctly handle fillStyle in to-tikz
--  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint
--  [ ] FIX adjust parser to allow multipliers of parenthetical expressions on the right and < and > by themselves as equivalent to <= >=
--  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
--  [ ] DOC Create a gallery
--  [ ] ADMIN Bump version
--  [ ] FIX Handle config changes (e.g., orientation) that allow positions to be reset when a *real* change in orientation takes place (one approach: config interface that distinguishes reified values from pending values  [current, last].   setting an unreified value sets it to last if current is last, otherwise to [current, last]; getting returns the current; getReified returns current and sets value to current as a reified value.  Alternative: a lastOrientation state that gets compared.)
+## Immediate
+-  [ ] FIX Handle Bezier case for edge positioning on general nodes [CG & PB]
+-  [x] REFACTOR Change iteration limit and annealing ratio in node position simulation (all more iteration) [CG & PB] 
+-  [ ] TOOL README template and construction script (with _description tags in schema, graphmaker usage, etc.) [CG]
+-  [x] FIX Remove _description tags from schema in schemaMessage() [CG & PB]
+-  [ ] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph [CG]
+-  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now) [PB]
+-  [ ] FIX? PDF files are very large; seems that it should be convertible to much smaller size [PB]
+-  [ ] FIX correctly handle fillStyle in to-tikz [CG]
+-  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint [CG]
+-  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
+-  [ ] DOC Create a gallery [PB]
+-  [ ] FIX use GPT3 tokenizer to count the number of tokens in the prompt and adjust the assembled history prompt if necessary [PB]
+-  [ ] Improve indentation and line wrapping for REPL usage printout [PB]
+
+## Soon
+-  [ ] PROVISIONAL Second phase positioning adjustments that improve the overall look and feel
+-  [ ] PROVISIONAL Alternate initialization of positions using presence of edges as an implicit metric (as in multi-dimensional scaling)
 -  [ ] PROVISIONAL Add labelJustify style (none, left, right, center) for nodes, edges, and text decorations (is labelWidth needed? or scale for node/edge size)
--  [ ] PROVISIONAL Allow inclusion of decorations in constraints
 -  [ ] PROVISIONAL Add a new kind of constraint   DECORATION contains NODE1,...,NONEn
 -  [ ] PROVISIONAL Add a default pre-existing decoration "canvas" of type invisible whose coordinates are fixed at the canvas boundary (useful in constraints)
 -  [ ] PROVISIONAL Allow constraints to access not just center (.x, .y) but also bounding box coordinates (.ul, .ur, .lr, .ll OR .e, .w, .s, .n, .nw, .ne, .se, .sw) for nodes and decorations
--  [ ] PROVISIONAL URL encoding of graph state for easy sharing, serving, linking, etc.
--  [ ] PROVISIONAL support opacity in colors (use case: colorful decoration regions)
--  [ ] PROVISIONAL Add either a `:freeze` command to fix the current positions of nodes by turning them into constraints and an `:unfreeze` command to remove constraints (injected constraints would be identifiable via e.g. `derived` property) or we could also have a `config` `frozen` option to fix positions of nodes at those in _positions (if any nodes are not in _positions, we add transient constraints like in the last case for those that are and apply the positioning to set the _positions of the new nodes)
--  [ ] PROVISIONAL POS add edge, label, and adjustment positioning phases to the automatic positioning; e.g., hooke counterforce on edges
+
+## Admin
 -  [ ] TEST Make sure the output of all examples is correct (at least most of the time)
 -  [ ] TEST Use decorations in examples to make sure they work
 -  [ ] ADMIN clean-up the code
 -  [ ] ADMIN add a test suite and get existing tests to pass
--  [ ] support other LLM providers such as Google Bard, Anthropic, etc.
--  [ ] PROVISIONAL handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
+
+## Future
+-  [ ] FUTURE adjust parser to allow multipliers of parenthetical expressions on the right [CG]
+-  [ ] FUTURE adjust parser so that < and > by themselves as equivalent to <= >= [CG]
+-  [ ] FUTURE Add either a `:freeze` command to fix the current positions of nodes by turning them into constraints and an `:unfreeze` command to remove constraints (injected constraints would be identifiable via e.g. `derived` property) or we could also have a `config` `frozen` option to fix positions of nodes at those in _positions (if any nodes are not in _positions, we add transient constraints like in the last case for those that are and apply the positioning to set the _positions of the new nodes)
+-  [ ] FUTURE Handle config changes (e.g., orientation) that allow positions to be reset when a *real* change in orientation takes place (one approach: config interface that distinguishes reified values from pending values  [current, last].   setting an unreified value sets it to last if current is last, otherwise to [current, last]; getting returns the current; getReified returns current and sets value to current as a reified value.  Alternative: a lastOrientation state that gets compared.)
+-  [ ] FUTURE URL encoding of graph state for easy sharing, serving, linking, etc.
+-  [ ] FUTURE support opacity in colors (use case: colorful decoration regions)
+-  [ ] FUTURE support other LLM providers such as Google Bard, Anthropic, etc.
+-  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
+
+## Completed
 -  [x] DOC Finish examples 
--  [-] FIX add to repairDiff (index.js) to remove null's from arrays
 -  [x] PROVISIONAL support an array of styles for nodes, edges, and decorations 
 -  [x] PROVISIONAL Allow names on decorations 
 -  [x] SCHEMA add loopDirection to edge definition in graph schema; this is the direction that a self-loop points out of the node; integrate into calls to selfLoop
@@ -58,7 +70,6 @@
 -  [x] LaTeX equation positioning
 -  [x] Positions encoded as x, y props on nodes used as starting points; missing positions are randomized (used _positions instead)
 -  [x] With no initial positions, order in x (or y) in the node order given (random order statistics) and randomize other dimension
--  [ ] use GPT3 tokenizer to count the number of tokens in the prompt and adjust the assembled history prompt if necessary
 -  [x] add inequality constraints to node positioning
 -  [x] add export to tikz 
 -  [x] :config command add to config in repl  (use cases: turn names on or off, canvas dimensions)

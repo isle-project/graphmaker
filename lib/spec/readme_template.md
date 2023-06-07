@@ -14,23 +14,24 @@
 
 ## Table of Contents
 
-- [Motivation](#motivation)
-- [Installation](#installation-1)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
+- [Motivation](#motivation) [CG]
+- [Installation](#installation-1) [PB]
+- [Getting Started](#getting-started) [PB]
+- [Usage](#usage) [CG]
     - [Conventions](#conventions)
     - [Graph Types](#graph-types)
+    - [Constraints](#constraints)
     - [Node Properties](#node-props)
     - [Edge Properties](#edge-props)
     - [Decorations](#decorations)
     - [Styling](#styling)
     - [Fine Tuning](#fine-tuning)
-    - [Image Output](#image-output)
+    - [Graph Output](#graph-output)
     - [REPL Capabilities](#repl-capabilities)
-- [Tips](#tips)
-- [Gallery](#gallery)
-- [Command Details](#command-details)
-- [Style Details](#style-details)
+- [Tips](#tips) [PB]
+- [Gallery](#gallery) [PB]
+- [Command Details](#command-details) [auto-generated]
+- [Style Details](#style-details) [auto-generated]
 - [The GraphMaker Node Library](#the-graphmaker-node-library)
     - Installation
     - Usage
@@ -86,22 +87,7 @@ Options:
 
 ### REPL Commands
 
-```text
-Commands:
-  <task> - execute a task
-  :save <filename> - save the graph to a file, format is determined by the file extension
-  :show [<format>] - show the graph in a given format
-  :undo - undo the last command
-  :redo - redo the last command
-  :config <option> [<value>] - set a configuration option for the graph or print its value
-  :reset - reset the graph to the initial state
-  :history <n> - show the last n commands (default: 10)
-  :exec <filename> - load a file containing commands
-  :load <filename>.json - load a saved graph as the current state
-  :transcript <filename> - save the transcript to a file
-  :help - show this help message
-  :exit - exit the program
-```
+@PROCESS-CONTENTS(commands, ./spec/repl-commands.json)
 
 ### Conventions
 
@@ -117,7 +103,7 @@ Commands:
 
 ### Fine Tuning
 
-### Image Output
+### Graph Output
 
 ### REPL Capabilities
 
