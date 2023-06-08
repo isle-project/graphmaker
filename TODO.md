@@ -1,6 +1,6 @@
 # TODO
 ## Immediate
--  [ ] FIX Handle Bezier case for edge positioning on general nodes [CG & PB]
+-  [x] FIX Handle Bezier case for edge positioning on general nodes [CG & PB]
 -  [x] REFACTOR Change iteration limit and annealing ratio in node position simulation (all more iteration) [CG & PB] 
 -  [ ] TOOL README template and construction script (with _description tags in schema, graphmaker usage, etc.) [CG]
 -  [x] FIX Remove _description tags from schema in schemaMessage() [CG & PB]
