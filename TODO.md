@@ -1,9 +1,6 @@
 # TODO
 ## Immediate
--  [x] FIX Handle Bezier case for edge positioning on general nodes [CG & PB]
--  [x] REFACTOR Change iteration limit and annealing ratio in node position simulation (all more iteration) [CG & PB] 
 -  [ ] TOOL README template and construction script (with _description tags in schema, graphmaker usage, etc.) [CG]
--  [x] FIX Remove _description tags from schema in schemaMessage() [CG & PB]
 -  [ ] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph [CG]
 -  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now) [PB]
 -  [ ] FIX? PDF files are very large; seems that it should be convertible to much smaller size [PB]
@@ -25,7 +22,8 @@
 ## Admin
 -  [ ] TEST Make sure the output of all examples is correct (at least most of the time)
 -  [ ] TEST Use decorations in examples to make sure they work
--  [ ] ADMIN clean-up the code
+-  [ ] ADMIN clean-up and reorganize the code
+-  [ ] ADMIN add documentation in the code where required
 -  [ ] ADMIN add a test suite and get existing tests to pass
 
 ## Future
@@ -39,6 +37,9 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] FIX Handle Bezier case for edge positioning on general nodes [CG & PB]
+-  [x] REFACTOR Change iteration limit and annealing ratio in node position simulation (all more iteration) [CG & PB] 
+-  [x] FIX Remove _description tags from schema in schemaMessage() [CG & PB]
 -  [x] DOC Finish examples 
 -  [x] PROVISIONAL support an array of styles for nodes, edges, and decorations 
 -  [x] PROVISIONAL Allow names on decorations 
