@@ -9,7 +9,7 @@
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
 -  [ ] DOC Create a gallery [PB]
 -  [ ] FIX use GPT3 tokenizer to count the number of tokens in the prompt and adjust the assembled history prompt if necessary [PB]
--  [ ] Improve indentation and line wrapping for REPL usage printout [PB]
+-  [x] Improve indentation and line wrapping for REPL usage printout [PB]
 
 ## Soon
 -  [ ] PROVISIONAL Second phase positioning adjustments that improve the overall look and feel

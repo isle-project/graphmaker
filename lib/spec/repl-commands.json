@@ -2,76 +2,91 @@
   {
       "command": ":save",
       "description": "Save the current graph to a file",
-      "usage": "<filename> - save the graph to a file, format is determined by the file extension (supported formats: svg, tex (LaTex via tikZ), gif, tiff, webp, pdf, png, jp(e)g, json)"
+      "usage": "save the graph to a file, format is determined by the file extension (supported formats: svg, tex (LaTex via tikZ), gif, tiff, webp, pdf, png, jp(e)g, json)",
+      "args": "<filename>"
   },
   {
       "command": ":show",
       "description": "Show the graph in a given format",
-      "usage": "[<format>] - show the graph in a given format"
+      "usage": "show the graph in a given format",
+      "args": "[<format>]"
   },
   {
       "command": ":undo",
       "description": "Undo the last command",
-      "usage": "- undo the last command"
+      "usage": "undo the last command",
+      "args": ""
   },
   {
       "command": ":redo",
       "description": "Redo the last command",
-      "usage": "- redo the last command"
+      "usage": "redo the last command",
+      "args": ""
   },
   {
       "command": ":config",
       "description": "Set a configuration option for the graph or print its value",
-      "usage": "[<option> [<value>]] - set a configuration option for the graph or print its value"
+      "usage": "set a configuration option for the graph or print its value",
+      "args": "[<option> [<value>]]"
   },
   {
       "command": ":reset",
       "description": "Reset the graph to the initial state",
-      "usage": "- reset the graph to the initial state"
+      "usage": "reset the graph to the initial state",
+      "args": ""
   },
   {
       "command": ":history",
       "description": "Show the last n commands",
-      "usage": "[<n>] - show the last n commands (default: 10)"
+      "usage": "show the last n commands (default: 10)",
+      "args": "[<n>]"
   },
   {
       "command": ":exec",
       "description": "Load a file containing commands",
-      "usage": "[prefix='...'] [suffix='...'] <filename> - load a file containing commands (preceded and followed by an optional prefix and suffix; one of the delimiters ',', or \" is required and must not appear in the string)"
+      "usage": "load a file containing commands (preceded and followed by an optional prefix and suffix; one of the delimiters ',', or \" is required and must not appear in the string)",
+      "args": "[prefix=''] [suffix=''] <filename>"
   },
   {
       "command": ":load",
       "description": "Load a saved graph as the current state",
-      "usage": "<filename>.json - load a saved graph as the current state"
+      "usage": "load a saved graph as the current state",
+      "args": "<filename>.json"
   },
   {
       "command": ":multiline",
       "description": "Engage multi-line mode for the next task. Use Ctrl-D to finish and Ctrl-C to cancel",
-      "usage": "- engage multi-line mode for the next task entered."
+      "usage": "engage multi-line mode for the next task entered.",
+      "args": ""
   },
   {
       "command": ":transcript",
       "description": "Save the transcript to a file",
-      "usage": "<filename> - save the transcript to a file"
+      "usage": "save the transcript to a file",
+      "args": "<filename>"
   },
   {
       "command": ":help",
       "description": "Show this help message",
-      "usage": "- show this help message"
+      "usage": "show this help message",
+      "args": ""
   },
   {
       "command": ":intro",
       "description": "Give descriptive introduction to how graphmaker is used",
-      "usage": "- give descriptive introduction to how graphmaker is used"
+      "usage": "give descriptive introduction to how graphmaker is used",
+      "args": ""
   },
   {
       "command": ":examples",
       "description": "Give example prompts that can be run or modified to explore graphmaker",
-      "usage": "- give example prompts that can be run or modified to explore graphmaker"
+      "usage": "give example prompts that can be run or modified to explore graphmaker",
+      "args": ""
   },
   {
       "command": ":exit",
       "description": "Exit the program",
-      "usage": "- exit the program"
+      "usage": "exit the program",
+      "args": ""
   }
 ]
