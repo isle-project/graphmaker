@@ -269,7 +269,8 @@
           "const": "none"
         },
         {
-          "$ref": "#/$defs/cardinalDirection"
+          "$ref": "#/$defs/cardinalDirection",
+          "description": "Cardinal direction of the offset from the entity center"
         },
         {
           "type": "array",
@@ -278,7 +279,8 @@
           "maxItems": 2,
           "items": [
             {
-              "$ref": "#/$defs/cardinalDirection"
+              "$ref": "#/$defs/cardinalDirection",
+              "description": "Cardinal direction of the offset from the entity center"
             },
             {
               "type": "number",
@@ -682,11 +684,11 @@
           },
           "x": {
             "type": "number",
-            "description": "x-coordinate (left boundary of canvas is zero, right boundary is one)"
+            "description": "x-coordinate of the center (left boundary of canvas is zero, right boundary is one)"
           },
           "y": {
             "type": "number",
-            "description": "y-coordinate (lower boundary of canvas is zero, upper boundary is one)"
+            "description": "y-coordinate of the center (lower boundary of canvas is zero, upper boundary is one)"
           },
           "style": {
             "$ref": "#/$defs/style"

@@ -1,0 +1,50 @@
+{
+  "directed": false,
+  "hasParents": false,
+  "nodes": {
+    "A": {},
+    "B": {},
+    "C": {},
+    "D": {}
+  },
+  "edges": {},
+  "constraints": [],
+  "decorations": {
+    "decoration1": {
+      "type": "text",
+      "x": 0.5,
+      "y": 0.95,
+      "text": "Four Nodes",
+      "fontSize": 30,
+      "fontFamily": "Arial"
+    },
+    "decoration2": {
+      "type": "region",
+      "x": 0.5,
+      "y": 0.5,
+      "fillColor": "red",
+      "region": {
+        "width": 0.5,
+        "height": 0.5
+      }
+    }
+  },
+  "_positions": {
+    "A": [
+      -2.3321460467132646,
+      3.0928545444827935
+    ],
+    "B": [
+      -3.091890800965637,
+      -2.33139021399071
+    ],
+    "C": [
+      2.33209023592692,
+      -3.092879270898368
+    ],
+    "D": [
+      3.0919466121314247,
+      2.33141494558948
+    ]
+  }
+}

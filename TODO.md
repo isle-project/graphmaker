@@ -1,7 +1,6 @@
 # TODO
 ## Immediate
 -  [ ] TOOL README template and construction script (with _description tags in schema, graphmaker usage, etc.) [CG]
--  [x] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph [CG]
 -  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now) [PB]
 -  [ ] FIX? PDF files are very large; seems that it should be convertible to much smaller size [PB]
 -  [ ] FIX correctly handle fillStyle in to-tikz [CG]
@@ -19,7 +18,7 @@
 
 ## Admin
 -  [ ] TEST Make sure the output of all examples is correct (at least most of the time)
--  [ ] TEST Use decorations in examples to make sure they work
+-  [x] TEST Use decorations in examples to make sure they work
 -  [ ] ADMIN clean-up and reorganize the code
 -  [ ] ADMIN add documentation in the code where required
 -  [ ] ADMIN add a test suite and get existing tests to pass
@@ -35,6 +34,7 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph [CG]
 -  [x] FIX use GPT3 tokenizer to count the number of tokens in the prompt and adjust the assembled history prompt if necessary [PB]
 -  [x] Improve indentation and line wrapping for REPL usage printout [PB]
 -  [x] FIX Handle Bezier case for edge positioning on general nodes [CG & PB]

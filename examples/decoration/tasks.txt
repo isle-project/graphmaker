@@ -1,0 +1,6 @@
+add four nodes
+add a text decoration saying "Four Nodes" at the top-center of the canvas
+lower the decoration's position by a small amount
+change the font size of the decoration to 30
+change the font family of the decoration to "Arial"
+add a region decoration centered at the middle with height and width being half the canvas and color it red
