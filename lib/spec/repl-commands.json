@@ -43,9 +43,15 @@
   },
   {
       "command": ":exec",
-      "description": "Load a file containing commands",
+      "description": "Load a file containing commands // TODO: document this",
       "usage": "load a file containing commands (preceded and followed by an optional prefix and suffix; one of the delimiters ',', or \" is required and must not appear in the string)",
       "args": "[prefix=''] [suffix=''] <filename>"
+  },
+  {
+    "command": ":exec-batch",
+    "description": "Load a file containing commands reading all lines at once",
+    "usage": "load a file containing commands reading all lines at once (preceded and followed by an optional prefix and suffix; one of the delimiters ',', or \" is required and must not appear in the string)",
+    "args": "[prefix=''] [suffix=''] <filename>"
   },
   {
       "command": ":load",
