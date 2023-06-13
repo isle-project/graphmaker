@@ -1,9 +1,9 @@
-# This example currently only works correctly with GPT-4.
-
 Assume that the following is an adjacency matrix for an undirected graph on nodes A-E in order
 
-[ [0, 1, 1, 1, 0],
+  [ [0, 1, 1, 1, 0],
   [1, 0, 0, 0, 1],
   [1, 0, 0, 1, 1],
   [1, 0, 1, 0, 0],
   [0, 1, 1, 0, 0] ]
+
+Make all nodes squares

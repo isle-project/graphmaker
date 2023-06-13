@@ -17,8 +17,6 @@
 -  [ ] PROVISIONAL Allow constraints to access not just center (.x, .y) but also bounding box coordinates (.ul, .ur, .lr, .ll OR .e, .w, .s, .n, .nw, .ne, .se, .sw) for nodes and decorations
 
 ## Admin
--  [ ] TEST Make sure the output of all examples is correct (at least most of the time)
--  [x] TEST Use decorations in examples to make sure they work
 -  [ ] ADMIN clean-up and reorganize the code
 -  [ ] ADMIN add documentation in the code where required
 -  [ ] ADMIN add a test suite and get existing tests to pass
@@ -34,6 +32,8 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] TEST Make sure the output of all examples is correct (at least most of the time)
+-  [x] TEST Use decorations in examples to make sure they work
 -  [x] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph [CG]
 -  [x] FIX use GPT3 tokenizer to count the number of tokens in the prompt and adjust the assembled history prompt if necessary [PB]
 -  [x] Improve indentation and line wrapping for REPL usage printout [PB]

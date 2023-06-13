@@ -1,0 +1,21 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white, solid},
+  every loop/.style={looseness=16}]
+\node[default, circle] (A) at (-4.924651, -0.004393) {};
+\node[default, circle] (B) at (-0.078025, -5.053097) {};
+\node[default, circle] (C) at (-0.308367, 4.92795) {};
+\node[default, circle] (D) at (0.248208, -0.186069) {};
+\node[default, circle] (E) at (5.062836, 0.315609) {};
+\draw [] (A) -- (B) ;
+\draw [] (A) -- (C) ;
+\draw [] (A) -- (D) ;
+\draw [] (B) -- (E) ;
+\draw [] (C) -- (E) ;
+\draw [] (C) -- (D) ;
+\end{tikzpicture}
+\end{document}

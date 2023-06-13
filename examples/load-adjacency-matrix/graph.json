@@ -1,81 +1,70 @@
 {
-    "directed": false,
-    "hasParents": false,
-    "categories": [],
-    "nodes": {
-        "A": {},
-        "B": {},
-        "C": {},
-        "D": {},
-        "E": {}
+  "directed": false,
+  "hasParents": false,
+  "nodes": {
+    "A": {
+      "nodeShape": "square"
     },
-    "edges": {
-        "AB": {},
-        "AC": {},
-        "AD": {},
-        "BE": {},
-        "CE": {},
-        "CD": {}
+    "B": {
+      "nodeShape": "square"
     },
-    "adjacency": {
-        "A": [
-            {
-                "target": "B",
-                "edge": "AB"
-            },
-            {
-                "target": "C",
-                "edge": "AC"
-            },
-            {
-                "target": "D",
-                "edge": "AD"
-            }
-        ],
-        "B": [
-            {
-                "target": "A",
-                "edge": "AB"
-            },
-            {
-                "target": "E",
-                "edge": "BE"
-            }
-        ],
-        "C": [
-            {
-                "target": "A",
-                "edge": "AC"
-            },
-            {
-                "target": "D",
-                "edge": "CD"
-            },
-            {
-                "target": "E",
-                "edge": "CE"
-            }
-        ],
-        "D": [
-            {
-                "target": "A",
-                "edge": "AD"
-            },
-            {
-                "target": "C",
-                "edge": "CD"
-            }
-        ],
-        "E": [
-            {
-                "target": "B",
-                "edge": "BE"
-            },
-            {
-                "target": "C",
-                "edge": "CE"
-            }
-        ]
+    "C": {
+      "nodeShape": "square"
     },
-    "constraints": []
+    "D": {
+      "nodeShape": "square"
+    },
+    "E": {
+      "nodeShape": "square"
+    }
+  },
+  "edges": {
+    "AB": {
+      "source": "A",
+      "target": "B"
+    },
+    "AC": {
+      "source": "A",
+      "target": "C"
+    },
+    "AD": {
+      "source": "A",
+      "target": "D"
+    },
+    "BE": {
+      "source": "B",
+      "target": "E"
+    },
+    "CD": {
+      "source": "C",
+      "target": "D"
+    },
+    "CE": {
+      "source": "C",
+      "target": "E"
+    }
+  },
+  "constraints": [],
+  "_positions": {
+    "A": [
+      -2.640778289055921,
+      -3.613534705348436
+    ],
+    "B": [
+      -4.2403567907799635,
+      1.3908962259300406
+    ],
+    "C": [
+      0.012402918719640318,
+      4.483861783312955
+    ],
+    "D": [
+      4.247603928582872,
+      1.36731274029732
+    ],
+    "E": [
+      2.6211282325333767,
+      -3.6285360441918852
+    ]
+  }
 }

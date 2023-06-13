@@ -1,6 +1,7 @@
-# This adjacency matrix example currently only works correctly with GPT-4.
-# However, the use of prefix and suffix with the :exec command works in general.
+# The use of prefix and suffix with the :exec command works in general.
 # You need to use '', "", or `` as delimiters on the prefix and suffix if the strings
 # have spaces in them.
+# This file is not meant to be :exec'd but rather to show what :exec command you
+# would use at the repl to produce the graph. See also load-adjacency-matrix example.
 
-:exec prefix='Assume that the following is an adjacency matrix for an undirected graph on nodes A-E in order' ./examples/load-adjacency-matrix-2/matrix.txt
+:exec-batch prefix='Assume that the following is an adjacency matrix for an undirected graph on nodes A-E in order' ./examples/load-adjacency-matrix-2/matrix.txt
