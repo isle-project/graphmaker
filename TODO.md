@@ -1,15 +1,13 @@
 # TODO
 ## Immediate
 -  [ ] TOOL README template and construction script (with _description tags in schema, graphmaker usage, etc.) [CG]
--  [ ] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph [CG]
+-  [x] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph [CG]
 -  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now) [PB]
 -  [ ] FIX? PDF files are very large; seems that it should be convertible to much smaller size [PB]
 -  [ ] FIX correctly handle fillStyle in to-tikz [CG]
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint [CG]
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
 -  [ ] DOC Create a gallery [PB]
--  [x] FIX use GPT3 tokenizer to count the number of tokens in the prompt and adjust the assembled history prompt if necessary [PB]
--  [x] Improve indentation and line wrapping for REPL usage printout [PB]
 
 ## Soon
 -  [ ] PROVISIONAL Second phase positioning adjustments that improve the overall look and feel
@@ -37,6 +35,8 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] FIX use GPT3 tokenizer to count the number of tokens in the prompt and adjust the assembled history prompt if necessary [PB]
+-  [x] Improve indentation and line wrapping for REPL usage printout [PB]
 -  [x] FIX Handle Bezier case for edge positioning on general nodes [CG & PB]
 -  [x] REFACTOR Change iteration limit and annealing ratio in node position simulation (all more iteration) [CG & PB] 
 -  [x] FIX Remove _description tags from schema in schemaMessage() [CG & PB]

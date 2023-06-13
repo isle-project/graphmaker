@@ -3,5 +3,6 @@
   "SET_GRAPH": "SET_GRAPH",
   "UNDO": "UNDO",
   "REDO": "REDO",
+  "RESET_POSITIONS": "RESET_POSITIONS",
   "SAVE": "SAVE"
 }
