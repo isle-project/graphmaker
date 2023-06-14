@@ -3,7 +3,7 @@
 -  [ ] TOOL README template and construction script (with _description tags in schema, graphmaker usage, etc.) [CG]
 -  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now) [PB]
 -  [ ] FIX? PDF files are very large; seems that it should be convertible to much smaller size [PB]
--  [ ] FIX correctly handle fillStyle in to-tikz [CG]
+-  [ ] FIX correctly handle fillStyle (and check other styles) in to-tikz [CG]
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint [CG]
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
 -  [ ] DOC Create a gallery [PB]
@@ -17,8 +17,6 @@
 -  [ ] PROVISIONAL Allow constraints to access not just center (.x, .y) but also bounding box coordinates (.ul, .ur, .lr, .ll OR .e, .w, .s, .n, .nw, .ne, .se, .sw) for nodes and decorations
 
 ## Admin
--  [ ] ADMIN clean-up and reorganize the code
--  [ ] ADMIN add documentation in the code where required
 -  [ ] ADMIN add a test suite and get existing tests to pass
 
 ## Future
@@ -32,6 +30,8 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] ADMIN clean-up and reorganize the code
+-  [x] ADMIN add documentation in the code where required
 -  [x] TEST Make sure the output of all examples is correct (at least most of the time)
 -  [x] TEST Use decorations in examples to make sure they work
 -  [x] FEAT Command (:reposition) and state option (e.g., resetPositions) to cause the _positions data to be reset in populateGraph [CG]

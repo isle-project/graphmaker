@@ -217,7 +217,7 @@
           "allowTernary": false
         }],
         "no-unused-labels": 2,
-        "no-unused-vars": [ 1, { "varsIgnorePattern": "React", "args": "none" } ],
+        "no-unused-vars": [ 1, { "varsIgnorePattern": "^_", "args": "none", "argsIgnorePattern": "^_" } ],
         "no-use-before-define": [ 2, {
           "functions": false,
           "classes": false

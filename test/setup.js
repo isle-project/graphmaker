@@ -7,4 +7,4 @@ function toProjectTruthy( state, projections, step ) {
     }
     return { message: () => `expected ${this.utils.printReceived(state)} to match projection constraint ${step}`, pass };
 }
-expect.extend({ toProjectTruthy, });
+expect.extend({ toProjectTruthy });
