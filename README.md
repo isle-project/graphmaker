@@ -192,7 +192,7 @@ Updates the graph state based on the action and payload. The following actions a
 -   `'TASK'`: Change the graph according to a user's prompt
 -   `'REDO'`: Redo the last undone command on the graph
 -   `'UNDO'`: Undo the last command on the graph
--   `'SAVE'`: Save the graph in a given format
+-   `'CONVERT'`: Convert the graph to a given format
 -   `'SET_GRAPH'`: Set the graph to a given graph
 
 ##### Arguments
