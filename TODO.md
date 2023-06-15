@@ -1,14 +1,18 @@
 # TODO
 ## Immediate
--  [ ] TOOL README template and construction script (with _description tags in schema, graphmaker usage, etc.) [CG]
+-  [ ] TOOL README template and construction script (with description.human tags in schema, graphmaker usage, etc.) [CG]
 -  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now) [PB]
 -  [ ] FIX? PDF files are very large; seems that it should be convertible to much smaller size [PB]
 -  [ ] FIX correctly handle fillStyle (and check other styles) in to-tikz [CG]
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint [CG]
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
 -  [ ] DOC Create a gallery [PB]
+-  [ ] ADD :summary command gives a clear, easy to read, text description of the current graph: node names, adjacency list(?), labels?, constraints as equations?
+       Alternatively: commands :nodes, :edges, :constraints, :decorations to give a textual summary of each type that might be less overwhelming
+       Another alternative: have both: :summary just concatenates the output of the other four commands
 
 ## Soon
+-  [ ] PROVISIONAL Do not swallow all errors during REPL usage; figure out which errors should be displayed and how
 -  [ ] PROVISIONAL Second phase positioning adjustments that improve the overall look and feel
 -  [ ] PROVISIONAL Alternate initialization of positions using presence of edges as an implicit metric (as in multi-dimensional scaling)
 -  [ ] PROVISIONAL Add labelJustify style (none, left, right, center) for nodes, edges, and text decorations (is labelWidth needed? or scale for node/edge size)
