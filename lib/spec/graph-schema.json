@@ -39,10 +39,12 @@
     },
     "nodeWidthToHeight": {
       "type": "number",
+      "description": "Width to height ratio of a node; if not specified, the ratio is 1",
       "default": 1
     },
     "nodeSize": {
       "type": "number",
+      "description": "Node size relative to a base size; if not specified, the node size is 1",
       "default": 1
     },
     "label": {
@@ -58,19 +60,11 @@
       ]
     },
     "style": {
-      "description": "Style name or names to be applied to an entity",
-      "oneOf": [
-        {
-          "type": "string",
-          "default": "default"
-        },
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      ]
+      "description": "Style name(s) to be applied to an entity",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "fontSize": {
       "type": "number",
