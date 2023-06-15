@@ -4,5 +4,5 @@
   "UNDO": "UNDO",
   "REDO": "REDO",
   "RESET_POSITIONS": "RESET_POSITIONS",
-  "SAVE": "SAVE"
+  "CONVERT": "CONVERT"
 }
