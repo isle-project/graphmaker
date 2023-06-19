@@ -1,5 +1,6 @@
 # TODO
 ## Immediate
+-  [ ] PROVISIONAL add an `autoshow` config that executes a :show (with format given in the config, default svg) after each non-command task
 -  [ ] TOOL README template and construction script (with description.human tags in schema, graphmaker usage, etc.) [CG]
 -  [ ] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now) [PB]
 -  [ ] FIX? PDF files are very large; seems that it should be convertible to much smaller size [PB]
