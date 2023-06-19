@@ -192,46 +192,103 @@ and edges are named like AB or AC for the nodes they connect,
 but you can specify the names as you prefer.
 The next section discusses this in detail.
 
-GraphMaker keeps track of the current graph being bulid and the entire history of changes you make to the graph
-from the beginning of the session.
-You can move through that history, reset the graph to its initial state, or load a saved graph from a file.
-When you enter a task into GraphMaker, 
+Every node, edge, and decoration has several properties that can be set by
+the user. For instances, nodes and edges have an optional label; edges
+have an optional numeric weight; and both can have associated data
+as key-value pairs. Edges specify a source node and a target node;
+the distinction is only visible if the edge is directed, but it is
+maintained in the names and underlying data.
+
+GraphMaker keeps track of the current graph being bulid and the
+entire history of changes you make to the graph from the beginning
+of the session. You can move through that history, reset the graph
+to its initial state, or load a saved graph from a file. When you
+enter a task into GraphMaker, you are describing a change to the
+current graph. You can view that graph at anytime with the `:show`
+command.
 
 
 
 ### Labels and Names
 
-Names are used to refer to nodes, edges, and decorations. Each name must be unique within the graph. By default, nodes are named A-Z, while edges are named AB, AC, etc. denoting the nodes they connect. You can tell Graphmaker any name you want to use for a node, edge, or decoration when you create it. For example:
+GraphMaker assigns a name to every node, edge, and decoration.
+These names allow the user to refer to the entity in a task and
+are distinct from the *labels* that one might add to the picture.
+Each name must be unique within the graph.
+However, the user need not think of names for everything;
+by default, GraphMaker will assign simple and memorable names to nodes and edges
+as they are added to the graph.
+Default names for nodes are alphabetic labels A, B, C, ...;
+and default names for edges are strings like AB, CD, XY comprised of
+the names of the nodes being connected (in order from source to target
+in the directed case).
+If you prefer different names, you can indicate that to GraphMaker 
+when you construct the entity. For example:
 
 ```
-> create nodes "Parent", "Child 1", and "Child 2"
+> add nodes "Parent", "Child 1", "Child 2", and "Child 3"
+> add an edge "Oldest" from Parent to Child 1
+> add an edge "Youngest" from Parent to Child 3
+> add a text decoration Title with text "Family Tree" centered just below the top of the canvas
 ```
 
-Names are only shown on the graph during the REPL session. They will be displayed in a shaded gray color to indicate that they will not be part of the final output.
+Names are only shown on the graph in draft mode during the REPL session
+(displayed in a shaded gray color)
+and will not be included in the saved output.
+(By default, the `:show` command produces pictures in draft mode, though this can be changed 
+with the `:config` command. Output produced by the `:save` command has draft mode off.)
 
-Labels are used to show text on the graph output when it is saved. For example:
+In contrast to names, *labels* are arbitrary strings attached to nodes and edges
+to be displayed in the graph output.
+Labels can be styled in various fonts, sizes, colors, weights, and styles;
+they can also include mathematical text in LaTeX.
+Labels can be set when a node is added
 
 ```
 > add nodes A, B, and C with labels "Start", "Middle", and "End"
 ```
 
-You can also set the label of a node after it is created:
+or at any point afterwards
 
 ```
-> set the label of node A to "Accept"
+> set the label of node Z to "Accept"
 ```
 
-Labels can be any text, including spaces. You can also instruct Graphmaker to use mathematical equations for labels. No $, $$, or other special delimiters are needed, but you should explicitly tell Graphmaker to use LaTeX. For example:
+Labels can include any text, including spaces and unicode characters. 
+You can also instruct Graphmaker to treat the label as a mathematical equation,
+in either LaTeX or [MathLingo](attn) format.
+To do this, you specify the type of label and give the value; no delimiters ($, $$, &Backslash;&lpar;, &Backslash;&lsqb;)
+should be included.
+For example:
 
 ```
-> create node A with a LaTeX label of \chi^2(\alpha)
+> add a node with LaTeX label of \chi^2(\alpha)
+> add a node with mathlingo label e to the minus x squared over two
 ```
 
 You can also set the label of an edge:
 
 ```
-create an edge from A to B with label "Edge AB"
+> add an edge from A to B with label "Shortcut"
 ```
+
+The label text can be styled with a variety of parameters.
+
+```
+> add a node A with label "Pass Go"
+> set the font size for A's label to 20, its weight to bold, and its color to tomato
+```
+
+
+See [Style Details](#style-details) for more on the style parameters
+for text. These parameters can also be set in defined styles that can
+be applied to any entity:
+
+```
+> define a style salient with font size 20, font color tomato, and font weight bold
+> add the style salient to node A and edge AB
+```
+
 
 ### Graph Types
 
