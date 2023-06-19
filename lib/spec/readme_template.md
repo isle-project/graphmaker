@@ -40,6 +40,54 @@
 
 ## Motivation
 
+Graphs &mdash; structures consisting of a set of *nodes* and a set of *edges* between some pairs of nodes &mdash;
+are commonly used to depict relationships among entities in many different fields.
+While there is a variety of good tools for creating pictures of graphs, the practical reality is that making such
+pictures tends to be a fiddly process that often takes far longer than expected.
+__GraphMaker__ offers a fluid, natural-language interface for building good pictures of graphs efficiently.
+You tell GraphMaker what you want added or changed in the graph, and you can see the result at each stage.
+GraphMaker supports a variety of graph types and a wide range of styling options for nodes, edges, and decorative
+text and markers.
+It can output pictures of the graph in a variety of formats (including SVG, PDF, LaTeX/TikZ, and PNG)
+and can save its internal representation (conforming to a JSON schema) so that the graph can be modified
+or extended in future sessions.
+GraphMaker is designed to free the user from fiddling with the specific positions of nodes or edges; it uses
+automatic positioning coupled with user-specified constraints to achieve a Do-What-I-Mean quality.
+
+GraphMaker provides an interactive text REPL along with a library that can be used to provide the same 
+functionality in other software.
+It uses an AI model for parsing user tasks and can accommodate a variety of models and providers.
+ 
+A session might look like
+
+```
+> make the graph directed
+As you wish.
+
+> add nodes A-E
+Ready for more.
+
+> add edges from node A to C and E
+Task complete.
+
+> add edges from node B to D and E
+As you wish.
+
+> add constraints that nodes A and B are at the same x coordinate
+I've got this.
+
+> add constraints that C, D, and E are at the same x coordinate and that A is to the left of C
+Stick a fork in me, I'm done.
+
+> make nodes A and B triangles with a fill color of steelblue
+As you wish.
+```
+
+This produces the following graph
+
+<img style="width: 50%;" />
+
+
 ## Installation
 
 ### Via installation script:
