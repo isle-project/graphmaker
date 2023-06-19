@@ -110,34 +110,92 @@ npm install -g @isle-labs/graphmaker
 
 ## Getting Started
 
-Start the REPL:
+Start the REPL from the command line with command
 
 ```text
 graphmaker 
 ```
+
+You will see a simple prompt '&gt;&nbsp;' at which you can
+enter a *task* for GraphMaker to adjust the current graph
+or a *command* that performs a higher-level operation.
+
+__Tasks__ are natural language descriptions of a change or addition to the current graph.
+GraphMaker maintains the state of the current graph (along with this history of all previous states),
+and each task modifies the graph to produce a new graph.
+At start up, we begin with an undirected graph with no nodes, edges, or decorations.
+A task is a sentence that tells GraphMaker how to adjust the current graph:
+`add three nodes`, `make the graph directed`, `add an edge from node A to node B`,
+and so forth.
+All entities (nodes, edges, decorations) have *names* by which you can refer to them,
+names which are distinct from any labels you assign the entities. The names do not
+appear in a `:save`'d picture but are visible when you `:show` a picture.
+By default, nodes are given alphabetic names in the order they are introduced.
+See [Labels and Names](#labels-and-names) below for more detail.
+While the models can parse quite complex sentences, it is usually a good idea
+to keep your meaning and references as clear as possible.
+
+__Commands__ start with ':', the basic ones are
+`:help`, `:intro`, `:tips`, `:examples`, 
+`:exit`, `:show`, `:save`, `:load`,
+`:reset`, `:undo`, and `:redo`.
+To see the full list of commands, you can use `:help` from
+within the repl or use the `--help` flag on the command line:
+
+```text
+graphmaker --help
+```
+
 @PROCESS-OUTPUT(usage-help, ./bin/graphmaker)
 
-use natural language to create a graph
+The full set of commands is described in detail in the [REPL Capabilities](#repl-capabilities) section.
 
-basic REPL commands
-:reset 
-:show 
-:help
-:exit
-:intro
-:examples
+### Example Session 1
 
-The full set of commands is described in detail inside the [REPL Capabilities](#repl-capabilities) section.
+In this session, we build a simple, undirected graph with some basic styling and labels.
+GraphMaker's responses have been omitted for clarity.
+
+```
+> add seven nodes
+> ...
+```
+
+### Example Session 2
+
+In this session, we build a finite automaton, where states are represented by nodes
+and transitions by edges labeled with the input.
+GraphMaker's responses have been omitted for clarity.
+
+
+```
+> make the graph directed
+> add nodes A-G
+> add constraints that each of nodes A-E is to the left of its successor and has the same y-coordinate
+> add a constraint that node F is above node A and has x-coordinate centered on those of nodes A-E
+> add a constraint that node G is below node A and has x-coordinate centered on those of nodes A-E
+> ...
+```
 
 ## Usage
 
 ### Conventions
 
-What are the entities?  Nodes, Edges, Decorations 
+GraphMaker tracks three kinds of entities: nodes, edges, and decorations.
+Nodes and edges are components of the graph, as expected. Decorations represent
+either arbitrary text strings or rectangular regions that are used to demarcate
+and label parts of the graph.
+Every entity has a name that is used to refer to it when building the graph.
+This name appears on the draft pictures of the graph but not in the saved
+production picture.
+By default, nodes are given alphabetic names (like A, B, C)
+and edges are named like AB or AC for the nodes they connect,
+but you can specify the names as you prefer.
+The next section discusses this in detail.
 
-Every entity has a name that is used to refer to it, see next section
-By default, nodes named  A-Z, edges named like AB, AC.
-
+GraphMaker keeps track of the current graph being bulid and the entire history of changes you make to the graph
+from the beginning of the session.
+You can move through that history, reset the graph to its initial state, or load a saved graph from a file.
+When you enter a task into GraphMaker, 
 
 
 
@@ -154,13 +212,13 @@ Names are only shown on the graph during the REPL session. They will be displaye
 Labels are used to show text on the graph output when it is saved. For example:
 
 ```
-> create nodes A, B, and C with labels "Node A", "Node B", and "Node C"
+> add nodes A, B, and C with labels "Start", "Middle", and "End"
 ```
 
 You can also set the label of a node after it is created:
 
 ```
-> set label of node A to "Node A"
+> set the label of node A to "Accept"
 ```
 
 Labels can be any text, including spaces. You can also instruct Graphmaker to use mathematical equations for labels. No $, $$, or other special delimiters are needed, but you should explicitly tell Graphmaker to use LaTeX. For example:
