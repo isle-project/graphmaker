@@ -35,7 +35,7 @@
         "lower-left",
         "lower-right"
       ],
-      "description": "Cardinal direction"
+      "description": { "model": "Cardinal direction", "internal": true }
     },
     "nodeWidthToHeight": {
       "type": "number",

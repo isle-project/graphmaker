@@ -1,7 +1,5 @@
 # TODO
 ## Immediate
--  [x] PROVISIONAL add an `autoshow` config that executes a :show (with format given in the config, default svg) after each non-command task
--  [ ] FEATURE :help accepts (optional) text as an argument sent to AI (with separate task and getting the human descriptions in the schema)
 -  [ ] FIX?: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
 -  [ ] TOOL README template and construction script (with description.human tags in schema, graphmaker usage, etc.) [CG]
 -  [ ] FIX correctly handle fillStyle (and check other styles) in to-tikz [CG]
@@ -36,6 +34,8 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] PROVISIONAL add an `autoshow` config that executes a :show (with format given in the config, default svg) after each non-command task
+-  [x] FEATURE :help accepts (optional) text as an argument sent to AI (with separate task and getting the human descriptions in the schema)
 -  [x] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now) [PB]
 -  [x] FIX? PDF files are very large; seems that it should be convertible to much smaller size [PB]
 -  [x] ADMIN clean-up and reorganize the code

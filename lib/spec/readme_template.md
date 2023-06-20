@@ -146,7 +146,9 @@ within the repl or use the `--help` flag on the command line:
 graphmaker --help
 ```
 
-@PROCESS-OUTPUT(usage-help, ./bin/graphmaker)
+```
+@PROCESS-OUTPUT(usage-help, ./bin/cli)
+```
 
 The full set of commands is described in detail in the [REPL Capabilities](#repl-capabilities) section.
 
@@ -543,11 +545,11 @@ width and height (as proportion of canvas width and height) for regions
 
 ## Command Details
 
-@PROCESS-CONTENTS(commands, ./spec/repl-commands.json)
+@PROCESS-CONTENTS(commands, ./lib/spec/repl-commands.json)
 
 ## Style Details
 
-@PROCESS-CONTENTS(styles, ./spec/graph-schema.json)
+@PROCESS-CONTENTS(styles, ./lib/spec/graph-schema.json)
 
 ## The GraphMaker Node Library
 
