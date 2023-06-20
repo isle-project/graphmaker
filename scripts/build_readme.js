@@ -9,10 +9,11 @@ function contentsCommands( commandFile ) {
     const out = [];
     for ( const cmd of commands ) {
         const { command, description, args } = cmd;
-        const argStr = args ? ' ' + args : '';
-
+        let argStr = args ? ' ' + args : '';
+        argStr = argStr.replace( /</g, '&lt;' ).replace( />/g, '&gt;' );
         out.push( `  + __${command}${argStr}__` );
         out.push( `\n    ${description}`);
+        out.push( '' );
     }
     return out.join('\n');
 }
