@@ -1,6 +1,8 @@
 # TODO
 ## Immediate
--  [ ] PROVISIONAL add an `autoshow` config that executes a :show (with format given in the config, default svg) after each non-command task
+-  [x] PROVISIONAL add an `autoshow` config that executes a :show (with format given in the config, default svg) after each non-command task
+-  [ ] FEATURE :help accepts (optional) text as an argument sent to AI (with separate task and getting the human descriptions in the schema)
+-  [ ] FIX?: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
 -  [ ] TOOL README template and construction script (with description.human tags in schema, graphmaker usage, etc.) [CG]
 -  [ ] FIX correctly handle fillStyle (and check other styles) in to-tikz [CG]
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint [CG]
@@ -14,6 +16,7 @@
 -  [ ] PROVISIONAL Do not swallow all errors during REPL usage; figure out which errors should be displayed and how
 -  [ ] PROVISIONAL Second phase positioning adjustments that improve the overall look and feel
 -  [ ] PROVISIONAL Alternate initialization of positions using presence of edges as an implicit metric (as in multi-dimensional scaling)
+       Related to this: should connected components be given roughly different zones in the initial positioning (bipartite case weird?)
 -  [ ] PROVISIONAL Add labelJustify style (none, left, right, center) for nodes, edges, and text decorations (is labelWidth needed? or scale for node/edge size)
 -  [ ] PROVISIONAL Add a new kind of constraint   DECORATION contains NODE1,...,NONEn
 -  [ ] PROVISIONAL Add a default pre-existing decoration "canvas" of type invisible whose coordinates are fixed at the canvas boundary (useful in constraints)

@@ -25,6 +25,13 @@
     "short": "f",
     "enum": [ "svg", "png", "jpg", "jpeg", "pdf", "json", "gif", "webp", "tiff", "tex" ]
   },
+  "autoshow": {
+    "description": "If not false, automatically display graph after each command with this format (default: svg)",
+    "tag": "FORMAT-OR-FALSE",
+    "type": "string",
+    "trueType": "maybe-string",
+    "enum": [ "svg", "png", "jpg", "jpeg", "pdf", "json", "gif", "webp", "tiff", "tex" ]
+  },
   "orientation": {
     "description": "Default orientation for displaying the graph indicating where the first/root node is positioned (either 'left', 'right', 'top', 'bottom', or 'auto')",
     "tag": "ORIENTATION",
