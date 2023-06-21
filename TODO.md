@@ -1,13 +1,12 @@
 # TODO
 ## Immediate
--  [ ] FIX?: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
+-  [ ] FIX: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
 -  [ ] FIX correctly handle fillStyle (and check other styles) in to-tikz [CG]
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint [CG]
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
 -  [ ] DOC Create a gallery [PB]
--  [ ] ADD :summary command gives a clear, easy to read, text description of the current graph: node names, adjacency list(?), labels?, constraints as equations?
-       Alternatively: commands :nodes, :edges, :constraints, :decorations to give a textual summary of each type that might be less overwhelming
-       Another alternative: have both: :summary just concatenates the output of the other four commands
+-  [ ] ADD ':show summary' command gives a clear, easy to read, text description of the current graph: node names, adjacency list(?), labels?, constraints as equations?
+       Can also allow ':show [nodes|edges|constraints|decorations]' to give a textual summary of each type that might be less overwhelming, and which could also be given in more detail than in the general summary.
 
 ## Soon
 -  [ ] PROVISIONAL Do not swallow all errors during REPL usage; figure out which errors should be displayed and how
