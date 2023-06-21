@@ -237,7 +237,7 @@
         "operator-linebreak": [ 0, "after" ],
         "padded-blocks": [ 2, "never" ],
         "prefer-template": 0,
-        "quotes": [ 2, "single", { "avoidEscape": true }],
+        "quotes": [ 2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
         "radix": [ 2, "always" ],
         "require-await": 0,
         "semi":  [ 2, "always" ],

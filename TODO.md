@@ -1,7 +1,6 @@
 # TODO
 ## Immediate
 -  [ ] FIX?: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
--  [ ] TOOL README template and construction script (with description.human tags in schema, graphmaker usage, etc.) [CG]
 -  [ ] FIX correctly handle fillStyle (and check other styles) in to-tikz [CG]
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint [CG]
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
@@ -34,6 +33,7 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] TOOL README template and construction script (with description.human tags in schema, graphmaker usage, etc.) [CG]
 -  [x] PROVISIONAL add an `autoshow` config that executes a :show (with format given in the config, default svg) after each non-command task
 -  [x] FEATURE :help accepts (optional) text as an argument sent to AI (with separate task and getting the human descriptions in the schema)
 -  [x] FIX resolve cutoff of the canvas in PDF export (causing e.g. wider rectangles to be not fully visible right now) [PB]
