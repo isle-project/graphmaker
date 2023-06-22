@@ -4,7 +4,7 @@
   "height": 1024,
   "format": "svg",
   "orientation": "auto",
-  "autoshow": "svg",
+  "autoshow": "graph",
   "provider": "OpenAI",
   "OpenAI": {
     "apiKey": null,

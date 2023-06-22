@@ -5,8 +5,6 @@
 -  [ ] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint [CG]
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
 -  [ ] DOC Create a gallery [PB]
--  [ ] ADD ':show summary' command gives a clear, easy to read, text description of the current graph: node names, adjacency list(?), labels?, constraints as equations?
-       Can also allow ':show [nodes|edges|constraints|decorations]' to give a textual summary of each type that might be less overwhelming, and which could also be given in more detail than in the general summary.
 
 ## Soon
 -  [ ] PROVISIONAL Do not swallow all errors during REPL usage; figure out which errors should be displayed and how
@@ -32,6 +30,8 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] ADD ':show graph' command gives a clear, easy to read, text description of the current graph: node names, adjacency list(?), labels?, constraints as equations?
+       Can also allow ':show [nodes|edges|constraints|decorations]' to give a textual summary of each type that might be less overwhelming, and which could also be given in more detail than in the general summary.
 -  [x] TOOL README template and construction script (with description.human tags in schema, graphmaker usage, etc.) [CG]
 -  [x] PROVISIONAL add an `autoshow` config that executes a :show (with format given in the config, default svg) after each non-command task
 -  [x] FEATURE :help accepts (optional) text as an argument sent to AI (with separate task and getting the human descriptions in the schema)

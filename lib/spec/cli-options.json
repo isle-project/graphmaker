@@ -30,7 +30,7 @@
     "tag": "FORMAT-OR-FALSE",
     "type": "string",
     "trueType": "maybe-string",
-    "enum": [ "svg", "png", "jpg", "jpeg", "pdf", "json", "gif", "webp", "tiff", "tex", "summary","nodes", "edges", "decorations", "constraints" ]
+    "enum": [ "svg", "png", "jpg", "jpeg", "pdf", "json", "gif", "webp", "tiff", "tex", "graph","nodes", "edges", "decorations", "constraints", "data" ]
   },
   "orientation": {
     "description": "Default orientation for displaying the graph indicating where the first/root node is positioned (either 'left', 'right', 'top', 'bottom', or 'auto')",
