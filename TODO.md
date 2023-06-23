@@ -1,11 +1,12 @@
 # TODO
 ## Immediate
 -  [ ] FIX: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
--  [ ] FIX correctly handle fillStyle (and check other styles) in to-tikz [CG]
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
 -  [ ] DOC Create a gallery [PB]
 
 ## Soon
+-  [ ] Add color translation/fixing capability:  e.g., "steel blue" -> "steelblue", "light steel blue" -> appropriate hex color, translating web colors -> xcolors for tikz, etc.  Use `color-convert` package
+-  [ ] Add a prompt when trying to overwrite an existing file to confirm [PB]
 -  [ ] PROVISIONAL Do not swallow all errors during REPL usage; figure out which errors should be displayed and how
 -  [ ] PROVISIONAL Second phase positioning adjustments that improve the overall look and feel
 -  [ ] PROVISIONAL Alternate initialization of positions using presence of edges as an implicit metric (as in multi-dimensional scaling)
@@ -29,6 +30,7 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] FIX correctly handle fillStyle (and check other styles) in to-tikz [CG]
 -  [x] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint [CG]
 -  [x] ADD ':show graph' command gives a clear, easy to read, text description of the current graph: node names, adjacency list(?), labels?, constraints as equations?
        Can also allow ':show [nodes|edges|constraints|decorations]' to give a textual summary of each type that might be less overwhelming, and which could also be given in more detail than in the general summary.
