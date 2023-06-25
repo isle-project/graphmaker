@@ -38,6 +38,18 @@ function sumConstants( acc, item ) {
     return acc;
 }
 
+/**
+ * Transforms a parse tree for a single constraint into a simpler form.
+ *
+ * @param {Object} data - the data from parsing a single constraint
+ * @returns {Object} an object describing the constraint with the
+ *     following fields
+ *         {Object.<string, [number,number]>} coefs  (ATTN: need to change stored type to a map of boundary.dim -> coef)
+ *         {number} rhs - (derived) constant value on the right-hand of the constraint
+ *         {string} relation - the constraint operator ('=', '<=', '>=')
+ * This is the result of a single parse of a single constraint string.
+ */
+
 function processConstraint( data ) {
     const [lhsTerms, op, rhsTerms] = dropWhitespace( data );
     let rhs = rhsTerms.reduce( sumConstants, 0 ) - lhsTerms.reduce( sumConstants, 0 );
