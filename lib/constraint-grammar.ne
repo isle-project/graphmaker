@@ -14,6 +14,10 @@ const lexer = moo.compile({
             }
         },
   dim: { match: /\.\s*[xy]/, value: s => s.slice(s.length - 1) },
+  anchor: {
+      match: /\s*@\s*(?:ne|nw|se|sw|n|e|s|w|center)/,
+      value: s => /ne|nw|se|sw|n|e|s|w|center/.exec(s)[0].toUpperCase() // Must match!
+  },
   lparen: '(',
   rparen: ')',
   plusOrMinus: /[-+]/,
@@ -44,7 +48,8 @@ function sumConstants( acc, item ) {
  * @param {Object} data - the data from parsing a single constraint
  * @returns {Object} an object describing the constraint with the
  *     following fields
- *         {Object.<string, [number,number]>} coefs  (ATTN: need to change stored type to a map of boundary.dim -> coef)
+ *         {Object.<string, Object.<string, [number,number]>} coefs -
+               Maps nodes to a map of anchors to [x,y] coefficient vectors
  *         {number} rhs - (derived) constant value on the right-hand of the constraint
  *         {string} relation - the constraint operator ('=', '<=', '>=')
  * This is the result of a single parse of a single constraint string.
@@ -67,13 +72,19 @@ function processConstraint( data ) {
         }, [] ) ).
         reduce( (acc, node) => {
             const name = node.node;
+            const anchor = node.anchor;
             const dim = node.coord === 'x' ? 0 : 1;
-            if ( acc[name] !== void 0 ) {
-                acc[name][dim] += node.coef;
+            console.log( 'processing:', name, anchor, dim, node.coef );
+            if ( acc[name] !== void 0 && acc[name][anchor] !== void 0 ) {
+                acc[name][anchor][dim] += node.coef;
+            } else if ( acc[name] !== void 0 ) {
+                const coefs = [0, 0];
+                coefs[dim] = node.coef;
+                acc[name][anchor] = coefs;
             } else {
                 const coefs = [0, 0];
                 coefs[dim] = node.coef;
-                acc[node.node] = coefs;
+                acc[name] = {[anchor]: coefs};
             }
             return acc;
         }, {});
@@ -162,19 +173,33 @@ coordinateSum -> coordinateSum _ %plusOrMinus _ coordinate {%
                          const [acc, op, coord] = dropWhitespace( data );
                          const sign = op.value === '-' ? -1 : 1;
                          acc.push( { ...coord, coef: sign * coord.coef } );
+                         console.log( 'in sum:', op, coord, acc );
                          return acc;
                      }
                  %}
               |  coordinate
 
-coordinate -> %node _ %dim                                  {%
+coordinate -> %node _ %dim %anchor:?                        {%
                   function( data ) {
-                      const [name, axis] = dropWhitespace( data );
+                      const [name, axis, anchor] = dropWhitespace( data );
                       return {
                           type: 'TERM',
                           coef: 1.0,
                           node: name.value,
-                          coord: axis.value
+                          coord: axis.value,
+                          anchor: anchor ? anchor.value : 'CENTER'
+                      };
+                  }
+              %}
+           |  %node %anchor _ %dim                          {%
+                  function( data ) {
+                      const [name, anchor, axis] = dropWhitespace( data );
+                      return {
+                          type: 'TERM',
+                          coef: 1.0,
+                          node: name.value,
+                          coord: axis.value,
+                          anchor: anchor.value
                       };
                   }
               %}
