@@ -74,7 +74,6 @@ function processConstraint( data ) {
             const name = node.node;
             const anchor = node.anchor;
             const dim = node.coord === 'x' ? 0 : 1;
-            console.log( 'processing:', name, anchor, dim, node.coef );
             if ( acc[name] !== void 0 && acc[name][anchor] !== void 0 ) {
                 acc[name][anchor][dim] += node.coef;
             } else if ( acc[name] !== void 0 ) {
@@ -173,13 +172,12 @@ coordinateSum -> coordinateSum _ %plusOrMinus _ coordinate {%
                          const [acc, op, coord] = dropWhitespace( data );
                          const sign = op.value === '-' ? -1 : 1;
                          acc.push( { ...coord, coef: sign * coord.coef } );
-                         console.log( 'in sum:', op, coord, acc );
                          return acc;
                      }
                  %}
               |  coordinate
 
-coordinate -> %node _ %dim %anchor:?                        {%
+coordinate -> %node _ %dim                                  {%
                   function( data ) {
                       const [name, axis, anchor] = dropWhitespace( data );
                       return {
@@ -187,7 +185,7 @@ coordinate -> %node _ %dim %anchor:?                        {%
                           coef: 1.0,
                           node: name.value,
                           coord: axis.value,
-                          anchor: anchor ? anchor.value : 'CENTER'
+                          anchor: 'CENTER'
                       };
                   }
               %}
