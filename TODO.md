@@ -5,16 +5,18 @@
 -  [ ] DOC Create a gallery [PB]
 
 ## Soon
+-  [x] Allow constraints to access not just center (.x, .y) but also bounding box coordinates (@e, @w, @s, @n, @nw, @ne, @se, @sw, and @center or none) for nodes
 -  [ ] Add color translation/fixing capability:  e.g., "steel blue" -> "steelblue", "light steel blue" -> appropriate hex color, translating web colors -> xcolors for tikz, etc.  Use `color-convert` package
 -  [ ] Add a prompt when trying to overwrite an existing file to confirm [PB]
+-  [ ] Add to graph schema an optional field in edges:  direction = None | Directed | BiDirected and change display so that individual edge property overrides graph general directed setting
+-  [ ] Add a new kind of decoration: arrow
+-  [ ] PROVISIONAL Add labelJustify style (none, left, right, center) for nodes, edges, and text decorations (is labelWidth needed? or scale for node/edge size)
+-  [ ] PROVISIONAL Add a new kind of constraint   DECORATION contains NODE1,...,NONEn. Possible UPDATE: Simpler and almost as functional -- Add a new way of specifying a decoration
 -  [ ] PROVISIONAL Do not swallow all errors during REPL usage; figure out which errors should be displayed and how
 -  [ ] PROVISIONAL Second phase positioning adjustments that improve the overall look and feel
 -  [ ] PROVISIONAL Alternate initialization of positions using presence of edges as an implicit metric (as in multi-dimensional scaling)
        Related to this: should connected components be given roughly different zones in the initial positioning (bipartite case weird?)
--  [ ] PROVISIONAL Add labelJustify style (none, left, right, center) for nodes, edges, and text decorations (is labelWidth needed? or scale for node/edge size)
--  [ ] PROVISIONAL Add a new kind of constraint   DECORATION contains NODE1,...,NONEn
 -  [ ] PROVISIONAL Add a default pre-existing decoration "canvas" of type invisible whose coordinates are fixed at the canvas boundary (useful in constraints)
--  [ ] PROVISIONAL Allow constraints to access not just center (.x, .y) but also bounding box coordinates (.ul, .ur, .lr, .ll OR .e, .w, .s, .n, .nw, .ne, .se, .sw) for nodes and decorations
 
 ## Admin
 -  [ ] ADMIN add a test suite and get existing tests to pass
