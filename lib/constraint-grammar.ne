@@ -15,8 +15,8 @@ const lexer = moo.compile({
         },
   dim: { match: /\.\s*[xy]/, value: s => s.slice(s.length - 1) },
   anchor: {
-      match: /\s*@\s*(?:ne|nw|se|sw|n|e|s|w|center)/,
-      value: s => /ne|nw|se|sw|n|e|s|w|center/.exec(s)[0].toUpperCase() // Must match!
+      match: /\s*@\s*(?:ne|nw|se|sw|n|e|s|w|c)/,
+      value: s => /ne|nw|se|sw|n|e|s|w|c/.exec(s)[0].toUpperCase() // Must match!
   },
   lparen: '(',
   rparen: ')',
@@ -185,7 +185,7 @@ coordinate -> %node _ %dim                                  {%
                           coef: 1.0,
                           node: name.value,
                           coord: axis.value,
-                          anchor: 'CENTER'
+                          anchor: 'C'
                       };
                   }
               %}

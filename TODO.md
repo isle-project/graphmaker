@@ -1,11 +1,11 @@
 # TODO
 ## Immediate
--  [ ] FIX: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
 -  [ ] DOC Create a gallery [PB]
 
 ## Soon
--  [x] Allow constraints to access not just center (.x, .y) but also bounding box coordinates (@e, @w, @s, @n, @nw, @ne, @se, @sw, and @center or none) for nodes
+-  [ ] FIX: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
+-  [x] Allow constraints to access not just center (.x, .y) but also bounding box coordinates (@e, @w, @s, @n, @nw, @ne, @se, @sw, and @c or none) for nodes
 -  [ ] Add color translation/fixing capability:  e.g., "steel blue" -> "steelblue", "light steel blue" -> appropriate hex color, translating web colors -> xcolors for tikz, etc.  Use `color-convert` package
 -  [ ] Add a prompt when trying to overwrite an existing file to confirm [PB]
 -  [ ] Add to graph schema an optional field in edges:  direction = None | Directed | BiDirected and change display so that individual edge property overrides graph general directed setting
