@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undirected Bipartite Graph</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function copyToClipboard(target) {
+            const element = document.getElementById(target);
+            if (element) {
+                const text = element.innerText;
+                navigator.clipboard.writeText(text);
+                alert("Copied to clipboard!");
+            }
+        }
+
+        function downloadSvg() {
+            const svgContent = document.getElementById('svg-container').innerHTML;
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'graph.svg';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-2 mt-2">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-2">Undirected Bipartite Graph</h3>
+            </div>
+            <div class="mb-8">
+              <div id="svg-container" class="aspect-w-16 aspect-h-9"><?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"   viewBox="0 0 1024 1024" ><polygon points="256,292.71561065312613 267.0851251684408,311.9156106531261 244.9148748315592,311.9156106531261" fill="tomato" stroke-width="1" stroke="black"></polygon><polygon points="256.00000000000006,561.6681237762938 267.08512516844087,580.8681237762937 244.91487483155925,580.8681237762937" fill="tomato" stroke-width="1" stroke="black"></polygon><polygon points="256.0000000000001,755.2 267.0851251684409,774.4 244.9148748315593,774.4" fill="tomato" stroke-width="1" stroke="black"></polygon><polygon points="256.0000000000001,649.290450840522 267.0851251684409,668.4904508405219 244.9148748315593,668.4904508405219" fill="tomato" stroke-width="1" stroke="black"></polygon><polygon points="256.0000000000001,490.58341662637855 267.0851251684409,509.78341662637854 244.9148748315593,509.78341662637854" fill="tomato" stroke-width="1" stroke="black"></polygon><circle cx="768" cy="711.5980687604963" r="12.8" fill="green" stroke-width="1" stroke="black"></circle><circle cx="768" cy="368.0739806842188" r="12.8" fill="green" stroke-width="1" stroke="black"></circle><circle cx="768" cy="585.1441790417732" r="12.8" fill="green" stroke-width="1" stroke="black"></circle><circle cx="768" cy="473.5644494595934" r="12.8" fill="green" stroke-width="1" stroke="black"></circle><circle cx="768" cy="256" r="12.8" fill="green" stroke-width="1" stroke="black"></circle><line x1="264.06929709614155" y1="311.91561065312584" x2="757.9713583776165" y2="703.6440542263257" stroke-width="2" stroke="black"></line><line x1="265.2900669900765" y1="306.65071113824104" x2="755.2944889824647" y2="366.5215665051776" stroke-width="2" stroke="black"></line><line x1="264.0164830060727" y1="304.74033516223534" x2="755.2594416548548" y2="257.2321416533626" stroke-width="2" stroke="black"></line><line x1="262.725820394613" y1="571.756854368213" x2="756.1282870403509" y2="372.85962916730836" stroke-width="2" stroke="black"></line><line x1="262.03202234523127" y1="570.7161572941404" x2="757.1310314542142" y2="262.76058597687495" stroke-width="2" stroke="black"></line><line x1="263.94952043616274" y1="767.1242806542431" x2="755.2769656817065" y2="712.9996385002976" stroke-width="2" stroke="black"></line><line x1="261.61131432266563" y1="763.6169714839974" x2="757.9125809293539" y2="375.9533192664328" stroke-width="2" stroke="black"></line><line x1="262.8923172741332" y1="765.5384759111989" x2="755.9456936739023" y2="589.4492573217352" stroke-width="2" stroke="black"></line><line x1="262.1684682865394" y1="764.452702429808" x2="756.9039322694812" y2="479.9454588562124" stroke-width="2" stroke="black"></line><line x1="261.1200000000004" y1="762.8799999999998" x2="758.9490332008122" y2="265.0509667991878" stroke-width="2" stroke="black"></line><line x1="262.1709024145698" y1="658.5468044623758" x2="756.9000080239364" y2="374.44816126930766" stroke-width="2" stroke="black"></line><line x1="263.75623281471957" y1="660.9248000626005" x2="755.3421456691328" y2="587.046473377187" stroke-width="2" stroke="black"></line><line x1="263.2550996803932" y1="501.46606614696805" x2="755.6248588353023" y2="371.34443648636693" stroke-width="2" stroke="black"></line><line x1="265.55002226784234" y1="504.9084500281417" x2="755.3601472115332" y2="583.1257337277041" stroke-width="2" stroke="black"></line></svg></div>
+              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+                  Download SVG
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 pl-2">
+              <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 pl-2 pr-2">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md h-128 relative">
+            <h3 class="text-lg font-bold p-4">Tasks</h3>
+            <div class="p-4 text-gray-700 whitespace-pre-line" id="tasks" >1. add nodes A-J
+2. add a constraint that nodes A-E are at the same horizontal coordinate
+3. add a constraint that nodes F-J are at the same horizontal coordinate
+4. add a constraint that nodes A-E are all to the left of nodes F-J
+5. make nodes A-E triangles
+6. add edges from node A to nodes F, G, and J
+7. add edges from node B to nodes G and J
+8. add edges from node C to each of the nodes F, G, H, I, and J
+9. add edges from node D to nodes G and H
+10. add edges from node E to nodes G and H
+11. make the edges thin with color steelblue
+12. fill nodes A-E with color tomato and nodes F-J with color green
+:config draft false
+</div>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('tasks')">Copy Tasks</button>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md mt-4 relative">
+            <h3 class="text-lg font-bold mb-2 p-4">JSON Representation</h3>
+            <pre class="bg-gray-100 p-4 text-gray-800 max-h-96 overflow-y-auto" id="json">{
+"directed": false,
+"hasParents": false,
+"nodes": {
+  "A": {
+    "nodeShape": "triangle",
+    "fillColor": "tomato"
+  },
+  "B": {
+    "nodeShape": "triangle",
+    "fillColor": "tomato"
+  },
+  "C": {
+    "nodeShape": "triangle",
+    "fillColor": "tomato"
+  },
+  "D": {
+    "nodeShape": "triangle",
+    "fillColor": "tomato"
+  },
+  "E": {
+    "nodeShape": "triangle",
+    "fillColor": "tomato"
+  },
+  "F": {
+    "fillColor": "green"
+  },
+  "G": {
+    "fillColor": "green"
+  },
+  "H": {
+    "fillColor": "green"
+  },
+  "I": {
+    "fillColor": "green"
+  },
+  "J": {
+    "fillColor": "green"
+  }
+},
+"edges": {
+  "AF": {
+    "source": "A",
+    "target": "F"
+  },
+  "AG": {
+    "source": "A",
+    "target": "G"
+  },
+  "AJ": {
+    "source": "A",
+    "target": "J"
+  },
+  "BG": {
+    "source": "B",
+    "target": "G"
+  },
+  "BJ": {
+    "source": "B",
+    "target": "J"
+  },
+  "CF": {
+    "source": "C",
+    "target": "F"
+  },
+  "CG": {
+    "source": "C",
+    "target": "G"
+  },
+  "CH": {
+    "source": "C",
+    "target": "H"
+  },
+  "CI": {
+    "source": "C",
+    "target": "I"
+  },
+  "CJ": {
+    "source": "C",
+    "target": "J"
+  },
+  "DG": {
+    "source": "D",
+    "target": "G"
+  },
+  "DH": {
+    "source": "D",
+    "target": "H"
+  },
+  "EG": {
+    "source": "E",
+    "target": "G"
+  },
+  "EH": {
+    "source": "E",
+    "target": "H"
+  }
+},
+"constraints": [
+  {
+    "meaning": "Nodes A-E are at the same horizontal coordinate",
+    "constraints": [
+      "A.x          =          E.x",
+      "B.x          =          E.x",
+      "C.x          =          E.x",
+      "D.x          =          E.x",
+      "E.x          =          E.x"
+    ]
+  },
+  {
+    "meaning": "Nodes F-J are at the same horizontal coordinate",
+    "constraints": [
+      "F.x          =          J.x",
+      "G.x          =          J.x",
+      "H.x          =          J.x",
+      "I.x          =          J.x",
+      "J.x          =          J.x"
+    ]
+  },
+  {
+    "meaning": "Nodes A-E are all to the left of nodes F-J",
+    "constraints": [
+      "A.x <= F.x",
+      "B.x <= F.x",
+      "C.x <= F.x",
+      "D.x <= F.x",
+      "E.x <= F.x"
+    ]
+  }
+],
+"_positions": {
+  "A": [
+    -3.7565614803605856,
+    6.560952147564189
+  ],
+  "B": [
+    -3.756561480360585,
+    -2.357044864605489
+  ],
+  "C": [
+    -3.756561480360584,
+    -8.7742246374789
+  ],
+  "D": [
+    -3.756561480360584,
+    -5.262448495953438
+  ],
+  "E": [
+    -3.7565614803605833,
+    0
+  ],
+  "F": [
+    4.068174796094681,
+    -6.904035892900189
+  ],
+  "G": [
+    4.06817479609468,
+    4.4866245444353945
+  ],
+  "H": [
+    4.068174796094682,
+    -2.711045211769911
+  ],
+  "I": [
+    4.068174796094681,
+    0.9887443119206928
+  ],
+  "J": [
+    4.068174796094682,
+    8.202802555089164
+  ]
+}
+}</pre>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('json')">Copy JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

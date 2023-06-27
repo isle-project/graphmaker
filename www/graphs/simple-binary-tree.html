@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Binary Tree</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function copyToClipboard(target) {
+            const element = document.getElementById(target);
+            if (element) {
+                const text = element.innerText;
+                navigator.clipboard.writeText(text);
+                alert("Copied to clipboard!");
+            }
+        }
+
+        function downloadSvg() {
+            const svgContent = document.getElementById('svg-container').innerHTML;
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'graph.svg';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-2 mt-2">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-2">Simple Binary Tree</h3>
+            </div>
+            <div class="mb-8">
+              <div id="svg-container" class="aspect-w-16 aspect-h-9"><?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"   viewBox="0 0 1024 1024" ><circle cx="591.4151481898111" cy="256" r="14.222222222222221" fill="white" stroke-width="1" stroke="black"></circle><circle cx="558.3060572383818" cy="426.52893421496816" r="14.222222222222221" fill="white" stroke-width="1" stroke="black"></circle><circle cx="348.6121144767633" cy="634.6505087078674" r="14.222222222222221" fill="white" stroke-width="1" stroke="black"></circle><circle cx="441.2242289535257" cy="768" r="14.222222222222221" fill="white" stroke-width="1" stroke="black"></circle><circle cx="256" cy="768" r="14.222222222222221" fill="white" stroke-width="1" stroke="black"></circle><circle cx="768" cy="634.6505087078671" r="14.222222222222221" fill="white" stroke-width="1" stroke="black"></circle><circle cx="624.5242391412407" cy="426.52893421496924" r="14.222222222222221" fill="white" stroke-width="1" stroke="black"></circle><circle cx="560.9715190308104" cy="634.6505087078672" r="14.222222222222221" fill="white" stroke-width="1" stroke="black"></circle><circle cx="688.076959251667" cy="634.6505087078671" r="14.222222222222221" fill="white" stroke-width="1" stroke="black"></circle><line x1="588.7044478398795" y1="269.961508104469" x2="561.0167575883133" y2="412.5674261104992" stroke-width="2" stroke="black"></line><line x1="594.1258485397427" y1="269.961508104469" x2="621.8135387913092" y2="412.56742611050026" stroke-width="2" stroke="black"></line><line x1="548.2116527519305" y1="436.5476468569289" x2="358.70651896321453" y2="624.6317960659067" stroke-width="2" stroke="black"></line><line x1="568.400461724833" y1="436.5476468569289" x2="757.9055955135487" y2="624.6317960659063" stroke-width="2" stroke="black"></line><line x1="356.72490101209235" y1="646.3318741918532" x2="433.11144241819665" y2="756.3186345160142" stroke-width="2" stroke="black"></line><line x1="340.49932794143416" y1="646.3318741918532" x2="264.1127865353291" y2="756.3186345160142" stroke-width="2" stroke="black"></line><line x1="620.3706322883298" y1="440.1311088591106" x2="565.1251258837214" y2="621.0483340637257" stroke-width="2" stroke="black"></line><line x1="628.6778459941514" y1="440.1311088591107" x2="683.9233523987563" y2="621.0483340637256" stroke-width="2" stroke="black"></line></svg></div>
+              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+                  Download SVG
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 pl-2">
+              <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 pl-2 pr-2">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md h-128 relative">
+            <h3 class="text-lg font-bold p-4">Tasks</h3>
+            <div class="p-4 text-gray-700 whitespace-pre-line" id="tasks" >add nodes 1-9.
+node 1 is the parent of both nodes 2 and 7.
+node 2 is the parent of both nodes 3 and 6.
+node 3 is the parent of both nodes 4 and 5.
+node 7 is the parent of both nodes 8 and 9.
+add a constraint that nodes 6 and 8 are at the same y-coordinate.
+set each node label to its name.
+</div>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('tasks')">Copy Tasks</button>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md mt-4 relative">
+            <h3 class="text-lg font-bold mb-2 p-4">JSON Representation</h3>
+            <pre class="bg-gray-100 p-4 text-gray-800 max-h-96 overflow-y-auto" id="json">{
+"directed": false,
+"hasParents": true,
+"nodes": {
+  "1": {
+    "label": "1"
+  },
+  "2": {
+    "label": "2"
+  },
+  "3": {
+    "label": "3"
+  },
+  "4": {
+    "label": "4"
+  },
+  "5": {
+    "label": "5"
+  },
+  "6": {
+    "label": "6"
+  },
+  "7": {
+    "label": "7"
+  },
+  "8": {
+    "label": "8"
+  },
+  "9": {
+    "label": "9"
+  }
+},
+"edges": {
+  "12": {},
+  "17": {},
+  "23": {},
+  "26": {},
+  "34": {},
+  "35": {},
+  "78": {},
+  "79": {}
+},
+"adjacency": {
+  "1": [
+    {
+      "target": "7",
+      "edge": "17"
+    },
+    {
+      "target": "2",
+      "edge": "12"
+    }
+  ],
+  "2": [
+    {
+      "target": "1",
+      "edge": "12"
+    },
+    {
+      "target": "3",
+      "edge": "23"
+    },
+    {
+      "target": "6",
+      "edge": "26"
+    }
+  ],
+  "3": [
+    {
+      "target": "2",
+      "edge": "23"
+    },
+    {
+      "target": "4",
+      "edge": "34"
+    },
+    {
+      "target": "5",
+      "edge": "35"
+    }
+  ],
+  "4": [
+    {
+      "target": "3",
+      "edge": "34"
+    }
+  ],
+  "5": [
+    {
+      "target": "3",
+      "edge": "35"
+    }
+  ],
+  "6": [
+    {
+      "target": "2",
+      "edge": "26"
+    }
+  ],
+  "7": [
+    {
+      "target": "1",
+      "edge": "17"
+    },
+    {
+      "target": "8",
+      "edge": "78"
+    },
+    {
+      "target": "9",
+      "edge": "79"
+    }
+  ],
+  "8": [
+    {
+      "target": "7",
+      "edge": "78"
+    }
+  ],
+  "9": [
+    {
+      "target": "7",
+      "edge": "79"
+    }
+  ]
+},
+"constraints": [
+  {
+    "meaning": "nodes 6 and 8 are at the same y-coordinate",
+    "constraints": [
+      "'6'.y  =  '8'.y"
+    ]
+  }
+]
+}
+</pre>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('json')">Copy JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

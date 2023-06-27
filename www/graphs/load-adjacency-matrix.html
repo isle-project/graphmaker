@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Adjacency Matrix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function copyToClipboard(target) {
+            const element = document.getElementById(target);
+            if (element) {
+                const text = element.innerText;
+                navigator.clipboard.writeText(text);
+                alert("Copied to clipboard!");
+            }
+        }
+
+        function downloadSvg() {
+            const svgContent = document.getElementById('svg-container').innerHTML;
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'graph.svg';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-2 mt-2">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-2">Load Adjacency Matrix</h3>
+            </div>
+            <div class="mb-8">
+              <div id="svg-container" class="aspect-w-16 aspect-h-9"><?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"   viewBox="0 0 1024 1024" ><rect x="326.40970252357647" y="740.8881954932701" width="51.2" height="51.2" fill="white" stroke-width="1" stroke="black"></rect><rect x="230.4" y="425.05827242260284" width="51.2" height="51.2" fill="white" stroke-width="1" stroke="black"></rect><rect x="487.2454490416711" y="230.4" width="51.2" height="51.2" fill="white" stroke-width="1" stroke="black"></rect><rect x="742.4" y="427.4291616457891" width="51.2" height="51.2" fill="white" stroke-width="1" stroke="black"></rect><rect x="643.8127162700017" y="742.4" width="51.2" height="51.2" fill="white" stroke-width="1" stroke="black"></rect><line x1="344.22751279086515" y1="740.8881954932701" x2="263.78218973271134" y2="476.2582724226029" stroke-width="2" stroke="black"></line><line x1="360.0753055036507" y1="740.8881954932701" x2="504.7798460615969" y2="281.6" stroke-width="2" stroke="black"></line><line x1="377.6097025235765" y1="747.1979588815609" x2="742.4" y2="472.3193982574984" stroke-width="2" stroke="black"></line><line x1="281.6" y1="470.3092118017282" x2="643.8127162700017" y2="748.3490606208746" stroke-width="2" stroke="black"></line><line x1="538.4454490416712" y1="275.76820134772345" x2="742.4" y2="433.2609602980657" stroke-width="2" stroke="black"></line><line x1="520.6738124030877" y1="281.6" x2="661.5843529085852" y2="742.4" stroke-width="2" stroke="black"></line></svg></div>
+              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+                  Download SVG
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 pl-2">
+              <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 pl-2 pr-2">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md h-128 relative">
+            <h3 class="text-lg font-bold p-4">Tasks</h3>
+            <div class="p-4 text-gray-700 whitespace-pre-line" id="tasks" >Assume that the following is an adjacency matrix for an undirected graph on nodes A-E in order
+
+[ [0, 1, 1, 1, 0],
+[1, 0, 0, 0, 1],
+[1, 0, 0, 1, 1],
+[1, 0, 1, 0, 0],
+[0, 1, 1, 0, 0] ]
+
+Make all nodes squares
+</div>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('tasks')">Copy Tasks</button>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md mt-4 relative">
+            <h3 class="text-lg font-bold mb-2 p-4">JSON Representation</h3>
+            <pre class="bg-gray-100 p-4 text-gray-800 max-h-96 overflow-y-auto" id="json">{
+"directed": false,
+"hasParents": false,
+"nodes": {
+  "A": {
+    "nodeShape": "square"
+  },
+  "B": {
+    "nodeShape": "square"
+  },
+  "C": {
+    "nodeShape": "square"
+  },
+  "D": {
+    "nodeShape": "square"
+  },
+  "E": {
+    "nodeShape": "square"
+  }
+},
+"edges": {
+  "AB": {
+    "source": "A",
+    "target": "B"
+  },
+  "AC": {
+    "source": "A",
+    "target": "C"
+  },
+  "AD": {
+    "source": "A",
+    "target": "D"
+  },
+  "BE": {
+    "source": "B",
+    "target": "E"
+  },
+  "CD": {
+    "source": "C",
+    "target": "D"
+  },
+  "CE": {
+    "source": "C",
+    "target": "E"
+  }
+},
+"constraints": [],
+"_positions": {
+  "A": [
+    -2.640778289055921,
+    -3.613534705348436
+  ],
+  "B": [
+    -4.2403567907799635,
+    1.3908962259300406
+  ],
+  "C": [
+    0.012402918719640318,
+    4.483861783312955
+  ],
+  "D": [
+    4.247603928582872,
+    1.36731274029732
+  ],
+  "E": [
+    2.6211282325333767,
+    -3.6285360441918852
+  ]
+}
+}</pre>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('json')">Copy JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
