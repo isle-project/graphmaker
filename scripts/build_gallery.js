@@ -57,7 +57,7 @@ function generateGalleryPage(manifest) {
         .replace(/style="([^"]*)"/, '')
         .replace(/width="([^"]*)"/, '')
         .replace(/height="([^"]*)"/, '');
-      return `<a href="/gallery/${kebabcase(name)}.html" class="bg-gray-100 hover:bg-gray-200 rounded-lg shadow-lg p-4 mb-4 flex flex-col justify-between">
+      return `<a href="/gallery/graphs/${kebabcase(name)}.html" class="bg-gray-100 hover:bg-gray-200 rounded-lg shadow-lg p-4 mb-4 flex flex-col justify-between">
         <h3 class="text-lg font-semibold mt-2">${name}</h3>
             ${svg}
         </a>`;
@@ -78,8 +78,8 @@ for ( let i = 0; i < manifest.length; i++ ) {
     const tasks = readFileSync( join( __dirname, '..', 'examples', path, 'tasks.txt' ), 'utf8' );
 
     const html = generateGalleryItemPage({ name, svg, json, tasks });
-    writeFileSync( join( __dirname, '..', 'www', 'graphs', `${kebabcase(name)}.html` ), html, 'utf8' );
+    writeFileSync( join( __dirname, '..', 'docs', 'graphs', `${kebabcase(name)}.html` ), html, 'utf8' );
 }
 
 const galleryHTML = generateGalleryPage(manifest);
-writeFileSync( join( __dirname, '..', 'www', 'gallery.html' ), galleryHTML, 'utf8' );
+writeFileSync( join( __dirname, '..', 'docs', 'gallery.html' ), galleryHTML, 'utf8' );
