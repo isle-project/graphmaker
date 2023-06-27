@@ -2,6 +2,7 @@
 ## Immediate
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
 -  [ ] DOC Create a gallery [PB]
+-  [ ] DOC check consistency of readme with what actually happens
 
 ## Soon
 -  [ ] FIX: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
@@ -9,10 +10,12 @@
 -  [ ] Add color translation/fixing capability:  e.g., "steel blue" -> "steelblue", "light steel blue" -> appropriate hex color, translating web colors -> xcolors for tikz, etc.  Use `color-convert` package
 -  [ ] Add a prompt when trying to overwrite an existing file to confirm [PB]
 -  [ ] Add to graph schema an optional field in edges:  direction = None | Directed | BiDirected and change display so that individual edge property overrides graph general directed setting
+-  [ ] Check that edge offset scaling is from -1,1 rather than -0.5, 0.5 and check support for *absolute* directions
 -  [ ] Add a new kind of decoration: arrow
--  [ ] PROVISIONAL Add labelJustify style (none, left, right, center) for nodes, edges, and text decorations (is labelWidth needed? or scale for node/edge size)
--  [ ] PROVISIONAL Add a new kind of constraint   DECORATION contains NODE1,...,NONEn. Possible UPDATE: Simpler and almost as functional -- Add a new way of specifying a decoration
--  [ ] PROVISIONAL Do not swallow all errors during REPL usage; figure out which errors should be displayed and how
+-  [ ] Add labelJustify style (none, left, right, center) for nodes, edges, and text decorations (is labelWidth needed? or scale for node/edge size)
+-  [ ] Add a new kind of constraint   DECORATION contains NODE1,...,NONEn. Possible UPDATE: Simpler and almost as functional -- Add a new way of specifying a decoration
+-  [ ] Do not swallow all errors during REPL usage; figure out which errors should be displayed and how
+-  [ ] More intelligent initial positions: i. grouping (roughly) in connected clusters, ii. ordering via orientation config by order created, iii. centering one node (odd case) when no edges, ...
 -  [ ] PROVISIONAL Second phase positioning adjustments that improve the overall look and feel
 -  [ ] PROVISIONAL Alternate initialization of positions using presence of edges as an implicit metric (as in multi-dimensional scaling)
        Related to this: should connected components be given roughly different zones in the initial positioning (bipartite case weird?)
