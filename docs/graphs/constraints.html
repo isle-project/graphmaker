@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constraints</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function copyToClipboard(target) {
+            const element = document.getElementById(target);
+            if (element) {
+                const text = element.innerText;
+                navigator.clipboard.writeText(text);
+                alert("Copied to clipboard!");
+            }
+        }
+
+        function downloadSvg() {
+            const svgContent = document.getElementById('svg-container').innerHTML;
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'graph.svg';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-2 mt-2">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-2">Constraints</h3>
+            </div>
+            <div class="mb-8">
+              <div id="svg-container" class="aspect-w-16 aspect-h-9"><?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"   viewBox="0 0 1024 1024" ><circle cx="256" cy="552.0887287829858" r="25.6" fill="white" stroke-width="1" stroke="black"></circle><polygon points="730.1816461182405,742.4 752.3518964551221,780.8 708.0113957813588,780.8" fill="white" stroke-width="1" stroke="black"></polygon><rect x="467.49082305912157" y="634.4443643914918" width="51.2" height="51.2" fill="white" stroke-width="1" stroke="black"></rect><circle cx="477.49170747150083" cy="256" r="25.6" fill="white" stroke-width="1" stroke="black"></circle><circle cx="768" cy="388.29590047555" r="25.6" fill="white" stroke-width="1" stroke="black"></circle><line x1="279.2984513808123" y1="562.6973179095344" x2="467.49082305912157" y2="648.3878007340761" stroke-width="2" stroke="black"></line><line x1="717.0892571862871" y1="762.0385833979313" x2="518.6908230591216" y2="671.700928048908" stroke-width="2" stroke="black"></line></svg></div>
+              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+                  Download SVG
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 pl-2">
+              <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 pl-2 pr-2">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md h-128 relative">
+            <h3 class="text-lg font-bold p-4">Tasks</h3>
+            <div class="p-4 text-gray-700 whitespace-pre-line" id="tasks" >add nodes A-E
+make node C a rectangle
+make node B a triangle
+add a directed edge from node A to node C and node B to node C
+add a constraint that node C's horizontal coordinate is midway between node A's and node B's
+</div>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('tasks')">Copy Tasks</button>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md mt-4 relative">
+            <h3 class="text-lg font-bold mb-2 p-4">JSON Representation</h3>
+            <pre class="bg-gray-100 p-4 text-gray-800 max-h-96 overflow-y-auto" id="json">{
+"directed": false,
+"hasParents": false,
+"nodes": {
+  "A": {},
+  "B": {
+    "nodeShape": "triangle"
+  },
+  "C": {
+    "nodeShape": "rectangle"
+  },
+  "D": {},
+  "E": {}
+},
+"edges": {
+  "AC": {
+    "source": "A",
+    "target": "C"
+  },
+  "BC": {
+    "source": "B",
+    "target": "C"
+  }
+},
+"constraints": [
+  {
+    "meaning": "Node C is at the midpoint of nodes A and B",
+    "constraints": [
+      "'C'.x  =  ('A'.x + 'B'.x) / 2",
+      "'C'.y  =  ('A'.y + 'B'.y) / 2"
+    ]
+  }
+],
+"_positions": {
+  "A": [
+    -4.498779783982723,
+    -2.507252767843197
+  ],
+  "B": [
+    4.62481845584044,
+    -2.2642067244904767
+  ],
+  "C": [
+    0.06301933592887465,
+    -2.3857297461668545
+  ],
+  "D": [
+    -2.8893899617377046,
+    3.50386016957706
+  ],
+  "E": [
+    2.700206182787549,
+    3.6533114353042984
+  ]
+}
+}
+</pre>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('json')">Copy JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

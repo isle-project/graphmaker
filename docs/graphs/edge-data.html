@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function copyToClipboard(target) {
+            const element = document.getElementById(target);
+            if (element) {
+                const text = element.innerText;
+                navigator.clipboard.writeText(text);
+                alert("Copied to clipboard!");
+            }
+        }
+
+        function downloadSvg() {
+            const svgContent = document.getElementById('svg-container').innerHTML;
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'graph.svg';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-2 mt-2">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-2">Edge Data</h3>
+            </div>
+            <div class="mb-8">
+              <div id="svg-container" class="aspect-w-16 aspect-h-9"><?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"   viewBox="0 0 1024 1024" ><circle cx="256" cy="256" r="25.6" fill="white" stroke-width="1" stroke="black"></circle><circle cx="347.61297066539373" cy="768" r="25.6" fill="white" stroke-width="1" stroke="black"></circle><circle cx="386.6491801943158" cy="500.4633381738678" r="25.6" fill="white" stroke-width="1" stroke="black"></circle><circle cx="704.3344826011967" cy="275.54503434082017" r="25.6" fill="white" stroke-width="1" stroke="black"></circle><circle cx="768" cy="628.2566142627169" r="25.6" fill="white" stroke-width="1" stroke="black"></circle><line x1="260.50903542547354" y1="281.19977379921943" x2="341.6948616694597" y2="734.9252968885245" stroke-width="2" stroke="black" marker-end="url(#SvgjsMarker1014)"></line><marker markerWidth="8" markerHeight="8" refX="4" refY="4" viewBox="0 0 8 8" orient="auto-start-reverse" fill="black" id="SvgjsMarker1014"><path d="M 0 0 L 8 4 L 0 8 z"></path></marker><text transform="translate(289.9940913643128, 514.1136103556908) rotate(79.85533192473031)" text-anchor="middle" dominant-baseline="middle" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan dy="0" x="0" svgjs:data="{&quot;newLined&quot;:true}">23</tspan></text><line x1="268.0663774873075" y1="278.5779213909031" x2="370.81205974222473" y2="470.8298163483075" stroke-dasharray="2 2" stroke-width="2" stroke="steelblue" marker-end="url(#SvgjsMarker1015)"></line><marker markerWidth="8" markerHeight="8" refX="4" refY="4" viewBox="0 0 8 8" orient="auto-start-reverse" stroke="steelblue" fill="steelblue" id="SvgjsMarker1015"><path d="M 0 0 L 8 4 L 0 8 z"></path></marker><text transform="translate(310.7411894451721, 383.8877835341093) rotate(61.878499470161856)" text-anchor="middle" dominant-baseline="middle" fill="steelblue" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan dy="0" x="0" svgjs:data="{&quot;newLined&quot;:true}">12</tspan></text></svg></div>
+              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+                  Download SVG
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 pl-2">
+              <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 pl-2 pr-2">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md h-128 relative">
+            <h3 class="text-lg font-bold p-4">Tasks</h3>
+            <div class="p-4 text-gray-700 whitespace-pre-line" id="tasks" >add nodes A-E
+add a directed edge from A to B and A to C
+add edge data to edge AB setting a strength of 23 and a type as "colleagues"
+add edge data to edge AC setting a strength of 12 and a type as "acquaintances"
+add edge weights equal to the strength for each edge with strength data
+define a style called "light" with line style dotted and line color steelblue
+define a style called "heavy" with line style solid and line color tomato
+apply the style heavy to any edge with type data equal to "colleagues"
+apply the style light to any edge with type data equal to "acquaintances"
+</div>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('tasks')">Copy Tasks</button>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md mt-4 relative">
+            <h3 class="text-lg font-bold mb-2 p-4">JSON Representation</h3>
+            <pre class="bg-gray-100 p-4 text-gray-800 max-h-96 overflow-y-auto" id="json">{
+"directed": true,
+"hasParents": false,
+"nodes": {
+  "A": {},
+  "B": {},
+  "C": {},
+  "D": {},
+  "E": {}
+},
+"edges": {
+  "AB": {
+    "source": "A",
+    "target": "B",
+    "data": {
+      "strength": "23",
+      "type": "colleagues"
+    },
+    "weight": 23
+  },
+  "AC": {
+    "source": "A",
+    "target": "C",
+    "data": {
+      "strength": "12",
+      "type": "acquaintances"
+    },
+    "weight": 12,
+    "style": "light"
+  }
+},
+"constraints": [],
+"styles": {
+  "light": {
+    "lineStyle": "dotted",
+    "lineColor": "steelblue"
+  }
+},
+"_positions": {
+  "A": [
+    -2.488550924233892,
+    4.128881165524764
+  ],
+  "B": [
+    -0.8574745166410667,
+    -4.745050125465496
+  ],
+  "C": [
+    -3.663152067609195,
+    -0.6739862094689396
+  ],
+  "D": [
+    3.0215784597942124,
+    3.26938321779808
+  ],
+  "E": [
+    3.9874863097855324,
+    -1.9792875246755566
+  ]
+}
+}
+</pre>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('json')">Copy JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

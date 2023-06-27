@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Graph with Six Nodes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function copyToClipboard(target) {
+            const element = document.getElementById(target);
+            if (element) {
+                const text = element.innerText;
+                navigator.clipboard.writeText(text);
+                alert("Copied to clipboard!");
+            }
+        }
+
+        function downloadSvg() {
+            const svgContent = document.getElementById('svg-container').innerHTML;
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'graph.svg';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-2 mt-2">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-2">Complete Graph with Six Nodes</h3>
+            </div>
+            <div class="mb-8">
+              <div id="svg-container" class="aspect-w-16 aspect-h-9"><?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"   viewBox="0 0 1024 1024" ><pattern width="10" height="10" patternUnits="userSpaceOnUse" id="SvgjsPattern1000"><path d="M0 0L0 10M5 0L5 10M10 0L10 10 " fill="none" stroke="black" stroke-width="1"></path></pattern><circle cx="280.81603858593684" cy="687.5756960795624" r="21.333333333333332" fill="url(&quot;#SvgjsPattern1000&quot;)" stroke-width="1" stroke="black"></circle><pattern width="10" height="10" patternUnits="userSpaceOnUse" id="SvgjsPattern1001"><path d="M0 0L0 10M5 0L5 10M10 0L10 10 " fill="none" stroke="black" stroke-width="1"></path></pattern><circle cx="256" cy="428.0978512918548" r="21.333333333333332" fill="url(&quot;#SvgjsPattern1001&quot;)" stroke-width="1" stroke="black"></circle><pattern width="10" height="10" patternUnits="userSpaceOnUse" id="SvgjsPattern1002"><path d="M0 0L0 10M5 0L5 10M10 0L10 10 " fill="none" stroke="black" stroke-width="1"></path></pattern><circle cx="544.6249711460987" cy="768" r="21.333333333333332" fill="url(&quot;#SvgjsPattern1002&quot;)" stroke-width="1" stroke="black"></circle><pattern width="10" height="10" patternUnits="userSpaceOnUse" id="SvgjsPattern1003"><path d="M0 0L0 10M5 0L5 10M10 0L10 10 " fill="none" stroke="black" stroke-width="1"></path></pattern><circle cx="461.69011444676414" cy="256" r="21.333333333333332" fill="url(&quot;#SvgjsPattern1003&quot;)" stroke-width="1" stroke="black"></circle><pattern width="10" height="10" patternUnits="userSpaceOnUse" id="SvgjsPattern1004"><path d="M0 0L0 10M5 0L5 10M10 0L10 10 " fill="none" stroke="black" stroke-width="1"></path></pattern><circle cx="768" cy="616.3572061941575" r="21.333333333333332" fill="url(&quot;#SvgjsPattern1004&quot;)" stroke-width="1" stroke="black"></circle><pattern width="10" height="10" patternUnits="userSpaceOnUse" id="SvgjsPattern1005"><path d="M0 0L0 10M5 0L5 10M10 0L10 10 " fill="none" stroke="black" stroke-width="1"></path></pattern><circle cx="717.2635200671346" cy="359.252080467718" r="21.333333333333332" fill="url(&quot;#SvgjsPattern1005&quot;)" stroke-width="1" stroke="black"></circle><line x1="278.7850207318219" y1="666.3392632908999" x2="258.03101785411496" y2="449.33428408051725" stroke-width="2" stroke="black"></line><line x1="301.2221784126409" y1="693.7966741766234" x2="524.2188313193946" y2="761.779021902939" stroke-width="2" stroke="black"></line><line x1="289.0619705580752" y1="667.9004396130769" x2="453.4441824746258" y2="275.67525646648545" stroke-width="2" stroke="black"></line><line x1="301.9250173251422" y1="684.4899015791322" x2="746.8910212607946" y2="619.4430006945877" stroke-width="2" stroke="black"></line><line x1="297.86416295337875" y1="674.7510102485821" x2="700.2153956996926" y2="372.0767662986982" stroke-width="2" stroke="black"></line><line x1="269.8083917074607" y1="444.35944498879735" x2="530.816579438638" y2="751.7384063030574" stroke-width="2" stroke="black"></line><line x1="272.36171796205804" y1="414.40824587602276" x2="445.3283964847061" y2="269.68960541583203" stroke-width="2" stroke="black"></line><line x1="276.02270437814144" y1="435.4600806075353" x2="747.9772956218585" y2="608.9949768784769" stroke-width="2" stroke="black"></line><line x1="277.09961003025404" y1="424.9486342967408" x2="696.1639100368806" y2="362.40129746283196" stroke-width="2" stroke="black"></line><line x1="541.2138136973452" y1="746.9411511242679" x2="465.10127189551764" y2="277.0588488757321" stroke-width="2" stroke="black"></line><line x1="562.2753318502764" y1="756.0176847761575" x2="750.3496392958223" y2="628.339521418" stroke-width="2" stroke="black"></line><line x1="552.9253301309273" y1="748.3476425883792" x2="708.963161082306" y2="378.90443787933873" stroke-width="2" stroke="black"></line><line x1="475.50677801187305" y1="272.2545660981677" x2="754.1833364348911" y2="600.1026400959897" stroke-width="2" stroke="black"></line><line x1="481.470205436103" y1="263.9911896213634" x2="697.4834290777957" y2="351.2608908463546" stroke-width="2" stroke="black"></line><line x1="763.8697851122658" y1="595.4275039484911" x2="721.3937349548687" y2="380.1817827133843" stroke-width="2" stroke="black"></line></svg></div>
+              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+                  Download SVG
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 pl-2">
+              <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 pl-2 pr-2">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md h-128 relative">
+            <h3 class="text-lg font-bold p-4">Tasks</h3>
+            <div class="p-4 text-gray-700 whitespace-pre-line" id="tasks" >add nodes A-F
+add an edge between each distinct pair of nodes
+define a style named allNodes that fills the nodes with an vertical hashed pattern with thickness 1
+set the style for every node to "allNodes"
+</div>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('tasks')">Copy Tasks</button>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md mt-4 relative">
+            <h3 class="text-lg font-bold mb-2 p-4">JSON Representation</h3>
+            <pre class="bg-gray-100 p-4 text-gray-800 max-h-96 overflow-y-auto" id="json">{
+"directed": false,
+"hasParents": false,
+"nodes": {
+  "A": {
+    "style": "allNodes"
+  },
+  "B": {
+    "style": "allNodes"
+  },
+  "C": {
+    "style": "allNodes"
+  },
+  "D": {
+    "style": "allNodes"
+  },
+  "E": {
+    "style": "allNodes"
+  },
+  "F": {
+    "style": "allNodes"
+  }
+},
+"edges": {
+  "AB": {
+    "source": "A",
+    "target": "B"
+  },
+  "AC": {
+    "source": "A",
+    "target": "C"
+  },
+  "AD": {
+    "source": "A",
+    "target": "D"
+  },
+  "AE": {
+    "source": "A",
+    "target": "E"
+  },
+  "AF": {
+    "source": "A",
+    "target": "F"
+  },
+  "BC": {
+    "source": "B",
+    "target": "C"
+  },
+  "BD": {
+    "source": "B",
+    "target": "D"
+  },
+  "BE": {
+    "source": "B",
+    "target": "E"
+  },
+  "BF": {
+    "source": "B",
+    "target": "F"
+  },
+  "CD": {
+    "source": "C",
+    "target": "D"
+  },
+  "CE": {
+    "source": "C",
+    "target": "E"
+  },
+  "CF": {
+    "source": "C",
+    "target": "F"
+  },
+  "DE": {
+    "source": "D",
+    "target": "E"
+  },
+  "DF": {
+    "source": "D",
+    "target": "F"
+  },
+  "EF": {
+    "source": "E",
+    "target": "F"
+  }
+},
+"constraints": [],
+"styles": {
+  "allNodes": {
+    "fillStyle": [
+      "hashed",
+      "vertical",
+      1
+    ]
+  }
+}
+}
+</pre>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('json')">Copy JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

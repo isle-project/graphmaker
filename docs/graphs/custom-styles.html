@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Styles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function copyToClipboard(target) {
+            const element = document.getElementById(target);
+            if (element) {
+                const text = element.innerText;
+                navigator.clipboard.writeText(text);
+                alert("Copied to clipboard!");
+            }
+        }
+
+        function downloadSvg() {
+            const svgContent = document.getElementById('svg-container').innerHTML;
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'graph.svg';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-2 mt-2">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-2">Custom Styles</h3>
+            </div>
+            <div class="mb-8">
+              <div id="svg-container" class="aspect-w-16 aspect-h-9"><?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"   viewBox="0 0 1024 1024" ><rect x="128" y="640" width="256" height="256" fill="white" stroke-width="1" stroke="blue"></rect><circle cx="493.9392294626878" cy="256" r="85.33333333333333" fill="white" stroke-width="1" stroke="green"></circle><rect x="725.3333333333334" y="701.8050959514841" width="85.33333333333333" height="85.33333333333333" fill="white" stroke-width="1" stroke="blue"></rect></svg></div>
+              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+                  Download SVG
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 pl-2">
+              <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 pl-2 pr-2">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md h-128 relative">
+            <h3 class="text-lg font-bold p-4">Tasks</h3>
+            <div class="p-4 text-gray-700 whitespace-pre-line" id="tasks" >add three nodes A-C
+add associated data to node A: color with value blue
+add associated color data to nodes B and C: make them green and blue, respectively
+define a style foo that specifies a node shape of rectangle
+apply the style foo to exactly those nodes that have color data equal to blue
+add associated count data of 3 for node A and 2 for node B
+set the node size for all nodes to be the count data or 1 if it has no count data
+set each node's line color to its color data
+</div>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('tasks')">Copy Tasks</button>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md mt-4 relative">
+            <h3 class="text-lg font-bold mb-2 p-4">JSON Representation</h3>
+            <pre class="bg-gray-100 p-4 text-gray-800 max-h-96 overflow-y-auto" id="json">{
+"directed": false,
+"hasParents": false,
+"nodes": {
+  "A": {
+    "data": {
+      "color": "blue",
+      "count": "3"
+    },
+    "style": "foo",
+    "nodeSize": 3,
+    "lineColor": "blue"
+  },
+  "B": {
+    "data": {
+      "color": "green",
+      "count": "2"
+    },
+    "nodeSize": 2,
+    "lineColor": "green"
+  },
+  "C": {
+    "data": {
+      "color": "blue"
+    },
+    "style": "foo",
+    "nodeSize": 1,
+    "lineColor": "blue"
+  }
+},
+"edges": {},
+"constraints": [],
+"styles": {
+  "foo": {
+    "nodeShape": "rectangle"
+  }
+},
+"_positions": {
+  "A": [
+    -2.6719888275495407,
+    -1.6912937860324766
+  ],
+  "B": [
+    -0.12869532749058035,
+    3.159655267501933
+  ],
+  "C": [
+    2.80069491114402,
+    -1.4683750039798307
+  ]
+}
+}</pre>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('json')">Copy JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

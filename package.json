@@ -30,6 +30,7 @@
     "@stdlib/math-base-special-deg2rad": "^0.0.8",
     "@stdlib/math-base-special-roundn": "^0.0.6",
     "@stdlib/random-base-normal": "^0.0.6",
+    "@stdlib/string-base-kebabcase": "^0.0.2",
     "@stdlib/string-format": "^0.0.3",
     "@stdlib/utils-compact-adjacency-matrix": "^0.0.6",
     "@stdlib/utils-copy": "^0.0.7",
@@ -60,6 +61,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.5",
+    "dedent": "^0.7.0",
     "eslint": "^8.43.0",
     "eslint-plugin-jest": "^27.2.2",
     "jest": "^29.5.0"
