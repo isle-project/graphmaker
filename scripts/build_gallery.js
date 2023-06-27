@@ -57,7 +57,7 @@ function generateGalleryPage(manifest) {
         .replace(/style="([^"]*)"/, '')
         .replace(/width="([^"]*)"/, '')
         .replace(/height="([^"]*)"/, '');
-      return `<a href="/gallery/graphs/${kebabcase(name)}.html" class="bg-gray-100 hover:bg-gray-200 rounded-lg shadow-lg p-4 mb-4 flex flex-col justify-between">
+      return `<a href="/graphs/${kebabcase(name)}.html" class="bg-gray-100 hover:bg-gray-200 rounded-lg shadow-lg p-4 mb-4 flex flex-col justify-between">
         <h3 class="text-lg font-semibold mt-2">${name}</h3>
             ${svg}
         </a>`;
