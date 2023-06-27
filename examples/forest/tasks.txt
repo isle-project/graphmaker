@@ -1,0 +1,7 @@
+# this graph is a forest
+set hasParents to be true
+add node A with two children B and C
+and node D with two children E and F
+and node G with children H, I, J
+add node K
+add node L with child M
