@@ -85,7 +85,7 @@ As you wish.
 
 This produces the following graph
 
-<img style="width: 50%;" />
+<img style="width: 50%;" /> ATTN
 
 
 ## Installation
@@ -159,7 +159,15 @@ GraphMaker's responses have been omitted for clarity.
 
 ```
 > add seven nodes
-> ...
+> add a style "left" to nodes A, B, C 
+> add a style "right" to nodes D, E, F, G
+> define the style left to have node shape square, fill color blue, and line width thick
+> define the style right to have node shape triangle, fill color tomato, and fill style hashed vertical
+> add constraints that make all nodes with the same style tag have the same horizontal coordinate
+> add a constraint that node A is to the left of node D
+> add edges from A to D, F, and G
+> add edges from B to E and F
+> add edges from C to E and G
 ```
 
 ### Example Session 2
@@ -168,15 +176,60 @@ In this session, we build a finite automaton, where states are represented by no
 and transitions by edges labeled with the input.
 GraphMaker's responses have been omitted for clarity.
 
-
 ```
 > make the graph directed
 > add nodes A-G
 > add constraints that each of nodes A-E is to the left of its successor and has the same y-coordinate
 > add a constraint that node F is above node A and has x-coordinate centered on those of nodes A-E
 > add a constraint that node G is below node A and has x-coordinate centered on those of nodes A-E
-> ...
+> set the fill color for node E to green
+> set the fill color for node F to red and the fill style to crosshatched
+> set the label for node A to be "Start"
+> add an edge from A to B with label "0" and with angle leaving and entering -45
+> add an edge from A to G with label "1"
+> add an edge from G to itself with label 1 and loop direction -90
+> add an edge from G to E with label "0"
+> add an edge from B to C with label "0" and edge from B to F with label "1"
+> add an edge from C to D with label "0" and edge from C to itself with label "1" and loop direction -90
+> add an edge from D to E with label "0" and an edge from D to F with label "1"
+> :save ./automaton.svg
 ```
+
+At each stage, you can see the graph being built and then can save it in a variety of formats.
+Adding the edges one at a time might be tiresome in a large graph, so we can specify them all
+at once. Here is an alternative version of the previous session that is more compact:
+
+```
+> make the graph directed
+> add seven nodes
+> add constraints that each of nodes A-E is to the left of its successor and has the same y-coordinate
+> add constraints that nodes F and G have x-coordinates centered on those of nodes A-E
+> add constraints that F is above node A and that G is below node A
+> set the fill color for node E to green and for node F to red and give F a fill style of crosshatched
+> set the label for node A to be "Start"
+> :multiline
+Add edges for the following adjacency matrix, ordered A-G
+  0, 1, 0, 0, 0, 0, 1
+  0, 0, 1, 0, 0, 1, 0
+  0, 0, 1, 1, 0, 0, 0
+  0, 0, 0, 0, 1, 1, 0
+  0, 0, 0, 0, 1, 0, 1
+^D
+> :multiline
+Add labels to the edges as follows
+  A to B "0", A to G "1"
+  B to C "0", B to F "1"
+  C to D "0", C to C "1"
+  D to E "0", D to F "1"
+  G to E "0", G to G "1"
+^D
+> set the loop direction to -90 for the self loops at nodes C and G
+> set the angle leaving and entering to -45 for the edges with source A
+> :save ./automaton2.svg
+```
+
+Here, the "^D" represents a Control-D character that is used to end the multi-line input.
+
 
 ## Usage
 
@@ -208,8 +261,6 @@ to its initial state, or load a saved graph from a file. When you
 enter a task into GraphMaker, you are describing a change to the
 current graph. You can view that graph at anytime with the `:show`
 command.
-
-
 
 ### Labels and Names
 
@@ -283,7 +334,7 @@ The label text can be styled with a variety of parameters.
 
 
 See [Style Details](#style-details) for more on the style parameters
-for text. These parameters can also be set in defined styles that can
+supported for text. These parameters can also be set in defined styles that can
 be applied to any entity:
 
 ```
@@ -294,7 +345,7 @@ be applied to any entity:
 
 ### Graph Types
 
-Graphmaker has explicit support for several graph types.  
+Graphmaker has explicit support for several graph types.
 
 You can tell it explicitly to make a graph undirected (no arrows on edges) or directed (arrows on edges).
 By default, graphs are initialized as *undirected*.
@@ -303,7 +354,11 @@ By default, graphs are initialized as *undirected*.
 > make this graph directed
 ```
 
-It also supports the creation of trees or Directed Acyclic Graphs (DAGs).
+(Note that individual edges can be made undirected, directed, or bidirected, regardless of the
+graph's specified type. The graphs type becomes the default for an edge.)
+
+Graphmaker specially handles trees and Directed Acyclic Graphs (DAGs), which are typically
+displayed in a form consistent with their structure.
 To create a tree or DAG, you need to specify a __parent relation__ between
 nodes:
 
@@ -323,7 +378,8 @@ sets this. By default, it is `auto` which causes trees to be displayed from the 
 down, with the root at the top and DAGs to be displayed left-to-right with the
 earliest nodes (with no predecessors) at the left.  The `orientation` option can be
 set to `top` (top down), `bottom` (bottom up), `left` (left-to-right), or `right` (right-to-left)
-as desired.  This option is ignored for general graphs.
+as desired.  For general graphs, this option is used only in the initial positioning of the
+nodes in the order defined.
 
 GraphMaker is not limited to simple graphs. You can define multiple edges between two nodes,
 which will have distinct names and properties. You can also define edges from a node to itself (self-loops).
@@ -366,7 +422,8 @@ on the nodes to determine their class
 ### Node Properties
 
 To create our graph, one will often start by creating nodes. Each node has a name, an optional label,
-several properties that can be set as needed, and several ways to specify how that node is styled.
+several ways to specify how that node is styled, and several properties that can be customized.
+The supported properties are:
 
   + __Node Shape__ 
 
@@ -392,7 +449,46 @@ several properties that can be set as needed, and several ways to specify how th
 
   + __Node Width To Height__ 
 
+    This is a *positive number* that specifies the aspect ratio of the node's shape (more precisely, the shape's bounding box).
+    The default value is 1.
+
   + __Node Size__ 
+
+    This is a scaling factor that determines a node's size relative to the default (with value 1).
+    Note that in the pictures that are produced, the base node size *on the canvas* depends weakly on
+    the number of nodes in the graph.
+
+  + __Label Offset__
+  
+    The label offset determines where a node's label (if any) is displayed relative to
+    the center of the node. For nodes, offset distances are in units of the node's size
+    (exactly analogous to the Node Size parameter).
+
+    The offset can be specified in various forms
+
+    - `none`: the label will be anchored at the center of the node. This is the default.
+    
+    - A cardinal direction (`north`, `northeast`, `east`, `southeast`, `south`, `southwest`, `west`, `northwest`):
+      the label will be offset by one unit from the center of the node in the specified direction.
+      
+    - A cardinal direction with a distance: the label will be offset
+      from the center of the node by the given distance (in units of
+      node size) in the given direction. For example,
+
+      ```
+      > set the label offset for A to northeast by 1.5
+      ```
+
+      will anchor A's label to the top right of the node by one and a half node radii.
+
+    - Two numbers `dx, dy` representing offsets in units of node size in the direction (dx, dy).
+      For example
+
+      ```
+      > set the label offset for A to 1, -1
+      ```
+
+      will anchor the label at the bottom right corner of a box surrounding the node.
 
   + __Node Style__ 
 
@@ -418,20 +514,35 @@ several properties that can be set as needed, and several ways to specify how th
     > define the style 'branch' to have line color steel blue and node shape ellipse with width twice the height
     ```
 
-    Now we can 
+    Now we can reconfigure the style for multiple nodes in one step.
+    
+    ```
+    > change the node shape in the style 'leaf' to be ellipse
+    ```
 
+    A node may have more than one style tag. All of them apply, and styles later in the list take
+    precedence.
+    
+    ```
+    > define the style 'special' to have fill color green
+    > add the style 'special' to node A
+    ```
 
-    A node may have more than 
-
-    ATTN
+    Now node A will be a green square.
 
   + __Data Attributes__
 
-    We can associate a set of arbitrary data, as key-value pairs,
-    with a node. These data can be used by GraphMaker to 
+    One can associate with a node a set of arbitrary data, specified as key-value pairs.
+    These data can be used in GraphMaker both to /select/ nodes in a task and also to
+    set values and styles.
   
     ```
-    ATTN
+    > add nodes A-D
+    > for A and C add data role 'admin'
+    > for B and D add data role 'user'
+    > add an edge from each node with admin role to each node with user role
+    > add constraints that make all nodes with the same role data have the same vertical coordinate
+    > add a constraint that A is below B
     ```
 
 In addition, one can set any individual styling parameters for the node, such as fill style or line color.
@@ -445,7 +556,7 @@ Any individual style parameter set for the node overrides the effect of a style 
 ```
 Now A and C both inherit the style 'foo' but A's fill color has been changed.
 
-More than one style can be added to a node
+As mentioned earlier, more than one style can be added to a node
 
 ```
 > append a second style 'bar' to node A
@@ -457,7 +568,10 @@ See the section [Style Details](#style-details) for details on the supported sty
 
 ### Edge Properties
 
-Edges in the graph are the connections between nodes. Each edge has a source and target, specified implicitly when defining the edge. You can create an edge between nodes A and B simply by saying something like
+Edges in the graph are the connections between nodes. Each edge has
+a source and target, specified implicitly when defining the edge.
+You can create an edge between nodes A and B simply by saying
+something like
 
 ```
 > create an undirected edge between A and B
@@ -478,58 +592,203 @@ By default, edges in a graph are undirected. To make all edges directed, you can
 It is also possible to create an edge from a node to itself (a self-loop) by saying something like
 
 ```
-> create a directed edge from A to itself
+> add an edge from A to itself
 ```
 
-For self loops, you may explicitly specify a loop direction, which defines the angle at which a self-loop edge points to the node. The loop direction is defined as a numeric value giving the counter-clockwise angle from the positive x-direction. For example:
+As with nodes, edges have an optional label that can be set in the same way
+(including LaTeX and mathlingo formats).
+Also as with nodes, edges can have zero or more style tags,
+and you can set individual styling parameters for a particular edge, which will
+override the values of parameters set in a style.
+(Again, see the section [Style Details](#style-details) for help on those parameters.)
+
+You can use the (implicitly defined) source and target properties of edges to
+select edges during tasks.
 
 ```
-> create a directed edge from A to itself with loop direction 45
+> set the line width to thick for all edges whose source is node A
+> set the line color to blue and line style dotted for all edges whose target is node C
 ```
+In addition, edges have several specialized properties of an edge
+that can be set to customize its appearance and behavior in the
+graph.
 
-The loop direction can also be set later:
+  + __Label Offset__
 
-```
-> set the loop direction of the edge AA to 45
-```
+    The label offset determines where a edge's label (if any) is displayed relative to
+    the center of the edge. For edges, offset distances are in units of the edge's size,
+    with -1 corresponding to the source end and 1 corresponding to the target end.
 
-Additionally, there are several more properties of an edge that can be set to customize its appearance and behavior in the graph.
+    The offset can be specified in various forms
+
+    - `none`: the label will be anchored at the center of the edge. This is the default.
+    
+    - An *relative* cardinal direction (`north`, `northeast`, `east`, `southeast`, `south`, `southwest`, `west`, `northwest`):
+      the label will be offset by one unit from the center of the edge in the specified direction *relative to the edge's direction*
+      (i.e., the line between source and target translated to the edge center).
+      
+    - An *absolute* cardinal direction (`up`, `up right`, `right`, `down right`, `down`, `down left`, `left`, `up left`):
+      the label will be offset by one unit in the specified direction (relative to the canvas) from the center of the edge.
+      
+    - A cardinal direction (relative or absolute) with a distance: the label will be offset from the by the given distance (in units of
+      edge size) in the given direction. For example,
+
+      ```
+      > set the label offset for AB to northeast by 1.5
+      > set the label offset for BC to down right by 1.5
+      ```
+
+    - Two numbers `dx, dy` representing offsets in units of edge size in the direction (dx, dy)
+      *relative to the edge direction*.
+      For example,
+
+      ```
+      > set the label offset for AB to 0.75, 0.05
+      ```
+
+      will anchor the label three quarters of the way from the center to the target end
+      and slightly above.
 
   + __Weight__ 
   
-  An optional numeric value associated with the edge. It is often used to represent the *strength* or *cost* of the connection between two nodes. The weight of an edge is displayed as a label on the edge. The weight of an edge can be set when the edge is created or later. For example:
+    An optional numeric value associated with the edge. It is often
+    used to represent the *strength* or *cost* of the connection
+    between two nodes. The weight of an edge is displayed as a separate label
+    on the edge. The weight of an edge can be set when the edge is
+    created or later. For example:
+   
+    ```
+    > create an edge from A to B with weight 3
+    ```
+    
+    ```
+    > set the weight of the edge AB to 11
+    ```
 
-  ```
-  > create an edge from A to B with weight 3
-  ```
+  + __Weight Offset__
   
-  ```
-  > set the weight of the edge AB to 11
-  ```
+    Weight offset is handled and specified exactly the same way that label offset is,
+    except that the weight is displayed on the other side of the edge (e.g., bottom vs. top)
+    as the label.
 
+  + __Loop Direction__
 
-source and target  implicitly by defining edge
+    For self loops, you may explicitly specify a loop direction, which
+    defines the angle at which a self-loop edge points to the node. The
+    loop direction is defined as a numeric value giving the
+    counter-clockwise angle from the positive x-direction. For example:
+     
+    ```
+    > create a directed edge from A to itself with loop direction 45
+    ```
+     
+    The loop direction can also be set later:
+     
+    ```
+    > set the loop direction of the edge AA to 45
+    ```
 
-weight
-weightOffset
+    + __Angle    Leaving__ and __Angle    Entering__
+     
+      By default, an edge between two nodes is displayed as a line (maybe with arrows)
+      from source to target. But sometimes it is desirable for the edges
+      to be curved. The __angle leaving__ and __angle entering__ parameters determine
+      the angle (relative to a straight line) at which the edge *leaves the source*
+      and *enters the target* respectively. When these values are non-zero, the edge
+      is displayed as a cubic Bezier curve; the angles are 0 by default, giving linear
+      edges.  The values are used so that the same sign leaving and entering indicates
+      a curve toward the same side of a linear edge. For example,
 
-angleLeaving
-angleEntering
-softnessLeaving
-softnessEntering
-loopDirection
+      ```
+      > set the angle leaving and entering to 45
+      ```
 
-style  (tags)
+      gives an edge that arcs to the left of the line between source and target,
+      with a 45 degree angle between the curve at beginning and end and
+      that line.
 
-Mention style settings and refer to Style Details
+    + __Softness Leaving__ and __Softness Entering__
 
+      The softness parameters can be used to adjust the curvature of a curved
+      edge near the source (softness *leaving*) and the target (*softness entering*).
+      The softness is a non-negative number with a default of 0.5; typical values are
+      between 0 and 1, with 1 having more pronounced curvature.
+      
 ### Decorations
+
+Decorations are graphical elements in saved picture that are *not* part of the graph.
+Graphmaker supports three kinds of decorations:
+
++ Text
+
+  Text decorations specify strings or paragraphs that are added to the picture
+  at designated locations. A text decoration can be configured with any styling
+  parameters that affect text (e.g., font color, font size, font style, font weight,
+  font variant). It also accepts two specialized properties that affect how the
+  text is displayed:
+
+  - __Text Anchor__ (values: `start`, `middle`, `end`, `top`, `bottom`; default: `middle`)
+  
+    This indicates the point in the string of text is at the specified position
+    of the decoration. For multi-line text, an additional `top` or `bottom` can be
+    supplied to specify the vertical component of the anchor. Thus, `start top` anchors
+    in the top-left corner of a paragraph; `middle top` in the middle of the top line.
+    A `top` or `bottom` have no effect on single lined text.
+
+  - __Text Justify__ (values: `left`, `right`, `center`, `none`, `list`; default: `none`)
+
+    This indicates how a multi-lined text paragraph is justified. The value `list`
+    puts each line on its own like a bulleted list with no bullets.
+
+
+  The position of a text decoration can be specified in two ways. The first of these
+  is more more flexible and useful.
+  
+  1. Alignment Constraints
+
+     You can specify optional expressions (as with node position constraints) for the x (horizontal)
+     and y (vertical) coordinates of the text anchor relative to nodes or edges in
+     the graph. These are often given explicitly. For example:
+
+     ```
+     > add a text decoration "tip" with text "This is where we start"
+     > align the decoration "tip" at the midpoint of nodes A and B
+     ```
+
+     You can give different conditions on the x and y coordinates of the anchor in this way.
+     You can align relative to the center of the nodes or to the north, north east, east, ..., north west
+     corners of the bounding boxes of those nodes. For example:
+
+     ```
+     > align the x coordinate of decoration "warning" to the north east of node A
+     > align the y coordinate of decoration "warning" to the south of node B
+     > align the decoration "big warning" at the average coordinates of nodes D, E, and F
+     ```
+
+  2. Absolute Position
+
+     You can specify x, y coordinates for the text anchor, where x (horizontal)
+     and y (vertical) positions are both between 0 and 1. So, 0, 0 is the bottom
+     left corner of the canvas; and 1,1 is the top right corner of the canvas.
+
+     As the name suggests, absolutely positioned text will not move if the
+     graph is repositioned.
+
++ Regions
+
++ Arrows
+
+
+ATTN:
 
 two types: text and region (rectangles)
 
 x,y - coordinates of the center of the decoration (left boundary of canvas is zero, right boundary is one)
 
 width and height (as proportion of canvas width and height) for regions
+
+
+
 
 ### Styling
 
