@@ -12,6 +12,10 @@
         "path": "custom-styles"
     },
     {
+        "name": "Decorations",
+        "path": "decoration"
+    },
+    {
         "name": "Directed Graph with Four Nodes",
         "path": "directed-graph-four-nodes"
     },
@@ -26,6 +30,10 @@
     {
         "name": "Feed Forward Neural Net",
         "path": "feed-forward-neural-net"
+    },
+    {
+        "name": "Forest",
+        "path": "forest"
     },
     {
         "name": "Load Adjacency Matrix",
@@ -46,6 +54,10 @@
     {
         "name": "Simple Binary Tree",
         "path": "simple-binary-tree"
+    },
+    {
+        "name": "Simple Finite Automaton",
+        "path": "simple-finite-automaton"
     },
     {
         "name": "Undirected Bipartite Graph",

@@ -2,19 +2,20 @@
 
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns.meta}
 
 \begin{document}\begin{tikzpicture}[>={Latex},
-  default/.style={draw=black, semithick, solid, fill=white, solid},
+  default/.style={draw=black, semithick, solid, fill=white},
   every loop/.style={looseness=16}]
-\node[default, circle] (1) at (1.6193046180647857, 8.60199123787526) {};
-\node[default, circle] (2) at (0.6256627032217537, 4.0174413504386886) {};
-\node[default, circle] (3) at (-5.6675661633709575, -1.5777540515519457) {};
-\node[default, circle] (4) at (-2.8881528938588965, -5.162928866416568) {};
-\node[default, circle] (5) at (-8.446979432882957, -5.16292886641657) {};
-\node[default, circle] (6) at (6.9188915698144475, -1.5777540515519346) {};
-\node[default, circle] (7) at (2.6129465329078285, 4.017441350438654) {};
-\node[default, circle] (8) at (0.7056118802003079, -1.577754051551937) {};
-\node[default, circle] (9) at (4.520281185615267, -1.5777540515519344) {};
+\node[default, circle] (1) at (1.313936, 7.23595) {1};
+\node[default, circle] (2) at (-2.814301, 4.604217) {2};
+\node[default, circle] (3) at (-4.598891, -1.165912) {3};
+\node[default, circle] (4) at (-7.657063, -5.890405) {4};
+\node[default, circle] (5) at (-1.540719, -5.890405) {5};
+\node[default, circle] (6) at (-1.029712, -1.165912) {6};
+\node[default, circle] (7) at (5.442173, 4.604217) {7};
+\node[default, circle] (8) at (3.356597, -1.165912) {8};
+\node[default, circle] (9) at (7.52775, -1.165912) {9};
 \draw [] (1) -- (2) ;
 \draw [] (1) -- (7) ;
 \draw [] (2) -- (3) ;

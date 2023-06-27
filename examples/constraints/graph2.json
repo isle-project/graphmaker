@@ -1,0 +1,62 @@
+{
+  "directed": false,
+  "hasParents": false,
+  "nodes": {
+    "A": {
+      "nodeShape": "rectangle"
+    },
+    "B": {
+      "nodeShape": "rectangle"
+    },
+    "C": {
+      "nodeShape": "rectangle"
+    },
+    "D": {
+      "nodeShape": "rectangle"
+    },
+    "E": {
+      "nodeShape": "rectangle"
+    }
+  },
+  "edges": {
+    "AC": {
+      "source": "A",
+      "target": "C"
+    },
+    "BC": {
+      "source": "B",
+      "target": "C"
+    }
+  },
+  "constraints": [
+    {
+      "meaning": "Node C is at the midpoint of nodes A and B",
+      "constraints": [
+        "'C'.x  =  ('A'@e.x + 'B'@w.x) / 2",
+        "'C'@n.y  =  'D'@s.y"
+      ]
+    }
+  ],
+  "_positions": {
+    "A": [
+      -4.498779783982723,
+      -2.507252767843197
+    ],
+    "B": [
+      4.62481845584044,
+      -2.2642067244904767
+    ],
+    "C": [
+      0.06301933592887465,
+      -2.3857297461668545
+    ],
+    "D": [
+      -2.8893899617377046,
+      3.50386016957706
+    ],
+    "E": [
+      2.700206182787549,
+      3.6533114353042984
+    ]
+  }
+}

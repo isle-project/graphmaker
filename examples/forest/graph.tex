@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns.meta}
+
+\begin{document}\begin{tikzpicture}[>={Latex},
+  default/.style={draw=black, semithick, solid, fill=white},
+  every loop/.style={looseness=16}]
+\node[default, circle] (A) at (-8.422488, 3.522058) {};
+\node[default, circle] (B) at (-7.994172, -2.391279) {};
+\node[default, circle] (C) at (-3.986875, -8.256564) {};
+\node[default, circle] (D) at (-3.404457, 4.051867) {};
+\node[default, circle] (E) at (-2.578696, -3.941045) {};
+\node[default, circle] (F) at (-2.314706, 8.394106) {};
+\node[default, circle] (G) at (-1.198127, 0.53819) {};
+\node[default, circle] (H) at (3.041758, 8.218177) {};
+\node[default, circle] (I) at (3.085337, 4.11288) {};
+\node[default, circle] (J) at (3.319476, -1.336877) {};
+\node[default, circle] (K) at (4.264347, -6.745948) {};
+\node[default, circle] (L) at (8.115001, 1.132138) {};
+\node[default, circle] (M) at (8.115001, -4.177409) {};
+\draw [] (A) -- (B) ;
+\draw [] (A) -- (C) ;
+\draw [] (D) -- (E) ;
+\draw [] (D) -- (F) ;
+\draw [] (G) -- (H) ;
+\draw [] (G) -- (I) ;
+\draw [] (G) -- (J) ;
+\draw [] (L) -- (M) ;
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decorations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function copyToClipboard(target) {
+            const element = document.getElementById(target);
+            if (element) {
+                const text = element.innerText;
+                navigator.clipboard.writeText(text);
+                alert("Copied to clipboard!");
+            }
+        }
+
+        function downloadSvg() {
+            const svgContent = document.getElementById('svg-container').innerHTML;
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'graph.svg';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-2 mt-2">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-2">Decorations</h3>
+            </div>
+            <div class="mb-8">
+              <div id="svg-container" class="aspect-w-16 aspect-h-9"><?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"   viewBox="0 0 1024 1024" ><text x="512" y="51.200000000000045" dx="0" dy="0" text-anchor="middle" dominant-baseline="middle" font-size="30" font-family="Arial" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan dy="0" x="512" svgjs:data="{&quot;newLined&quot;:true}">Four Nodes</tspan></text><rect x="256" y="256" width="512" height="512" fill="red" stroke-width="1" stroke="black"></rect><circle cx="289.93135949764905" cy="256" r="32" fill="white" stroke-width="1" stroke="black"></circle><circle cx="256" cy="733.9921090777007" r="32" fill="white" stroke-width="1" stroke="black"></circle><circle cx="734.0635293698451" cy="768" r="32" fill="white" stroke-width="1" stroke="black"></circle><circle cx="768" cy="290.00644776677814" r="32" fill="white" stroke-width="1" stroke="black"></circle></svg></div>
+              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+                  Download SVG
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 pl-2">
+              <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 pl-2 pr-2">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md h-128 relative">
+            <h3 class="text-lg font-bold p-4">Tasks</h3>
+            <div class="p-4 text-gray-700 whitespace-pre-line" id="tasks" >add four nodes
+add a text decoration saying "Four Nodes" at the top-center of the canvas
+lower the decoration's position by a small amount
+change the font size of the decoration to 30
+change the font family of the decoration to "Arial"
+add a region decoration centered at the middle with height and width being half the canvas and color it red
+</div>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('tasks')">Copy Tasks</button>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md mt-4 relative">
+            <h3 class="text-lg font-bold mb-2 p-4">JSON Representation</h3>
+            <pre class="bg-gray-100 p-4 text-gray-800 max-h-96 overflow-y-auto" id="json">{
+"directed": false,
+"hasParents": false,
+"nodes": {
+  "A": {},
+  "B": {},
+  "C": {},
+  "D": {}
+},
+"edges": {},
+"constraints": [],
+"decorations": {
+  "decoration1": {
+    "type": "text",
+    "x": 0.5,
+    "y": 0.95,
+    "text": "Four Nodes",
+    "fontSize": 30,
+    "fontFamily": "Arial"
+  },
+  "decoration2": {
+    "type": "region",
+    "x": 0.5,
+    "y": 0.5,
+    "fillColor": "red",
+    "region": {
+      "width": 0.5,
+      "height": 0.5
+    }
+  }
+},
+"_positions": {
+  "A": [
+    -2.3321460467132646,
+    3.0928545444827935
+  ],
+  "B": [
+    -3.091890800965637,
+    -2.33139021399071
+  ],
+  "C": [
+    2.33209023592692,
+    -3.092879270898368
+  ],
+  "D": [
+    3.0919466121314247,
+    2.33141494558948
+  ]
+}
+}</pre>
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white py-1 px-2 rounded absolute top-4 right-4 cursor-pointer" onclick="copyToClipboard('json')">Copy JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
