@@ -730,7 +730,7 @@ graph.
     > set the loop direction of the edge AA to 45
     ```
 
-    + __Angle    Leaving__ and __Angle    Entering__
+  + __Angle Leaving__ and __Angle Entering__
      
       By default, an edge between two nodes is displayed as a line (maybe with arrows)
       from source to target. But sometimes it is desirable for the edges
