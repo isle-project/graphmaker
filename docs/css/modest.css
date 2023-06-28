@@ -92,7 +92,10 @@
   #readme pre {
     padding: .5rem;
     line-height: 1.25;
-    overflow-x: scroll;
+  }
+
+  #readme strong {
+    font-weight: bold;
   }
 
   a,
