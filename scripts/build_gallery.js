@@ -15,8 +15,8 @@ function generateGalleryItemPage({ name, svg, json, tasks }) {
       .replace(/height="([^"]*)"/, '');
 
     let body = dedent`
-      <div class="container mx-auto px-4 py-2 pt-16 mt-2">
-        <div class="flex flex-wrap">
+      <div class="container mx-auto px-4 py-2 pt-16">
+        <div class="flex flex-wrap py-8">
           <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
             <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
               <div>
