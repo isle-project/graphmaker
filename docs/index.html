@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>graphmaker</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link type="stylesheet" href="./css/modest.css"></link>
+    <link rel="stylesheet" href="./css/modest.css"></link>
+    <link rel="stylesheet" href="./css/styles.css"></link>
 </head>
 <body>
     <div class="bg-white px-6 py-32 lg:px-8">
@@ -14,8 +15,8 @@
             <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">graphmaker: AI-Powered Graph Generation</h1>
             <p class="mt-6 text-xl leading-8">Generate graphs using in a simple and intuitive way via natural language. No coding or complicated software required. Explore our gallery of example graphs, each accompanied by a descriptive title, the natural language tasks used to generate the graph, and the underlying JSON representation.</p>
         </div>
-        <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-            <h1>graphmaker</h1>
+        <div id="readme" class="mx-auto max-w-3xl leading-7">
+            <h1 id="graphmaker" tabindex="-1">graphmaker</h1>
 <p><a href="https://www.npmjs.com/package/@isle-labs/graphmaker"><img src="https://img.shields.io/npm/v/@isle-labs/graphmaker.svg" alt="NPM"></a> <a href="https://github.com/isle-project/graphmaker/actions/workflows/test.yml"><img src="https://github.com/isle-project/graphmaker/actions/workflows/test.yml/badge.svg" alt="Build Status"></a> <a href="https://github.com/isle-project/graphmaker/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@isle-labs/graphmaker" alt="License"></a></p>
 <blockquote>
 <p>GraphMaker is a tool for creating, manipulating, and exporting graphs using natural language.</p>
@@ -25,7 +26,7 @@
   <img src="https://raw.githubusercontent.com/isle-project/graphmaker/main/graphmaker.gif" alt="Logo" style="width: 75%;" />
 </p>
 <hr>
-<h2>Table of Contents</h2>
+<h2 id="table-of-contents" tabindex="-1">Table of Contents</h2>
 <ul>
 <li><a href="#motivation">Motivation</a> [CG]</li>
 <li><a href="#installation-1">Installation</a> [PB]</li>
@@ -57,7 +58,7 @@
 </ul>
 </li>
 </ul>
-<h2>Motivation</h2>
+<h2 id="motivation" tabindex="-1">Motivation</h2>
 <p>Graphs — structures consisting of a set of <em>nodes</em> and a set of <em>edges</em> between some pairs of nodes —
 are commonly used to depict relationships among entities in many different fields.
 While there is a variety of good tools for creating pictures of graphs, the practical reality is that making such
@@ -98,17 +99,17 @@ As you wish.
 </code></pre>
 <p>This produces the following graph</p>
 <p><img style="width: 50%;" /> ATTN</p>
-<h2>Installation</h2>
-<h3>Via installation script:</h3>
+<h2 id="installation" tabindex="-1">Installation</h2>
+<h3 id="via-installation-script%3A" tabindex="-1">Via installation script:</h3>
 <p>To install or update <code>graphmaker</code>, you can run the install script. You may either download and run the script manually, or use one of the following commands:</p>
 <pre><code class="language-bash">curl -sSL https://raw.githubusercontent.com/isle-project/graphmaker/install-graphmaker.sh | bash
 </code></pre>
 <pre><code class="language-bash">wget -sSL https://raw.githubusercontent.com/isle-project/graphmaker/install-graphmaker.sh | bash
 </code></pre>
-<h3>Via npm:</h3>
+<h3 id="via-npm%3A" tabindex="-1">Via npm:</h3>
 <pre><code class="language-bash">npm install -g @isle-labs/graphmaker
 </code></pre>
-<h2>Getting Started</h2>
+<h2 id="getting-started" tabindex="-1">Getting Started</h2>
 <p>Start the REPL from the command line with command</p>
 <pre><code class="language-text">graphmaker 
 </code></pre>
@@ -182,7 +183,7 @@ Options:
 
 </code></pre>
 <p>The full set of commands is described in detail in the <a href="#repl-capabilities">REPL Capabilities</a> section.</p>
-<h3>Example Session 1</h3>
+<h3 id="example-session-1" tabindex="-1">Example Session 1</h3>
 <p>In this session, we build a simple, undirected graph with some basic styling and labels.
 GraphMaker's responses have been omitted for clarity.</p>
 <pre><code>&gt; add seven nodes
@@ -196,7 +197,7 @@ GraphMaker's responses have been omitted for clarity.</p>
 &gt; add edges from B to E and F
 &gt; add edges from C to E and G
 </code></pre>
-<h3>Example Session 2</h3>
+<h3 id="example-session-2" tabindex="-1">Example Session 2</h3>
 <p>In this session, we build a finite automaton, where states are represented by nodes
 and transitions by edges labeled with the input.
 GraphMaker's responses have been omitted for clarity.</p>
@@ -248,8 +249,8 @@ Add labels to the edges as follows
 &gt; :save ./automaton2.svg
 </code></pre>
 <p>Here, the &quot;^D&quot; represents a Control-D character that is used to end the multi-line input.</p>
-<h2>Usage</h2>
-<h3>Conventions</h3>
+<h2 id="usage" tabindex="-1">Usage</h2>
+<h3 id="conventions" tabindex="-1">Conventions</h3>
 <p>GraphMaker tracks three kinds of entities: nodes, edges, and decorations.
 Nodes and edges are components of the graph, as expected. Decorations represent
 either arbitrary text strings or rectangular regions that are used to demarcate
@@ -274,7 +275,7 @@ to its initial state, or load a saved graph from a file. When you
 enter a task into GraphMaker, you are describing a change to the
 current graph. You can view that graph at anytime with the <code>:show</code>
 command.</p>
-<h3>Labels and Names</h3>
+<h3 id="labels-and-names" tabindex="-1">Labels and Names</h3>
 <p>GraphMaker assigns a name to every node, edge, and decoration.
 These names allow the user to refer to the entity in a task and
 are distinct from the <em>labels</em> that one might add to the picture.
@@ -330,7 +331,7 @@ be applied to any entity:</p>
 <pre><code>&gt; define a style salient with font size 20, font color tomato, and font weight bold
 &gt; add the style salient to node A and edge AB
 </code></pre>
-<h3>Graph Types</h3>
+<h3 id="graph-types" tabindex="-1">Graph Types</h3>
 <p>Graphmaker has explicit support for several graph types.</p>
 <p>You can tell it explicitly to make a graph undirected (no arrows on edges) or directed (arrows on edges).
 By default, graphs are initialized as <em>undirected</em>.</p>
@@ -383,7 +384,7 @@ on the nodes to determine their class</p>
 &gt; add constraints that make all nodes with the same style tag have the same horizontal coordinate
 &gt; add edges from A to F and G and from B to E and from C to E, F, and G
 </code></pre>
-<h3>Node Properties</h3>
+<h3 id="node-properties" tabindex="-1">Node Properties</h3>
 <p>To create our graph, one will often start by creating nodes. Each node has a name, an optional label,
 several ways to specify how that node is styled, and several properties that can be customized.
 The supported properties are:</p>
@@ -499,7 +500,7 @@ Any individual style parameter set for the node overrides the effect of a style 
 &gt; define the style 'bar' to have line color red and line width thick
 </code></pre>
 <p>See the section <a href="#style-details">Style Details</a> for details on the supported styling parameters and their values.</p>
-<h3>Edge Properties</h3>
+<h3 id="edge-properties" tabindex="-1">Edge Properties</h3>
 <p>Edges in the graph are the connections between nodes. Each edge has
 a source and target, specified implicitly when defining the edge.
 You can create an edge between nodes A and B simply by saying
@@ -623,7 +624,7 @@ between 0 and 1, with 1 having more pronounced curvature.</p>
 </ul>
 </li>
 </ul>
-<h3>Decorations</h3>
+<h3 id="decorations" tabindex="-1">Decorations</h3>
 <p>Decorations are graphical elements in saved picture that are <em>not</em> part of the graph.
 Graphmaker supports three kinds of decorations:</p>
 <ul>
@@ -689,13 +690,13 @@ graph is repositioned.</p>
 <p>two types: text and region (rectangles)</p>
 <p>x,y - coordinates of the center of the decoration (left boundary of canvas is zero, right boundary is one)</p>
 <p>width and height (as proportion of canvas width and height) for regions</p>
-<h3>Styling</h3>
-<h3>Fine Tuning</h3>
-<h3>Graph Output</h3>
-<h3>REPL Capabilities</h3>
-<h2>Tips</h2>
-<h2>Gallery</h2>
-<h2>Command Details</h2>
+<h3 id="styling" tabindex="-1">Styling</h3>
+<h3 id="fine-tuning" tabindex="-1">Fine Tuning</h3>
+<h3 id="graph-output" tabindex="-1">Graph Output</h3>
+<h3 id="repl-capabilities" tabindex="-1">REPL Capabilities</h3>
+<h2 id="tips" tabindex="-1">Tips</h2>
+<h2 id="gallery" tabindex="-1">Gallery</h2>
+<h2 id="command-details" tabindex="-1">Command Details</h2>
 <ul>
 <li>
 <p><strong>:config [&lt;option&gt; [&lt;value&gt;]]</strong></p>
@@ -762,7 +763,7 @@ graph is repositioned.</p>
 <p>Undo the last command</p>
 </li>
 </ul>
-<h2>Style Details</h2>
+<h2 id="style-details" tabindex="-1">Style Details</h2>
 <ul>
 <li>
 <p><strong>arrowStyle</strong></p>
@@ -869,12 +870,12 @@ graph is repositioned.</p>
 <p>Possible values: <code>start</code>, <code>middle</code>, <code>end</code></p>
 </li>
 </ul>
-<h2>The GraphMaker Node Library</h2>
+<h2 id="the-graphmaker-node-library" tabindex="-1">The GraphMaker Node Library</h2>
 <p>ATTN: Fill in reasoning and general idea behind this library</p>
-<h3>Installation</h3>
+<h3 id="installation-1" tabindex="-1">Installation</h3>
 <pre><code class="language-bash">npm install @isle-labs/graphmaker
 </code></pre>
-<h3>Usage</h3>
+<h3 id="usage-1" tabindex="-1">Usage</h3>
 <pre><code class="language-javascript">const GraphMaker = require( '@isle-labs/graphmaker' );
 
 const state = GraphMaker.initializeGraph( config );
@@ -887,18 +888,18 @@ const [ newState, output ] = await GraphMaker.updateGraph( state, GraphMaker.tas
 // Export the graph in various formats:
 const [ _, svgOutput ] = await GraphMaker.updateGraph (state, GraphMaker.save({ format: 'svg' }) );
 </code></pre>
-<h3>API</h3>
-<h4>.initializeGraph(config)</h4>
+<h3 id="api" tabindex="-1">API</h3>
+<h4 id=".initializegraph(config)" tabindex="-1">.initializeGraph(config)</h4>
 <p>Initializes a new graph state with the given configuration options.</p>
-<h5>Arguments</h5>
+<h5 id="arguments" tabindex="-1">Arguments</h5>
 <ul>
 <li><code>config</code>: configuration options</li>
 </ul>
-<h5>Returns</h5>
+<h5 id="returns" tabindex="-1">Returns</h5>
 <p>The initial graph state</p>
-<h4>.aiFactory(provider, {type, model})</h4>
+<h4 id=".aifactory(provider%2C-%7Btype%2C-model%7D)" tabindex="-1">.aiFactory(provider, {type, model})</h4>
 <p>Creates an AI instance for generating directed and undirected graphs that match a specified JSON schema. The AI instance will be responsible for ensuring that nodes, edges, and properties are set correctly according to the schema.</p>
-<h5>Arguments</h5>
+<h5 id="arguments-1" tabindex="-1">Arguments</h5>
 <ul>
 <li><code>provider</code>: the AI provider to use (currently only supports 'openai')</li>
 <li><code>options</code>: the options for the AI instance
@@ -908,11 +909,11 @@ const [ _, svgOutput ] = await GraphMaker.updateGraph (state, GraphMaker.save({ 
 </ul>
 </li>
 </ul>
-<h5>Returns</h5>
+<h5 id="returns-1" tabindex="-1">Returns</h5>
 <ul>
 <li>A function that takes a user prompt and an object containing the current graph state and history, and returns a Promise that resolves to the updated graph state according to the AI's interpretation of the prompt.</li>
 </ul>
-<h4>.updateGraph(state, {action, payload})</h4>
+<h4 id=".updategraph(state%2C-%7Baction%2C-payload%7D)" tabindex="-1">.updateGraph(state, {action, payload})</h4>
 <p>Updates the graph state based on the action and payload. The following actions are available:</p>
 <ul>
 <li><code>'TASK'</code>: Change the graph according to a user's prompt</li>
@@ -921,7 +922,7 @@ const [ _, svgOutput ] = await GraphMaker.updateGraph (state, GraphMaker.save({ 
 <li><code>'CONVERT'</code>: Convert the graph to a given format</li>
 <li><code>'SET_GRAPH'</code>: Set the graph to a given graph</li>
 </ul>
-<h5>Arguments</h5>
+<h5 id="arguments-2" tabindex="-1">Arguments</h5>
 <ul>
 <li><code>state</code>: the current state of the graph</li>
 <li><code>options</code>: the options for the update
@@ -931,28 +932,28 @@ const [ _, svgOutput ] = await GraphMaker.updateGraph (state, GraphMaker.save({ 
 </ul>
 </li>
 </ul>
-<h4>.task(prompt, oracle)</h4>
+<h4 id=".task(prompt%2C-oracle)" tabindex="-1">.task(prompt, oracle)</h4>
 <p>Returns a command to change a graph according to a user's <code>prompt</code>. The AI model passed as an <code>oracle</code> (e.g., a function returned from <code>aiFactory</code>) will interpret the prompt and perform the desired action, such as adding or removing nodes or edges, or changing properties of the graph elements.</p>
-<h5>Arguments</h5>
+<h5 id="arguments-3" tabindex="-1">Arguments</h5>
 <ul>
 <li><code>prompt</code>: the prompt to update the graph with</li>
 <li><code>oracle</code>: the oracle to use for the prompt</li>
 </ul>
-<h4>.setGraph(graph)</h4>
+<h4 id=".setgraph(graph)" tabindex="-1">.setGraph(graph)</h4>
 <p>Returns a command to set the graph to a given graph.</p>
-<h5>Arguments</h5>
+<h5 id="arguments-4" tabindex="-1">Arguments</h5>
 <ul>
 <li><code>graph</code>: the graph to set</li>
 </ul>
-<h4>.resetGraph()</h4>
+<h4 id=".resetgraph()" tabindex="-1">.resetGraph()</h4>
 <p>Returns a command to reset the graph to its initial graph.</p>
-<h4>.redo()</h4>
+<h4 id=".redo()" tabindex="-1">.redo()</h4>
 <p>Returns a command to redo the last undone command on the graph.</p>
-<h4>.undo()</h4>
+<h4 id=".undo()" tabindex="-1">.undo()</h4>
 <p>Returns a command to undo the last command on the graph.</p>
-<h4>.save(config)</h4>
+<h4 id=".save(config)" tabindex="-1">.save(config)</h4>
 <p>Returns a command to save the graph in a given format.</p>
-<h5>Arguments</h5>
+<h5 id="arguments-5" tabindex="-1">Arguments</h5>
 <ul>
 <li><code>config</code>: the graph config payload
 <ul>

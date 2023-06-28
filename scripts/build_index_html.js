@@ -5,8 +5,7 @@ const { version } = require('./../package.json');
 
 const md = new MarkdownIt({
     html: true,
-});
-
+}).use(require('markdown-it-anchor'), {});
 
 const readme = readFileSync( join( __dirname, '..', 'README.md' ), 'utf-8' );
 
