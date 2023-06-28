@@ -5,6 +5,7 @@
 -  [ ] DOC check consistency of readme with what actually happens
 
 ## Soon
+-  [ ] Refactor repl code to a request-response form and the node-repl specific application; supports playground
 -  [ ] FIX: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
 -  [x] Allow constraints to access not just center (.x, .y) but also bounding box coordinates (@e, @w, @s, @n, @nw, @ne, @se, @sw, and @c or none) for nodes
 -  [ ] Add color translation/fixing capability:  e.g., "steel blue" -> "steelblue", "light steel blue" -> appropriate hex color, translating web colors -> xcolors for tikz, etc.  Use `color-convert` package
