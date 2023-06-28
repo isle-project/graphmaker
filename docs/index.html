@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>graphmaker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link type="stylesheet" href="./css/modest.css"></link>
+</head>
+<body>
+    <div class="bg-white px-6 py-32 lg:px-8">
+        <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+            <p class="text-base font-semibold leading-7 text-indigo-600">Graph Gallery</p>
+            <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">graphmaker: AI-Powered Graph Generation</h1>
+            <p class="mt-6 text-xl leading-8">Generate graphs using in a simple and intuitive way via natural language. No coding or complicated software required. Explore our gallery of example graphs, each accompanied by a descriptive title, the natural language tasks used to generate the graph, and the underlying JSON representation.</p>
+        </div>
+        <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+            <h1>graphmaker</h1>
+<p><a href="https://www.npmjs.com/package/@isle-labs/graphmaker"><img src="https://img.shields.io/npm/v/@isle-labs/graphmaker.svg" alt="NPM"></a> <a href="https://github.com/isle-project/graphmaker/actions/workflows/test.yml"><img src="https://github.com/isle-project/graphmaker/actions/workflows/test.yml/badge.svg" alt="Build Status"></a> <a href="https://github.com/isle-project/graphmaker/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@isle-labs/graphmaker" alt="License"></a></p>
+<blockquote>
+<p>GraphMaker is a tool for creating, manipulating, and exporting graphs using natural language.</p>
+</blockquote>
+<hr>
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/isle-project/graphmaker/main/graphmaker.gif" alt="Logo" style="width: 75%;" />
+</p>
+<hr>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#motivation">Motivation</a> [CG]</li>
+<li><a href="#installation-1">Installation</a> [PB]</li>
+<li><a href="#getting-started">Getting Started</a> [PB]</li>
+<li><a href="#usage">Usage</a> [CG]
+<ul>
+<li><a href="#conventions">Conventions</a></li>
+<li><a href="#labels-and-names">Labels and Names</a></li>
+<li><a href="#graph-types">Graph Types</a></li>
+<li><a href="#constraints">Constraints</a></li>
+<li><a href="#node-properties">Node Properties</a></li>
+<li><a href="#edge-properties">Edge Properties</a></li>
+<li><a href="#decorations">Decorations</a></li>
+<li><a href="#styling">Styling</a></li>
+<li><a href="#fine-tuning">Fine Tuning</a></li>
+<li><a href="#graph-output">Graph Output</a></li>
+<li><a href="#repl-capabilities">REPL Capabilities</a></li>
+</ul>
+</li>
+<li><a href="#tips">Tips</a> [PB]</li>
+<li><a href="#gallery">Gallery</a> [PB]</li>
+<li><a href="#command-details">Command Details</a> [auto-generated]</li>
+<li><a href="#style-details">Style Details</a> [auto-generated]</li>
+<li><a href="#the-graphmaker-node-library">The GraphMaker Node Library</a>
+<ul>
+<li>Installation</li>
+<li>Usage</li>
+<li>API</li>
+</ul>
+</li>
+</ul>
+<h2>Motivation</h2>
+<p>Graphs — structures consisting of a set of <em>nodes</em> and a set of <em>edges</em> between some pairs of nodes —
+are commonly used to depict relationships among entities in many different fields.
+While there is a variety of good tools for creating pictures of graphs, the practical reality is that making such
+pictures tends to be a fiddly process that often takes far longer than expected.
+<strong>GraphMaker</strong> offers a fluid, natural-language interface for building good pictures of graphs efficiently.
+You tell GraphMaker what you want added or changed in the graph, and you can see the result at each stage.
+GraphMaker supports a variety of graph types and a wide range of styling options for nodes, edges, and decorative
+text and markers.
+It can output pictures of the graph in a variety of formats (including SVG, PDF, LaTeX/TikZ, and PNG)
+and can save its internal representation (conforming to a JSON schema) so that the graph can be modified
+or extended in future sessions.
+GraphMaker is designed to free the user from fiddling with the specific positions of nodes or edges; it uses
+automatic positioning coupled with user-specified constraints to achieve a Do-What-I-Mean quality.</p>
+<p>GraphMaker provides an interactive text REPL along with a library that can be used to provide the same
+functionality in other software.
+It uses an AI model for parsing user tasks and can accommodate a variety of models and providers.</p>
+<p>A session might look like</p>
+<pre><code>&gt; make the graph directed
+As you wish.
+
+&gt; add nodes A-E
+Ready for more.
+
+&gt; add edges from node A to C and E
+Task complete.
+
+&gt; add edges from node B to D and E
+As you wish.
+
+&gt; add constraints that nodes A and B are at the same x coordinate
+I've got this.
+
+&gt; add constraints that C, D, and E are at the same x coordinate and that A is to the left of C
+Stick a fork in me, I'm done.
+
+&gt; make nodes A and B triangles with a fill color of steelblue
+As you wish.
+</code></pre>
+<p>This produces the following graph</p>
+<p><img style="width: 50%;" /> ATTN</p>
+<h2>Installation</h2>
+<h3>Via installation script:</h3>
+<p>To install or update <code>graphmaker</code>, you can run the install script. You may either download and run the script manually, or use one of the following commands:</p>
+<pre><code class="language-bash">curl -sSL https://raw.githubusercontent.com/isle-project/graphmaker/install-graphmaker.sh | bash
+</code></pre>
+<pre><code class="language-bash">wget -sSL https://raw.githubusercontent.com/isle-project/graphmaker/install-graphmaker.sh | bash
+</code></pre>
+<h3>Via npm:</h3>
+<pre><code class="language-bash">npm install -g @isle-labs/graphmaker
+</code></pre>
+<h2>Getting Started</h2>
+<p>Start the REPL from the command line with command</p>
+<pre><code class="language-text">graphmaker 
+</code></pre>
+<p>You will see a simple prompt '&gt; ' at which you can
+enter a <em>task</em> for GraphMaker to adjust the current graph
+or a <em>command</em> that performs a higher-level operation.</p>
+<p><strong>Tasks</strong> are natural language descriptions of a change or addition to the current graph.
+GraphMaker maintains the state of the current graph (along with this history of all previous states),
+and each task modifies the graph to produce a new graph.
+At start up, we begin with an undirected graph with no nodes, edges, or decorations.
+A task is a sentence that tells GraphMaker how to adjust the current graph:
+<code>add three nodes</code>, <code>make the graph directed</code>, <code>add an edge from node A to node B</code>,
+and so forth.
+All entities (nodes, edges, decorations) have <em>names</em> by which you can refer to them,
+names which are distinct from any labels you assign the entities. The names do not
+appear in a <code>:save</code>'d picture but are visible when you <code>:show</code> a picture.
+By default, nodes are given alphabetic names in the order they are introduced.
+See <a href="#labels-and-names">Labels and Names</a> below for more detail.
+While the models can parse quite complex sentences, it is usually a good idea
+to keep your meaning and references as clear as possible.</p>
+<p><strong>Commands</strong> start with ':', the basic ones are
+<code>:help</code>, <code>:intro</code>, <code>:tips</code>, <code>:examples</code>,
+<code>:exit</code>, <code>:show</code>, <code>:save</code>, <code>:load</code>,
+<code>:reset</code>, <code>:undo</code>, and <code>:redo</code>.
+To see the full list of commands, you can use <code>:help</code> from
+within the repl or use the <code>--help</code> flag on the command line:</p>
+<pre><code class="language-text">graphmaker --help
+</code></pre>
+<pre><code>Usage: graphmaker [options]
+
+Options:
+
+  -w, --width PIXELS                Width of image canvas in pixels                     
+
+  -h, --height PIXELS               Height of image canvas in pixels                    
+
+  -d, --draft                       Display extra information, e.g., node reference na  
+                                    mes                                                 
+
+  -f, --format FORMAT               Default output format for :show/:save commands      
+
+  --autoshow FORMAT-OR-FALSE        If not false, automatically display graph after ea  
+                                    ch command with this format (default: svg)          
+
+  -o, --orientation ORIENTATION     Default orientation for displaying the graph indic  
+                                    ating where the first/root node is positioned (eit  
+                                    her 'left', 'right', 'top', 'bottom', or 'auto')    
+
+  -c, --config FILE_PATH            Path to JSON configuration file (Default: ~/.graph  
+                                    maker.json)                                         
+
+  -p, --provider NAME               Model provider ('OpenAI')                           
+
+  -m, --model NAME                  Model to use ('gpt-3.5-turbo')                      
+
+  -a, --apiKey ARG                  Model provider API key                              
+
+  -t, --type NAME                   Model type ('memoryless' or 'serial')               
+
+  --exec ARG                        Determines how tasks are sent to the AI model in t  
+                                    he :exec command: 'batch' [fewest requests], 'incr  
+                                    emental' [one request per task], and 'auto' [model  
+                                    -dependent]                                         
+
+  -v, --version                     Print package version number and exit               
+
+  -h, --help                        Print this message and exit                         
+
+
+
+
+</code></pre>
+<p>The full set of commands is described in detail in the <a href="#repl-capabilities">REPL Capabilities</a> section.</p>
+<h3>Example Session 1</h3>
+<p>In this session, we build a simple, undirected graph with some basic styling and labels.
+GraphMaker's responses have been omitted for clarity.</p>
+<pre><code>&gt; add seven nodes
+&gt; add a style &quot;left&quot; to nodes A, B, C 
+&gt; add a style &quot;right&quot; to nodes D, E, F, G
+&gt; define the style left to have node shape square, fill color blue, and line width thick
+&gt; define the style right to have node shape triangle, fill color tomato, and fill style hashed vertical
+&gt; add constraints that make all nodes with the same style tag have the same horizontal coordinate
+&gt; add a constraint that node A is to the left of node D
+&gt; add edges from A to D, F, and G
+&gt; add edges from B to E and F
+&gt; add edges from C to E and G
+</code></pre>
+<h3>Example Session 2</h3>
+<p>In this session, we build a finite automaton, where states are represented by nodes
+and transitions by edges labeled with the input.
+GraphMaker's responses have been omitted for clarity.</p>
+<pre><code>&gt; make the graph directed
+&gt; add nodes A-G
+&gt; add constraints that each of nodes A-E is to the left of its successor and has the same y-coordinate
+&gt; add a constraint that node F is above node A and has x-coordinate centered on those of nodes A-E
+&gt; add a constraint that node G is below node A and has x-coordinate centered on those of nodes A-E
+&gt; set the fill color for node E to green
+&gt; set the fill color for node F to red and the fill style to crosshatched
+&gt; set the label for node A to be &quot;Start&quot;
+&gt; add an edge from A to B with label &quot;0&quot; and with angle leaving and entering -45
+&gt; add an edge from A to G with label &quot;1&quot;
+&gt; add an edge from G to itself with label 1 and loop direction -90
+&gt; add an edge from G to E with label &quot;0&quot;
+&gt; add an edge from B to C with label &quot;0&quot; and edge from B to F with label &quot;1&quot;
+&gt; add an edge from C to D with label &quot;0&quot; and edge from C to itself with label &quot;1&quot; and loop direction -90
+&gt; add an edge from D to E with label &quot;0&quot; and an edge from D to F with label &quot;1&quot;
+&gt; :save ./automaton.svg
+</code></pre>
+<p>At each stage, you can see the graph being built and then can save it in a variety of formats.
+Adding the edges one at a time might be tiresome in a large graph, so we can specify them all
+at once. Here is an alternative version of the previous session that is more compact:</p>
+<pre><code>&gt; make the graph directed
+&gt; add seven nodes
+&gt; add constraints that each of nodes A-E is to the left of its successor and has the same y-coordinate
+&gt; add constraints that nodes F and G have x-coordinates centered on those of nodes A-E
+&gt; add constraints that F is above node A and that G is below node A
+&gt; set the fill color for node E to green and for node F to red and give F a fill style of crosshatched
+&gt; set the label for node A to be &quot;Start&quot;
+&gt; :multiline
+Add edges for the following adjacency matrix, ordered A-G
+  0, 1, 0, 0, 0, 0, 1
+  0, 0, 1, 0, 0, 1, 0
+  0, 0, 1, 1, 0, 0, 0
+  0, 0, 0, 0, 1, 1, 0
+  0, 0, 0, 0, 1, 0, 1
+^D
+&gt; :multiline
+Add labels to the edges as follows
+  A to B &quot;0&quot;, A to G &quot;1&quot;
+  B to C &quot;0&quot;, B to F &quot;1&quot;
+  C to D &quot;0&quot;, C to C &quot;1&quot;
+  D to E &quot;0&quot;, D to F &quot;1&quot;
+  G to E &quot;0&quot;, G to G &quot;1&quot;
+^D
+&gt; set the loop direction to -90 for the self loops at nodes C and G
+&gt; set the angle leaving and entering to -45 for the edges with source A
+&gt; :save ./automaton2.svg
+</code></pre>
+<p>Here, the &quot;^D&quot; represents a Control-D character that is used to end the multi-line input.</p>
+<h2>Usage</h2>
+<h3>Conventions</h3>
+<p>GraphMaker tracks three kinds of entities: nodes, edges, and decorations.
+Nodes and edges are components of the graph, as expected. Decorations represent
+either arbitrary text strings or rectangular regions that are used to demarcate
+and label parts of the graph.
+Every entity has a name that is used to refer to it when building the graph.
+This name appears on the draft pictures of the graph but not in the saved
+production picture.
+By default, nodes are given alphabetic names (like A, B, C)
+and edges are named like AB or AC for the nodes they connect,
+but you can specify the names as you prefer.
+The next section discusses this in detail.</p>
+<p>Every node, edge, and decoration has several properties that can be set by
+the user. For instances, nodes and edges have an optional label; edges
+have an optional numeric weight; and both can have associated data
+as key-value pairs. Edges specify a source node and a target node;
+the distinction is only visible if the edge is directed, but it is
+maintained in the names and underlying data.</p>
+<p>GraphMaker keeps track of the current graph being bulid and the
+entire history of changes you make to the graph from the beginning
+of the session. You can move through that history, reset the graph
+to its initial state, or load a saved graph from a file. When you
+enter a task into GraphMaker, you are describing a change to the
+current graph. You can view that graph at anytime with the <code>:show</code>
+command.</p>
+<h3>Labels and Names</h3>
+<p>GraphMaker assigns a name to every node, edge, and decoration.
+These names allow the user to refer to the entity in a task and
+are distinct from the <em>labels</em> that one might add to the picture.
+Each name must be unique within the graph.
+However, the user need not think of names for everything;
+by default, GraphMaker will assign simple and memorable names to nodes and edges
+as they are added to the graph.
+Default names for nodes are alphabetic labels A, B, C, ...;
+and default names for edges are strings like AB, CD, XY comprised of
+the names of the nodes being connected (in order from source to target
+in the directed case).
+If you prefer different names, you can indicate that to GraphMaker
+when you construct the entity. For example:</p>
+<pre><code>&gt; add nodes &quot;Parent&quot;, &quot;Child 1&quot;, &quot;Child 2&quot;, and &quot;Child 3&quot;
+&gt; add an edge &quot;Oldest&quot; from Parent to Child 1
+&gt; add an edge &quot;Youngest&quot; from Parent to Child 3
+&gt; add a text decoration Title with text &quot;Family Tree&quot; centered just below the top of the canvas
+</code></pre>
+<p>Names are only shown on the graph in draft mode during the REPL session
+(displayed in a shaded gray color)
+and will not be included in the saved output.
+(By default, the <code>:show</code> command produces pictures in draft mode, though this can be changed
+with the <code>:config</code> command. Output produced by the <code>:save</code> command has draft mode off.)</p>
+<p>In contrast to names, <em>labels</em> are arbitrary strings attached to nodes and edges
+to be displayed in the graph output.
+Labels can be styled in various fonts, sizes, colors, weights, and styles;
+they can also include mathematical text in LaTeX.
+Labels can be set when a node is added</p>
+<pre><code>&gt; add nodes A, B, and C with labels &quot;Start&quot;, &quot;Middle&quot;, and &quot;End&quot;
+</code></pre>
+<p>or at any point afterwards</p>
+<pre><code>&gt; set the label of node Z to &quot;Accept&quot;
+</code></pre>
+<p>Labels can include any text, including spaces and unicode characters.
+You can also instruct Graphmaker to treat the label as a mathematical equation,
+in either LaTeX or <a href="attn">MathLingo</a> format.
+To do this, you specify the type of label and give the value; no delimiters ($, $, ∖(, ∖[)
+should be included.
+For example:</p>
+<pre><code>&gt; add a node with LaTeX label of \chi^2(\alpha)
+&gt; add a node with mathlingo label e to the minus x squared over two
+</code></pre>
+<p>You can also set the label of an edge:</p>
+<pre><code>&gt; add an edge from A to B with label &quot;Shortcut&quot;
+</code></pre>
+<p>The label text can be styled with a variety of parameters.</p>
+<pre><code>&gt; add a node A with label &quot;Pass Go&quot;
+&gt; set the font size for A's label to 20, its weight to bold, and its color to tomato
+</code></pre>
+<p>See <a href="#style-details">Style Details</a> for more on the style parameters
+supported for text. These parameters can also be set in defined styles that can
+be applied to any entity:</p>
+<pre><code>&gt; define a style salient with font size 20, font color tomato, and font weight bold
+&gt; add the style salient to node A and edge AB
+</code></pre>
+<h3>Graph Types</h3>
+<p>Graphmaker has explicit support for several graph types.</p>
+<p>You can tell it explicitly to make a graph undirected (no arrows on edges) or directed (arrows on edges).
+By default, graphs are initialized as <em>undirected</em>.</p>
+<pre><code>&gt; make this graph directed
+</code></pre>
+<p>(Note that individual edges can be made undirected, directed, or bidirected, regardless of the
+graph's specified type. The graphs type becomes the default for an edge.)</p>
+<p>Graphmaker specially handles trees and Directed Acyclic Graphs (DAGs), which are typically
+displayed in a form consistent with their structure.
+To create a tree or DAG, you need to specify a <strong>parent relation</strong> between
+nodes:</p>
+<pre><code>&gt; node A is a parent of node B
+</code></pre>
+<p>This implies that there is an edge from A to B and that A is a predecessor
+of B. When there are parent relations in the graph, GraphMaker checks if the
+graph constitutes a tree or DAG.
+If the resulting graph (excluding self-loops) forms a tree, GraphMaker
+will format the graph accordingly. Otherwise, if there are parent relations and
+no cycles, it will format the graph as a DAG.</p>
+<p>Both trees and DAGs have a default layout orientation. The <code>orientation</code> config option
+sets this. By default, it is <code>auto</code> which causes trees to be displayed from the top
+down, with the root at the top and DAGs to be displayed left-to-right with the
+earliest nodes (with no predecessors) at the left.  The <code>orientation</code> option can be
+set to <code>top</code> (top down), <code>bottom</code> (bottom up), <code>left</code> (left-to-right), or <code>right</code> (right-to-left)
+as desired.  For general graphs, this option is used only in the initial positioning of the
+nodes in the order defined.</p>
+<p>GraphMaker is not limited to simple graphs. You can define multiple edges between two nodes,
+which will have distinct names and properties. You can also define edges from a node to itself (self-loops).
+When defining multiple edges between nodes, it is helpful to indicate that this edge should be
+distinct. For example:</p>
+<pre><code>&gt; add an edge from A to B
+&gt; add another distinct edge from A to B
+&gt; add three distinct edges from C to itself
+</code></pre>
+<p>Graphmaker can also support other specialized graph forms, such as bipartite and complete graphs.
+To generate a complete graph, try</p>
+<pre><code>&gt; give me a complete graph on six nodes
+</code></pre>
+<p>You can also be more direct to the same effect:</p>
+<pre><code>&gt; add six nodes
+&gt; add an edge between each distinct pair of nodes
+</code></pre>
+<p>For bipartite graphs, it is often most effective to set style tags
+on the nodes to determine their class</p>
+<pre><code>&gt; add nodes A-G
+&gt; add a style tag 'bluebird' to nodes A-D
+&gt; add a style tag 'chickadee' to nodes E-G
+&gt; define the style 'bluebird' to have square shape and fill color blue
+&gt; define the style 'chickadee' to have fill color brown
+&gt; add constraints that make all nodes with the same style tag have the same horizontal coordinate
+&gt; add edges from A to F and G and from B to E and from C to E, F, and G
+</code></pre>
+<h3>Node Properties</h3>
+<p>To create our graph, one will often start by creating nodes. Each node has a name, an optional label,
+several ways to specify how that node is styled, and several properties that can be customized.
+The supported properties are:</p>
+<ul>
+<li>
+<p><strong>Node Shape</strong></p>
+<p>Graphmaker supports various shapes for nodes: <code>circle</code> (default), <code>ellipse</code>, <code>rectangle</code>, <code>square</code>, <code>diamond</code>, <code>triangle</code>, and <code>invisible</code>.
+(Of course, circles are ellipses and squares are rectangles, but all of them are valid.) An <code>invisible</code> node displays no shape, but its labels
+(and names in draft mode) are displayed.</p>
+<p>You can change the shape of a node by telling GraphMaker directly</p>
+<pre><code>&gt; make node A a triangle
+&gt; make nodes B, C, and D a diamond
+</code></pre>
+<p>You can also create a node with a shape from the outset</p>
+<pre><code>&gt; add a diamond node
+</code></pre>
+<p>Node shapes can also be set more generally using <code>style</code> tags and <code>data</code> attributes as described below.
+This can be more efficient when there are multiple nodes whose shape needs to be set or changed.</p>
+</li>
+<li>
+<p><strong>Node Width To Height</strong></p>
+<p>This is a <em>positive number</em> that specifies the aspect ratio of the node's shape (more precisely, the shape's bounding box).
+The default value is 1.</p>
+</li>
+<li>
+<p><strong>Node Size</strong></p>
+<p>This is a scaling factor that determines a node's size relative to the default (with value 1).
+Note that in the pictures that are produced, the base node size <em>on the canvas</em> depends weakly on
+the number of nodes in the graph.</p>
+</li>
+<li>
+<p><strong>Label Offset</strong></p>
+<p>The label offset determines where a node's label (if any) is displayed relative to
+the center of the node. For nodes, offset distances are in units of the node's size
+(exactly analogous to the Node Size parameter).</p>
+<p>The offset can be specified in various forms</p>
+<ul>
+<li>
+<p><code>none</code>: the label will be anchored at the center of the node. This is the default.</p>
+</li>
+<li>
+<p>A cardinal direction (<code>north</code>, <code>northeast</code>, <code>east</code>, <code>southeast</code>, <code>south</code>, <code>southwest</code>, <code>west</code>, <code>northwest</code>):
+the label will be offset by one unit from the center of the node in the specified direction.</p>
+</li>
+<li>
+<p>A cardinal direction with a distance: the label will be offset
+from the center of the node by the given distance (in units of
+node size) in the given direction. For example,</p>
+<pre><code>&gt; set the label offset for A to northeast by 1.5
+</code></pre>
+<p>will anchor A's label to the top right of the node by one and a half node radii.</p>
+</li>
+<li>
+<p>Two numbers <code>dx, dy</code> representing offsets in units of node size in the direction (dx, dy).
+For example</p>
+<pre><code>&gt; set the label offset for A to 1, -1
+</code></pre>
+<p>will anchor the label at the bottom right corner of a box surrounding the node.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Node Style</strong></p>
+<p>We can associate one or more <em>style tags</em> with a node.
+A style tag is just an arbitrary name that will be (separately)
+associated with a set of styling parameter settings.</p>
+<p>We can change or set the style tags associated with the node
+by telling GraphMaker to add that name as an associated style:</p>
+<pre><code>&gt; add a style 'leaf' to nodes A, D, and F
+&gt; add a style 'branch' to nodes B, C, E, and G
+</code></pre>
+<p>At this point, <code>leaf</code> and <code>branch</code> are just tags, but they
+are assigned meaning by <em>defining a style</em> with that name.
+A style is an assignment of one or more styling parameters
+and can also include node and edge properties</p>
+<pre><code>&gt; define the style 'leaf' to have fill color gray and node shape square
+&gt; define the style 'branch' to have line color steel blue and node shape ellipse with width twice the height
+</code></pre>
+<p>Now we can reconfigure the style for multiple nodes in one step.</p>
+<pre><code>&gt; change the node shape in the style 'leaf' to be ellipse
+</code></pre>
+<p>A node may have more than one style tag. All of them apply, and styles later in the list take
+precedence.</p>
+<pre><code>&gt; define the style 'special' to have fill color green
+&gt; add the style 'special' to node A
+</code></pre>
+<p>Now node A will be a green square.</p>
+</li>
+<li>
+<p><strong>Data Attributes</strong></p>
+<p>One can associate with a node a set of arbitrary data, specified as key-value pairs.
+These data can be used in GraphMaker both to /select/ nodes in a task and also to
+set values and styles.</p>
+<pre><code>&gt; add nodes A-D
+&gt; for A and C add data role 'admin'
+&gt; for B and D add data role 'user'
+&gt; add an edge from each node with admin role to each node with user role
+&gt; add constraints that make all nodes with the same role data have the same vertical coordinate
+&gt; add a constraint that A is below B
+</code></pre>
+</li>
+</ul>
+<p>In addition, one can set any individual styling parameters for the node, such as fill style or line color.
+Any individual style parameter set for the node overrides the effect of a style tag. For example:</p>
+<pre><code>&gt; add nodes A-C
+&gt; add a style 'foo' to nodes A and C
+&gt; define the style 'foo' to have fill color blue and fill style of vertical hashing
+&gt; set the fill color for node A to be 'tomato'
+</code></pre>
+<p>Now A and C both inherit the style 'foo' but A's fill color has been changed.</p>
+<p>As mentioned earlier, more than one style can be added to a node</p>
+<pre><code>&gt; append a second style 'bar' to node A
+&gt; define the style 'bar' to have line color red and line width thick
+</code></pre>
+<p>See the section <a href="#style-details">Style Details</a> for details on the supported styling parameters and their values.</p>
+<h3>Edge Properties</h3>
+<p>Edges in the graph are the connections between nodes. Each edge has
+a source and target, specified implicitly when defining the edge.
+You can create an edge between nodes A and B simply by saying
+something like</p>
+<pre><code>&gt; create an undirected edge between A and B
+</code></pre>
+<p>or</p>
+<pre><code>&gt; create a directed edge from A to B
+</code></pre>
+<p>By default, edges in a graph are undirected. To make all edges directed, you can say</p>
+<pre><code>&gt; make this graph directed
+</code></pre>
+<p>It is also possible to create an edge from a node to itself (a self-loop) by saying something like</p>
+<pre><code>&gt; add an edge from A to itself
+</code></pre>
+<p>As with nodes, edges have an optional label that can be set in the same way
+(including LaTeX and mathlingo formats).
+Also as with nodes, edges can have zero or more style tags,
+and you can set individual styling parameters for a particular edge, which will
+override the values of parameters set in a style.
+(Again, see the section <a href="#style-details">Style Details</a> for help on those parameters.)</p>
+<p>You can use the (implicitly defined) source and target properties of edges to
+select edges during tasks.</p>
+<pre><code>&gt; set the line width to thick for all edges whose source is node A
+&gt; set the line color to blue and line style dotted for all edges whose target is node C
+</code></pre>
+<p>In addition, edges have several specialized properties of an edge
+that can be set to customize its appearance and behavior in the
+graph.</p>
+<ul>
+<li>
+<p><strong>Label Offset</strong></p>
+<p>The label offset determines where a edge's label (if any) is displayed relative to
+the center of the edge. For edges, offset distances are in units of the edge's size,
+with -1 corresponding to the source end and 1 corresponding to the target end.</p>
+<p>The offset can be specified in various forms</p>
+<ul>
+<li>
+<p><code>none</code>: the label will be anchored at the center of the edge. This is the default.</p>
+</li>
+<li>
+<p>An <em>relative</em> cardinal direction (<code>north</code>, <code>northeast</code>, <code>east</code>, <code>southeast</code>, <code>south</code>, <code>southwest</code>, <code>west</code>, <code>northwest</code>):
+the label will be offset by one unit from the center of the edge in the specified direction <em>relative to the edge's direction</em>
+(i.e., the line between source and target translated to the edge center).</p>
+</li>
+<li>
+<p>An <em>absolute</em> cardinal direction (<code>up</code>, <code>up right</code>, <code>right</code>, <code>down right</code>, <code>down</code>, <code>down left</code>, <code>left</code>, <code>up left</code>):
+the label will be offset by one unit in the specified direction (relative to the canvas) from the center of the edge.</p>
+</li>
+<li>
+<p>A cardinal direction (relative or absolute) with a distance: the label will be offset from the by the given distance (in units of
+edge size) in the given direction. For example,</p>
+<pre><code>&gt; set the label offset for AB to northeast by 1.5
+&gt; set the label offset for BC to down right by 1.5
+</code></pre>
+</li>
+<li>
+<p>Two numbers <code>dx, dy</code> representing offsets in units of edge size in the direction (dx, dy)
+<em>relative to the edge direction</em>.
+For example,</p>
+<pre><code>&gt; set the label offset for AB to 0.75, 0.05
+</code></pre>
+<p>will anchor the label three quarters of the way from the center to the target end
+and slightly above.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Weight</strong></p>
+<p>An optional numeric value associated with the edge. It is often
+used to represent the <em>strength</em> or <em>cost</em> of the connection
+between two nodes. The weight of an edge is displayed as a separate label
+on the edge. The weight of an edge can be set when the edge is
+created or later. For example:</p>
+<pre><code>&gt; create an edge from A to B with weight 3
+</code></pre>
+<pre><code>&gt; set the weight of the edge AB to 11
+</code></pre>
+</li>
+<li>
+<p><strong>Weight Offset</strong></p>
+<p>Weight offset is handled and specified exactly the same way that label offset is,
+except that the weight is displayed on the other side of the edge (e.g., bottom vs. top)
+as the label.</p>
+</li>
+<li>
+<p><strong>Loop Direction</strong></p>
+<p>For self loops, you may explicitly specify a loop direction, which
+defines the angle at which a self-loop edge points to the node. The
+loop direction is defined as a numeric value giving the
+counter-clockwise angle from the positive x-direction. For example:</p>
+<pre><code>&gt; create a directed edge from A to itself with loop direction 45
+</code></pre>
+<p>The loop direction can also be set later:</p>
+<pre><code>&gt; set the loop direction of the edge AA to 45
+</code></pre>
+</li>
+<li>
+<p><strong>Angle Leaving</strong> and <strong>Angle Entering</strong></p>
+<p>By default, an edge between two nodes is displayed as a line (maybe with arrows)
+from source to target. But sometimes it is desirable for the edges
+to be curved. The <strong>angle leaving</strong> and <strong>angle entering</strong> parameters determine
+the angle (relative to a straight line) at which the edge <em>leaves the source</em>
+and <em>enters the target</em> respectively. When these values are non-zero, the edge
+is displayed as a cubic Bezier curve; the angles are 0 by default, giving linear
+edges.  The values are used so that the same sign leaving and entering indicates
+a curve toward the same side of a linear edge. For example,</p>
+<pre><code>&gt; set the angle leaving and entering to 45
+</code></pre>
+<p>gives an edge that arcs to the left of the line between source and target,
+with a 45 degree angle between the curve at beginning and end and
+that line.</p>
+<ul>
+<li>
+<p><strong>Softness Leaving</strong> and <strong>Softness Entering</strong></p>
+<p>The softness parameters can be used to adjust the curvature of a curved
+edge near the source (softness <em>leaving</em>) and the target (<em>softness entering</em>).
+The softness is a non-negative number with a default of 0.5; typical values are
+between 0 and 1, with 1 having more pronounced curvature.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Decorations</h3>
+<p>Decorations are graphical elements in saved picture that are <em>not</em> part of the graph.
+Graphmaker supports three kinds of decorations:</p>
+<ul>
+<li>
+<p>Text</p>
+<p>Text decorations specify strings or paragraphs that are added to the picture
+at designated locations. A text decoration can be configured with any styling
+parameters that affect text (e.g., font color, font size, font style, font weight,
+font variant). It also accepts two specialized properties that affect how the
+text is displayed:</p>
+<ul>
+<li>
+<p><strong>Text Anchor</strong> (values: <code>start</code>, <code>middle</code>, <code>end</code>, <code>top</code>, <code>bottom</code>; default: <code>middle</code>)</p>
+<p>This indicates the point in the string of text is at the specified position
+of the decoration. For multi-line text, an additional <code>top</code> or <code>bottom</code> can be
+supplied to specify the vertical component of the anchor. Thus, <code>start top</code> anchors
+in the top-left corner of a paragraph; <code>middle top</code> in the middle of the top line.
+A <code>top</code> or <code>bottom</code> have no effect on single lined text.</p>
+</li>
+<li>
+<p><strong>Text Justify</strong> (values: <code>left</code>, <code>right</code>, <code>center</code>, <code>none</code>, <code>list</code>; default: <code>none</code>)</p>
+<p>This indicates how a multi-lined text paragraph is justified. The value <code>list</code>
+puts each line on its own like a bulleted list with no bullets.</p>
+</li>
+</ul>
+<p>The position of a text decoration can be specified in two ways. The first of these
+is more more flexible and useful.</p>
+<ol>
+<li>
+<p>Alignment Constraints</p>
+<p>You can specify optional expressions (as with node position constraints) for the x (horizontal)
+and y (vertical) coordinates of the text anchor relative to nodes or edges in
+the graph. These are often given explicitly. For example:</p>
+<pre><code>&gt; add a text decoration &quot;tip&quot; with text &quot;This is where we start&quot;
+&gt; align the decoration &quot;tip&quot; at the midpoint of nodes A and B
+</code></pre>
+<p>You can give different conditions on the x and y coordinates of the anchor in this way.
+You can align relative to the center of the nodes or to the north, north east, east, ..., north west
+corners of the bounding boxes of those nodes. For example:</p>
+<pre><code>&gt; align the x coordinate of decoration &quot;warning&quot; to the north east of node A
+&gt; align the y coordinate of decoration &quot;warning&quot; to the south of node B
+&gt; align the decoration &quot;big warning&quot; at the average coordinates of nodes D, E, and F
+</code></pre>
+</li>
+<li>
+<p>Absolute Position</p>
+<p>You can specify x, y coordinates for the text anchor, where x (horizontal)
+and y (vertical) positions are both between 0 and 1. So, 0, 0 is the bottom
+left corner of the canvas; and 1,1 is the top right corner of the canvas.</p>
+<p>As the name suggests, absolutely positioned text will not move if the
+graph is repositioned.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Regions</p>
+</li>
+<li>
+<p>Arrows</p>
+</li>
+</ul>
+<p>ATTN:</p>
+<p>two types: text and region (rectangles)</p>
+<p>x,y - coordinates of the center of the decoration (left boundary of canvas is zero, right boundary is one)</p>
+<p>width and height (as proportion of canvas width and height) for regions</p>
+<h3>Styling</h3>
+<h3>Fine Tuning</h3>
+<h3>Graph Output</h3>
+<h3>REPL Capabilities</h3>
+<h2>Tips</h2>
+<h2>Gallery</h2>
+<h2>Command Details</h2>
+<ul>
+<li>
+<p><strong>:config [&lt;option&gt; [&lt;value&gt;]]</strong></p>
+<p>Set a configuration option for the graph or print its value</p>
+</li>
+<li>
+<p><strong>:examples</strong></p>
+<p>Give example prompts that can be run or modified to explore graphmaker</p>
+</li>
+<li>
+<p><strong>:exec [prefix=''] [suffix=''] &lt;filename&gt;</strong></p>
+<p>Load a file containing commands // TODO: document this</p>
+</li>
+<li>
+<p><strong>:exec-batch [prefix=''] [suffix=''] &lt;filename&gt;</strong></p>
+<p>Load a file containing commands reading all lines at once</p>
+</li>
+<li>
+<p><strong>:exit</strong></p>
+<p>Exit the program</p>
+</li>
+<li>
+<p><strong>:help</strong></p>
+<p>Show this help message</p>
+</li>
+<li>
+<p><strong>:history [&lt;n&gt;]</strong></p>
+<p>Show the last n commands</p>
+</li>
+<li>
+<p><strong>:intro</strong></p>
+<p>Give descriptive introduction to how graphmaker is used</p>
+</li>
+<li>
+<p><strong>:load &lt;filename&gt;.json</strong></p>
+<p>Load a saved graph as the current state</p>
+</li>
+<li>
+<p><strong>:multiline</strong></p>
+<p>Engage multi-line mode for the next task. Use Ctrl-D to finish and Ctrl-C to cancel</p>
+</li>
+<li>
+<p><strong>:redo</strong></p>
+<p>Redo the last command</p>
+</li>
+<li>
+<p><strong>:reset</strong></p>
+<p>Reset the graph to the initial state</p>
+</li>
+<li>
+<p><strong>:save &lt;filename&gt;</strong></p>
+<p>Save the current graph to a file</p>
+</li>
+<li>
+<p><strong>:show [&lt;format&gt;]</strong></p>
+<p>Show the graph in a given format</p>
+</li>
+<li>
+<p><strong>:transcript &lt;filename&gt;</strong></p>
+<p>Save the transcript to a file</p>
+</li>
+<li>
+<p><strong>:undo</strong></p>
+<p>Undo the last command</p>
+</li>
+</ul>
+<h2>Style Details</h2>
+<ul>
+<li>
+<p><strong>arrowStyle</strong></p>
+<p>Possible values: <code>light</code>, <code>normal</code>, <code>heavy</code>, <code>double</code></p>
+</li>
+<li>
+<p><strong>fillColor</strong> A HEX color or RGB color such as rgb(255,255,255) to fill a shape</p>
+</li>
+<li>
+<p><strong>fillStyle</strong> Fill pattern of a shape</p>
+<p>Possible values can be one of:</p>
+<ul>
+<li>
+<p><code>solid</code>, which is the default.</p>
+</li>
+<li>
+<p><code>dotted</code> along with an optional size of the dots and an optional tile size (pixels per dot in all directions)</p>
+</li>
+<li>
+<p><code>hashed</code>, along with an optional hashing direction (one of <code>vertical</code>, <code>horizontal</code>, <code>increasing</code>, <code>decreasing</code>, default is <code>increasing</code>) and an optional hash thickness (default: 0.5).</p>
+</li>
+<li>
+<p><code>crosshatched</code>, along with an optional hashing direction (<code>vertical</code> or <code>diagonal</code>) and thickness (default: 0.5)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>fontColor</strong> A HEX color or RGB color such as rgb(255,255,255) for the font. rgb(red, green, blue) has each color specified on a range from 0-255.</p>
+</li>
+<li>
+<p><strong>fontFamily</strong> Font family</p>
+<p>Possible values: Times New Roman, Comic Sans MS, Courier New, Gill Sans, Trebuchet MS, or any font name available on the user's system.</p>
+</li>
+<li>
+<p><strong>fontSize</strong> Font size in points</p>
+<p>Default value: <code>12</code></p>
+</li>
+<li>
+<p><strong>fontStyle</strong></p>
+<p>Possible values: <code>normal</code>, <code>italic</code>, <code>oblique</code></p>
+</li>
+<li>
+<p><strong>fontVariant</strong></p>
+<p>Possible values: <code>normal</code>, <code>small-caps</code>, <code>titling-caps</code></p>
+</li>
+<li>
+<p><strong>fontWeight</strong></p>
+<p>Possible values: <code>normal</code>, <code>bold</code>, <code>bolder</code>, <code>lighter</code>, <code>100</code>, <code>200</code>, <code>300</code>, <code>400</code>, <code>500</code>, <code>600</code>, <code>700</code>, <code>800</code>, <code>900</code></p>
+</li>
+<li>
+<p><strong>label</strong> A text or mathematical label. With a prefix 'latex:' or 'tex:', the rest of the label is interpreted as LaTeX input. With a prefix 'math:', the rest of the label is interpreted as MathLingo input. For latex/tex and math labels, use ASCII only. Otherwise, the text is used directly as a unicode string. LaTeX $ delimiters are NOT supported.</p>
+</li>
+<li>
+<p><strong>lineColor</strong> A HEX color or RGB color such as rgb(255,255,255) for the stroke</p>
+</li>
+<li>
+<p><strong>lineStyle</strong></p>
+<p>Possible values: <code>solid</code>, <code>dashed</code>, <code>dotted</code></p>
+</li>
+<li>
+<p><strong>lineWidth</strong></p>
+<p>Possible values: <code>very-thin</code>, <code>thin</code>, <code>medium</code>, <code>thick</code>, <code>very-thick</code></p>
+</li>
+<li>
+<p><strong>nodeShape</strong></p>
+<p>Possible values: <code>circle</code>, <code>square</code>, <code>diamond</code>, <code>triangle</code>, <code>ellipse</code>, <code>rectangle</code>, <code>invisible</code></p>
+<p>Default value: <code>circle</code></p>
+</li>
+<li>
+<p><strong>nodeSize</strong> Node size relative to a base size; if not specified, the node size is 1</p>
+<p>Default value: <code>1</code></p>
+</li>
+<li>
+<p><strong>nodeWidthToHeight</strong> Width to height ratio of a node; if not specified, the ratio is 1</p>
+<p>Default value: <code>1</code></p>
+</li>
+<li>
+<p><strong>offset</strong> An offset from a position in units relative to the natural size of the node or edge</p>
+<p>This applies to label offsets for nodes and edges and weight offsets for edges.</p>
+<p>Possible values can be one of:</p>
+<ul>
+<li>
+<p><code>none</code></p>
+</li>
+<li>
+<p>A cardinal direction (one of north, northeast, east, southeast, south, southwest, west, northwest, left, right, up, down, upper-left, upper-right, lower-left, lower-right). This offsets by the node or edge size in that direction.</p>
+</li>
+<li>
+<p>A cardinal direction with a distance in units of the node or edge size.</p>
+</li>
+<li>
+<p>Two cartesian coordinates dx, dy for the offset in units of the node or edge size.</p>
+</li>
+<li>
+<p>Offset specified in polar coordinates,  with a number representing an angle in degrees, and another number indicating the (non-negative) distance from the position in units of the node or edge size.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>style</strong> Style name(s) to be applied to an entity</p>
+</li>
+<li>
+<p><strong>textAnchor</strong> Where a string's position is anchored</p>
+<p>Possible values: <code>start</code>, <code>middle</code>, <code>end</code></p>
+</li>
+</ul>
+<h2>The GraphMaker Node Library</h2>
+<p>ATTN: Fill in reasoning and general idea behind this library</p>
+<h3>Installation</h3>
+<pre><code class="language-bash">npm install @isle-labs/graphmaker
+</code></pre>
+<h3>Usage</h3>
+<pre><code class="language-javascript">const GraphMaker = require( '@isle-labs/graphmaker' );
+
+const state = GraphMaker.initializeGraph( config );
+
+const oracle = GraphMaker.aiFactory( 'openai' );
+
+// Update the graph with a natural language prompt:
+const [ newState, output ] = await GraphMaker.updateGraph( state, GraphMaker.task( 'Add a node A', oracle ) );
+
+// Export the graph in various formats:
+const [ _, svgOutput ] = await GraphMaker.updateGraph (state, GraphMaker.save({ format: 'svg' }) );
+</code></pre>
+<h3>API</h3>
+<h4>.initializeGraph(config)</h4>
+<p>Initializes a new graph state with the given configuration options.</p>
+<h5>Arguments</h5>
+<ul>
+<li><code>config</code>: configuration options</li>
+</ul>
+<h5>Returns</h5>
+<p>The initial graph state</p>
+<h4>.aiFactory(provider, {type, model})</h4>
+<p>Creates an AI instance for generating directed and undirected graphs that match a specified JSON schema. The AI instance will be responsible for ensuring that nodes, edges, and properties are set correctly according to the schema.</p>
+<h5>Arguments</h5>
+<ul>
+<li><code>provider</code>: the AI provider to use (currently only supports 'openai')</li>
+<li><code>options</code>: the options for the AI instance
+<ul>
+<li><code>options.type</code>: the type of AI instance to create (supports 'memoryless' and 'serial')</li>
+<li><code>options.model</code>: the AI model to use (currently only supports 'gpt-3.5-turbo')</li>
+</ul>
+</li>
+</ul>
+<h5>Returns</h5>
+<ul>
+<li>A function that takes a user prompt and an object containing the current graph state and history, and returns a Promise that resolves to the updated graph state according to the AI's interpretation of the prompt.</li>
+</ul>
+<h4>.updateGraph(state, {action, payload})</h4>
+<p>Updates the graph state based on the action and payload. The following actions are available:</p>
+<ul>
+<li><code>'TASK'</code>: Change the graph according to a user's prompt</li>
+<li><code>'REDO'</code>: Redo the last undone command on the graph</li>
+<li><code>'UNDO'</code>: Undo the last command on the graph</li>
+<li><code>'CONVERT'</code>: Convert the graph to a given format</li>
+<li><code>'SET_GRAPH'</code>: Set the graph to a given graph</li>
+</ul>
+<h5>Arguments</h5>
+<ul>
+<li><code>state</code>: the current state of the graph</li>
+<li><code>options</code>: the options for the update
+<ul>
+<li><code>options.action</code>: the action to perform</li>
+<li><code>options.payload</code>: the payload of the action</li>
+</ul>
+</li>
+</ul>
+<h4>.task(prompt, oracle)</h4>
+<p>Returns a command to change a graph according to a user's <code>prompt</code>. The AI model passed as an <code>oracle</code> (e.g., a function returned from <code>aiFactory</code>) will interpret the prompt and perform the desired action, such as adding or removing nodes or edges, or changing properties of the graph elements.</p>
+<h5>Arguments</h5>
+<ul>
+<li><code>prompt</code>: the prompt to update the graph with</li>
+<li><code>oracle</code>: the oracle to use for the prompt</li>
+</ul>
+<h4>.setGraph(graph)</h4>
+<p>Returns a command to set the graph to a given graph.</p>
+<h5>Arguments</h5>
+<ul>
+<li><code>graph</code>: the graph to set</li>
+</ul>
+<h4>.resetGraph()</h4>
+<p>Returns a command to reset the graph to its initial graph.</p>
+<h4>.redo()</h4>
+<p>Returns a command to redo the last undone command on the graph.</p>
+<h4>.undo()</h4>
+<p>Returns a command to undo the last command on the graph.</p>
+<h4>.save(config)</h4>
+<p>Returns a command to save the graph in a given format.</p>
+<h5>Arguments</h5>
+<ul>
+<li><code>config</code>: the graph config payload
+<ul>
+<li><code>config.format</code>: the format to save the graph in (defaults to 'json'). Possible values are: 'svg', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'webp', 'tiff', 'tikz', and 'json'.</li>
+<li><code>config.draft</code>: whether to save the graph as a draft (defaults to false)</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+</body>
+</html>
