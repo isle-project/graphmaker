@@ -1,21 +1,22 @@
 # TODO
 ## Immediate
--  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands) [CG & PB, serial?]
--  [ ] DOC Create a gallery [PB]
+-  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
 -  [ ] DOC check consistency of readme with what actually happens
 
 ## Soon
--  [ ] Refactor repl code to a request-response form and the node-repl specific application; supports playground
--  [ ] FIX: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
--  [x] Allow constraints to access not just center (.x, .y) but also bounding box coordinates (@e, @w, @s, @n, @nw, @ne, @se, @sw, and @c or none) for nodes
 -  [ ] Add color translation/fixing capability:  e.g., "steel blue" -> "steelblue", "light steel blue" -> appropriate hex color, translating web colors -> xcolors for tikz, etc.  Use `color-convert` package
--  [ ] Add a prompt when trying to overwrite an existing file to confirm [PB]
 -  [ ] Add to graph schema an optional field in edges:  direction = None | Directed | BiDirected and change display so that individual edge property overrides graph general directed setting
--  [ ] Check that edge offset scaling is from -1,1 rather than -0.5, 0.5 and check support for *absolute* directions
+-  [ ] Add a light layer module giving a simple request-response form and the node-repl specific application; supports playground
+-  [ ] FIX: Scale parameter for constraint on bounding edges
+-  [ ] FIX: handle forests in isTree check by separating components and positioning trees at different ranges of x (or y depending on orientation)
 -  [ ] Add a new kind of decoration: arrow
 -  [ ] Add labelJustify style (none, left, right, center) for nodes, edges, and text decorations (is labelWidth needed? or scale for node/edge size)
+-  [ ] Add labelWidth property scaled to node or edge size
+-  [ ] textAngle property used for labels and text decorations??
 -  [ ] Add a new kind of constraint   DECORATION contains NODE1,...,NONEn. Possible UPDATE: Simpler and almost as functional -- Add a new way of specifying a decoration
 -  [ ] Do not swallow all errors during REPL usage; figure out which errors should be displayed and how
+-  [ ] New :config param(s) related to drawing (perhaps including orientation if done as an object):  component order: none, largest (first), smallest (first); node order byEntry, byName, byNameReverse, byData (order, unordered last, negatives for from the end), byDataRev; orientation (as already done);  reset positions if any drawing configs change value
+-  [ ] Better initial positioning (accounting for components and connectivity); small hooke force between children at same level in a tree; ...
 -  [ ] More intelligent initial positions: i. grouping (roughly) in connected clusters, ii. ordering via orientation config by order created, iii. centering one node (odd case) when no edges, ...
 -  [ ] PROVISIONAL Second phase positioning adjustments that improve the overall look and feel
 -  [ ] PROVISIONAL Alternate initialization of positions using presence of edges as an implicit metric (as in multi-dimensional scaling)
@@ -26,6 +27,7 @@
 -  [ ] ADMIN add a test suite and get existing tests to pass
 
 ## Future
+-  [ ] Ensure that edge offset supports for *absolute* directions for (up, down, left, right)
 -  [ ] FUTURE adjust parser to allow multipliers of parenthetical expressions on the right [CG]
 -  [ ] FUTURE adjust parser so that < and > by themselves as equivalent to <= >= [CG]
 -  [ ] FUTURE Add either a `:freeze` command to fix the current positions of nodes by turning them into constraints and an `:unfreeze` command to remove constraints (injected constraints would be identifiable via e.g. `derived` property) or we could also have a `config` `frozen` option to fix positions of nodes at those in _positions (if any nodes are not in _positions, we add transient constraints like in the last case for those that are and apply the positioning to set the _positions of the new nodes)
@@ -36,6 +38,12 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] DOC Create a gallery
+-  [x] Check that edge offset scaling is from -1,1 rather than -0.5, 0.5
+-  [x] Find the missing stack traces
+-  [x] Add "double circle" shape
+-  [x] Add a prompt when trying to overwrite an existing file to confirm
+-  [x] Allow constraints to access not just center (.x, .y) but also bounding box coordinates (@e, @w, @s, @n, @nw, @ne, @se, @sw, and @c or none) for nodes
 -  [x] FIX correctly handle fillStyle (and check other styles) in to-tikz [CG]
 -  [x] FIX in convertConstraint if a node in the constraint does not exist in nodesInOrder, ignore the constraint [CG]
 -  [x] ADD ':show graph' command gives a clear, easy to read, text description of the current graph: node names, adjacency list(?), labels?, constraints as equations?
