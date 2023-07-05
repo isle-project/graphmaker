@@ -18,6 +18,7 @@
 -  [ ] New :config param(s) related to drawing (perhaps including orientation if done as an object):  component order: none, largest (first), smallest (first); node order byEntry, byName, byNameReverse, byData (order, unordered last, negatives for from the end), byDataRev; orientation (as already done);  reset positions if any drawing configs change value
 -  [ ] Better initial positioning (accounting for components and connectivity); small hooke force between children at same level in a tree; ...
 -  [ ] More intelligent initial positions: i. grouping (roughly) in connected clusters, ii. ordering via orientation config by order created, iii. centering one node (odd case) when no edges, ...
+-  [ ] Add typescript types to the library (for users)
 -  [ ] PROVISIONAL Second phase positioning adjustments that improve the overall look and feel
 -  [ ] PROVISIONAL Alternate initialization of positions using presence of edges as an implicit metric (as in multi-dimensional scaling)
        Related to this: should connected components be given roughly different zones in the initial positioning (bipartite case weird?)

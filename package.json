@@ -14,6 +14,7 @@
     "repl": "node lib/repl.js",
     "gm": "sh ./bin/gm.sh"
   },
+  "types": "./types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/isle-project/graphmaker.git"
