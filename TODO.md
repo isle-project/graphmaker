@@ -4,7 +4,6 @@
 -  [ ] DOC check consistency of readme with what actually happens
 
 ## Soon
--  [ ] Add color translation/fixing capability:  e.g., "steel blue" -> "steelblue", "light steel blue" -> appropriate hex color, translating web colors -> xcolors for tikz, etc.  Use `color-convert` package
 -  [ ] Add to graph schema an optional field in edges:  direction = None | Directed | BiDirected and change display so that individual edge property overrides graph general directed setting
 -  [ ] Add a light layer module giving a simple request-response form and the node-repl specific application; supports playground
 -  [ ] FIX: Scale parameter for constraint on bounding edges
@@ -39,6 +38,7 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] Add color translation/fixing capability:  e.g., "steel blue" -> "steelblue", "light steel blue" -> appropriate hex color, translating web colors -> xcolors for tikz, etc.  Use `color-convert` package
 -  [x] DOC Create a gallery
 -  [x] Check that edge offset scaling is from -1,1 rather than -0.5, 0.5
 -  [x] Find the missing stack traces
