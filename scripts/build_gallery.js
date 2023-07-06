@@ -52,13 +52,13 @@ function generateGalleryItemPage({ name, svg, json, tasks }) {
 }
 
 function generateGalleryPage(manifest) {
-    const tiles = manifest.map(({ name, path, }) => {
+    const tiles = manifest.map(({ name, path }) => {
       const svg = readFileSync( join( __dirname, '..', 'examples', path, 'graph.svg' ), 'utf8' )
         .replace(/style="([^"]*)"/, '')
         .replace(/width="([^"]*)"/, '')
         .replace(/height="([^"]*)"/, '');
-      return `<a href="/graphs/${kebabcase(name)}.html" class="bg-gray-100 hover:bg-gray-200 rounded-lg shadow-lg p-4 mb-4 flex flex-col justify-between">
-        <h3 class="text-lg font-semibold mt-2">${name}</h3>
+      return `<a href="/graphs/${kebabcase(name)}.html" class="bg-gray-100 hover:bg-gray-200 rounded-lg shadow-lg p-4 mb-4">
+            <h3 class="font-semibold">${name}</h3>
             ${svg}
         </a>`;
     });
