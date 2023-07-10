@@ -10,6 +10,10 @@ body {
     margin: 0
 }
 
+#readme {
+    padding-top: 100px;
+}
+
 nav {
     width: 100%;
     display: flex;
