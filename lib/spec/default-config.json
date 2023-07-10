@@ -9,7 +9,7 @@
   "OpenAI": {
     "apiKey": null,
     "model": "gpt-3.5-turbo",
-    "type": "serial",
+    "type": "streaming",
     "exec": "auto"
   }
 }

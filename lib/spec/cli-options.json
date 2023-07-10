@@ -63,11 +63,11 @@
     "short": "a"
   },
   "type": {
-    "description": "Model type ('memoryless' or 'serial')",
+    "description": "Model type ('streaming' or 'single')",
     "tag": "NAME",
     "type": "string",
     "short": "t",
-    "enum": [ "memoryless", "serial" ]
+    "enum": [ "streaming", "single" ]
   },
   "exec": {
     "description": "Determines how tasks are sent to the AI model in the :exec command: 'batch' [fewest requests], 'incremental' [one request per task], and 'auto' [model-dependent]",

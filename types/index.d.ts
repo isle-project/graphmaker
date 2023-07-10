@@ -104,15 +104,16 @@ export function convert( config: Config ): ActionPayload<'CONVERT', Config>
 /**
  * LLM model types.
  */
-export type ModelType = 'memoryless' | 'serial'
+export type ModelType = 'streaming' | 'single'
 
 /**
  * Creates a function that can be used to generate LLM completions.
  *
  * @param provider - the LLM provider to use
  * @param options - options for the AI model
- * @param options.type - whether to use a memoryless or serial chat
- * @param options.model - the name of the model to use
+ * @param options.type - whether to stream the response or get a single response
+ * @param options.model - name of the model to use
+ * @param options.apiKey - API key to use for the model provider
  * @returns function that can be used to generate LLM completions
  */
-export function aiFactory( provider: string, {type: ModelType, model: string} ) : (userPrompt: string, currentState: GraphState) => string
+export function aiFactory( provider: string, {type: ModelType, model: string, apiKey: string} ) : (userPrompt: string, currentState: GraphState) => string

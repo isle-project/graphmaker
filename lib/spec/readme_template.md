@@ -859,7 +859,7 @@ Creates an AI instance for generating directed and undirected graphs that match 
 
 -   `provider`: the AI provider to use (currently only supports 'openai')
 -   `options`: the options for the AI instance
-    -   `options.type`: the type of AI instance to create (supports 'memoryless' and 'serial')
+    -   `options.type`: the type of AI instance to create (supports 'streaming' or 'single')
     -   `options.model`: the AI model to use (currently only supports 'gpt-3.5-turbo')
 
 ##### Returns
