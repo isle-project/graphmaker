@@ -9,6 +9,7 @@
   "scripts": {
     "test": "jest",
     "compile-constraints": "nearleyc lib/constraint-grammar.ne -o lib/constraint-grammar.js",
+    "build-docs": "node scripts/build-readme.js && node scripts/build-gallery.js && node scripts/build-index-html.js",
     "postinstall": "npm run compile-constraints",
     "lint": "eslint lib/*.js test/*.js",
     "repl": "node lib/repl.js",
