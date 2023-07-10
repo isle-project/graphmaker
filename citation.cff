@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: graphmaker
+message: >-
+  If you use this software, we appreciate a citation using the
+  metadata from this file.
+
+type: software
+
+authors:
+  - given-names: Christopher
+    family-names: Genovese
+    email: genovese@cmu.edu
+  - given-names: Philipp
+    family-names: Burckhardt
+    email: pburckhardt@outlook.com
+
+repository-code: https://github.com/isle-project/graphmaker
+url: https://github.com/isle-project/graphmaker
+
+abstract: |
+  GraphMaker is a tool for creating, manipulating, and exporting graphs using natural language.
+
+keywords:
+-
+
+license: Apache-2.0
+
+date-released: 2023
