@@ -2,6 +2,8 @@
 ## Immediate
 -  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
 -  [ ] DOC check consistency of readme with what actually happens
+-  [ ] FIX strip quotes from config values when setting them via :config
+-  [ ] FEAT make keys case-insensitive for config
 
 ## Soon
 -  [ ] Add to graph schema an optional field in edges:  direction = None | Directed | BiDirected and change display so that individual edge property overrides graph general directed setting

@@ -176,7 +176,7 @@ Options:
 
   -a, --apiKey ARG                  Model provider API key                              
 
-  -t, --type NAME                   Model type ('memoryless' or 'serial')               
+  -t, --type NAME                   Model type ('streaming' or 'single')                
 
   --exec ARG                        Determines how tasks are sent to the AI model in t  
                                     he :exec command: 'batch' [fewest requests], 'incr  
@@ -967,7 +967,7 @@ width and height (as proportion of canvas width and height) for regions
 
   + __nodeShape__ 
 
-    Possible values: `circle`, `square`, `diamond`, `triangle`, `ellipse`, `rectangle`, `invisible`
+    Possible values: `circle`, `double-circle`, `square`, `diamond`, `triangle`, `ellipse`, `rectangle`, `invisible`
 
     Default value: `circle`
 
@@ -1051,7 +1051,7 @@ Creates an AI instance for generating directed and undirected graphs that match 
 
 -   `provider`: the AI provider to use (currently only supports 'openai')
 -   `options`: the options for the AI instance
-    -   `options.type`: the type of AI instance to create (supports 'memoryless' and 'serial')
+    -   `options.type`: the type of AI instance to create (supports 'streaming' or 'single')
     -   `options.model`: the AI model to use (currently only supports 'gpt-3.5-turbo')
 
 ##### Returns
