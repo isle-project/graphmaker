@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>graphmaker</title>
-    <link rel="stylesheet" href="./css/modest.css"></link>
     <link rel="stylesheet" href="./css/styles.css"></link>
+    <link rel="stylesheet" href="./css/modest.css"></link>
 </head>
 <body>
     <nav>
@@ -27,10 +27,10 @@
 <hr>
 <h2 id="table-of-contents" tabindex="-1">Table of Contents</h2>
 <ul>
-<li><a href="#motivation">Motivation</a> [CG]</li>
-<li><a href="#installation-1">Installation</a> [PB]</li>
-<li><a href="#getting-started">Getting Started</a> [PB]</li>
-<li><a href="#usage">Usage</a> [CG]
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#installation-1">Installation</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#usage">Usage</a>
 <ul>
 <li><a href="#conventions">Conventions</a></li>
 <li><a href="#labels-and-names">Labels and Names</a></li>
@@ -45,8 +45,8 @@
 <li><a href="#repl-capabilities">REPL Capabilities</a></li>
 </ul>
 </li>
-<li><a href="#tips">Tips</a> [PB]</li>
-<li><a href="#gallery">Gallery</a> [PB]</li>
+<li><a href="#tips">Tips</a></li>
+<li><a href="#gallery">Gallery</a></li>
 <li><a href="#command-details">Command Details</a> [auto-generated]</li>
 <li><a href="#style-details">Style Details</a> [auto-generated]</li>
 <li><a href="#the-graphmaker-node-library">The GraphMaker Node Library</a>
@@ -109,9 +109,20 @@ As you wish.
 <pre><code class="language-bash">npm install -g @isle-labs/graphmaker
 </code></pre>
 <h2 id="getting-started" tabindex="-1">Getting Started</h2>
+<p>Before you start the REPL, make sure you have your OpenAI API Key ready. You can obtain one <a href="https://platform.openai.com">here</a>. Then, you may export it as an environment variable:</p>
+<pre><code class="language-bash">export OPENAI_API_KEY=&lt;your-api-key&gt;
+</code></pre>
+<p>(e.g., in your <code>.bashrc</code> or <code>.zshrc</code> file).</p>
 <p>Start the REPL from the command line with command</p>
 <pre><code class="language-text">graphmaker 
 </code></pre>
+<p>Alternatively, you may pass your API key as an argument to the REPL command:</p>
+<pre><code class="language-bash">graphmaker --apiKey &lt;your-api-key&gt;
+</code></pre>
+<p>Last but not least, you can set your API key in the REPL itself:</p>
+<pre><code class="language-text">:config OpenAI.apiKey &lt;your-api-key&gt;
+</code></pre>
+<p>You are now ready to start using graphmaker to create graphs with natural language commands thanks to the power of AI!</p>
 <p>You will see a simple prompt '&gt; ' at which you can
 enter a <em>task</em> for GraphMaker to adjust the current graph
 or a <em>command</em> that performs a higher-level operation.</p>
@@ -166,7 +177,7 @@ Options:
 
   -a, --apiKey ARG                  Model provider API key                              
 
-  -t, --type NAME                   Model type ('memoryless' or 'serial')               
+  -t, --type NAME                   Model type ('streaming' or 'single')                
 
   --exec ARG                        Determines how tasks are sent to the AI model in t  
                                     he :exec command: 'batch' [fewest requests], 'incr  
@@ -828,7 +839,7 @@ graph is repositioned.</p>
 </li>
 <li>
 <p><strong>nodeShape</strong></p>
-<p>Possible values: <code>circle</code>, <code>square</code>, <code>diamond</code>, <code>triangle</code>, <code>ellipse</code>, <code>rectangle</code>, <code>invisible</code></p>
+<p>Possible values: <code>circle</code>, <code>double-circle</code>, <code>square</code>, <code>diamond</code>, <code>triangle</code>, <code>ellipse</code>, <code>rectangle</code>, <code>invisible</code></p>
 <p>Default value: <code>circle</code></p>
 </li>
 <li>
@@ -896,15 +907,16 @@ const [ _, svgOutput ] = await GraphMaker.updateGraph (state, GraphMaker.save({ 
 </ul>
 <h5 id="returns" tabindex="-1">Returns</h5>
 <p>The initial graph state</p>
-<h4 id=".aifactory(provider%2C-%7Btype%2C-model%7D)" tabindex="-1">.aiFactory(provider, {type, model})</h4>
+<h4 id=".aifactory(provider%2C-%7Btype%2C-model%2C-apikey%7D)" tabindex="-1">.aiFactory(provider, {type, model, apiKey})</h4>
 <p>Creates an AI instance for generating directed and undirected graphs that match a specified JSON schema. The AI instance will be responsible for ensuring that nodes, edges, and properties are set correctly according to the schema.</p>
 <h5 id="arguments-1" tabindex="-1">Arguments</h5>
 <ul>
 <li><code>provider</code>: the AI provider to use (currently only supports 'openai')</li>
 <li><code>options</code>: the options for the AI instance
 <ul>
-<li><code>options.type</code>: the type of AI instance to create (supports 'memoryless' and 'serial')</li>
-<li><code>options.model</code>: the AI model to use (currently only supports 'gpt-3.5-turbo')</li>
+<li><code>options.type</code>: the type of AI instance to create (supports <code>'streaming'</code> or <code>'single'</code>)</li>
+<li><code>options.model</code>: the AI model to use (currently only supports <code>'gpt-3.5-turbo'</code> and <code>'gpt-4'</code>)</li>
+<li><code>options.apiKey</code>: the API key to use for the model provider</li>
 </ul>
 </li>
 </ul>

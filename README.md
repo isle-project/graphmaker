@@ -14,10 +14,10 @@
 
 ## Table of Contents
 
-- [Motivation](#motivation) [CG]
-- [Installation](#installation-1) [PB]
-- [Getting Started](#getting-started) [PB]
-- [Usage](#usage) [CG]
+- [Motivation](#motivation)
+- [Installation](#installation-1)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
     - [Conventions](#conventions)
     - [Labels and Names](#labels-and-names)
     - [Graph Types](#graph-types)
@@ -29,8 +29,8 @@
     - [Fine Tuning](#fine-tuning)
     - [Graph Output](#graph-output)
     - [REPL Capabilities](#repl-capabilities)
-- [Tips](#tips) [PB]
-- [Gallery](#gallery) [PB]
+- [Tips](#tips)
+- [Gallery](#gallery)
 - [Command Details](#command-details) [auto-generated]
 - [Style Details](#style-details) [auto-generated]
 - [The GraphMaker Node Library](#the-graphmaker-node-library)
@@ -110,11 +110,33 @@ npm install -g @isle-labs/graphmaker
 
 ## Getting Started
 
+Before you start the REPL, make sure you have your OpenAI API Key ready. You can obtain one [here](https://platform.openai.com). Then, you may export it as an environment variable:
+
+```bash
+export OPENAI_API_KEY=<your-api-key>
+```
+
+(e.g., in your `.bashrc` or `.zshrc` file). 
+
 Start the REPL from the command line with command
 
 ```text
 graphmaker 
 ```
+
+Alternatively, you may pass your API key as an argument to the REPL command:
+
+```bash
+graphmaker --apiKey <your-api-key>
+```
+
+Last but not least, you can set your API key in the REPL itself:
+
+```text
+:config OpenAI.apiKey <your-api-key>
+```
+
+You are now ready to start using graphmaker to create graphs with natural language commands thanks to the power of AI!
 
 You will see a simple prompt '&gt;&nbsp;' at which you can
 enter a *task* for GraphMaker to adjust the current graph
@@ -1043,7 +1065,7 @@ Initializes a new graph state with the given configuration options.
 The initial graph state
 
 
-#### .aiFactory(provider, {type, model})
+#### .aiFactory(provider, {type, model, apiKey})
 
 Creates an AI instance for generating directed and undirected graphs that match a specified JSON schema. The AI instance will be responsible for ensuring that nodes, edges, and properties are set correctly according to the schema.
 
@@ -1051,8 +1073,9 @@ Creates an AI instance for generating directed and undirected graphs that match 
 
 -   `provider`: the AI provider to use (currently only supports 'openai')
 -   `options`: the options for the AI instance
-    -   `options.type`: the type of AI instance to create (supports 'streaming' or 'single')
-    -   `options.model`: the AI model to use (currently only supports 'gpt-3.5-turbo')
+    -   `options.type`: the type of AI instance to create (supports `'streaming'` or `'single'`)
+    -   `options.model`: the AI model to use (currently only supports `'gpt-3.5-turbo'` and `'gpt-4'`)
+    -   `options.apiKey`: the API key to use for the model provider
 
 ##### Returns
 
