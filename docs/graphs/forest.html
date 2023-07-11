@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forest</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./../css/tailwind.css"></link>
     <link rel="stylesheet" href="./../css/styles.css"></link>
     <script>
         function copyToClipboard(target) {
@@ -37,23 +37,23 @@
     </nav>
     <div class="container mx-auto px-4 py-2 pt-16">
       <div class="flex flex-wrap py-8">
-        <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+        <div class="w-full md:w-1/2 mb-16 pl-2 pr-2 relative max-h-screen">
           <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
             <div>
               <h3 class="text-lg font-semibold mb-2">Forest</h3>
             </div>
             <div class="mb-8">
-              <div id="svg-container" class="aspect-w-16 aspect-h-9"><?xml version="1.0" encoding="UTF-8"?>
+              <div id="svg-container"><?xml version="1.0" encoding="UTF-8"?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"   viewBox="0 0 1024 1024" ><circle cx="256" cy="405.8131121827783" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="269.26063067396814" cy="587.6453412042854" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="393.32640020813255" cy="768" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="411.3580300779407" cy="389.5217350497877" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="436.92355896641595" cy="635.2998978701179" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="445.0966955351165" cy="256" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="479.6659295434605" cy="497.5655870190558" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="610.9326085585421" cy="261.4097304757641" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="612.2818005651409" cy="387.6456255208896" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="619.5307394427114" cy="555.2230007123651" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="648.7839089161064" cy="721.5492960897461" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="768" cy="479.3019750532354" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><circle cx="768" cy="642.5679887016117" r="9.846153846153847" fill="white" stroke-width="1" stroke="black"></circle><line x1="256.71615677312616" y1="415.63318677712005" x2="268.544473900842" y2="577.8252666099437" stroke-width="2" stroke="black"></line><line x1="259.4907616085216" y1="415.0197037863307" x2="389.83563859961095" y2="758.7934083964476" stroke-width="2" stroke="black"></line><line x1="412.37671813650246" y1="399.3150501269959" x2="435.9048709078542" y2="625.5065827929096" stroke-width="2" stroke="black"></line><line x1="413.77017069885596" y1="379.97561944253357" x2="442.68455491420127" y2="265.54611560725414" stroke-width="2" stroke="black"></line><line x1="484.44956537040906" y1="488.9595673910707" x2="606.1489727315936" y2="270.01575010374916" stroke-width="2" stroke="black"></line><line x1="487.2466062864381" y1="491.28226897198795" x2="604.7011238221633" y2="393.92894356795745" stroke-width="2" stroke="black"></line><line x1="488.76893878349165" y1="501.31818189967345" x2="610.4277302026802" y2="551.4704058317474" stroke-width="2" stroke="black"></line><line x1="768" y1="489.1481288993893" x2="768" y2="632.7218348554579" stroke-width="2" stroke="black"></line></svg></div>
-              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+              <div class="mt-4 pl-2 absolute bottom-6 left-4">
+                  <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+              </div>
+              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-4 right-4" onclick="downloadSvg()">
                   Download SVG
               </button>
             </div>
-          </div>
-          <div class="mt-4 pl-2">
-              <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
           </div>
         </div>
         <div class="w-full md:w-1/2 pl-2 pr-2">

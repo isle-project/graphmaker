@@ -17,20 +17,20 @@ function generateGalleryItemPage({ name, svg, json, tasks }) {
     const body = dedent`
       <div class="container mx-auto px-4 py-2 pt-16">
         <div class="flex flex-wrap py-8">
-          <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+          <div class="w-full md:w-1/2 mb-16 pl-2 pr-2 relative max-h-screen">
             <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
               <div>
                 <h3 class="text-lg font-semibold mb-2">${name}</h3>
               </div>
               <div class="mb-8">
-                <div id="svg-container" class="aspect-w-16 aspect-h-9">${modifiedSvg}</div>
-                <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+                <div id="svg-container">${modifiedSvg}</div>
+                <div class="mt-4 pl-2 absolute bottom-6 left-4">
+                    <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+                </div>
+                <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-4 right-4" onclick="downloadSvg()">
                     Download SVG
                 </button>
               </div>
-            </div>
-            <div class="mt-4 pl-2">
-                <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
             </div>
           </div>
           <div class="w-full md:w-1/2 pl-2 pr-2">

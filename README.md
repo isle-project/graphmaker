@@ -35,8 +35,8 @@
     - [REPL Capabilities](#repl-capabilities)
 - [Tips](#tips)
 - [Gallery](#gallery)
-- [Command Details](#command-details) [auto-generated]
-- [Style Details](#style-details) [auto-generated]
+- [Command Details](#command-details)
+- [Style Details](#style-details)
 - [The GraphMaker Node Library](#the-graphmaker-node-library)
     - Installation
     - Usage

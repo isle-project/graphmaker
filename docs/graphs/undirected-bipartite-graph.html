@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undirected Bipartite Graph</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./../css/tailwind.css"></link>
     <link rel="stylesheet" href="./../css/styles.css"></link>
     <script>
         function copyToClipboard(target) {
@@ -37,23 +37,23 @@
     </nav>
     <div class="container mx-auto px-4 py-2 pt-16">
       <div class="flex flex-wrap py-8">
-        <div class="w-full md:w-1/2 mb-8 md:mb-0 pl-2 pr-2 relative">
+        <div class="w-full md:w-1/2 mb-16 pl-2 pr-2 relative max-h-screen">
           <div class="bg-white rounded-lg overflow-hidden shadow-md p-8">
             <div>
               <h3 class="text-lg font-semibold mb-2">Undirected Bipartite Graph</h3>
             </div>
             <div class="mb-8">
-              <div id="svg-container" class="aspect-w-16 aspect-h-9"><?xml version="1.0" encoding="UTF-8"?>
+              <div id="svg-container"><?xml version="1.0" encoding="UTF-8"?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"   viewBox="0 0 1024 1024" ><polygon points="256,292.71561065312613 267.0851251684408,311.9156106531261 244.9148748315592,311.9156106531261" fill="tomato" stroke-width="1" stroke="black"></polygon><polygon points="256.00000000000006,561.6681237762938 267.08512516844087,580.8681237762937 244.91487483155925,580.8681237762937" fill="tomato" stroke-width="1" stroke="black"></polygon><polygon points="256.0000000000001,755.2 267.0851251684409,774.4 244.9148748315593,774.4" fill="tomato" stroke-width="1" stroke="black"></polygon><polygon points="256.0000000000001,649.290450840522 267.0851251684409,668.4904508405219 244.9148748315593,668.4904508405219" fill="tomato" stroke-width="1" stroke="black"></polygon><polygon points="256.0000000000001,490.58341662637855 267.0851251684409,509.78341662637854 244.9148748315593,509.78341662637854" fill="tomato" stroke-width="1" stroke="black"></polygon><circle cx="768" cy="711.5980687604963" r="12.8" fill="green" stroke-width="1" stroke="black"></circle><circle cx="768" cy="368.0739806842188" r="12.8" fill="green" stroke-width="1" stroke="black"></circle><circle cx="768" cy="585.1441790417732" r="12.8" fill="green" stroke-width="1" stroke="black"></circle><circle cx="768" cy="473.5644494595934" r="12.8" fill="green" stroke-width="1" stroke="black"></circle><circle cx="768" cy="256" r="12.8" fill="green" stroke-width="1" stroke="black"></circle><line x1="264.06929709614155" y1="311.91561065312584" x2="757.9713583776165" y2="703.6440542263257" stroke-width="2" stroke="black"></line><line x1="265.2900669900765" y1="306.65071113824104" x2="755.2944889824647" y2="366.5215665051776" stroke-width="2" stroke="black"></line><line x1="264.0164830060727" y1="304.74033516223534" x2="755.2594416548548" y2="257.2321416533626" stroke-width="2" stroke="black"></line><line x1="262.725820394613" y1="571.756854368213" x2="756.1282870403509" y2="372.85962916730836" stroke-width="2" stroke="black"></line><line x1="262.03202234523127" y1="570.7161572941404" x2="757.1310314542142" y2="262.76058597687495" stroke-width="2" stroke="black"></line><line x1="263.94952043616274" y1="767.1242806542431" x2="755.2769656817065" y2="712.9996385002976" stroke-width="2" stroke="black"></line><line x1="261.61131432266563" y1="763.6169714839974" x2="757.9125809293539" y2="375.9533192664328" stroke-width="2" stroke="black"></line><line x1="262.8923172741332" y1="765.5384759111989" x2="755.9456936739023" y2="589.4492573217352" stroke-width="2" stroke="black"></line><line x1="262.1684682865394" y1="764.452702429808" x2="756.9039322694812" y2="479.9454588562124" stroke-width="2" stroke="black"></line><line x1="261.1200000000004" y1="762.8799999999998" x2="758.9490332008122" y2="265.0509667991878" stroke-width="2" stroke="black"></line><line x1="262.1709024145698" y1="658.5468044623758" x2="756.9000080239364" y2="374.44816126930766" stroke-width="2" stroke="black"></line><line x1="263.75623281471957" y1="660.9248000626005" x2="755.3421456691328" y2="587.046473377187" stroke-width="2" stroke="black"></line><line x1="263.2550996803932" y1="501.46606614696805" x2="755.6248588353023" y2="371.34443648636693" stroke-width="2" stroke="black"></line><line x1="265.55002226784234" y1="504.9084500281417" x2="755.3601472115332" y2="583.1257337277041" stroke-width="2" stroke="black"></line></svg></div>
-              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-14 right-4" onclick="downloadSvg()">
+              <div class="mt-4 pl-2 absolute bottom-6 left-4">
+                  <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
+              </div>
+              <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded absolute bottom-4 right-4" onclick="downloadSvg()">
                   Download SVG
               </button>
             </div>
-          </div>
-          <div class="mt-4 pl-2">
-              <a href="/gallery.html" class="text-indigo-600 font-semibold">Back to Gallery</a>
           </div>
         </div>
         <div class="w-full md:w-1/2 pl-2 pr-2">
