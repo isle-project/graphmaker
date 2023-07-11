@@ -38,9 +38,10 @@
 - [Command Details](#command-details)
 - [Style Details](#style-details)
 - [The GraphMaker Node Library](#the-graphmaker-node-library)
-    - Installation
-    - Usage
-    - API
+    - [Installation](#installation-2)
+    - [Usage](#usage-2)
+    - [API](#api)
+    - [TypeScript Definitions](#typescript)
 
 ## Motivation
 
@@ -1141,3 +1142,10 @@ Returns a command to save the graph in a given format.
     -   `config.format`: the format to save the graph in (defaults to 'json'). Possible values are: 'svg', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'webp', 'tiff', 'tikz', and 'json'.
     -   `config.draft`: whether to save the graph as a draft (defaults to false)
 
+### TypeScript Definitions
+
+While the library is written in JavaScript, it includes TypeScript definitions for use in TypeScript projects.
+
+See the auto-generated [TypeScript documentation][ts-docs] for more details.
+
+[ts-docs]: https://graphmaker.isledocs.com/ts/index.html
