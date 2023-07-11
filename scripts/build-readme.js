@@ -34,7 +34,7 @@ function contentsStyles( schemaFileName ) {
         // ATTN: This may need to be generalized if the schema evolves
         if ( param === 'fontFamily' ) {  // Assume for now: A set and generalizing extension
             const standard = defs[param].anyOf[0].enum;
-            out.push(`\n    Possible values: ${standard.join(', ')}, or any font name available on the user's system.`)
+            out.push(`\n    Possible values: ${standard.join(', ')}, or any font name available on the user's system.`);
         } else if ( param === 'fillStyle' ) {  // ATTN: Manually put in what we want to avoid excess generality for now
             out.push('\n    Possible values can be one of:' );
             out.push('\n    - `solid`, which is the default.');

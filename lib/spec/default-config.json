@@ -5,8 +5,8 @@
   "format": "svg",
   "orientation": "auto",
   "autoshow": "auto",
-  "provider": "OpenAI",
-  "OpenAI": {
+  "provider": "openai",
+  "openai": {
     "apiKey": null,
     "model": "gpt-3.5-turbo",
     "type": "streaming",
