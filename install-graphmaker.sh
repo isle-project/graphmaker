@@ -26,6 +26,6 @@ if ! (npm list -g @isle-labs/graphmaker > /dev/null) then
 fi
 
 echo "graphmaker (version $(graphmaker --version)) has been installed."
-echo "You can start graphmaker from your terminal by typing 'graphmaker' at the prompt."
+echo "You can start GraphMaker from your terminal by typing 'graphmaker' at the prompt."
 exit 0
 ## exec graphmaker $*

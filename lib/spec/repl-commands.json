@@ -79,14 +79,14 @@
   },
   {
       "command": ":intro",
-      "description": "Give descriptive introduction to how graphmaker is used",
-      "usage": "give descriptive introduction to how graphmaker is used",
+      "description": "Give descriptive introduction to how GraphMaker is used",
+      "usage": "give descriptive introduction to how GraphMaker is used",
       "args": ""
   },
   {
       "command": ":examples",
-      "description": "Give example prompts that can be run or modified to explore graphmaker",
-      "usage": "give example prompts that can be run or modified to explore graphmaker",
+      "description": "Give example prompts that can be run or modified to explore GraphMaker",
+      "usage": "give example prompts that can be run or modified to explore GraphMaker",
       "args": ""
   },
   {

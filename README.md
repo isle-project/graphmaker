@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔵🔀 graphmaker 🔵
+# 🔵🔀 GraphMaker 🔵
 
 [![NPM](https://img.shields.io/npm/v/@isle-labs/graphmaker.svg)](https://www.npmjs.com/package/@isle-labs/graphmaker) [![Build Status](https://github.com/isle-project/graphmaker/actions/workflows/test.yml/badge.svg)](https://github.com/isle-project/graphmaker/actions/workflows/test.yml) [![License](https://img.shields.io/npm/l/@isle-labs/graphmaker)](https://github.com/isle-project/graphmaker/blob/main/LICENSE)
 
@@ -141,7 +141,7 @@ Last but not least, you can set your API key in the REPL itself:
 :config OpenAI.apiKey <your-api-key>
 ```
 
-You are now ready to start using graphmaker to create graphs with natural language commands thanks to the power of AI!
+You are now ready to start using GraphMaker to create graphs with natural language commands thanks to the power of AI!
 
 You will see a simple prompt '&gt;&nbsp;' at which you can
 enter a *task* for GraphMaker to adjust the current graph
@@ -879,7 +879,7 @@ width and height (as proportion of canvas width and height) for regions
 
   + __:examples__
 
-    Give example prompts that can be run or modified to explore graphmaker
+    Give example prompts that can be run or modified to explore GraphMaker
 
   + __:exec [prefix=''] [suffix=''] &lt;filename&gt;__
 
@@ -903,7 +903,7 @@ width and height (as proportion of canvas width and height) for regions
 
   + __:intro__
 
-    Give descriptive introduction to how graphmaker is used
+    Give descriptive introduction to how GraphMaker is used
 
   + __:load &lt;filename&gt;.json__
 
