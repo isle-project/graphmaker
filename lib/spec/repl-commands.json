@@ -24,6 +24,12 @@
       "args": ""
   },
   {
+    "command": ":reposition",
+    "description": "Reposition the nodes in the graph",
+    "usage": "reposition the nodes in the graph",
+    "args": ""
+  },
+  {
       "command": ":config",
       "description": "Set a configuration option for the graph or print its value",
       "usage": "set a configuration option for the graph or print its value",

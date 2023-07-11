@@ -14,7 +14,11 @@
       "node_modules"
   ],
   "typedocOptions": {
-    "entryPoints": ["./../types/index.d.ts","./../types/graph.d.ts"],
+    "entryPoints": [
+      "./../types/index.d.ts",
+      "./../types/graph.d.ts",
+      "./../types/ai-models.d.ts"
+    ],
     "out": "./../docs/ts"
   },
 }

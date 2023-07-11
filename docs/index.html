@@ -19,7 +19,8 @@
     <div id="readme" class="mx-auto max-w-3xl leading-7">
         <div align="center">
 <h1 id="%F0%9F%94%B5%F0%9F%94%80-graphmaker-%F0%9F%94%B5" tabindex="-1">🔵🔀 GraphMaker 🔵</h1>
-<p><a href="https://www.npmjs.com/package/@isle-labs/graphmaker"><img src="https://img.shields.io/npm/v/@isle-labs/graphmaker.svg" alt="NPM"></a> <a href="https://github.com/isle-project/graphmaker/actions/workflows/test.yml"><img src="https://github.com/isle-project/graphmaker/actions/workflows/test.yml/badge.svg" alt="Build Status"></a> <a href="https://github.com/isle-project/graphmaker/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@isle-labs/graphmaker" alt="License"></a></p>
+<p><a href="https://www.npmjs.com/package/@isle-labs/graphmaker"><img src="https://img.shields.io/npm/v/@isle-labs/graphmaker.svg" alt="NPM"></a> <a href="https://github.com/isle-project/graphmaker/actions/workflows/test.yml"><img src="https://github.com/isle-project/graphmaker/actions/workflows/test.yml/badge.svg" alt="Build Status"></a> <a href="https://github.com/isle-project/graphmaker/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@isle-labs/graphmaker" alt="License"></a>
+<a href="https://github.com/isle-project/graphmaker"><img src="https://img.shields.io/badge/stability-beta-orange.svg" alt="stability-beta"></a></p>
 </div>
 <blockquote>
 <p>GraphMaker is a tool for creating, manipulating, and exporting graphs using natural language.</p>
@@ -39,12 +40,11 @@
 <li><a href="#conventions">Conventions</a></li>
 <li><a href="#labels-and-names">Labels and Names</a></li>
 <li><a href="#graph-types">Graph Types</a></li>
-<li><a href="#constraints">Constraints</a></li>
 <li><a href="#node-properties">Node Properties</a></li>
 <li><a href="#edge-properties">Edge Properties</a></li>
 <li><a href="#decorations">Decorations</a></li>
 <li><a href="#styling">Styling</a></li>
-<li><a href="#fine-tuning">Fine Tuning</a></li>
+<li><a href="#constraints">Constraints</a></li>
 <li><a href="#graph-output">Graph Output</a></li>
 <li><a href="#repl-capabilities">REPL Capabilities</a></li>
 </ul>
@@ -696,21 +696,185 @@ graph is repositioned.</p>
 </li>
 <li>
 <p>Regions</p>
+<p>Region decorations depict rectangular areas on the canvas and are typically used
+to demarcate or otherwise highlight particular parts of the graph. For example,
+in graphical models <em>plates</em> are rectangles around one or more nodes indicating
+a repeated substructure.</p>
+<p>As with nodes and edges, each region is given a name so the user can refer to it
+when giving tasks. The name does not appear in the output. If no name is specified,
+it will set automatically (typically to <code>region1</code>, <code>region2</code>, ...). You can see
+the details on all defined regions with the <code>:show decorations</code> command at the
+repl prompt.</p>
+<p>Adding a region decoration requires specifying a width and hight and an x, y position.
+As with text, the coordinates can each be specified in two ways:</p>
+<ol>
+<li>
+<p>Alignment Constraints</p>
+<p>A region decoration can be set to <em>align with</em> or to <em>contain</em> specified nodes.
+For example:</p>
+<pre><code>add a region decoration &quot;plate&quot; that contains nodes A and B
+add a region decoration &quot;blurb&quot;
+align the x-coordinates of blurb's northwest corner and node C
+align blurb's northwest corner three node sizes below node C
+give blurb a width and height of 0.25
+</code></pre>
+</li>
+<li>
+<p>Absolute Coordinates
+We can specify a regions x and y coordinates with (0,0) being the lower
+left corner of the canvas and (1, 1) being the upper right corner.</p>
+</li>
+</ol>
+<p>In addition to the coordinates, we can specify the region's width and height
+on a scale from 0 to 1 (canvas width or height, respectively). A constraint
+that a region contains one or more nodes will override this width; more specifically,
+the region will be as close as possible to the stated width and height consistent
+with any containment constraints.</p>
+<p>Finally, you can specify styling parameters for regions, including defined styles
+fillColor, fillStyle, lineColor, lineWidth, and lineStyle.</p>
 </li>
 <li>
 <p>Arrows</p>
+<p>Arrow decorations add arrows to the picture that are not edges in the graph.
+By default, the arrows are styled to look different than edges, and those
+styles can be configured. To specify an arrow decoration, you need to give</p>
+<ol>
+<li>Positions of the start and end. As with texts and regions, these positions
+can be specified absolutely or through alignment constraints (or a mixture).</li>
+<li>Arrowhead styles for the start and end. By default, an arrow decoration has an
+arrowhead on the end and none on the start, but this can be modified to any
+of the four possibilities. Arrow styles are listed in the styling details.
+(ATTN: For the moment, only one arrowhead style is supported.)</li>
+<li>Optional styling parameters, including defined styles, lineWidth, lineColor,
+and lineStyle.</li>
+</ol>
 </li>
 </ul>
-<p>ATTN:</p>
-<p>two types: text and region (rectangles)</p>
-<p>x,y - coordinates of the center of the decoration (left boundary of canvas is zero, right boundary is one)</p>
-<p>width and height (as proportion of canvas width and height) for regions</p>
 <h3 id="styling" tabindex="-1">Styling</h3>
-<h3 id="fine-tuning" tabindex="-1">Fine Tuning</h3>
+<p>Graphmaker supports a variety of styling parameters for nodes, edges, and decorations.
+See <a href="#style-details">Style Details</a> for details on these parameters.</p>
+<p>In addition, you can define <em>named styles</em>, which are tags that have associated settings
+of one or more styling parameters. You can then apply zero or more named styles to any
+entity, effectively setting its styling parameters. The advantage of named styles is that
+they help apply a consistent look to multiple entities at once and can easily be changed
+as desired. If more than one named style defines the same styling parameter, the style
+first specified in the style list takes precedence.</p>
+<p>Individual style parameters set on an entity take precedence over any settings in a named
+style applied to that entity. In this way, you can make large scale styling decisions and
+adjust or specialize the styling for particular needs.</p>
+<p>Graphmaker attempts to make the settings of style parameters as consistent as possible
+across output formats, but there may be slight variations across formats.</p>
+<h3 id="constraints" tabindex="-1">Constraints</h3>
+<p>Graphmaker's philosophy is to make it easy to incrementally build up a graph and save
+it in multiple formats, with an option of continuing later to modify or adjust it.
+It tries to do what you mean with a minimum of specification, but this may require
+some fine tuning to get exactly the shape you want. The use of AI model, while powerful
+and flexible, adds some inevitable variation to the result that may also require
+adjustment.</p>
+<p>An effective practice is to add your nodes and edges as desired and then add constraints
+on the nodes (and decorations). Node constraints can specify linear relationships among
+node positions (relative to specified anchors). The AI model can translate natural language
+for constraints into reasonably accurate forms, making the constraints relatively easy to
+specify. For example,</p>
+<pre><code>Add constraints that puts node C at the average position of all other nodes
+</code></pre>
+<p>will generate two constraints, one on the x-coordinate of node C and one on its y-coordinate.
+Similar constraints, like <code>Add a constraint that C is at the midpoint of A and B</code> or
+<code>Add a constraint that C is above B</code>, or <code>Add a constraint that A and B are at the same horizontal coordinate</code>
+express the relationships in simple and intuitive terms.</p>
+<p>Note that we often start constraint tasks with <code>Add constraints that</code> or <code>Add a constraint that</code>.
+While not strictly necessary, this helps the model interpret the task correctly.</p>
+<p>By default, constraints on the node position will use the node's center point as the relevant
+anchor. However, you can specify instead a point on the boundary of the node's bounding box
+by giving a cardinal direction (north, north east, east, south east, south, south west, west, north west):</p>
+<pre><code>add a constraint that the x coordinate of C at the north west equals that of B at the south east
+</code></pre>
+<p>will horizontally align the upper left of C with the lower right of B. You can also use &quot;center&quot; as an explicit
+anchor if you need to specify precisely or change from a different value.</p>
+<p>Constraints can be specified as equalities or inequalities. For instance, a constraint that <code>A is below B</code>
+indicates that A's y-coordinate is less than or equal to B's y-coordinate.  Inequality constraints can go
+in either direction (greater or less).</p>
+<p>When working with constraints at the repl, the <code>:reposition</code> command can be useful. Graphmaker solves for
+a good arrangement of your nodes and edges, adjusting incrementally as new structure is added to the graph.
+So that the graph remains stable as you proceed, Graphmaker uses the previous positions as starting points
+for repositioning nodes after adjustment. Sometimes, however, you have made sufficient changes that you
+do not want to be bound by the earlier positions. The <code>:reposition</code> command clears saved positions and
+gives a fresh solution. Adding constraints can sometimes be more effective after this command.</p>
+<p>In addition to node position constraints, you can also put some mild constraints on decorations. These
+are applied <em>after</em> the nodes are positioned, not concurrently. You can specify that a decoration be
+aligned with a node (relative to anchors for each) or that a region decoration should contain one or
+more particular nodes.</p>
+<p>Finally, if you specify parent-child relationships between nodes (which imply an edge), then Graphmaker
+will use that information to adjust the graph layout accordingly. For instance, parent relations are used
+to detect if the graph is a tree, or forest of trees, or directed acyclic graph, yielding a more approriate
+layout.</p>
 <h3 id="graph-output" tabindex="-1">Graph Output</h3>
+<p>Graphmaker supports multiple output formats: SVG, LaTeX/TeX, PDF, PNG, JPG, GIF, TIFF, WEBP,
+and JSON. The LaTeX/TikZ format produces a complete LaTeX file that can be processed to
+show the picture. The picture is in an isolated <code>tikzpicture</code> environment and can thus
+be extracted into any other LaTeX file. (Note that a few package/library inclusions are
+required as indicated in the output file.) The JSON format is a data-representation of the
+graph that Graphmaker stores to record the state of the current graph. The saved JSON
+output can be loaded into Graphmaker to continue or modify the existing graph.</p>
+<p>At the repl, the default format can be determined and changed using the <code>:config</code> command
+(with key <code>format</code>). The default default format is SVG. These files can be opened and viewed
+in any modern browser.</p>
+<p>The <code>:save</code> command is used to save the current picture to a file in a specified format.
+This can be run any number of times with different formats. The <code>:show</code> command shows
+you the current graph in a way based on the format given.  (For example, :showing an
+SVG file will cause the picture to be displayed in a browswer automatically.) Both
+JSON and TeX/LaTeX/TikZ formats are text-based and will be displayed to the terminal
+on a <code>:show</code> command. Note that the <code>:show</code> command might display slightly less information
+than is saved to make the output more readable. See the next subsection for further details.</p>
 <h3 id="repl-capabilities" tabindex="-1">REPL Capabilities</h3>
+<p>The Graphmaker repl provides an environment for interactively building your graph and
+saving pictures in various formats. The repl has a built-in help system, a complete command history,
+command and file completion (with TAB), and a variety of commands to improve the experience.</p>
+<h4 id="help" tabindex="-1">Help</h4>
+<p>There are several ways to get help from within the repl: the <code>:help</code>, <code>:examples</code>, <code>:intro</code>, and <code>:tips</code> commands.
+The <code>:intro</code> and <code>:tips</code> commands provide some tutorial documentation. The <code>:examples</code> command let's you interactively
+view the tasks and output from a gallery of examples.</p>
+<p>The <code>:help</code> command answers free-form questions about the system, parameters, and commands.  For example:</p>
+<pre><code>&gt; :help how does the :help command work
+The `:help` command is used to get information about the available commands, parameters, and functionalities. When the `:help` command is used, the system will provide a response containing a description of the command or parameter and how it can be used. This helps users understand how to interact with the system and make use of its features effectively. The response will be in the form of a text description and may also include examples or additional details to provide further clarification.
+</code></pre>
+<p>A bit chatty, but often useful. This is especially useful for finding details about the styling parameters,
+which can be hard to remember.</p>
+<pre><code>&gt; :help what are valid values for the line width
+Valid values for the line width can be one of the following: &quot;very-thin&quot;, &quot;thin&quot;, &quot;medium&quot;, &quot;thick&quot;, or &quot;very-thick&quot;.
+</code></pre>
+<p>If given without any text, <code>:help</code> will give a summary of available commands. If given a single word, it will
+use that as a topic to look up relevant documentation on that word.</p>
+<h4 id="history" tabindex="-1">History</h4>
+<p>You can scroll through your command/task history from the repl, extending across the current session
+and earlier sessions. Use Up-arrow or Control-p to move to earlier commands; and Down arrow or Control-n
+to move to later commands. You can edit the visible command and hit enter to submit your edited text.</p>
+<p>The history is stored in the file <code>.graphmaker_history</code> in the user's home directory.
+The <code>:history</code> command will display the history; if given an integer argument <code>n</code>, it will
+show the most recent <code>n</code> history items.</p>
+<p>The <code>:transcript</code> command will save all the commands and tasks from the <em>current session</em> to a specified file.</p>
+<h4 id="tab-completion" tabindex="-1">Tab Completion</h4>
+<p>When you hit TAB, the repl will attempt to complete the current command name, file name, or other command argument.
+Hit TAB once to complete as far as possible. If there is ambiguity, only a partial command will be shown; then
+hit TAB again to see a list of possible matches.</p>
+<h4 id="notable-configuration-settings" tabindex="-1">Notable Configuration Settings</h4>
+<p>The <code>:config</code> command let's you examine and set a variety of pre-specified configuration parameters that
+determine how Graphmaker works. See the help for <code>:config</code> for all the details. Here, we highlight a few
+that are use and possible to overlook.</p>
+<p>The <code>autoshow</code> configuration parameter can be used to display the
+ATTN</p>
+<h4 id="convenience-commands" tabindex="-1">Convenience Commands</h4>
+<p>The <code>:show</code> command has several related uses. When given a graph format (or no arguments in which case the default format is used),
+this command displays the current graph -- in draft mode -- to the user. The medium of display depends on the format.
+For example, SVG format is displayed in a new tab in your default browser; PDF format opens a pdf viewer; image formats
+like PNG or GIF open an image viewer with the picture, and latex and json formats are displayed to the terminal as text.</p>
+<p>In addition, you can use the <code>:show</code> command to display various summaries of the graph</p>
+<p>The <code>:exec</code> and <code>:exec-batch</code> commands will load and run a file containing commands or tasks. The former
+executes each command/task one at a time; the latter executes them all at once. Both commands accept some
+prefix and suffix text which is wrapped around the contents of the file.</p>
 <h2 id="tips" tabindex="-1">Tips</h2>
 <h2 id="gallery" tabindex="-1">Gallery</h2>
+<p>View the <a href="https://graphmaker.isledocs.com/gallery.html">gallery</a> for a collection of graphs that were created with GraphMaker. For each graph, you will find its SVG, the underlying JSON representation, and the natural language commands used to generate the graph. The gallery is a great place to learn about the various types of graphs that can be created with GraphMaker and to get inspiration for your own graphs.</p>
 <h2 id="command-details" tabindex="-1">Command Details</h2>
 <ul>
 <li>
@@ -756,6 +920,10 @@ graph is repositioned.</p>
 <li>
 <p><strong>:redo</strong></p>
 <p>Redo the last command</p>
+</li>
+<li>
+<p><strong>:reposition</strong></p>
+<p>Reposition the nodes in the graph</p>
 </li>
 <li>
 <p><strong>:reset</strong></p>
