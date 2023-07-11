@@ -4,12 +4,9 @@
     },
     "env": {
         "es6": true,
-        "node": true,
-        "jest/globals": true
+        "node": true
     },
-    "plugins": [
-        "jest"
-    ],
+    "plugins": [],
     "rules": {
         "accessor-pairs": [ 2, { "setWithoutGet": true, "getWithoutSet": false } ],
         "array-backet-newline": [ "off", { "multiline": true, "minItems": null } ],
