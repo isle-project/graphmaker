@@ -1,7 +1,6 @@
 const { readFileSync, writeFileSync } = require('fs');
 const { join } = require('path');
 const MarkdownIt = require('markdown-it');
-const { version } = require('./../package.json');
 
 const md = new MarkdownIt({
     html: true,
