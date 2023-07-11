@@ -38,10 +38,10 @@
 - [Command Details](#command-details)
 - [Style Details](#style-details)
 - [The GraphMaker Node Library](#the-graphmaker-node-library)
-    - [Installation](#installation-2)
-    - [Usage](#usage-2)
+    - [Installation](#installation-1)
+    - [Usage](#usage-1)
     - [API](#api)
-    - [TypeScript Definitions](#typescript)
+    - [TypeScript Definitions](#typescript-definitions)
 
 ## Motivation
 
