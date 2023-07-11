@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+      "module": "commonjs",
+      "target": "es5",
+      "outDir": "./../dist",
+      "strict": true,
+      "declaration": true,
+      "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+      "./../types/**/*.ts"
+  ],
+  "exclude": [
+      "node_modules"
+  ],
+  "typedocOptions": {
+    "entryPoints": ["./../types/index.d.ts","./../types/graph.d.ts"],
+    "out": "./../docs/ts"
+  },
+}

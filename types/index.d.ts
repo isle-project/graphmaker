@@ -106,6 +106,12 @@ export function convert( config: Config ): ActionPayload<'CONVERT', Config>
  */
 export type ModelType = 'streaming' | 'single'
 
+export type aiFactoryOptions = {
+    type: ModelType,
+    model: string,
+    apiKey: string
+}
+
 /**
  * Creates a function that can be used to generate LLM completions.
  *
@@ -116,4 +122,4 @@ export type ModelType = 'streaming' | 'single'
  * @param options.apiKey - API key to use for the model provider
  * @returns function that can be used to generate LLM completions
  */
-export function aiFactory( provider: string, {type: ModelType, model: string, apiKey: string} ) : (userPrompt: string, currentState: GraphState) => string
+export function aiFactory( provider: string, {type, model, apiKey}: aiFactoryOptions ) : (userPrompt: string, currentState: GraphState) => string

@@ -10,6 +10,7 @@
     "test": "jest",
     "compile-constraints": "nearleyc lib/constraint-grammar.ne -o lib/constraint-grammar.js",
     "build-css": "npx tailwindcss -i ./docs/css/styles.css -o ./docs/css/tailwind.css --minify",
+    "build-ts-docs": "npx typedoc --tsconfig .config/tsconfig.json --readme none",
     "build-docs": "node scripts/build-readme.js && node scripts/build-gallery.js && node scripts/build-index-html.js && npm run build-css",
     "postinstall": "npm run compile-constraints",
     "lint": "eslint lib/*.js test/*.js",
@@ -72,7 +73,8 @@
     "json-schema-to-typescript": "^13.0.2",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.7",
-    "tailwindcss": "^3.3.2"
+    "tailwindcss": "^3.3.2",
+    "typedoc": "^0.24.8"
   },
   "jest": {
     "testEnvironment": "node",
