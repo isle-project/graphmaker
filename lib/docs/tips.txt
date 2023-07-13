@@ -1,0 +1,25 @@
++ Sometimes, the model will get confused by your request. If the task fails
+  for some reason, try to rephrase it, being as specific as you can. Often
+  in this case, it is sufficient to simply repeat the task.
+
++ When possible, keep each task focused on a particular change. The model
+  can get confused about referents (and who wouldn't?) in long sentences
+  changing many different aspects of the graph.
+
++ When you want to change a particular feature, it can be helpful to name it.
+  For example, to add a constraint, though it is not always necessary to say
+  the word 'constraint', it is often helpful. So start with 'add a constraint
+  that...' or 'add constraints so...'. The node names are usually sufficient
+  without saying 'node A', but when in doubt adding 'edge', 'node',
+  'decoration', and so forth will be more robust.
+
++ Rarely, the model will forget some part of the graph you had set earlier.
+  If it looks like something is missing, you can use the `:transcript`
+  command at that point to save a record of your session and then `:undo` to
+  move back to the most recent good state.
+
++ The `autoshow` configuration parameter is useful for letting you inspect the
+  changes to your graph and catching if the model does something unexpected. By
+  default, `autoshow` will print a (hopefully) relevant summary that connects to
+  your most recent task. Another useful setting is your preferred output format,
+  letting you see the graph at each step.

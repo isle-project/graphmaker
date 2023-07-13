@@ -3,8 +3,12 @@ const path = require('path');
 const readline = require('readline');
 const { execSync } = require('child_process');
 
+function contentsInclude( contentFile ) {
+    return fs.readFileSync( contentFile, 'UTF-8' );
+}
+
 function contentsCommands( commandFile ) {
-    const commands = JSON.parse( fs.readFileSync( commandFile ) );
+    const commands = JSON.parse( fs.readFileSync( commandFile, 'UTF-8' ) );
     commands.sort( (a, b) => a.command.localeCompare( b.command ) );
     const out = [];
     for ( const cmd of commands ) {
@@ -19,7 +23,7 @@ function contentsCommands( commandFile ) {
 }
 
 function contentsStyles( schemaFileName ) {
-    const schema = JSON.parse( fs.readFileSync( schemaFileName ) );
+    const schema = JSON.parse( fs.readFileSync( schemaFileName, 'UTF-8' ) );
     const defs = schema['$defs'];
     const styleParams = Object.keys(defs).sort();
 
@@ -88,7 +92,8 @@ function outputHelp( command ) {
 const directiveDispatch = {
     'CONTENTS': {
         'commands': contentsCommands,
-        'styles': contentsStyles
+        'styles': contentsStyles,
+        'include': contentsInclude
     },
     'OUTPUT': {
         'usage-help': outputHelp

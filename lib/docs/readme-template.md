@@ -81,16 +81,23 @@ As you wish.
 > add constraints that nodes A and B are at the same x coordinate
 I've got this.
 
-> add constraints that C, D, and E are at the same x coordinate and that A is to the left of C
+> add a constraint that C, D, and E are at the same x coordinate 
+As you wish.
+
+> add a constraint that A is to the left of C
 Stick a fork in me, I'm done.
 
 > make nodes A and B triangles with a fill color of steelblue
 As you wish.
+
+> set every node's label to its name
+Ready for more.
 ```
 
 This produces the following graph
 
-<img style="width: 50%;" /> ATTN:IMAGE
+<img style="width: 50%;" src="https://raw.githubusercontent.com/isle-project/graphmaker/main/docs/assets/readme-image-1.png" alt="Example Graph" />
+
 
 
 ## Installation
@@ -1056,6 +1063,8 @@ The `:reposition` command forgets saved positions of the nodes, which can be use
 
 
 ## Tips
+
+@PROCESS-CONTENTS(include, ./lib/docs/tips.txt)
 
 ## Gallery
 

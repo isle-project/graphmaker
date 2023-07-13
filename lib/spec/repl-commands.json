@@ -90,6 +90,12 @@
       "args": ""
   },
   {
+    "command": ":tips",
+    "description": "Print tips on how to phrase your tasks",
+    "usage": "print tips on how to phrase your tasks",
+    "args": ""
+  },
+  {
       "command": ":examples",
       "description": "Give example prompts that can be run or modified to explore GraphMaker",
       "usage": "give example prompts that can be run or modified to explore GraphMaker",
