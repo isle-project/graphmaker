@@ -119,6 +119,6 @@ async function readByLine( fileName, outputFileName ) {
     writeStream.end();
 }
 
-const inputFile = path.join(__dirname, '..', 'lib', 'spec', 'readme_template.md');
+const inputFile = path.join(__dirname, '..', 'lib', 'docs', 'readme-template.md');
 const outputFile = path.join(__dirname, '..', 'README.md');
 readByLine( inputFile, outputFile );

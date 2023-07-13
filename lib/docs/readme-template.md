@@ -90,7 +90,7 @@ As you wish.
 
 This produces the following graph
 
-<img style="width: 50%;" /> ATTN
+<img style="width: 50%;" /> ATTN:IMAGE
 
 
 ## Installation
@@ -999,6 +999,10 @@ The `:history` command will display the history; if given an integer argument `n
 show the most recent `n` history items.
 
 The `:transcript` command will save all the commands and tasks from the *current session* to a specified file.
+You can edit it or `:exec` it to reproduce your session.
+
+The `:undo` and `:redo` move through your history, changing the current graph to past and future states.
+If after undo-ing you make changes, then the future history is eliminated.
 
 #### Tab Completion
 
@@ -1012,8 +1016,26 @@ The `:config` command let's you examine and set a variety of pre-specified confi
 determine how Graphmaker works. See the help for `:config` for all the details. Here, we highlight a few
 that are use and possible to overlook.
 
-The `autoshow` configuration parameter can be used to display the 
-ATTN
+The `autoshow` configuration parameter can be used to display the current graph after each task.
+By default, the `autoshow` parameter is set to deduce what summary to display from the most recent task.
+It can be set to show particular aspect of the graph (graph, nodes, edges, decorations, constraints, data)
+that will produce a text summary of that aspect. Or it can be set to an output format (svg, png, jpg, jpeg, pdf,
+json, tex, latex) in which case a picture of the graph will be produced as by the `:show`` command.
+
+The `format` configuration parameter determines the default output format if not supplied to `:show`.
+
+The `orientation` configuration parameter determines the default display orientation for graphs (especially trees, forests, and
+DAGS). It can be set to `left`, `right`, `top`, `bottom`, or `auto`, with the latter attempting to deduce the best orientation
+from the graph structure (e.g., `top` for trees with root on top; `left` for DAGS with initial node on left).
+
+You can also set the `width` and `height` of the display canvas
+
+Finally, the AI model `provider` configuration is a name that references a configuration parameter with special structure
+that is associated with the currently active AI model. For example, if there is an `openai` configuration parameter, it will
+be a structure recording the api key, the specific model, and various provider-specific parameters. When `provider`
+is set to `openai`, those parameters will be in effect. You can change the provider and you can change the parameters
+for a specific provider independently. For example, to change your api key for openai, you would use the command `:config openai.apiKey NEW-KEY-HERE`.
+You can do this for any provider even if it is not active. Use `:config provider NEW-PROVIDER` to change the currently active provider.
 
 #### Convenience Commands
 
@@ -1021,12 +1043,17 @@ The `:show` command has several related uses. When given a graph format (or no a
 this command displays the current graph -- in draft mode -- to the user. The medium of display depends on the format.
 For example, SVG format is displayed in a new tab in your default browser; PDF format opens a pdf viewer; image formats
 like PNG or GIF open an image viewer with the picture, and latex and json formats are displayed to the terminal as text.
-
-In addition, you can use the `:show` command to display various summaries of the graph
+In addition, you can use the `:show` command to display various summaries of the graph in textual form at the repl.
 
 The `:exec` and `:exec-batch` commands will load and run a file containing commands or tasks. The former
 executes each command/task one at a time; the latter executes them all at once. Both commands accept some
 prefix and suffix text which is wrapped around the contents of the file.
+You can for instance `:exec` the file saved by the `:transcript` command.
+
+The `:load` command lets you read a saved graph from its `.json` file. This overwrites the current graph and resets
+the chat history (though not the command history). The `:reset` command does the same reset, starting with a fresh graph.
+The `:reposition` command forgets saved positions of the nodes, which can be useful for improving layout after many small changes.
+
 
 ## Tips
 
@@ -1044,7 +1071,15 @@ View the [gallery](https://graphmaker.isledocs.com/gallery.html) for a collectio
 
 ## The GraphMaker Node Library
 
-ATTN: Fill in reasoning and general idea behind this library
+While the GraphMaker repl is a convenient medium for interactive graph building, it can be useful to
+build GraphMaker functionality into other apps or pages. For this purpose, GraphMaker can also be
+used as a Javascript or Typescript library. 
+
+Once you initialize your graph and your ai model, you issue a series of asynchronous *updates*
+that return a new graph state and maybe output as well, depending on the specific update
+provided. Updates include running a task, resetting the graph, and much more. It is relatively
+straightforward to provide functionality like the repl in another context this way.
+(Indeed, the repl is build just like this.)
 
 ### Installation
 

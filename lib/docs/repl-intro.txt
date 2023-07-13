@@ -1,0 +1,32 @@
+
+Welcome to GraphMaker, an application that simplifies graph creation. GraphMaker
+takes your natural-language instructions and translates them into a graphical
+representation, supporting a variety of graph types and styles.
+
+GraphMaker is designed to free the user from fiddling with the specific
+positions of nodes or edges; it uses automatic positioning coupled with
+user-specified constraints to achieve a Do-What-I-Mean experience.
+
+A quick session:
+> make the graph directed
+> add nodes A-E
+> add edges from node A to C and E
+> add edges from node B to D and E
+
+Make sure you have your OpenAI API Key ready. You can obtain one at
+https://platform.openai.com and set it in the REPL as  follows:
+
+:config OpenAI.apiKey <your-api-key>
+
+You will see a simple prompt '>' at which you can
+enter a *task* for GraphMaker to adjust the current graph
+or a *command* that performs a higher-level operation.
+
+Your tasks modify the current graph state maintained by GraphMaker. Use natural
+language descriptions like "add three nodes", "make the graph directed", etc.
+Refer to entities by names, which are different from assigned labels.
+
+Commands start with ':', the basic ones are :help, :intro, :tips, :examples,
+:exit, :show, :save, :load, :reset, :undo, and :redo.
+
+To see the full list of commands, you can use the :help command.
