@@ -1145,23 +1145,23 @@ View the [gallery](https://graphmaker.isledocs.com/gallery.html) for a collectio
 
   + __:examples__
 
-    Give example prompts that can be run or modified to explore GraphMaker
+    Start an interactive exploration of example prompts and graphs. These can be run or modified in the repl itself.
 
   + __:exec [prefix=''] [suffix=''] &lt;filename&gt;__
 
-    Load a file containing commands // TODO: document this
+    Load a file containing commands and tasks, executing the tasks one at a time. The optional `prefix` and `suffix` arguments are, respectively, prepended and appended to the file contents.
 
   + __:exec-batch [prefix=''] [suffix=''] &lt;filename&gt;__
 
-    Load a file containing commands reading all lines at once
+    Load a file containing commands and tasks, executing all the tasks in one request to the AI model. The optional `prefix` and `suffix` arguments are, respectively, prepended and appended to the file contents.
 
   + __:exit__
 
-    Exit the program
+    Exit the repl
 
   + __:help__
 
-    Show this help message
+    With no arguments, show a summary of available commands. With a one word argument, provide help as relevant to that topic as possible. With a many word argument, treat the argument as a request for help and let the model answer. For example, 'What is a valid fill style?' or 'What node shapes are available?'.
 
   + __:history [&lt;n&gt;]__
 
@@ -1173,11 +1173,11 @@ View the [gallery](https://graphmaker.isledocs.com/gallery.html) for a collectio
 
   + __:load &lt;filename&gt;.json__
 
-    Load a saved graph as the current state
+    Load a saved graph as the current state. This resets the chat history so the model 'starts fresh'.
 
   + __:multiline__
 
-    Engage multi-line mode for the next task. Use Ctrl-D to finish and Ctrl-C to cancel
+    Engage multi-line mode for the next task. Use Ctrl-D to finish the multi-line command, or Ctrl-C to cancel.
 
   + __:redo__
 
@@ -1197,7 +1197,7 @@ View the [gallery](https://graphmaker.isledocs.com/gallery.html) for a collectio
 
   + __:show [&lt;format&gt;]__
 
-    Show the graph in a given format
+    Show the graph in a given output format (e.g., svg or png in a browser or image viewer) or a summary of the graph in text at the repl. With no arguments, use the default format in the `:config`. Valid formats include svg, tex (LaTex via tikZ), gif, tiff, webp, pdf, png, jp(e)g, json; with json, tex, and latex showing as text at the repl. Valid summaries include graph, nodes, edges, decorations, constraints, and data, focusing on the graph as a whole or particular features, respectively. The `data` summary lists any key-value pairs that have been associated with nodes or edges. See also the `autoshow` configuration parameter.
 
   + __:tips__
 
@@ -1205,7 +1205,7 @@ View the [gallery](https://graphmaker.isledocs.com/gallery.html) for a collectio
 
   + __:transcript &lt;filename&gt;__
 
-    Save the transcript to a file
+    Save a record of the current session to a file. This file can be exec'd.
 
   + __:undo__
 
@@ -1242,15 +1242,15 @@ View the [gallery](https://graphmaker.isledocs.com/gallery.html) for a collectio
 
     Default value: `12`
 
-  + __fontStyle__ 
+  + __fontStyle__ The font style property controls whether the text is rendered in a `normal`, `italic` or `oblique` style. Oblique text is a less common style, where the text is slightly skewed in the horizontal direction, without altering the shape of the characters. Italic text is a style of text based on calligraphy and handwriting, where letters are usually slanted and sometimes even joined.
 
     Possible values: `normal`, `italic`, `oblique`
 
-  + __fontVariant__ 
+  + __fontVariant__ The font variant property controls whether the text is rendered in `normal`, `titling-caps` or `small-caps`characters. Small caps are designed to look similar to the uppercase characters, but in a smaller size and with slightly different proportions. Titling-caps are designed to look similar to the uppercase characters, but in a larger size.
 
     Possible values: `normal`, `small-caps`, `titling-caps`
 
-  + __fontWeight__ 
+  + __fontWeight__ The font weight property controls the boldness of the font. The font weights available to you will depend on the font-family you are using. When specified via numeric values, the 100-900 range is effectively mapped to the 9-point relative scale where 400 is normal (sometimes referred to as 'book') and 700 is bold (sometimes referred to as 'bold').
 
     Possible values: `normal`, `bold`, `bolder`, `lighter`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`
 

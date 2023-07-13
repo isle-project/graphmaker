@@ -96,7 +96,10 @@
         "normal",
         "italic",
         "oblique"
-      ]
+      ],
+      "description": {
+        "human": "The font style property controls whether the text is rendered in a `normal`, `italic` or `oblique` style. Oblique text is a less common style, where the text is slightly skewed in the horizontal direction, without altering the shape of the characters. Italic text is a style of text based on calligraphy and handwriting, where letters are usually slanted and sometimes even joined."
+      }
     },
     "fontWeight": {
       "enum": [
@@ -113,14 +116,20 @@
         "700",
         "800",
         "900"
-      ]
+      ],
+      "description": {
+        "human": "The font weight property controls the boldness of the font. The font weights available to you will depend on the font-family you are using. When specified via numeric values, the 100-900 range is effectively mapped to the 9-point relative scale where 400 is normal (sometimes referred to as 'book') and 700 is bold (sometimes referred to as 'bold')."
+      }
     },
     "fontVariant": {
       "enum": [
         "normal",
         "small-caps",
         "titling-caps"
-      ]
+      ],
+      "description": {
+        "human": "The font variant property controls whether the text is rendered in `normal`, `titling-caps` or `small-caps`characters. Small caps are designed to look similar to the uppercase characters, but in a smaller size and with slightly different proportions. Titling-caps are designed to look similar to the uppercase characters, but in a larger size."
+      }
     },
     "fontColor": {
       "type": "string",
