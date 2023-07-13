@@ -1,5 +1,5 @@
 import type { Graph } from './graph.d.ts';
-import type { HistoryElement, TokenInfo } from './index.d.ts';
+import type { Config, HistoryElement, TokenInfo } from './index.d.ts';
 
 /**
  * LLM model types.
@@ -108,7 +108,7 @@ export abstract class AIClient {
      *                 index to start from in the history, and configuration options for the query
      * @returns promise that resolves with the difference between the current graph and the new graph
      */
-    public query(userPrompt: string, params: { graph: Graph, history: HistoryElement[], historyIndex: number, config: any }): Promise<string>;
+    public query(userPrompt: string, params: { graph: Graph, history: HistoryElement[], historyIndex: number, config: Config }): Promise<string>;
 }
 
 /**

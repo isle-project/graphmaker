@@ -13,7 +13,67 @@ export interface MaybeNothing extends Maybe<any> {
 }
 
 export type Action = 'TASK' | 'SET_GRAPH' | 'UNDO' | 'REDO' | 'RESET_POSITIONS' | 'CONVERT'
-export type Config = Object
+export type Config = {
+    /**
+     * Width of image canvas in pixels.
+     */
+    width: number;
+
+    /**
+     * Height of image canvas in pixels.
+     */
+    height: number;
+
+    /**
+     * Display extra information, e.g., node reference names.
+     */
+    draft: boolean;
+
+    /**
+     * Default output format for :show/:save commands.
+     */
+    format: 'svg' | 'png' | 'jpg' | 'jpeg' | 'pdf' | 'json' | 'gif' | 'webp' | 'tiff' | 'tex';
+
+    /**
+    * If not false, automatically display graph after each command with this format (default: svg)
+    */
+    autoshow: 'svg' | 'png' | 'jpg' | 'jpeg' | 'pdf' | 'json' | 'gif' | 'webp' | 'tiff' | 'tex' | 'auto' | 'graph' | 'nodes' | 'edges' | 'decorations' | 'constraints' | 'data' | null;
+
+    /**
+     * Default orientation for displaying the graph indicating where the first/root node is positioned (either 'left', 'right', 'top', 'bottom', or 'auto')
+     */
+    orientation: 'left' | 'right' | 'top' | 'bottom' | 'auto';
+
+    /**
+     * Path to JSON configuration file (Default: ~/.graphmaker.json)
+     */
+    config: string;
+
+    /**
+     * Model provider ('OpenAI')
+     */
+    provider: string;
+
+    /**
+     * Model to use ('gpt-3.5-turbo')
+     */
+    model: string;
+
+    /**
+     * Model provider API key
+     */
+    apiKey: string;
+
+    /**
+     * Model type ('streaming' or 'single')
+     */
+    type: 'streaming' | 'single';
+
+    /**
+     * Determines how tasks are sent to the AI model in the :exec command: 'batch' [fewest requests], 'incremental' [one request per task], and 'auto' [model-dependent]
+     */
+    exec: 'batch' | 'incremental' | 'auto';
+};
 
 /**
  * Represents the payload of an action.
