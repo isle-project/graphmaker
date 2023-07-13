@@ -1,6 +1,6 @@
 # TODO
 ## Immediate
--  [ ] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
+-  [x] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
 -  [ ] DOC check consistency of readme with what actually happens
 
 ## Soon
