@@ -50,7 +50,9 @@ jobs:
       # Install dependencies (accounting for possible network failures, etc, when installing node module dependencies):
       - name: 'Install dependencies'
         run: |
+          npm run profile-start -- build-docs
           npm install | npm install | npm install
+          npm run profile-end
         timeout-minutes: 15
 
       # Get list of changed files:
@@ -97,6 +99,12 @@ jobs:
             echo "No changes to TypeScript types, skipping documentation generation"
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
+
+      # Set GitHub bot user name and email:
+      - name: 'Set GitHub bot user name and email'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "noreply@github.com"
 
       # Commit changes:
       - name: 'Commit changes'
