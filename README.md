@@ -96,7 +96,7 @@ Ready for more.
 
 This produces the following graph
 
-<img style="width: 75%;" src="https://raw.githubusercontent.com/isle-project/graphmaker/main/docs/assets/readme-image-1.png" alt="Example Graph" />
+<img style="width: 75%;" src="https://raw.githubusercontent.com/isle-project/graphmaker/main/docs/assets/readme-image-1.jpg" alt="Example Graph" />
 
 
 
