@@ -1214,7 +1214,7 @@ View the [gallery](https://graphmaker.isledocs.com/gallery.html) for a collectio
 
 ## Style Details
 
-  + __arrowStyle__ 
+  + __arrowStyle__ Determines the type of arrowhead used for edges with arrows. If not specified, the arrow style is `normal` (currently all the styles look the same).
 
     Possible values: `light`, `normal`, `heavy`, `double`
 
@@ -1258,15 +1258,15 @@ View the [gallery](https://graphmaker.isledocs.com/gallery.html) for a collectio
 
   + __lineColor__ A HEX color or RGB color such as rgb(255,255,255) for the stroke
 
-  + __lineStyle__ 
+  + __lineStyle__ Determines the style of the drawn lines for the entity in question. If not specified, the line style is `solid`.
 
     Possible values: `solid`, `dashed`, `dotted`
 
-  + __lineWidth__ 
+  + __lineWidth__ Determines of the drawn lines for the entity in question. If not specified, the line width is `medium`.
 
     Possible values: `very-thin`, `thin`, `medium`, `thick`, `very-thick`
 
-  + __nodeShape__ 
+  + __nodeShape__ The shape of the node. If not specified, the shape is `circle`.
 
     Possible values: `circle`, `double-circle`, `square`, `diamond`, `triangle`, `ellipse`, `rectangle`, `invisible`
 
