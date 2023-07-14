@@ -44,7 +44,7 @@ jobs:
       - name: 'Install Node.js'
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # 'lts/*'
+          node-version: '18' # 'lts/*'
         timeout-minutes: 5
 
       # Install dependencies (accounting for possible network failures, etc, when installing node module dependencies):
