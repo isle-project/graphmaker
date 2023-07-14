@@ -74,16 +74,41 @@ jobs:
 
       # Regenerate documentation if any of the changed files are in the docs or spec directories:
       - name: 'Regenerate documentation'
+        id: regenerate-docs
         run: |
           if echo "${{ steps.changed-files.outputs.files }}" | tr ' ' '\n' | grep -E '^lib/(docs|spec)/' > /dev/null; then
             echo "Regenerating Documentation"
             npm run build-docs
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes to spec or README template, skipping documentation generation"
+            echo "changed=false" >> $GITHUB_OUTPUT
           fi
 
       # Regenerate documentation if any of the changed files are in types directory:
       - name: 'Regenerate TypeScript documentation'
+        id: regenerate-ts-docs
         run: |
           if echo "${{ steps.changed-files.outputs.files }}" | tr ' ' '\n' | grep -E '^types/' > /dev/null; then
             echo "Regenerating TypeScript Documentation"
             npm run build-ts-docs
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes to TypeScript types, skipping documentation generation"
+            echo "changed=false" >> $GITHUB_OUTPUT
           fi
+
+      # Commit changes:
+      - name: 'Commit changes'
+        if: steps.regenerate-docs.outputs.changed == 'true' || steps.regenerate-ts-docs.outputs.changed == 'true'
+        run: |
+          git add -A
+          git commit -m "Auto-generated commit"
+
+      # Push changes to `main` branch:
+      - name: 'Push changes to `main` branch'
+        if: steps.regenerate-docs.outputs.changed == 'true' || steps.regenerate-ts-docs.outputs.changed == 'true'
+        run: |
+          SLUG=${{ github.repository }}
+          echo "Pushing changes to $SLUG..."
+          git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$SLUG.git" main
