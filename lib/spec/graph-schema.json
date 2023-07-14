@@ -64,7 +64,10 @@
       ]
     },
     "style": {
-      "description": "Style name(s) to be applied to an entity",
+      "description": {
+        "human": "Styles are arbitrary names that are associated with the settings of selected style parameters. If set, this is either a single style name or a list of style names whose style parameters will be applied to the entity. If the same style parameter is set in multiple styles, the first style listed takes precedence.",
+        "model": "Style name(s) to be applied to an entity"
+      },
       "type": "array",
       "items": {
         "type": "string"
