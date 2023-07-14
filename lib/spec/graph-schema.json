@@ -157,14 +157,20 @@
         "medium",
         "thick",
         "very-thick"
-      ]
+      ],
+      "description": {
+        "human": "Determines of the drawn lines for the entity in question. If not specified, the line width is `medium`."
+      }
     },
     "lineStyle": {
       "enum": [
         "solid",
         "dashed",
         "dotted"
-      ]
+      ],
+      "description": {
+        "human": "Determines the style of the drawn lines for the entity in question. If not specified, the line style is `solid`."
+      }
     },
     "arrowStyle": {
       "enum": [
@@ -172,7 +178,10 @@
         "normal",
         "heavy",
         "double"
-      ]
+      ],
+      "description": {
+        "human": "Determines the type of arrowhead used for edges with arrows. If not specified, the arrow style is `normal` (currently all the styles look the same)."
+      }
     },
     "fillStyle": {
       "description": "Fill pattern of a shape",
