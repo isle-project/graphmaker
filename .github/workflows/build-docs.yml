@@ -75,7 +75,7 @@ jobs:
       # Regenerate documentation if any of the changed files are in the docs or spec directories:
       - name: 'Regenerate documentation'
         run: |
-          if echo "${{ steps.changed-files.outputs.files }}" || tr ' ' '\n' || grep -E './lib/(docs|spec)/') || exit $?; then
+          if echo "${{ steps.changed-files.outputs.files }}" | tr ' ' '\n' | grep -E './lib/(docs|spec)/' | exit $?; then
             echo "Regenerating Documentation"
             npm run build-docs
           fi
@@ -83,7 +83,7 @@ jobs:
       # Regenerate documentation if any of the changed files are in types directory:
       - name: 'Regenerate TypeScript documentation'
         run: |
-          if echo "${{ steps.changed-files.outputs.files }}" || tr ' ' '\n' || grep -E './types/') || exit $?; then
+          if echo "${{ steps.changed-files.outputs.files }}" | tr ' ' '\n' | grep -E './types/' | exit $?; then
             echo "Regenerating TypeScript Documentation"
             npm run build-ts-docs
           fi
