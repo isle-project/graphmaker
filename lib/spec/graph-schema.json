@@ -15,6 +15,9 @@
         "rectangle",
         "invisible"
       ],
+      "description": {
+        "human": "The shape of the node. If not specified, the shape is `circle`."
+      },
       "default": "circle"
     },
     "cardinalDirection": {
