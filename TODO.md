@@ -1,9 +1,10 @@
+
 # TODO
+
 ## Immediate
--  [x] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
--  [ ] DOC check consistency of readme with what actually happens
 
 ## Soon
+-  [ ] DOC check consistency of readme with what actually happens
 -  [ ] Add `recursiveDeepSet` to handle diffs that contain nested objects with dot notation keys (as to handle completions for decorations that may include `region.width`, etc.)
 -  [ ] Add to graph schema an optional field in edges:  direction = None | Directed | BiDirected and change display so that individual edge property overrides graph general directed setting
 -  [ ] Add a light layer module giving a simple request-response form and the node-repl specific application; supports playground
@@ -38,6 +39,7 @@
 -  [ ] FUTURE handle arrow styles (easy in tikz); includes arrow heads and features like double arrows etc.
 
 ## Completed
+-  [x] DOC Write README/intro/tips documentation (one doc shared in repo and with :intro and :tips commands)
 -  [x] FIX strip quotes from config values when setting them via :config
 -  [x] FEAT make provider case-insensitive for config
 -  [x] Add typescript types to the library (for users)

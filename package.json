@@ -13,6 +13,7 @@
     "build-ts-docs": "npx typedoc --tsconfig .config/tsconfig.json --readme none",
     "build-docs": "node scripts/build-readme.js && node scripts/build-gallery.js && node scripts/build-index-html.js && npm run build-css",
     "postinstall": "npm run compile-constraints",
+    "postversion": "git push && git push --tags",
     "lint": "eslint lib/*.js test/*.js",
     "repl": "node lib/repl.js",
     "gm": "sh ./bin/gm.sh"
