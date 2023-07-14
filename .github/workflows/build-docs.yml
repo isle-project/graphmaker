@@ -1,0 +1,89 @@
+# Workflow name:
+name: build_docs
+
+# Workflow triggers:
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+# Workflow jobs:
+jobs:
+
+  # Define a job for linting committed code...
+  process:
+
+    # Define a display name:
+    name: 'Build Documentation'
+
+    # Define the type of virtual host machine:
+    runs-on: ubuntu-latest
+
+    # Define the sequence of job steps...
+    steps:
+      # Checkout the repository:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v3
+        with:
+          # Specify whether to remove untracked files before checking out the repository:
+          clean: true
+
+          # Limit clone depth to the last 1000 commits:
+          fetch-depth: 1000
+
+          # Specify whether to download Git-LFS files:
+          lfs: false
+        timeout-minutes: 10
+
+      # Install Node.js:
+      - name: 'Install Node.js'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # 'lts/*'
+        timeout-minutes: 5
+
+      # Install dependencies (accounting for possible network failures, etc, when installing node module dependencies):
+      - name: 'Install dependencies'
+        run: |
+          npm install | npm install | npm install
+        timeout-minutes: 15
+
+      # Get list of changed files:
+      - name: 'Get list of changed files'
+        id: changed-files
+        run: |
+          if [ -n "${{ github.event.pull_request.number }}" ]; then
+            # Get the list of changed files in pull request:
+            ancestor_commit=$(git merge-base ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
+            files=$(git diff --diff-filter=AM --name-only $ancestor_commit ${{ github.event.pull_request.head.sha }})
+          else
+            # Get changed files by comparing the current commit to the commit before the push event or with its parent:
+            if [ "${{ github.event.before }}" == "0000000000000000000000000000000000000000" ]; then
+              files=$(git diff --diff-filter=AM --name-only HEAD~ ${{ github.event.after }})
+            else
+              files=$(git diff --diff-filter=AM --name-only ${{ github.event.before }} ${{ github.event.after }})
+            fi
+          fi
+          files=$(echo "$files" | tr '\n' ' ' | sed 's/ $//')
+          echo "files=${files}" >> $GITHUB_OUTPUT
+
+      # Regenerate documentation if any of the changed files are in the docs or spec directories:
+      - name: 'Regenerate documentation'
+        run: |
+          if echo "${{ steps.changed-files.outputs.files }}" || tr ' ' '\n' || grep -E './lib/(docs|spec)/') || exit $?; then
+            echo "Regenerating Documentation"
+            npm run build-docs
+          fi
+
+      # Regenerate documentation if any of the changed files are in types directory:
+      - name: 'Regenerate TypeScript documentation'
+        run: |
+          if echo "${{ steps.changed-files.outputs.files }}" || tr ' ' '\n' || grep -E './types/') || exit $?; then
+            echo "Regenerating TypeScript Documentation"
+            npm run build-ts-docs
+          fi
