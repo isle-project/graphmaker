@@ -156,7 +156,7 @@ to keep your meaning and references as clear as possible.</p>
 <code>:exit</code>, <code>:show</code>, <code>:save</code>, <code>:load</code>,
 <code>:reset</code>, <code>:undo</code>, and <code>:redo</code>.
 To see the full list of commands, you can use <code>:help</code> from
-within the repl or use the <code>--help</code> flag on the command line:</p>
+within the REPL or use the <code>--help</code> flag on the command line:</p>
 <pre><code class="language-text">graphmaker --help
 </code></pre>
 <pre><code>Usage: graphmaker [options]
@@ -198,7 +198,6 @@ Options:
   -v, --version                     Print package version number and exit               
 
   -h, --help                        Print this message and exit                         
-
 
 
 
@@ -710,7 +709,7 @@ a repeated substructure.</p>
 when giving tasks. The name does not appear in the output. If no name is specified,
 it will set automatically (typically to <code>region1</code>, <code>region2</code>, ...). You can see
 the details on all defined regions with the <code>:show decorations</code> command at the
-repl prompt.</p>
+REPL prompt.</p>
 <p>Adding a region decoration requires specifying a width and hight and an x, y position.
 As with text, the coordinates can each be specified in two ways:</p>
 <ol>
@@ -800,7 +799,7 @@ anchor if you need to specify precisely or change from a different value.</p>
 <p>Constraints can be specified as equalities or inequalities. For instance, a constraint that <code>A is below B</code>
 indicates that A's y-coordinate is less than or equal to B's y-coordinate.  Inequality constraints can go
 in either direction (greater or less).</p>
-<p>When working with constraints at the repl, the <code>:reposition</code> command can be useful. Graphmaker solves for
+<p>When working with constraints at the REPL, the <code>:reposition</code> command can be useful. Graphmaker solves for
 a good arrangement of your nodes and edges, adjusting incrementally as new structure is added to the graph.
 So that the graph remains stable as you proceed, Graphmaker uses the previous positions as starting points
 for repositioning nodes after adjustment. Sometimes, however, you have made sufficient changes that you
@@ -822,7 +821,7 @@ be extracted into any other LaTeX file. (Note that a few package/library inclusi
 required as indicated in the output file.) The JSON format is a data-representation of the
 graph that Graphmaker stores to record the state of the current graph. The saved JSON
 output can be loaded into Graphmaker to continue or modify the existing graph.</p>
-<p>At the repl, the default format can be determined and changed using the <code>:config</code> command
+<p>At the REPL, the default format can be determined and changed using the <code>:config</code> command
 (with key <code>format</code>). The default default format is SVG. These files can be opened and viewed
 in any modern browser.</p>
 <p>The <code>:save</code> command is used to save the current picture to a file in a specified format.
@@ -833,11 +832,11 @@ JSON and TeX/LaTeX/TikZ formats are text-based and will be displayed to the term
 on a <code>:show</code> command. Note that the <code>:show</code> command might display slightly less information
 than is saved to make the output more readable. See the next subsection for further details.</p>
 <h3 id="repl-capabilities" tabindex="-1">REPL Capabilities</h3>
-<p>The Graphmaker repl provides an environment for interactively building your graph and
-saving pictures in various formats. The repl has a built-in help system, a complete command history,
+<p>The Graphmaker REPL provides an environment for interactively building your graph and
+saving pictures in various formats. The REPL has a built-in help system, a complete command history,
 command and file completion (with TAB), and a variety of commands to improve the experience.</p>
 <h4 id="help" tabindex="-1">Help</h4>
-<p>There are several ways to get help from within the repl: the <code>:help</code>, <code>:examples</code>, <code>:intro</code>, and <code>:tips</code> commands.
+<p>There are several ways to get help from within the REPL: the <code>:help</code>, <code>:examples</code>, <code>:intro</code>, and <code>:tips</code> commands.
 The <code>:intro</code> and <code>:tips</code> commands provide some tutorial documentation. The <code>:examples</code> command let's you interactively
 view the tasks and output from a gallery of examples.</p>
 <p>The <code>:help</code> command answers free-form questions about the system, parameters, and commands.  For example:</p>
@@ -852,7 +851,7 @@ Valid values for the line width can be one of the following: &quot;very-thin&quo
 <p>If given without any text, <code>:help</code> will give a summary of available commands. If given a single word, it will
 use that as a topic to look up relevant documentation on that word.</p>
 <h4 id="history" tabindex="-1">History</h4>
-<p>You can scroll through your command/task history from the repl, extending across the current session
+<p>You can scroll through your command/task history from the REPL, extending across the current session
 and earlier sessions. Use Up-arrow or Control-p to move to earlier commands; and Down arrow or Control-n
 to move to later commands. You can edit the visible command and hit enter to submit your edited text.</p>
 <p>The history is stored in the file <code>.graphmaker_history</code> in the user's home directory.
@@ -863,7 +862,7 @@ You can edit it or <code>:exec</code> it to reproduce your session.</p>
 <p>The <code>:undo</code> and <code>:redo</code> move through your history, changing the current graph to past and future states.
 If after undo-ing you make changes, then the future history is eliminated.</p>
 <h4 id="tab-completion" tabindex="-1">Tab Completion</h4>
-<p>When you hit TAB, the repl will attempt to complete the current command name, file name, or other command argument.
+<p>When you hit TAB, the REPL will attempt to complete the current command name, file name, or other command argument.
 Hit TAB once to complete as far as possible. If there is ambiguity, only a partial command will be shown; then
 hit TAB again to see a list of possible matches.</p>
 <h4 id="notable-configuration-settings" tabindex="-1">Notable Configuration Settings</h4>
@@ -891,7 +890,7 @@ You can do this for any provider even if it is not active. Use <code>:config pro
 this command displays the current graph -- in draft mode -- to the user. The medium of display depends on the format.
 For example, SVG format is displayed in a new tab in your default browser; PDF format opens a pdf viewer; image formats
 like PNG or GIF open an image viewer with the picture, and latex and json formats are displayed to the terminal as text.
-In addition, you can use the <code>:show</code> command to display various summaries of the graph in textual form at the repl.</p>
+In addition, you can use the <code>:show</code> command to display various summaries of the graph in textual form at the REPL.</p>
 <p>The <code>:exec</code> and <code>:exec-batch</code> commands will load and run a file containing commands or tasks. The former
 executes each command/task one at a time; the latter executes them all at once. Both commands accept some
 prefix and suffix text which is wrapped around the contents of the file.
@@ -1110,7 +1109,7 @@ letting you see the graph at each step.</p>
 </ul>
 </li>
 <li>
-<p><strong>style</strong> Style name(s) to be applied to an entity</p>
+<p><strong>style</strong> Styles are arbitrary names that are associated with the settings of selected style parameters. If set, this is either a single style name or a list of style names whose style parameters will be applied to the entity. If the same style parameter is set in multiple styles, the first style listed takes precedence.</p>
 </li>
 <li>
 <p><strong>textAnchor</strong> Where a string's position is anchored</p>
@@ -1118,14 +1117,14 @@ letting you see the graph at each step.</p>
 </li>
 </ul>
 <h2 id="the-graphmaker-node-library" tabindex="-1">The GraphMaker Node Library</h2>
-<p>While the GraphMaker repl is a convenient medium for interactive graph building, it can be useful to
+<p>While the GraphMaker REPL is a convenient medium for interactive graph building, it can be useful to
 build GraphMaker functionality into other apps or pages. For this purpose, GraphMaker can also be
 used as a Javascript or Typescript library.</p>
 <p>Once you initialize your graph and your ai model, you issue a series of asynchronous <em>updates</em>
 that return a new graph state and maybe output as well, depending on the specific update
 provided. Updates include running a task, resetting the graph, and much more. It is relatively
-straightforward to provide functionality like the repl in another context this way.
-(Indeed, the repl is build just like this.)</p>
+straightforward to provide functionality like the REPL in another context this way.
+(Indeed, the REPL is build just like this.)</p>
 <h3 id="installation-1" tabindex="-1">Installation</h3>
 <pre><code class="language-bash">npm install @isle-labs/graphmaker
 </code></pre>
