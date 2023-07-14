@@ -30,15 +30,15 @@
     "url": "https://github.com/isle-project/graphmaker/issues"
   },
   "homepage": "https://github.com/isle-project/graphmaker#readme",
-  "dependencies": {
-    "@stdlib/string-base-kebabcase": "^0.0.2"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@stdlib/string-base-kebabcase": "^0.0.2",
     "dedent": "^1.0.1",
     "json-schema-to-typescript": "^13.0.2",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.7",
     "nearley": "^2.20.1",
+    "table": "^6.8.1",
     "tailwindcss": "^3.3.2",
     "typedoc": "^0.24.8"
   },

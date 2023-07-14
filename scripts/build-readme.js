@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 const { execSync } = require('child_process');
+const usageMessage = require( './../lib/usage-message.js' );
 
 function contentsInclude( contentFile ) {
     return fs.readFileSync( contentFile, 'UTF-8' );
@@ -84,9 +85,8 @@ function contentsStyles( schemaFileName ) {
     return out.join('\n');
 }
 
-function outputHelp( command ) {
-    const help = execSync( `node ${command} --help` ).toString();
-    return help;
+function outputHelp( _ ) {
+    return usageMessage();
 }
 
 const directiveDispatch = {
