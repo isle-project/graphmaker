@@ -174,7 +174,7 @@ __Commands__ start with ':', the basic ones are
 `:exit`, `:show`, `:save`, `:load`,
 `:reset`, `:undo`, and `:redo`.
 To see the full list of commands, you can use `:help` from
-within the repl or use the `--help` flag on the command line:
+within the REPL or use the `--help` flag on the command line:
 
 ```text
 graphmaker --help
@@ -819,7 +819,7 @@ Graphmaker supports three kinds of decorations:
   when giving tasks. The name does not appear in the output. If no name is specified,
   it will set automatically (typically to `region1`, `region2`, ...). You can see
   the details on all defined regions with the `:show decorations` command at the
-  repl prompt.
+  REPL prompt.
 
   Adding a region decoration requires specifying a width and hight and an x, y position.
   As with text, the coordinates can each be specified in two ways:
@@ -926,7 +926,7 @@ Constraints can be specified as equalities or inequalities. For instance, a cons
 indicates that A's y-coordinate is less than or equal to B's y-coordinate.  Inequality constraints can go
 in either direction (greater or less).
 
-When working with constraints at the repl, the `:reposition` command can be useful. Graphmaker solves for
+When working with constraints at the REPL, the `:reposition` command can be useful. Graphmaker solves for
 a good arrangement of your nodes and edges, adjusting incrementally as new structure is added to the graph.
 So that the graph remains stable as you proceed, Graphmaker uses the previous positions as starting points
 for repositioning nodes after adjustment. Sometimes, however, you have made sufficient changes that you
@@ -953,7 +953,7 @@ required as indicated in the output file.) The JSON format is a data-representat
 graph that Graphmaker stores to record the state of the current graph. The saved JSON
 output can be loaded into Graphmaker to continue or modify the existing graph.
 
-At the repl, the default format can be determined and changed using the `:config` command
+At the REPL, the default format can be determined and changed using the `:config` command
 (with key `format`). The default default format is SVG. These files can be opened and viewed
 in any modern browser.
 
@@ -967,13 +967,13 @@ than is saved to make the output more readable. See the next subsection for furt
 
 ### REPL Capabilities
 
-The Graphmaker repl provides an environment for interactively building your graph and
-saving pictures in various formats. The repl has a built-in help system, a complete command history,
+The Graphmaker REPL provides an environment for interactively building your graph and
+saving pictures in various formats. The REPL has a built-in help system, a complete command history,
 command and file completion (with TAB), and a variety of commands to improve the experience.
 
 #### Help
 
-There are several ways to get help from within the repl: the `:help`, `:examples`, `:intro`, and `:tips` commands.
+There are several ways to get help from within the REPL: the `:help`, `:examples`, `:intro`, and `:tips` commands.
 The `:intro` and `:tips` commands provide some tutorial documentation. The `:examples` command let's you interactively
 view the tasks and output from a gallery of examples. 
 
@@ -997,7 +997,7 @@ use that as a topic to look up relevant documentation on that word.
 
 #### History
 
-You can scroll through your command/task history from the repl, extending across the current session
+You can scroll through your command/task history from the REPL, extending across the current session
 and earlier sessions. Use Up-arrow or Control-p to move to earlier commands; and Down arrow or Control-n
 to move to later commands. You can edit the visible command and hit enter to submit your edited text.
 
@@ -1013,7 +1013,7 @@ If after undo-ing you make changes, then the future history is eliminated.
 
 #### Tab Completion
 
-When you hit TAB, the repl will attempt to complete the current command name, file name, or other command argument.
+When you hit TAB, the REPL will attempt to complete the current command name, file name, or other command argument.
 Hit TAB once to complete as far as possible. If there is ambiguity, only a partial command will be shown; then
 hit TAB again to see a list of possible matches.
 
@@ -1050,7 +1050,7 @@ The `:show` command has several related uses. When given a graph format (or no a
 this command displays the current graph -- in draft mode -- to the user. The medium of display depends on the format.
 For example, SVG format is displayed in a new tab in your default browser; PDF format opens a pdf viewer; image formats
 like PNG or GIF open an image viewer with the picture, and latex and json formats are displayed to the terminal as text.
-In addition, you can use the `:show` command to display various summaries of the graph in textual form at the repl.
+In addition, you can use the `:show` command to display various summaries of the graph in textual form at the REPL.
 
 The `:exec` and `:exec-batch` commands will load and run a file containing commands or tasks. The former
 executes each command/task one at a time; the latter executes them all at once. Both commands accept some
@@ -1080,15 +1080,15 @@ View the [gallery](https://graphmaker.isledocs.com/gallery.html) for a collectio
 
 ## The GraphMaker Node Library
 
-While the GraphMaker repl is a convenient medium for interactive graph building, it can be useful to
+While the GraphMaker REPL is a convenient medium for interactive graph building, it can be useful to
 build GraphMaker functionality into other apps or pages. For this purpose, GraphMaker can also be
 used as a Javascript or Typescript library. 
 
 Once you initialize your graph and your ai model, you issue a series of asynchronous *updates*
 that return a new graph state and maybe output as well, depending on the specific update
 provided. Updates include running a task, resetting the graph, and much more. It is relatively
-straightforward to provide functionality like the repl in another context this way.
-(Indeed, the repl is build just like this.)
+straightforward to provide functionality like the REPL in another context this way.
+(Indeed, the REPL is build just like this.)
 
 ### Installation
 
