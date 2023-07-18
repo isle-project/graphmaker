@@ -1,4 +1,4 @@
-# Workflow name:
+  # Workflow name:
   name: lint
 
   # Workflow triggers:
