@@ -7,7 +7,7 @@
     "graphmaker": "bin/cli"
   },
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test test/*.js",
     "compile-constraints": "nearleyc lib/constraint-grammar.ne -o lib/constraint-grammar.js",
     "build-css": "npx tailwindcss -i ./docs/css/styles.css -o ./docs/css/tailwind.css --minify",
     "build-ts-docs": "npx typedoc --tsconfig .config/tsconfig.json --readme none",
