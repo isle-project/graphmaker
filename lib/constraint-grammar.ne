@@ -1,9 +1,11 @@
 @{%
 const moo = require("moo");
+const deg2rad = require('@stdlib/math-base-special-deg2rad');
 
 const lexer = moo.compile({
   ws: { match: /\s+/, lineBreaks: true },
   number: { match: /(?:-?\d+(?:\.\d+)?|-?\.\d+|0)/, value: numstr => Number(numstr) },
+  func: { match: /(?:sin|cos|tan|sqrt|abs|min|max)/, value: s => s.toUpperCase() },
   node: {
             match: /(?:'[^'\n]+'|[A-Za-z][-A-Za-z0-9_:<>,;]*)/,
             value: s => {
@@ -20,6 +22,7 @@ const lexer = moo.compile({
   },
   lparen: '(',
   rparen: ')',
+  comma: ',',
   plusOrMinus: /[-+]/,
   mult: '*',
   div: '/',
@@ -40,6 +43,22 @@ function sumConstants( acc, item ) {
         return acc + item.coef;
     }
     return acc;
+}
+
+function evaluateFunction(funcName, args) {
+    // Convert angles from degrees to radians for trig functions
+    const arg = funcName === 'SIN' || funcName === 'COS' || funcName === 'TAN' ? deg2rad(args[0]) : args[0];
+    
+    switch(funcName) {
+        case 'SIN': return Math.sin(arg);
+        case 'COS': return Math.cos(arg);
+        case 'TAN': return Math.tan(arg);
+        case 'SQRT': return Math.sqrt(args[0]);
+        case 'ABS': return Math.abs(args[0]);
+        case 'MIN': return Math.min(...args);
+        case 'MAX': return Math.max(...args);
+        default: throw new Error(`Unknown function: ${funcName}`);
+    }
 }
 
 /**
@@ -111,7 +130,11 @@ expr -> pterm                                                {% id %}
              }
         %}
 
-pterm -> term
+pterm -> term                                             {% 
+             function( data ) {
+                 return Array.isArray(data[0]) ? data[0] : [data[0]];
+             }
+         %}
        | %number maybeMult coordinateGroup                  {%
              function( data ) {
                  const coords = data[data.length - 1];
@@ -122,6 +145,36 @@ pterm -> term
                         }) );
              }
 
+         %}
+       | functionCall maybeMult coordinateGroup            {%
+             function( data ) {
+                 const coords = data[data.length - 1];
+                 const coef = data[0];
+                 return coords.map( coord => ({
+                         ...coord,
+                         coef: coord.coef * coef
+                        }) );
+             }
+         %}
+       | %number maybeMult functionCall                     {%
+             function( data ) {
+                 const num = data[0].value;
+                 const func = data[data.length - 1];
+                 return [{
+                     type: 'NUMBER',
+                     coef: num * func
+                 }];
+             }
+         %}
+       | functionCall maybeMult %number                     {%
+             function( data ) {
+                 const func = data[0];
+                 const num = data[data.length - 1].value;
+                 return [{
+                     type: 'NUMBER',
+                     coef: func * num
+                 }];
+             }
          %}
        | coordinateGroup _ %div _ %number                   {%
              function( data ) {
@@ -141,6 +194,13 @@ term -> %number maybeMult coordinate                        {%
                 return { ...coord, coef: coord.coef * num };
             }
         %}
+      | functionCall maybeMult coordinate                   {%
+            function( data ) {
+                const coord = data[data.length - 1];
+                const num = data[0];
+                return { ...coord, coef: coord.coef * num };
+            }
+        %}
       | coordinate _ %div _ %number                         {%
             function( data ) {
                 const coord = data[0];
@@ -154,6 +214,14 @@ term -> %number maybeMult coordinate                        {%
                  return {
                      type: 'NUMBER',
                      coef: data[0].value
+                 };
+             }
+        %}
+      | functionCall                                       {%
+             function( data ) {
+                 return {
+                     type: 'NUMBER',
+                     coef: data[0]
                  };
              }
         %}
@@ -204,3 +272,24 @@ coordinate -> %node _ %dim                                  {%
 
 _ -> %ws                                                    {% ignore %}
    | null                                                   {% ignore %}
+
+functionCall -> %func _ %lparen _ functionArgs _ %rparen    {%
+                    function( data ) {
+                        const func = data[0];
+                        const args = data[4];
+                        return evaluateFunction( func.value, args );
+                    }
+                %}
+
+functionArgs -> %number                                     {%
+                    function( data ) {
+                        return [ data[0].value ];
+                    }
+                %}
+              | %number _ %comma _ functionArgs             {%
+                    function( data ) {
+                        const num = data[0];
+                        const rest = data[4];
+                        return [ num.value, ...rest ];
+                    }
+                %}
