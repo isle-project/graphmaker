@@ -52,7 +52,7 @@
     "short": "p"
   },
   "model": {
-    "description": "Model to use ('gpt-3.5-turbo')",
+    "description": "Model to use ('gpt-4o-mini')",
     "tag": "NAME",
     "type": "string",
     "short": "m"

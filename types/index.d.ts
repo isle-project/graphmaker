@@ -55,7 +55,7 @@ export type Config = {
     provider: string;
 
     /**
-     * Model to use ('gpt-3.5-turbo')
+     * Model to use ('gpt-4o-mini')
      */
     model: string;
 

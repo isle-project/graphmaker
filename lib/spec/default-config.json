@@ -8,7 +8,7 @@
   "provider": "openai",
   "openai": {
     "apiKey": null,
-    "model": "gpt-3.5-turbo",
+    "model": "gpt-4o-mini",
     "type": "streaming",
     "exec": "auto"
   }
