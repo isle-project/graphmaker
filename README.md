@@ -206,7 +206,7 @@ Options:
 
   -p, --provider NAME               Model provider ('OpenAI')                           
 
-  -m, --model NAME                  Model to use ('gpt-3.5-turbo')                      
+  -m, --model NAME                  Model to use ('gpt-4o-mini')                        
 
   -a, --apiKey ARG                  Model provider API key                              
 
